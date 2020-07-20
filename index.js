@@ -64,9 +64,8 @@ async function push() {
     // Create a new module type.
     let form = new FormData(document.querySelector('form'));
     let json = as_json(form);
-    let data = await create(json, token);
 
-    console.log(data);
+    await create(json, token);
 }
 
 function as_json(form) {
