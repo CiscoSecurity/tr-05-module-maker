@@ -1,0 +1,112 @@
+* { padding: 0; margin: 0; }
+
+html, body {
+    min-height: 100% !important;
+    height: 100%;
+    overflow: hidden;
+}
+
+label {
+    display: block;
+}
+
+label > input {
+    display: block;
+    margin-bottom: 15px;
+}
+
+label > textarea {
+    display: block;
+    margin-bottom: 15px;
+}
+
+@font-face {
+    font-family: CiscoSans;
+    src: url("fonts/CiscoSansTTRegular.woff");
+}
+
+.root {
+    height: 100%;
+    min-height: 100%;
+    font-family: CiscoSans, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.header {
+    width: 100%;
+    height: 49px;
+    position: fixed;
+    z-index: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px solid #DFDFDF;
+}
+.header-logo {
+    float: left;
+    top: 50%;
+    margin-right: 20px;
+}
+.header-title {
+    display: inline;
+    float: left;
+    top: 50%;
+    margin-right: 20px;
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.breadcrumb {
+    width: 100%;
+    height: 24px;
+    position: fixed;
+    z-index: 1;
+    margin-top: 50px; /* Header height. */
+    background-color: #FCFCFC;
+    border-bottom: 1px solid #E9E9E9;
+}
+.breadcrumb-element {
+    max-width: 250px;
+    padding-left: 10px;
+    margin: auto;
+    float: left;
+    color: #9E9EA2;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    padding-top: 75px;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: #049FD9;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.sidebar-header {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.site {
+    height: 100%;
+    margin-left: 250px; /* The width of the sidebar. */
+    padding: 5px 5px 0 5px;
+    overflow: hidden;
+}
+
+.inputs {
+    max-width: 250px;
+    float: left;
+    margin-right: 15px;
+}
