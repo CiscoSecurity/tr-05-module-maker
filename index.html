@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Module Maker</title>
+
+    <style>
+        body {
+            margin: 30px;
+        }
+
+        label {
+            display: block;
+        }
+
+        label > input {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        label > textarea {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .inputs {
+            max-width: 150px;
+            float: left;
+            margin-right: 15px;
+        }
+    </style>
+
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <div id="header">
+        <h2>Threat Response Module Maker</h2>
+    </div>
+
+    <div id="site">
+        <form id="configuration" class="inputs">
+            <label>Title
+                <input type="text" name="title" required>
+            </label>
+            <label>Default Name
+                <input type="text" name="default-name" required>
+            </label>
+            <label>Short Description
+                <input type="text" name="short-description" required>
+            </label>
+            <label>External References
+                <input type="text" name="external-references" required>
+            </label>
+            <label>Configuration Spec
+                <input type="text" name="configuration-spec" required>
+            </label>
+            <label>Capabilities
+                <input type="text" name="capabilities" required>
+            </label>
+            <label>Properties
+                <input type="text" name="properties" required>
+            </label>
+            <label>Flags
+                <input type="text" name="flags" required>
+            </label>
+            <label>Logo
+                <input type="text" name="logo" required>
+            </label>
+        </form>
+
+        <div class="inputs">
+            <label>Description
+                <textarea name="description" form="configuration"></textarea>
+            </label>
+            <label>Tips
+                <textarea name="tips" form="configuration"></textarea>
+            </label>
+        </div>
+
+        <div>
+            <button onclick="save()">Save</button>
+            <button onclick="push()">Push</button>
+
+            <label>Client ID
+                <input type="text" name="client-id" id="client-id" required>
+            </label>
+            <label>Client Password
+                <input type="text" name="client-password" id="client-password" required>
+            </label>
+        </div>
+    </div>
+</body>
+</html>
