@@ -10,71 +10,88 @@
 <body>
     <div class="root">
         <div class="header">
-            <div class="header-logo">[LOGO]</div>
+            <div class="header-logo">
+                <svg>
+                    <use href="/icons/sprite.svg#icon-cisco-logo"></use>
+                </svg>
+            </div>
             <div class="header-title">Threat Response Module Maker</div>
         </div>
 
         <div class="breadcrumb">
-            <div class="breadcrumb-element">Create Module</div>
         </div>
 
-        <div class="content">
+        <div class="site">
             <div class="sidebar">
                 <div class="sidebar-header">
-                    Create Module
                 </div>
             </div>
 
-            <div class="site">
-                <form id="configuration" class="inputs">
-                    <label>Title
-                        <input type="text" name="title" required>
-                    </label>
-                    <label>Default Name
-                        <input type="text" name="default-name" required>
-                    </label>
-                    <label>Short Description
-                        <input type="text" name="short-description" required>
-                    </label>
-                    <label>External References
-                        <input type="text" name="external-references" required>
-                    </label>
-                    <label>Configuration Spec
-                        <input type="text" name="configuration-spec" required>
-                    </label>
-                    <label>Capabilities
-                        <input type="text" name="capabilities" required>
-                    </label>
-                    <label>Properties
-                        <input type="text" name="properties" required>
-                    </label>
-                    <label>Flags
-                        <input type="text" name="flags" required>
-                    </label>
-                    <label>Logo
-                        <input type="text" name="logo" required>
-                    </label>
-                </form>
-
+            <div class="content">
                 <div class="inputs">
-                    <label>Description
-                        <textarea name="description" form="configuration"></textarea>
-                    </label>
-                    <label>Tips
-                        <textarea name="tips" form="configuration"></textarea>
-                    </label>
+                    <form id="configuration" class="inputs-column">
+                        <label>Title
+                            <input type="text" name="title" required>
+                        </label>
+                        <label>Default Name
+                            <input type="text" name="default-name" required>
+                        </label>
+                        <label>Short Description
+                            <input type="text" name="short-description" required>
+                        </label>
+                        <label>External References
+                            <input type="text" name="external-references" required>
+                        </label>
+                        <label>Configuration Spec
+                            <input type="text" name="configuration-spec" required>
+                        </label>
+                        <label>Capabilities
+                            <input type="text" name="capabilities" required>
+                        </label>
+                        <label>Properties
+                            <input type="text" name="properties" required>
+                        </label>
+                        <label>Flags
+                            <input type="text" name="flags" required>
+                        </label>
+                        <label>Logo
+                            <input type="text" name="logo" required>
+                        </label>
+                    </form>
+
+                    <div class="inputs-column">
+                        <label>Description
+                            <textarea name="description" form="configuration"></textarea>
+                        </label>
+                        <label>Tips
+                            <textarea name="tips" form="configuration"></textarea>
+                        </label>
+                    </div>
                 </div>
 
-                <div>
-                    <button onclick="save()">Save</button>
-                    <button onclick="push()">Push</button>
+                <div class="controls">
+                    <div class="controls-option">
+                        <p class="controls-option-text">
+                            Create a new module type in your Threat Response organization.
+                        </p>
 
-                    <label>Client ID
-                        <input type="text" name="client-id" id="client-id" required>
-                    </label>
-                    <label>Client Password
-                        <input type="text" name="client-password" id="client-password" required>
-                    </label>
+                        <label class="centered">Client ID
+                            <input type="text" name="client-id" id="client-id" required>
+                        </label>
+                        <label class="centered">Client Password
+                            <input type="text" name="client-password" id="client-password" required>
+                        </label>
+
+                        <button class="controls-button centered" onclick="push()">Push</button>
+                    </div>
+
+                    <div class="controls-option">
+                        <p class="controls-option-text">
+                            Save the configuration of a module type as a JSON file.
+                        </p>
+
+                        <button class="controls-button centered" onclick="save()">Save</button>
+                    </div>
                 </div>
             </div>
         </div>
