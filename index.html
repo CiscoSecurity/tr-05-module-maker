@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <title>Module Maker</title>
-
     <link rel="stylesheet" href="index.css">
     <script src="index.js" defer></script>
 </head>
@@ -12,7 +11,7 @@
         <div class="header">
             <div class="header-logo">
                 <svg>
-                    <use href="/icons/sprite.svg#icon-cisco-logo"></use>
+                    <use href="icons/sprite.svg#icon-cisco-logo"></use>
                 </svg>
             </div>
             <div class="header-title">Threat Response Module Maker</div>
@@ -31,13 +30,13 @@
                 <div class="inputs">
                     <form id="configuration" class="inputs-column">
                         <label>Title
-                            <input type="text" name="title" required>
+                            <input type="text" name="title" required maxlength="40">
                         </label>
                         <label>Default Name
                             <input type="text" name="default-name" required>
                         </label>
                         <label>Short Description
-                            <input type="text" name="short-description" required>
+                            <input type="text" name="short-description" maxlength="140" required>
                         </label>
                         <label>External References
                             <input type="text" name="external-references" required>
@@ -79,7 +78,7 @@
                             <input type="text" name="client-id" id="client-id" required>
                         </label>
                         <label class="centered">Client Password
-                            <input type="text" name="client-password" id="client-password" required>
+                            <input type="password" name="client-password" id="client-password" required>
                         </label>
 
                         <button class="controls-button centered" onclick="push()">Push</button>
