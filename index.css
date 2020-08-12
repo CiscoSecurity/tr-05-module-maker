@@ -3,7 +3,7 @@
 html, body {
     min-height: 100% !important;
     height: 100%;
-    overflow: hidden;
+    overflow: scroll; /*hidden*/
 }
 
 label {
@@ -64,6 +64,7 @@ label > textarea {
     padding-left: 20px;
     padding-right: 20px;
     border-bottom: 1px solid #DFDFDF;
+    background-color: white;
 }
 .header-logo {
     float: left;
@@ -101,6 +102,9 @@ label > textarea {
     margin: auto;
     float: left;
     color: #9E9EA2;
+    font-family: CiscoSans, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .site {
@@ -130,7 +134,8 @@ label > textarea {
     height: 100%;
     margin-left: 250px; /* The width of the sidebar. */
     padding: 10px 10px 0 10px;
-    overflow: hidden;
+    /* Kostia set overflow hidden*/
+    /* overflow: scroll; */
 }
 
 .inputs {
@@ -158,6 +163,7 @@ label > textarea {
 .controls-option-text {
     margin-bottom: 10px;
     text-align: center;
+    color: #7f7f86;
 }
 .controls-button {
     height: 28px;
@@ -187,3 +193,57 @@ label > textarea {
     margin: auto;
     display: block;
 }
+
+fieldset {
+    margin: 4px;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;
+}
+
+input[type='checkbox'] + label{
+    display: inline;
+    align-items: center;
+}
+
+fieldset > div > select {
+    visibility: hidden;
+}
+
+.icon > svg{
+    width: 10px;
+    height: 10px;
+}
+
+fieldset > :not(legend) {
+    padding-left: 10px;
+
+}
+
+.custom-input { /* rename to hidden input? */
+    visibility: hidden;
+    border-radius: 3px;
+}
+
+.link-label-pairs {
+    padding-left: 23px;
+    margin: 2px;
+    border-radius: 3px; /* ??*/
+}
+
+#capabilities-fieldset > p{
+    color: #7f7f86;
+}
+
+/*
+#drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 480px;
+  font-family: sans-serif;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+#drop-area.highlight {
+  border-color: purple;
+}*/
