@@ -266,13 +266,13 @@ async function showAPIInput(current_class) {
 }
 
 function showAuthSelectMenu(select_id, checkbox) {
-  let CheckBox = document.getElementById(checkbox);
-  let Select = document.querySelector(`select[id=${select_id}]`);
-  if (CheckBox.checked === false) {
-    Select.style.visibility = 'hidden';
+  let checkBox = document.getElementById(checkbox);
+  let select = document.querySelector(`select[id=${select_id}]`);
+  if (checkBox.checked === false) {
+    select.style.visibility = 'hidden';
   }
   else {
-    Select.style.visibility = 'visible';
+    select.style.visibility = 'visible';
   }
 }
 
