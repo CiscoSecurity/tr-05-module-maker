@@ -1,15 +1,15 @@
 <fieldset class="conf-spec-fieldset">
 
-    <p>key:<input type="text" name="key" class="conf_spec" required form="configuration"/></p>
+    <p>key:<input type="text" name="key" class="conf-spec" required form="configuration"/></p>
     <p>type:
         <select name="type">
-        <option value="password">password</option>
-        <option value="string">string</option>
-        <option value="api_key">api_key</option>
-        <option value="integer">integer</option>
-        <option value="device">device</option>
-        <option value="options">options</option>
-        <option value="boolean">boolean</option>
+            <option value="password">password</option>
+            <option value="string">string</option>
+            <option value="api_key">api_key</option>
+            <option value="integer">integer</option>
+            <option value="device">device</option>
+            <option value="options">options</option>
+            <option value="boolean">boolean</option>
         </select>
     </p>
     <p>label: <input type="text" name="label" class="conf-spec" required form="configuration"/></p>
@@ -19,16 +19,16 @@
 
     <fieldset>
         <legend>Options</legend>
-        <div class="icon" >
-        <svg onclick="addOptions('wrapper-of-options-counter')">
-            <use href="icons/sprite.svg#icon-add"></use>
-        </svg>
-        <svg onclick="removeOptions('wrapper-of-options-counter')">
-            <use href="icons/sprite.svg#icon-remove"></use>
-        </svg>
-    </div>
+        <div class="icon">
+            <svg onclick="addOptions('wrapper-of-options-counter')">
+                <use href="icons/sprite.svg#icon-add"></use>
+            </svg>
+            <svg onclick="removeOptions('wrapper-of-options-counter')">
+                <use href="icons/sprite.svg#icon-remove"></use>
+            </svg>
+        </div>
         <div id="wrapper-of-options-counter"></div>
     </fieldset>
 
-    <p>group: <input type="text" name="group" class="conf_spec"/></p>
+    <p>group: <input type="text" name="group" class="conf-spec"/></p>
 </fieldset>
