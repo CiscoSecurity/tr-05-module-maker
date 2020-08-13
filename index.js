@@ -29,10 +29,18 @@ async function save() {
     }
 }
 
+function isValid(form){
+    let creds = document.getElementsByClassName('creds');
+    for (let i = 0; i < creds.length; i++){
+        creds[i].reportValidity();
+    }
+    form[0].reportValidity();
+}
+
 async function push() {
-    let form = document.querySelector('form')
-    let isValid = form.reportValidity();
-    if (isValid) {
+    let form = document.querySelector('form');
+
+    if (isValid(form)) {
         let url = 'https://visibility.amp.cisco.com';
 
         async function authorize(id, password) {
@@ -210,9 +218,9 @@ function getExternalReferences() {
                 json['link'] = inputs[1].value;
                 result = result.concat(json);
             }
-    }
+        }
 
-return result;
+ return result;
 }
 
 async function as_json(form) {
@@ -282,6 +290,18 @@ async function addConfigFieldset() {
     newInput = newInput.replaceAll('counter', String(count));
     let wrapper = document.getElementById('wrapper');
     wrapper.insertAdjacentHTML('beforeend', newInput);
+
+    let addOptionsIcon =
+        document.getElementsByClassName(`add-icon-${count}`)[0];
+    addOptionsIcon.addEventListener(
+        'click', () => addOptions(`wrapper-of-options-${count}`)
+    );
+
+    let removeOptionsIcon =
+        document.getElementsByClassName(`remove-icon-${count}`)[0];
+    removeOptionsIcon.addEventListener(
+        'click', () => removeOptions(`wrapper-of-options-${count}`)
+    );
 }
 
 function removeConfigFieldset() {
@@ -305,3 +325,18 @@ function removeOptions(id_of_wrapper) {
         wrapper.removeChild(wrapper.lastElementChild);
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('addConfigIcon').addEventListener(
+            'click', addConfigFieldset);
+        document.getElementById('removeConfigIcon').addEventListener(
+            'click', removeConfigFieldset);
+        let propertiesFieldset = document.getElementsByName('properties')[0];
+        let apisCheckboxes = propertiesFieldset.getElementsByTagName('input');
+        for (let i = 0; i < apisCheckboxes.length; i++) {
+            apisCheckboxes[i].addEventListener(
+                'change', () => showAPIInput(apisCheckboxes[i].className)
+            )
+        }
+    }
+);

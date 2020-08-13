@@ -45,10 +45,10 @@
                     <fieldset>
                         <legend>Configuration Spec</legend>
                         <div class="icon">
-                            <svg onclick="addConfigFieldset()">
+                            <svg id="addConfigIcon">
                                 <use href="icons/sprite.svg#icon-add"></use>
                             </svg>
-                            <svg onclick="removeConfigFieldset()">
+                            <svg id="removeConfigIcon">
                                 <use href="icons/sprite.svg#icon-remove"></use>
                             </svg>
                         </div>
@@ -61,51 +61,42 @@
                         <fieldset name="properties">
                             <legend>Supported APIs</legend>
                             <div>
-                                <input type="checkbox" id="health" name="health" class="health" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="health" name="health" class="health" autocomplete="off">
                                 <label for="health">health</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="deliberate/observables" class="deliberate" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="deliberate/observables" class="deliberate" autocomplete="off">
                                 <label for="deliberate/observables">deliberate/observables</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="refer/observables" class="refer" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="refer/observables" class="refer" autocomplete="off">
                                 <label for="refer/observables">refer/observables</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="observe/observables" class="observe" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="observe/observables" class="observe" autocomplete="off">
                                 <label for="observe/observables">observe/observables</label>
                             </div>
 
                             <div>
-                                <input type="checkbox" id="respond/observables" class="respond" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="respond/observables" class="respond" autocomplete="off">
                                 <label for="respond/observables">respond/observables</label>
                             </div>
 
                             <div>
-                                <input type="checkbox" id="respond/trigger" class="respond" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="respond/trigger" class="respond" autocomplete="off">
                                 <label for="respond/trigger">respond/trigger</label>
                             </div>
 
                             <div>
-                                <input type="checkbox" id="tiles" class="tiles" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="tiles" class="tiles" autocomplete="off">
                                 <label for="tiles">tiles</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="tiles/tile" class="tiles" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="tiles/tile" class="tiles" autocomplete="off">
                                 <label for="tiles/tile">tiles/tile</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="tiles/tile-data" class="tiles" autocomplete="off"
-                                       onchange="showAPIInput(this.className)">
+                                <input type="checkbox" id="tiles/tile-data" class="tiles" autocomplete="off">
                                 <label for="tiles/tile-data">tiles/tile-data</label>
                             </div>
                         </fieldset>
@@ -195,10 +186,10 @@
                     </p>
 
                     <label class="centered">Client ID
-                        <input type="text" name="client-id" id="client-id" required>
+                        <input type="text" name="client-id" id="client-id"  class="creds" required>
                     </label>
                     <label class="centered">Client Password
-                        <input type="password" name="client-password" id="client-password" required>
+                        <input type="password" name="client-password" id="client-password" class="creds" required>
                     </label>
 
                     <button type="button" class="controls-button centered" form="configuration" onclick="push()">Push
