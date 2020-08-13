@@ -115,7 +115,7 @@ function getSelectedProperties() {
       if (checkboxes[i].checked) {
           result['supported-apis'] =
               result['supported-apis'].concat(checkboxes[i].id);
-    }
+      }
   }
   let auth_type = document.getElementsByName('auth-type')[0];
   let select = auth_type.getElementsByTagName('select');
@@ -219,7 +219,8 @@ function getExternalReferences() {
                 result = result.concat(json);
             }
         }
-  return result;
+
+ return result;
 }
 
 async function as_json(form) {
@@ -268,15 +269,15 @@ async function showAPIInput(current_class) {
                 )
                 let fieldset = document.getElementById('capabilities-fieldset')
                 fieldset.insertAdjacentHTML('beforeend', newInput);
+            }
         }
-    }
 }
 
 function showAuthSelectMenu(select_id, checkbox) {
   let checkBox = document.getElementById(checkbox);
   let select = document.querySelector(`select[id=${select_id}]`);
   if (checkBox.checked === false) {
-      select.style.visibility = 'hidden';
+    select.style.visibility = 'hidden';
   }
   else {
     select.style.visibility = 'visible';
