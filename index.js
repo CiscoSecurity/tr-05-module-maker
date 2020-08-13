@@ -264,8 +264,8 @@ async function showAPIInput(current_class) {
         } else {
             if (!document.getElementById(`${current_class}Value`)) {
                 let newInput = (await (await fetch('supported_apis.html')).text());
-                newInput = newInput.replaceAll(
-                    'current_class', String(current_class)
+                newInput = newInput.replace(
+                    /current_class/g, String(current_class)
                 )
                 let fieldset = document.getElementById('capabilities-fieldset')
                 fieldset.insertAdjacentHTML('beforeend', newInput);
@@ -287,7 +287,7 @@ function showAuthSelectMenu(select_id, checkbox) {
 async function addConfigFieldset() {
     let count = document.getElementsByClassName('conf-spec-fieldset').length;
     let newInput = (await (await fetch('configuration_spec.html')).text());
-    newInput = newInput.replaceAll('counter', String(count));
+    newInput = newInput.replace(/counter/g, String(count));
     let wrapper = document.getElementById('wrapper');
     wrapper.insertAdjacentHTML('beforeend', newInput);
 
