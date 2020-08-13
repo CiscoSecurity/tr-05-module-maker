@@ -131,7 +131,9 @@ function getOptions(config_fieldset) {
         if (option[1].value) {
             option_pair['label'] = option[0].value;
         }
-        options_list = options_list.concat(option_pair);
+        if (Object.keys(option_pair).length > 0){
+            options_list = options_list.concat(option_pair);
+        }
     }
 
     return options_list
@@ -283,7 +285,7 @@ async function addConfigFieldset() {
 }
 
 function removeConfigFieldset() {
-  let childs = document.body.getElementsByClassName('conf_spec');
+  let childs = document.body.getElementsByClassName('conf-spec');
   if (childs.length > 0) {
     let wrapper = document.getElementById('wrapper');
     wrapper.removeChild(wrapper.lastElementChild);
