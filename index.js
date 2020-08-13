@@ -201,7 +201,7 @@ function getExternalReferences() {
     }
     let link_label_pairs =
         fieldset.getElementsByClassName('link-label-pairs');
-        for (let i = 0; i<link_label_pairs.length; i++){
+        for (let i = 0; i < link_label_pairs.length; i++){
             let inputs =
                 link_label_pairs[i].getElementsByTagName('input');
             if (inputs[0].value) {
@@ -232,9 +232,9 @@ async function as_json(form) {
     return JSON.stringify(json);
 }
 
-function showInputForLinks(inp_id, checkbox) {
-    let CheckBox = document.getElementById(checkbox);
-    let InputText = document.querySelector(`input[id=${inp_id}]`);
+function showInputForLinks(checkbox_id) {
+    let CheckBox = document.getElementById(checkbox_id);
+    let InputText = document.querySelector(`input[id=${checkbox_id}Value]`);
     if (CheckBox.checked === false) {
         InputText.style.visibility = 'hidden';
     }
