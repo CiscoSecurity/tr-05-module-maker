@@ -1,7 +1,8 @@
 async function save() {
-    let isValid = document.querySelector('form')[0].reportValidity();// ToDo
+    let form = document.querySelector('form')
+    let isValid = form.reportValidity();
     if (isValid) {
-        let form = new FormData(document.querySelector('form'));
+        form = new FormData(form);
         let json = await as_json(form);
 
         // Create a `Blob` with the file content.
@@ -23,15 +24,15 @@ async function save() {
 
         window.URL.revokeObjectURL(url);
     }
+    else {
+        alert('Please, fill out highlighted fields')
+    }
 }
 
-async function push() { // ToDo Something wrong with
-    debugger;
-    let form = new FormData(document.querySelector('form')); // ToDo form here and next line
-    let isValid = document.querySelector('form')[0].reportValidity(); // ToDo
+async function push() {
+    let form = document.querySelector('form')
+    let isValid = form.reportValidity();
     if (isValid) {
-
-        let region = '';  // TODO.
         let url = 'https://visibility.amp.cisco.com';
 
         async function authorize(id, password) {
@@ -62,9 +63,9 @@ async function push() { // ToDo Something wrong with
 
             if (response.ok) {
                 let data = await response.json();
-                alert("The module type was successfully created with id: " + data['id']);
+                alert('The module type was successfully created with id: ' + data['id']);
             } else {
-                alert("Error: " + response.statusText);
+                alert('Error: ' + response.statusText);
             }
         }
 
@@ -74,6 +75,7 @@ async function push() { // ToDo Something wrong with
         let token = await authorize(id, password);
 
         // Create a new module type.
+        form = new FormData(form);
         let json = await as_json(form);
         await create(json, token);
     }
@@ -84,96 +86,109 @@ async function push() { // ToDo Something wrong with
 
 
 function getBase64(file) {
+    if (file) {
         return new Promise(resolve => {
-            let reader = new FileReader();
-            reader.onloadend = function (e) {
-                resolve(e.target.result);
-            };
-            reader.readAsDataURL(file);
-        });
+                let reader = new FileReader();
+                reader.onloadend = function (e) {
+                    resolve(e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        );
+    }
 }
 
 function getSelectedProperties() {
-    let result = {}
-    result['supported-apis'] = []
-    let properties = document.getElementsByName("properties").item(0);
-    let checkboxes = properties.getElementsByTagName("input");
-    for (let i = 0; i < checkboxes.length; i++){
-        if (checkboxes[i].checked) {
-            result['supported-apis'] = result['supported-apis'].concat(checkboxes[i].id)
-        }
-    }
-    let auth_type = document.getElementsByName("auth-type").item(0);
-    let select = auth_type.getElementsByTagName("select");
-    let checkbox = auth_type.getElementsByTagName("input");
-    if (checkbox[0].checked){
-        result['auth-type'] = select[0].value
-    }
-    return result
+  let result = {};
+  result['supported-apis'] = [];
+  let properties = document.getElementsByName('properties')[0];
+  let checkboxes = properties.getElementsByTagName('input');
+  for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+          result['supported-apis'] =
+              result['supported-apis'].concat(checkboxes[i].id);
+      }
+  }
+  let auth_type = document.getElementsByName('auth-type')[0];
+  let select = auth_type.getElementsByTagName('select');
+  let checkbox = auth_type.getElementsByTagName('input');
+  if (checkbox[0].checked) {
+      result['auth-type'] = select[0].value;
+  }
+  return result;
 }
 
-function getConfSpec() { // ToDo add select
-    let result = []
+function getOptions(config_fieldset) {
+    let options = config_fieldset.getElementsByClassName('options');
+    let options_list = [];
 
-    let confs = document.getElementsByClassName("conf-spec-fieldset");
-    for (let i = 0; i < confs.length; i++){
-        let fields = confs[i].getElementsByTagName("input");
-        let select = confs[i].getElementsByTagName("select");
-        let conf_json = {}
-        for (let j = 0; j < fields.length; j++) {
-            if (fields[j].value) {
-
-
-                if (fields[j].name === 'required' ) {
-                    conf_json[fields[j].name] = fields[j].checked;
-                }
-                else {
-                    if (fields[j].name !== 'option') {
-                        conf_json[fields[j].name] = fields[j].value;
-                    }
-                }
-            }
+    for (let i = 0; i < options.length; i++) {
+        let option_pair = {};
+        let option = options[i].getElementsByTagName('input');
+        if (option[0].value) {
+            option_pair['value'] = option[0].value;
         }
-
-        let options = confs[i].getElementsByClassName("options");
-        let opt_list = []
-        for (let x = 0; x < options.length; x++) {
-            let opt_json = {};
-            let option = options[x].getElementsByTagName('input');
-            if (option[0].value){
-                opt_json['value'] = option[0].value
-            }
-            if (option[1].value){
-                opt_json['label'] = option[0].value
-            }
-            opt_list = opt_list.concat(opt_json)
+        if (option[1].value) {
+            option_pair['label'] = option[0].value;
         }
-        if (Object.keys(conf_json).length > 0) {
-            conf_json['type'] = select[0].value
-            conf_json['options'] = opt_list
-            result = result.concat(conf_json);
-        }
+        options_list = options_list.concat(option_pair);
     }
-    return result
+
+    return options_list
 }
 
-function getCapabilities(){
-    let result = []
+function getConfSpec() {
+  let result = [];
+  let confs = document.getElementsByClassName('conf-spec-fieldset');
+
+  for (let i = 0; i < confs.length; i++) {
+
+    let fields = confs[i].getElementsByTagName('input');
+    let select = confs[i].getElementsByTagName('select');
+    let conf_json = {};
+
+    for (let j = 0; j < fields.length; j++) {
+      if (fields[j].value) {
+        if (fields[j].name === 'required' ) {
+          conf_json[fields[j].name] = fields[j].checked;
+        }
+        else {
+          if (fields[j].name !== 'option') {
+            conf_json[fields[j].name] = fields[j].value;
+          }
+        }
+      }
+    }
+
+    let options = getOptions(confs[i]);
+    if (Object.keys(conf_json).length > 0) {
+      conf_json['type'] = select[0].value;
+      conf_json['options'] = options;
+      result = result.concat(conf_json);
+    }
+  }
+  return result;
+}
+
+function getCapabilities() {
+    let result = [];
     let fieldset = document.getElementById('capabilities-fieldset');
-    let capabilities = fieldset.getElementsByTagName("input");
+    let capabilities = fieldset.getElementsByTagName('input');
     for (let i = 0; i < capabilities.length; i++){
         let json = {};
         json['id'] = capabilities[i].name;
         json['description'] = capabilities[i].value;
         result = result.concat(json);
     }
-    return result
+    return result;
 }
 
-function getExternalReferences(){
+function getExternalReferences() {
     let result = [];
-    let fieldset = document.getElementsByClassName('external-references')[0];
-    let predefined_inputs = fieldset.getElementsByClassName('custom-input');
+    let fieldset =
+        document.getElementsByClassName('external-references')[0];
+    let predefined_inputs =
+        fieldset.getElementsByClassName('hidden-input');
         for (let i = 0; i < predefined_inputs.length; i++){
             if (predefined_inputs[i].value) {
                 let json = {};
@@ -182,9 +197,11 @@ function getExternalReferences(){
                 result = result.concat(json);
             }
     }
-    let link_label_pairs = fieldset.getElementsByClassName('link-label-pairs');
+    let link_label_pairs =
+        fieldset.getElementsByClassName('link-label-pairs');
         for (let i = 0; i<link_label_pairs.length; i++){
-            let inputs = link_label_pairs[i].getElementsByTagName('input');
+            let inputs =
+                link_label_pairs[i].getElementsByTagName('input');
             if (inputs[0].value) {
                 let json = {};
                 json['label'] = inputs[0].value;
@@ -213,106 +230,76 @@ async function as_json(form) {
     return JSON.stringify(json);
 }
 
-function CheckShowInput(inp_id, checkbox) { // ToDo rename it's for links !
+function showInputForLinks(inp_id, checkbox) {
     let CheckBox = document.getElementById(checkbox);
     let InputText = document.querySelector(`input[id=${inp_id}]`);
-    if (CheckBox.checked === false){
+    if (CheckBox.checked === false) {
         InputText.style.visibility = 'hidden';
     }
     else {
-    InputText.style.visibility = 'visible';
-    InputText.placeholder = "Enter link";
-    InputText.value = "";
+        InputText.style.visibility = 'visible';
+        InputText.placeholder = 'Enter link';
+        InputText.value = '';
     }
 }
 
-function showInput(current_class) { //ToDo fix for api's
+async function showAPIInput(current_class) {
     let api_checklist = document.getElementsByClassName(current_class);
-    let result = false;
+    let atLeastOneChecked = false;
+
     for (let i = 0; i < api_checklist.length; i++)
-        result = result || api_checklist[i].checked;
-    if (!result){
-        document.getElementById(`${current_class}-div`).remove()
-    }
-    else {
-        if (! document.getElementById(`${current_class}Value`)) {
-            let newInput = `<div id="${current_class}-div">
-                                ${current_class}
-           <input name="${current_class}" type="text" id="${current_class}Value" form="configuration" required placeholder="Enter description">
-       </div>
-    `;
-            document.getElementById('capabilities-fieldset').insertAdjacentHTML('beforeend', newInput);
+        atLeastOneChecked = atLeastOneChecked || api_checklist[i].checked;
+        if (!atLeastOneChecked) {
+            document.getElementById(`${current_class}-div`).remove()
+        } else {
+            if (!document.getElementById(`${current_class}Value`)) {
+                let newInput = (await (await fetch('supported_apis.html')).text());
+                newInput = newInput.replaceAll(
+                    'current_class', String(current_class)
+                )
+                let fieldset = document.getElementById('capabilities-fieldset')
+                fieldset.insertAdjacentHTML('beforeend', newInput);
+            }
         }
-    }
 }
 
-function showAuthSelectMenu(select_id, checkbox) { // ToDo rename for Auth ??
-    let CheckBox = document.getElementById(checkbox);
-    let Select = document.querySelector(`select[id=${select_id}]`);
-    if (CheckBox.checked === false){
-        Select.style.visibility = 'hidden';
-    }
-    else {
+function showAuthSelectMenu(select_id, checkbox) {
+  let CheckBox = document.getElementById(checkbox);
+  let Select = document.querySelector(`select[id=${select_id}]`);
+  if (CheckBox.checked === false) {
+    Select.style.visibility = 'hidden';
+  }
+  else {
     Select.style.visibility = 'visible';
-    }
+  }
 }
 
-
-async function addConfig(){ // ToDo
-    let count = document.getElementsByClassName('conf-spec-fieldset').length
+async function addConfigFieldset() {
+    let count = document.getElementsByClassName('conf-spec-fieldset').length;
     let newInput = (await (await fetch('configuration_spec.html')).text());
-    newInput = newInput.replaceAll('counter', String(count)) // better way maybe?
-    document.getElementById('wrapper').insertAdjacentHTML('beforeend', newInput);
+    newInput = newInput.replaceAll('counter', String(count));
+    let wrapper = document.getElementById('wrapper');
+    wrapper.insertAdjacentHTML('beforeend', newInput);
 }
 
-function remove() {
-    let childs = document.body.getElementsByClassName('conf_spec');
-    if(childs.length > 0) {
-        let wrapper = document.getElementById('wrapper');
-        wrapper.removeChild(wrapper.lastElementChild);
-    }
+function removeConfigFieldset() {
+  let childs = document.body.getElementsByClassName('conf_spec');
+  if (childs.length > 0) {
+    let wrapper = document.getElementById('wrapper');
+    wrapper.removeChild(wrapper.lastElementChild);
+  }
 }
 
 async function addOptions(id_of_wrapper) {
- let newInput = await (await fetch('options.html')).text();
-    document.getElementById(id_of_wrapper).insertAdjacentHTML('beforeend', newInput);
+  let newInput = await (await fetch('options.html')).text();
+  let wrapper = document.getElementById(id_of_wrapper)
+  wrapper.insertAdjacentHTML('beforeend', newInput);
 }
 
 function removeOptions(id_of_wrapper) {
     let childs = document.getElementsByName('option');
-    if(childs.length > 0) {
+    if (childs.length > 0) {
         let wrapper = document.getElementById(id_of_wrapper);
         wrapper.removeChild(wrapper.lastElementChild);
     }
 }
-
-
-
-/*
-let dropArea = document.getElementById('drop-area')
-;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-    dropArea.addEventListener(eventName, preventDefaults, false)
-})
-function preventDefaults (e) {
-    e.preventDefault()
-    e.stopPropagation()
-}
-
-;['dragenter', 'dragover'].forEach(eventName => {
-    dropArea.addEventListener(eventName, highlight, false)
-});['dragleave', 'drop'].forEach(eventName => {
-    dropArea.addEventListener(eventName, unhighlight, false)
-})
-function highlight(e) {
-    dropArea.classList.add('highlight')
-}
-function unhighlight(e) {
-    dropArea.classList.remove('highlight')
-}
-
-dropArea.addEventListener('drop', handleDrop, false)
-function handleDrop(e) {
-    let dt = e.dataTransfer
-    let files = dt.files
-    ([...files]).forEach(uploadFile)
-}*/

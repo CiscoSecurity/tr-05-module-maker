@@ -3,17 +3,21 @@
 html, body {
     min-height: 100% !important;
     height: 100%;
-    overflow: scroll; /*hidden*/
+}
+
+body {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 label {
     display: block;
     width: 200px;
 }
+
 label > input {
     width: 200px;
     height: 25px;
-    display: block;
     padding: 3px 6px 2px;
     margin-bottom: 10px;
 
@@ -23,12 +27,14 @@ label > input {
 
     font-family: CiscoSans, Arial, sans-serif;
 }
+
 label > textarea {
-    width: 350px;
+    width: 380px;
     height: 150px;
     display: block;
     padding: 3px 6px 2px;
     margin-bottom: 15px;
+    /* font-size: 12px; */
 
     border-radius: 3px;
     border: 1px solid #DFDFDF;
@@ -41,6 +47,7 @@ label > textarea {
     font-family: CiscoSans;
     src: url("fonts/CiscoSansTTRegular.woff");
 }
+
 @font-face {
     font-family: CiscoSans;
     src: url("fonts/CiscoSansTTLight.woff");
@@ -132,10 +139,8 @@ label > textarea {
 
 .content {
     height: 100%;
-    margin-left: 250px; /* The width of the sidebar. */
+    margin-left: 250px;
     padding: 10px 10px 0 10px;
-    /* Kostia set overflow hidden*/
-    /* overflow: scroll; */
 }
 
 .inputs {
@@ -143,6 +148,7 @@ label > textarea {
     margin-bottom: 10px;
     width: 100%;
 }
+
 .inputs-column {
     float: left;
     margin-right: 15px;
@@ -151,6 +157,7 @@ label > textarea {
 .controls {
     width: 100%;
 }
+
 .controls-option {
     padding: 10px;
     margin-right: 10px;
@@ -160,11 +167,13 @@ label > textarea {
     border: 1px solid #DFDFDF;
     border-radius: 3px;
 }
+
 .controls-option-text {
     margin-bottom: 10px;
     text-align: center;
     color: #7f7f86;
 }
+
 .controls-button {
     height: 28px;
     padding: 0 15px;
@@ -185,6 +194,7 @@ label > textarea {
     cursor: pointer;
     white-space: nowrap;
 }
+
 .controls-button:hover {
     background: rgb(2, 131, 179);
 }
@@ -207,6 +217,7 @@ input[type='checkbox'] + label{
 
 fieldset > div > select {
     visibility: hidden;
+    margin: 3px;
 }
 
 .icon > svg{
@@ -219,31 +230,24 @@ fieldset > :not(legend) {
 
 }
 
-.custom-input { /* rename to hidden input? */
+.hidden-input {
     visibility: hidden;
-    border-radius: 3px;
 }
 
 .link-label-pairs {
     padding-left: 23px;
-    margin: 2px;
-    border-radius: 3px; /* ??*/
 }
 
-#capabilities-fieldset > p{
+#capabilities-fieldset > p {
     color: #7f7f86;
+    margin: 3px;
 }
 
-/*
-#drop-area {
-  border: 2px dashed #ccc;
-  border-radius: 20px;
-  width: 480px;
-  font-family: sans-serif;
-  margin: 100px auto;
-  padding: 20px;
+input {
+    border-radius: 3px;
+    padding: 3px 6px 2px;
+    margin: 3px;
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    font-family: CiscoSans, Arial, sans-serif;
 }
-
-#drop-area.highlight {
-  border-color: purple;
-}*/
