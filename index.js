@@ -32,9 +32,9 @@ async function save() {
 function isValid(form){
     let creds = document.getElementsByClassName('creds');
     for (let i = 0; i < creds.length; i++){
-        creds[i].reportValidity()
+        creds[i].reportValidity();
     }
-    form[0].reportValidity()
+    form[0].reportValidity();
 }
 
 async function push() {
