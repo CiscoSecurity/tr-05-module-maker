@@ -112,16 +112,16 @@ function getSelectedProperties() {
   let properties = document.getElementsByName('properties')[0];
   let checkboxes = properties.getElementsByTagName('input');
   for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-        result['supported-apis'] =
-            result['supported-apis'].concat(checkboxes[i].id);
+      if (checkboxes[i].checked) {
+          result['supported-apis'] =
+              result['supported-apis'].concat(checkboxes[i].id);
     }
   }
   let auth_type = document.getElementsByName('auth-type')[0];
   let select = auth_type.getElementsByTagName('select');
   let checkbox = auth_type.getElementsByTagName('input');
   if (checkbox[0].checked) {
-    result['auth-type'] = select[0].value;
+      result['auth-type'] = select[0].value;
   }
   return result;
 }
@@ -148,7 +148,7 @@ function getOptions(config_fieldset) {
 }
 
 function getConfSpec() {
- let result = [];
+  let result = [];
   let confs = document.getElementsByClassName('conf-spec-fieldset');
 
   for (let i = 0; i < confs.length; i++) {
@@ -171,13 +171,13 @@ function getConfSpec() {
     }
 
     let options = getOptions(confs[i]);
-      if (Object.keys(conf_json).length > 0) {
+    if (Object.keys(conf_json).length > 0) {
       conf_json['type'] = select[0].value;
       conf_json['options'] = options;
       result = result.concat(conf_json);
-      }
     }
-    return result;
+  }
+  return result;
 }
 
 function getCapabilities() {
@@ -199,26 +199,26 @@ function getExternalReferences() {
         document.getElementsByClassName('external-references')[0];
     let predefined_inputs =
         fieldset.getElementsByClassName('hidden-input');
-    for (let i = 0; i < predefined_inputs.length; i++){
-        if (predefined_inputs[i].value) {
-            let json = {};
-            json['label'] = predefined_inputs[i].name;
-            json['link'] = predefined_inputs[i].value;
-            result = result.concat(json);
-        }
+        for (let i = 0; i < predefined_inputs.length; i++){
+            if (predefined_inputs[i].value) {
+                let json = {};
+                json['label'] = predefined_inputs[i].name;
+                json['link'] = predefined_inputs[i].value;
+                result = result.concat(json);
+            }
     }
     let link_label_pairs =
         fieldset.getElementsByClassName('link-label-pairs');
-    for (let i = 0; i < link_label_pairs.length; i++){
-        let inputs =
-            link_label_pairs[i].getElementsByTagName('input');
-    if (inputs[0].value) {
-        let json = {};
-        json['label'] = inputs[0].value;
-        json['link'] = inputs[1].value;
-        result = result.concat(json);
-     }
-    }
+        for (let i = 0; i < link_label_pairs.length; i++){
+            let inputs =
+                link_label_pairs[i].getElementsByTagName('input');
+            if (inputs[0].value) {
+                let json = {};
+                json['label'] = inputs[0].value;
+                json['link'] = inputs[1].value;
+                result = result.concat(json);
+            }
+        }
   return result;
 }
 
