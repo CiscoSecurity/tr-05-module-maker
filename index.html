@@ -2,92 +2,220 @@
 <html lang="en">
 <head>
     <title>Module Maker</title>
-
-    <style>
-        body {
-            margin: 30px;
-        }
-
-        label {
-            display: block;
-        }
-
-        label > input {
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        label > textarea {
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .inputs {
-            max-width: 250px;
-            float: left;
-            margin-right: 15px;
-        }
-    </style>
-
+    <link rel="stylesheet" href="index.css">
     <script src="index.js" defer></script>
 </head>
 
 <body>
-    <div id="header">
-        <h2>Threat Response Module Maker</h2>
+<div class="root">
+    <div class="header">
+        <div class="header-logo">
+            <svg>
+                <use href="icons/sprite.svg#icon-cisco-logo"></use>
+            </svg>
+        </div>
+        <div class="header-title">Threat Response Module Maker</div>
     </div>
 
-    <div id="site">
-        <form id="configuration" class="inputs">
-            <label>Title
-                <input type="text" name="title" required>
-            </label>
-            <label>Default Name
-                <input type="text" name="default-name" required>
-            </label>
-            <label>Short Description
-                <input type="text" name="short-description" required>
-            </label>
-            <label>External References
-                <input type="text" name="external-references" required>
-            </label>
-            <label>Configuration Spec
-                <input type="text" name="configuration-spec" required>
-            </label>
-            <label>Capabilities
-                <input type="text" name="capabilities" required>
-            </label>
-            <label>Properties
-                <input type="text" name="properties" required>
-            </label>
-            <label>Flags
-                <input type="text" name="flags" required>
-            </label>
-            <label>Logo
-                <input type="text" name="logo" required>
-            </label>
-        </form>
+    <div class="breadcrumb">
+        <p class="breadcrumb-element">Settings > Module</p>
+    </div>
 
-        <div class="inputs">
-            <label>Description
-                <textarea name="description" form="configuration"></textarea>
-            </label>
-            <label>Tips
-                <textarea name="tips" form="configuration"></textarea>
-            </label>
+    <div class="site">
+        <div class="sidebar">
+            <div class="sidebar-header">
+            </div>
         </div>
 
-        <div>
-            <button onclick="save()">Save</button>
-            <button onclick="push()">Push</button>
+        <div class="content">
 
-            <label>Client ID
-                <input type="text" name="client-id" id="client-id" required>
-            </label>
-            <label>Client Password
-                <input type="text" name="client-password" id="client-password" required>
-            </label>
+            <div class="inputs">
+
+                <form id="configuration" method="POST" class="inputs-column" enctype=multipart/form-data>
+                    <label>Title
+                        <input type="text" name="title" required maxlength="40">
+                    </label>
+                    <label>Default Name
+                        <input type="text" name="default-name" required maxlength="40">
+                    </label>
+                    <label>Short Description
+                        <input type="text" name="short-description" maxlength="140">
+                    </label>
+
+                    <fieldset>
+                        <legend>Configuration Spec</legend>
+                        <div class="icon">
+                            <svg onclick="addConfigFieldset()">
+                                <use href="icons/sprite.svg#icon-add"></use>
+                            </svg>
+                            <svg onclick="removeConfigFieldset()">
+                                <use href="icons/sprite.svg#icon-remove"></use>
+                            </svg>
+                        </div>
+                        <div id="wrapper" class="wrapper">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Properties</legend>
+                        <fieldset name="properties">
+                            <legend>Supported APIs</legend>
+                            <div>
+                                <input type="checkbox" id="health" name="health" class="health" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="health">health</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="deliberate/observables" class="deliberate" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="deliberate/observables">deliberate/observables</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="refer/observables" class="refer" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="refer/observables">refer/observables</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="observe/observables" class="observe" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="observe/observables">observe/observables</label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox" id="respond/observables" class="respond" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="respond/observables">respond/observables</label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox" id="respond/trigger" class="respond" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="respond/trigger">respond/trigger</label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox" id="tiles" class="tiles" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="tiles">tiles</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="tiles/tile" class="tiles" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="tiles/tile">tiles/tile</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="tiles/tile-data" class="tiles" autocomplete="off"
+                                       onchange="showAPIInput(this.className)">
+                                <label for="tiles/tile-data">tiles/tile-data</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset name="auth-type">
+                            <legend>Auth-type</legend>
+                            <div>
+                                <input type="checkbox" id="auth_type" autocomplete="off"
+                                       onchange="showAuthSelectMenu('select_auth', 'auth_type')">
+                                <label for="auth_type">authorization</label>
+                                <select id="select_auth">
+                                    <option>basic</option>
+                                    <option>authorization-header</option>
+                                    <option>bearer</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                    </fieldset>
+
+                    <label>Flags
+                        <input type="text" name="flags" placeholder="Enter flags separated by commas">
+                    </label>
+
+                    <div id="drop-area">
+                        <label>Logo
+                            <input type="file" accept="image/*" name="logo" form="configuration">
+                        </label>
+                    </div>
+
+                </form>
+
+                <div class="inputs-column">
+
+                    <label>Description
+                        <textarea name="description" form="configuration"></textarea>
+                    </label>
+                    <label>Tips
+                        <textarea name="tips" form="configuration"></textarea>
+                    </label>
+
+                    <fieldset id="capabilities-fieldset">
+                        <legend>Capabilities</legend>
+                        <p>Select one of the Supported APIs to write a description.</p>
+                    </fieldset>
+
+                    <fieldset class="external-references">
+                        <legend>External References</legend>
+                        <div>
+                            <input type="checkbox" id="FreeTrial" class="references-checkbox"
+                                   autocomplete="off" onchange="showInputForLinks(this.id)">
+                            <label for="FreeTrial">Free Trial</label>
+                            <input type="text" id="FreeTrialValue" form="configuration" class="hidden-input"
+                                   name="Free Trial">
+                        </div>
+                        <div>
+                            <input type="checkbox" id="SignUp" class="references-checkbox" autocomplete="off"
+                                   onchange="showInputForLinks(this.id)">
+                            <label for="SignUp">Sign Up</label>
+                            <input type="text" id="SignUpValue" form="configuration" class="hidden-input"
+                                   name="Sign Up">
+                        </div>
+                        <div>
+                            <input type="checkbox" id="ContactUs" class="references-checkbox"
+                                   autocomplete="off" onchange="showInputForLinks(this.id)">
+                            <label for="ContactUs">Contact Us</label>
+                            <input type="text" id="ContactUsValue" form="configuration" class="hidden-input"
+                                   name="Contact Us">
+                        </div>
+                        <div class="link-label-pairs">
+                            <input type="text" form="configuration" placeholder="Enter label" class="input-reference">
+                            <input type="text" form="configuration" placeholder="Enter link" class="input-reference">
+                        </div>
+                        <div class="link-label-pairs">
+                            <input type="text" form="configuration" placeholder="Enter label" class="input-reference">
+                            <input type="text" form="configuration" placeholder="Enter link" class="input-reference">
+                        </div>
+                    </fieldset>
+
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="controls-option">
+                    <p class="controls-option-text">
+                        Create a new module type in your Threat Response organization.
+                    </p>
+
+                    <label class="centered">Client ID
+                        <input type="text" name="client-id" id="client-id" required>
+                    </label>
+                    <label class="centered">Client Password
+                        <input type="password" name="client-password" id="client-password" required>
+                    </label>
+
+                    <button type="button" class="controls-button centered" form="configuration" onclick="push()">Push
+                    </button>
+                </div>
+
+                <div class="controls-option">
+                    <p class="controls-option-text">
+                        Save the configuration of a module type as a JSON file.
+                    </p>
+
+                    <button type="button" class="controls-button centered" form="configuration" onclick="save()">Save
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </body>
 </html>
