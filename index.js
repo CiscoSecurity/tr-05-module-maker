@@ -163,12 +163,12 @@ function getConfSpec() {
       if (fields[j].value) {
         if (fields[j].name === 'required' ) {
            conf_json[fields[j].name] = fields[j].checked;
-         }
-         else {
-           if (fields[j].name !== 'option') {
-             conf_json[fields[j].name] = fields[j].value;
-           }
-         }
+        }
+        else {
+          if (fields[j].name !== 'option') {
+            conf_json[fields[j].name] = fields[j].value;
+          }
+        }
       }
     }
 
