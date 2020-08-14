@@ -114,10 +114,10 @@ function getSelectedProperties() {
   let properties = document.getElementsByName('properties')[0];
   let checkboxes = properties.getElementsByTagName('input');
   for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      result['supported-apis'] =
-          result['supported-apis'].concat(checkboxes[i].id);
-    }
+      if (checkboxes[i].checked) {
+          result['supported-apis'] =
+              result['supported-apis'].concat(checkboxes[i].id);
+      }
   }
   let auth_type = document.getElementsByName('auth-type')[0];
   let select = auth_type.getElementsByTagName('select');
@@ -160,8 +160,8 @@ function getConfSpec() {
     let conf_json = {};
 
     for (let j = 0; j < fields.length; j++) {
-     if (fields[j].value) {
-       if (fields[j].name === 'required' ) {
+      if (fields[j].value) {
+        if (fields[j].name === 'required' ) {
            conf_json[fields[j].name] = fields[j].checked;
          }
          else {
@@ -169,7 +169,7 @@ function getConfSpec() {
              conf_json[fields[j].name] = fields[j].value;
            }
          }
-     }
+      }
     }
 
     let options = getOptions(confs[i]);
@@ -222,7 +222,7 @@ function getExternalReferences() {
             }
         }
 
-  return result;
+ return result;
 }
 
 async function as_json(form) {
@@ -282,7 +282,7 @@ function showAuthSelectMenu(select_id, checkbox) {
     select.style.visibility = 'hidden';
   }
   else {
-   select.style.visibility = 'visible';
+    select.style.visibility = 'visible';
   }
 }
 
