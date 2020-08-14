@@ -7,7 +7,7 @@ async function save() {
 
         // Create a `Blob` with the file content.
         let type = 'text/plain';
-        let name = 'settings.json';
+        let name = 'Module_UI_settings.json';
         let blob = new Blob([json], {type: type});
 
         // Download the file.
@@ -30,11 +30,13 @@ async function save() {
 }
 
 function isValid(form){
+    let result = 'true'
     let creds = document.getElementsByClassName('creds');
     for (let i = 0; i < creds.length; i++){
-        creds[i].reportValidity();
+        result = result && creds[i].reportValidity();
     }
-    form[0].reportValidity();
+    result = result && form[0].reportValidity();
+    return  result;
 }
 
 async function push() {
