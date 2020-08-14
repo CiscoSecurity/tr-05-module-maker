@@ -7,7 +7,7 @@ async function save() {
 
         // Create a `Blob` with the file content.
         let type = 'text/plain';
-        let name = 'settings.json';
+        let name = 'Module_UI_settings.json';
         let blob = new Blob([json], {type: type});
 
         // Download the file.
@@ -30,11 +30,13 @@ async function save() {
 }
 
 function isValid(form){
+    let result = 'true'
     let creds = document.getElementsByClassName('creds');
     for (let i = 0; i < creds.length; i++){
-        creds[i].reportValidity();
+        result = result && creds[i].reportValidity();
     }
-    form[0].reportValidity();
+    result = result && form[0].reportValidity();
+    return  result;
 }
 
 async function push() {
@@ -107,23 +109,23 @@ function getBase64(file) {
 }
 
 function getSelectedProperties() {
-  let result = {};
-  result['supported-apis'] = [];
-  let properties = document.getElementsByName('properties')[0];
-  let checkboxes = properties.getElementsByTagName('input');
-  for (let i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i].checked) {
-          result['supported-apis'] =
-              result['supported-apis'].concat(checkboxes[i].id);
-      }
-  }
-  let auth_type = document.getElementsByName('auth-type')[0];
-  let select = auth_type.getElementsByTagName('select');
-  let checkbox = auth_type.getElementsByTagName('input');
-  if (checkbox[0].checked) {
-      result['auth-type'] = select[0].value;
-  }
-  return result;
+    let result = {};
+    result['supported-apis'] = [];
+    let properties = document.getElementsByName('properties')[0];
+    let checkboxes = properties.getElementsByTagName('input');
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            result['supported-apis'] =
+                result['supported-apis'].concat(checkboxes[i].id);
+        }
+    }
+    let auth_type = document.getElementsByName('auth-type')[0];
+    let select = auth_type.getElementsByTagName('select');
+    let checkbox = auth_type.getElementsByTagName('input');
+    if (checkbox[0].checked) {
+        result['auth-type'] = select[0].value;
+    }
+    return result;
 }
 
 function getOptions(config_fieldset) {
@@ -148,36 +150,36 @@ function getOptions(config_fieldset) {
 }
 
 function getConfSpec() {
-  let result = [];
-  let confs = document.getElementsByClassName('conf-spec-fieldset');
+    let result = [];
+    let confs = document.getElementsByClassName('conf-spec-fieldset');
 
-  for (let i = 0; i < confs.length; i++) {
+    for (let i = 0; i < confs.length; i++) {
 
-    let fields = confs[i].getElementsByTagName('input');
-    let select = confs[i].getElementsByTagName('select');
-    let conf_json = {};
+        let fields = confs[i].getElementsByTagName('input');
+        let select = confs[i].getElementsByTagName('select');
+        let conf_json = {};
 
-    for (let j = 0; j < fields.length; j++) {
-      if (fields[j].value) {
-        if (fields[j].name === 'required' ) {
-          conf_json[fields[j].name] = fields[j].checked;
+        for (let j = 0; j < fields.length; j++) {
+            if (fields[j].value) {
+                if (fields[j].name === 'required' ) {
+                    conf_json[fields[j].name] = fields[j].checked;
+                }
+                else {
+                    if (fields[j].name !== 'option') {
+                        conf_json[fields[j].name] = fields[j].value;
+                    }
+                }
+            }
         }
-        else {
-          if (fields[j].name !== 'option') {
-            conf_json[fields[j].name] = fields[j].value;
-          }
-        }
-      }
-    }
 
-    let options = getOptions(confs[i]);
-    if (Object.keys(conf_json).length > 0) {
-      conf_json['type'] = select[0].value;
-      conf_json['options'] = options;
-      result = result.concat(conf_json);
+        let options = getOptions(confs[i]);
+        if (Object.keys(conf_json).length > 0) {
+            conf_json['type'] = select[0].value;
+            conf_json['options'] = options;
+            result = result.concat(conf_json);
+        }
     }
-  }
-  return result;
+    return result;
 }
 
 function getCapabilities() {
@@ -199,28 +201,28 @@ function getExternalReferences() {
         document.getElementsByClassName('external-references')[0];
     let predefined_inputs =
         fieldset.getElementsByClassName('hidden-input');
-        for (let i = 0; i < predefined_inputs.length; i++){
-            if (predefined_inputs[i].value) {
-                let json = {};
-                json['label'] = predefined_inputs[i].name;
-                json['link'] = predefined_inputs[i].value;
-                result = result.concat(json);
-            }
+    for (let i = 0; i < predefined_inputs.length; i++){
+        if (predefined_inputs[i].value) {
+            let json = {};
+            json['label'] = predefined_inputs[i].name;
+            json['link'] = predefined_inputs[i].value;
+            result = result.concat(json);
+        }
     }
     let link_label_pairs =
         fieldset.getElementsByClassName('link-label-pairs');
-        for (let i = 0; i < link_label_pairs.length; i++){
-            let inputs =
-                link_label_pairs[i].getElementsByTagName('input');
-            if (inputs[0].value) {
-                let json = {};
-                json['label'] = inputs[0].value;
-                json['link'] = inputs[1].value;
-                result = result.concat(json);
-            }
+    for (let i = 0; i < link_label_pairs.length; i++){
+        let inputs =
+            link_label_pairs[i].getElementsByTagName('input');
+        if (inputs[0].value) {
+            let json = {};
+            json['label'] = inputs[0].value;
+            json['link'] = inputs[1].value;
+            result = result.concat(json);
         }
+    }
 
- return result;
+    return result;
 }
 
 async function as_json(form) {
@@ -259,29 +261,29 @@ async function showAPIInput(current_class) {
 
     for (let i = 0; i < api_checklist.length; i++)
         atLeastOneChecked = atLeastOneChecked || api_checklist[i].checked;
-        if (!atLeastOneChecked) {
-            document.getElementById(`${current_class}-div`).remove()
-        } else {
-            if (!document.getElementById(`${current_class}Value`)) {
-                let newInput = (await (await fetch('supported_apis.html')).text());
-                newInput = newInput.replace(
-                    /current_class/g, String(current_class)
-                )
-                let fieldset = document.getElementById('capabilities-fieldset')
-                fieldset.insertAdjacentHTML('beforeend', newInput);
-            }
+    if (!atLeastOneChecked) {
+        document.getElementById(`${current_class}-div`).remove()
+    } else {
+        if (!document.getElementById(`${current_class}Value`)) {
+            let newInput = (await (await fetch('supported_apis.html')).text());
+            newInput = newInput.replace(
+                /current_class/g, String(current_class)
+            )
+            let fieldset = document.getElementById('capabilities-fieldset')
+            fieldset.insertAdjacentHTML('beforeend', newInput);
         }
+    }
 }
 
 function showAuthSelectMenu(select_id, checkbox) {
-  let checkBox = document.getElementById(checkbox);
-  let select = document.querySelector(`select[id=${select_id}]`);
-  if (checkBox.checked === false) {
-    select.style.visibility = 'hidden';
-  }
-  else {
-    select.style.visibility = 'visible';
-  }
+    let checkBox = document.getElementById(checkbox);
+    let select = document.querySelector(`select[id=${select_id}]`);
+    if (checkBox.checked === false) {
+        select.style.visibility = 'hidden';
+    }
+    else {
+        select.style.visibility = 'visible';
+    }
 }
 
 async function addConfigFieldset() {
@@ -305,17 +307,17 @@ async function addConfigFieldset() {
 }
 
 function removeConfigFieldset() {
-  let childs = document.body.getElementsByClassName('conf-spec');
-  if (childs.length > 0) {
-    let wrapper = document.getElementById('wrapper');
-    wrapper.removeChild(wrapper.lastElementChild);
-  }
+    let childs = document.body.getElementsByClassName('conf-spec');
+    if (childs.length > 0) {
+        let wrapper = document.getElementById('wrapper');
+        wrapper.removeChild(wrapper.lastElementChild);
+    }
 }
 
 async function addOptions(id_of_wrapper) {
-  let newInput = await (await fetch('options.html')).text();
-  let wrapper = document.getElementById(id_of_wrapper)
-  wrapper.insertAdjacentHTML('beforeend', newInput);
+    let newInput = await (await fetch('options.html')).text();
+    let wrapper = document.getElementById(id_of_wrapper)
+    wrapper.insertAdjacentHTML('beforeend', newInput);
 }
 
 function removeOptions(id_of_wrapper) {

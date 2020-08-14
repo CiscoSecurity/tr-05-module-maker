@@ -168,7 +168,7 @@ label > textarea {
 
 .controls-option {
     padding: 10px;
-    margin-right: 10px;
+    margin-right: 25px;
     max-width: 250px;
     float: left;
 
@@ -234,8 +234,7 @@ fieldset > div > select {
 }
 
 fieldset > :not(legend) {
-    padding-left: 10px;
-
+    padding-left: 5px;
 }
 
 .hidden-input {
@@ -248,7 +247,7 @@ fieldset > :not(legend) {
 
 #capabilities-fieldset > p {
     color: #7f7f86;
-    margin: 3px;
+    padding: 3px;
 }
 
 input {
@@ -258,4 +257,14 @@ input {
     border: 1px solid #DFDFDF;
     box-sizing: border-box;
     font-family: CiscoSans, Arial, sans-serif;
+}
+
+h1 {
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 10px 0;
+    font-size: 24px;
+    color: #444447;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #E9E9E9;
 }
