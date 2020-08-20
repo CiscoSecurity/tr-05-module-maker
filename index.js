@@ -7,7 +7,8 @@ async function save() {
 
         // Create a `Blob` with the file content.
         let type = 'text/plain';
-        let name = 'Module_UI_settings.json';
+        let title = form.get('title').trim().replace(/ /g, '_')
+        let name = `${title}_settings.json`;
         let blob = new Blob([json], {type: type});
 
         // Download the file.
