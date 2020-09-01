@@ -140,7 +140,7 @@ function getOptions(config_fieldset) {
             option_pair['value'] = option[0].value;
         }
         if (option[1].value) {
-            option_pair['label'] = option[0].value;
+            option_pair['label'] = option[1].value;
         }
         if (Object.keys(option_pair).length > 0){
             options_list = options_list.concat(option_pair);
@@ -305,6 +305,7 @@ async function addConfigFieldset() {
     removeOptionsIcon.addEventListener(
         'click', () => removeOptions(`wrapper-of-options-${count}`)
     );
+    return count;
 }
 
 function removeConfigFieldset() {
@@ -341,5 +342,225 @@ document.addEventListener('DOMContentLoaded', function () {
                 'change', () => showAPIInput(apisCheckboxes[i].className)
             )
         }
+        document.getElementById('openJSONFile').addEventListener(
+            'click', openFileOption);
+        document.getElementById('openJSONAPI').addEventListener(
+            'click', openJSONFromAPIOption);
     }
 );
+
+function openFileOption()
+{
+  let inputElement = document.getElementById("file1");
+  inputElement.click();
+  inputElement.addEventListener("change", handleFiles, false);
+}
+
+async function handleFiles(){
+    let file = this.files[0];
+    let reader = new FileReader();
+    reader.readAsText(file, 'UTF-8');
+    reader.onload = async function(evt) {
+        await mapJSON(evt.target.result);
+    }
+}
+
+
+
+async function mapJSON(result) {
+    document.getElementById('configuration').reset();
+    try {
+        let json;
+        if (typeof result === "string"){ json = JSON.parse(result); }
+        else {json = result;}
+
+        document.getElementsByName('tips')[0].value = json.tips.replace(/\n/g, '\r\n');
+        document.getElementsByName('description')[0].value = json.description.replace(/\n/g, '\r\n');
+        document.getElementById('title').value = json.title;
+        document.getElementsByName('default-name')[0].value = json.default_name;
+        document.getElementsByName('short-description')[0].value = json.short_description;
+        document.getElementsByName('flags')[0].value = json.flags.join();
+
+        if (json.capabilities)
+        {await setCapabilities(json.capabilities);}
+        if (json.properties){
+       await setProperties(json.properties);
+        }
+
+        await setLogo(json.logo);
+
+    let prev_conf =  document.getElementsByClassName('conf-spec-fieldset');
+    while (prev_conf.length > 0) {
+        prev_conf[0].parentNode.removeChild(prev_conf[0]);
+    }
+        await setConfSpec(json.configuration_spec);
+    if (json.external_references) {setExternalReferences(json.external_references);}
+
+    }
+    catch (e) {
+        alert('An error occurred while loading JSON from a file.' + e.toString()); // ToDo
+    }
+
+        let modal = document.getElementById("myModal");
+
+        modal.style.display = "none";
+}
+
+async function setProperties(properties){
+            let supported_apis = properties['supported-apis']; //ToDo to Func
+        for (const api of supported_apis) {
+            document.getElementById(api).checked = true;
+            await showAPIInput(document.getElementById(api).className);
+        }
+                let select_input = document.getElementById('select_auth');
+
+        let auth_type = properties['auth-type'];
+        let options = Array.apply(null, select_input.options).map(el => el.value);
+        if (auth_type && options.includes(auth_type)) {
+            if (document.getElementById('auth_type').checked !== true) {
+                document.getElementById('auth_type').click();
+            }
+            select_input.value = auth_type;
+        } else {
+            if (document.getElementById('auth_type').checked === true) {
+                document.getElementById('auth_type').click();
+            }
+        }
+}
+
+async function setCapabilities(capabilities) { // !!!!!!!!! toDo
+    for (const pair of capabilities) { // ToDo ! Fix
+        let apiInput = document.getElementById(`${pair['id']}Value`);
+        if (apiInput === null) {
+            let newInput = (await (await fetch('supported_apis.html')).text());
+            newInput = newInput.replace(
+                /current_class/g, pair['id']
+            )
+            let fieldset = document.getElementById('capabilities-fieldset')
+            fieldset.insertAdjacentHTML('beforeend', newInput);
+        }
+         document.getElementById(`${pair['id']}Value`).value = pair['description'];
+    }
+}
+
+async function setLogo(logoURL) {
+let res = await fetch(logoURL);
+let blob = await res.blob();
+let type = logoURL.split(';')[0].split('/')[1].split('+')[0];
+
+if (logoURL.split(';')[0].split('/')[0] === 'data:image') {
+    let file = new File([blob], `logo.${type}`, {type: `image/${type}`});
+    let inp = document.getElementById('logo');
+
+
+    const dT = new ClipboardEvent('').clipboardData || new DataTransfer();
+    dT.items.add(file);
+    inp.files = dT.files;
+}
+}
+
+
+async function setConfSpec(configuration_specs) {
+
+for (let spec of configuration_specs){
+   let count = await addConfigFieldset();
+   for (let key of Object.keys(spec)) {
+       let input = document.getElementsByName(key);
+       if (key === 'required'){
+           input[count].checked = true;
+       }
+       else if (key === 'options'){
+            for (let i=0; i<Object.keys(spec['options']).length; i++){
+                await addOptions(`wrapper-of-options-${count}`);
+                let fieldsets = document.getElementById(`wrapper-of-options-${count}`).getElementsByTagName('fieldset'); // ToDo Query SElector
+                let options = fieldsets[i].getElementsByTagName('input');
+                        options[0].value = spec['options'][i].label;
+                        options[1].value = spec['options'][i].value;
+            }
+       }
+       else {
+           input[count].value = spec[key];
+       }
+   }
+}
+
+}
+
+function setExternalReferences(external_references) {
+    let hidden_inputs = document.getElementsByClassName('hidden-input');
+    let references_checkboxes = document.getElementsByClassName('references-checkbox');
+for (let ref of external_references){
+    if (hidden_inputs.namedItem(ref.label)){
+        if (references_checkboxes.namedItem(ref.label.replace(/ /, '')).checked !== true) {
+                    references_checkboxes.namedItem(ref.label.replace(/ /, '')).click();
+        }
+        hidden_inputs.namedItem(ref.label).value = ref.link;
+    }
+    else {
+        let link_label_pairs = document.getElementsByClassName('link-label-pairs');
+        for (let i = 0; i < link_label_pairs.length; i++){
+            let inputs =
+                link_label_pairs[i].getElementsByTagName('input');
+            if (! inputs[0].value) {
+                inputs[0].value = ref.label;
+                inputs[1].value = ref.link;
+                break;
+            }
+        }
+    }
+
+}
+
+}
+
+function openJSONFromAPIOption() {
+    let modal = document.getElementById("myModal");
+    let span = document.getElementsByClassName("close")[0];
+    modal.style.display = "block";
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+}
+
+async function pull() {
+
+    let url = 'https://visibility.amp.cisco.com';
+
+    async function pull_authorize(id, password) {
+        let response = await fetch(url + '/iroh/oauth2/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json',
+                'Authorization': 'Basic ' + btoa(id + ':' + password)
+            },
+            body: 'grant_type=client_credentials'
+        });
+        let data = await response.json();
+
+        return data['access_token'];
+}
+
+    async function get_module_type(id, token) {
+        let response = await fetch(url + '/iroh/iroh-int/module-type/' + id, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        });
+        let data = await response.json();
+        if (response.ok) {
+            await mapJSON(data);
+        } else {
+            alert('Error: ' + (data.get('error_description') || response.statusText));
+        }
+    }
+    let client_id = document.getElementById('pull-client-id').value;
+    let password = document.getElementById('pull-client-password').value;
+    let module_type_id = document.getElementById('module-type-id').value;
+    let token = await pull_authorize(client_id, password);
+
+    // Get module type.
+    await get_module_type(module_type_id, token);
+}

@@ -24,23 +24,60 @@
     <div class="site">
         <div class="sidebar">
             <div class="sidebar-header">
+                Settings
             </div>
+            <ul>
+                <input type="file" id="file1" style="display:none" accept="application/JSON">
+                <li class="sidebar-item" id="openJSONFile">
+                    Open JSON from File
+                </li>
+                <li class="sidebar-item" id="openJSONAPI">
+                    Open JSON from TR API
+                </li>
+            </ul>
         </div>
 
         <div class="content">
             <h1>Module</h1>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">
+                        <svg>
+                            <use href="icons/sprite.svg#icon-small-x-close"></use>
+                        </svg>
+                        <p class="controls-option-text">
+                        Pull the module type from your Threat Response organization.
+                        </p>
+                    </span>
+                        <label class="centered">Client ID
+                            <input type="text" class="creds" id="pull-client-id" required>
+                        </label>
+                        <label class="centered">Client Password
+                            <input type="password" id="pull-client-password"  class="creds" required>
+                        </label>
+                        <label class="centered">Module Type ID
+                            <input type="text" id="module-type-id" required>
+                        </label>
+                        <button type="button" class="controls-button centered" onclick="pull()">Pull
+                        </button>
+                </div>
+
+            </div>
 
             <div class="inputs">
 
                 <form id="configuration" method="POST" class="inputs-column" enctype=multipart/form-data>
                     <label>Title
-                        <input type="text" name="title" required maxlength="40">
+                        <input type="text" name="title" required maxlength="40" id="title" autocomplete="off">
                     </label>
                     <label>Default Name
-                        <input type="text" name="default-name" required maxlength="40">
+                        <input type="text" name="default-name" required maxlength="40" autocomplete="off">
                     </label>
                     <label>Short Description
-                        <input type="text" name="short-description" maxlength="140">
+                        <input type="text" name="short-description" maxlength="140" autocomplete="off">
                     </label>
 
                     <p>Configuration Spec</p>
@@ -123,7 +160,7 @@
 
                     <div id="drop-area">
                         <label>Logo
-                            <input type="file" accept="image/*" name="logo" form="configuration">
+                            <input type="file" accept="image/*" name="logo" form="configuration" id="logo" autocomplete="off">
                         </label>
                     </div>
 
@@ -132,10 +169,10 @@
                 <div class="inputs-column">
 
                     <label>Description
-                        <textarea name="description" form="configuration"></textarea>
+                        <textarea name="description" form="configuration" autocomplete="off"></textarea>
                     </label>
                     <label>Tips
-                        <textarea name="tips" form="configuration"></textarea>
+                        <textarea name="tips" form="configuration" autocomplete="off"></textarea>
                     </label>
 
                     <p>Capabilities</p>
@@ -147,32 +184,36 @@
                     <fieldset class="external-references">
                         <div>
                             <input type="checkbox" id="FreeTrial" class="references-checkbox"
-                                   autocomplete="off" onchange="showInputForLinks(this.id)">
+                                   autocomplete="off" onchange="showInputForLinks(this.id)" form="configuration">
                             <label for="FreeTrial">Free Trial</label>
                             <input type="text" id="FreeTrialValue" form="configuration" class="hidden-input"
                                    name="Free Trial">
                         </div>
                         <div>
                             <input type="checkbox" id="SignUp" class="references-checkbox" autocomplete="off"
-                                   onchange="showInputForLinks(this.id)">
+                                   onchange="showInputForLinks(this.id)" form="configuration">
                             <label for="SignUp">Sign Up</label>
                             <input type="text" id="SignUpValue" form="configuration" class="hidden-input"
                                    name="Sign Up">
                         </div>
                         <div>
                             <input type="checkbox" id="ContactUs" class="references-checkbox"
-                                   autocomplete="off" onchange="showInputForLinks(this.id)">
+                                   autocomplete="off" onchange="showInputForLinks(this.id)" form="configuration">
                             <label for="ContactUs">Contact Us</label>
                             <input type="text" id="ContactUsValue" form="configuration" class="hidden-input"
                                    name="Contact Us">
                         </div>
                         <div class="link-label-pairs">
-                            <input type="text" form="configuration" placeholder="Enter label" class="input-reference">
-                            <input type="text" form="configuration" placeholder="Enter link" class="input-reference">
+                            <input type="text" form="configuration" placeholder="Enter label" class="input-reference"
+                                   autocomplete="off">
+                            <input type="text" form="configuration" placeholder="Enter link" class="input-reference"
+                                   autocomplete="off">
                         </div>
                         <div class="link-label-pairs">
-                            <input type="text" form="configuration" placeholder="Enter label" class="input-reference">
-                            <input type="text" form="configuration" placeholder="Enter link" class="input-reference">
+                            <input type="text" form="configuration" placeholder="Enter label" class="input-reference"
+                                   autocomplete="off">
+                            <input type="text" form="configuration" placeholder="Enter link" class="input-reference"
+                                   autocomplete="off">
                         </div>
                     </fieldset>
 
