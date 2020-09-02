@@ -467,9 +467,9 @@ async function setLogo(logoURL) {
             new File([blob], `logo.${extension}`, {type: `image/${type}`});
         let input = document.getElementById('logo');
 
-        const dT = new ClipboardEvent('').clipboardData || new DataTransfer();
-        dT.items.add(file);
-        input.files = dT.files;
+        const dataTransfer = new ClipboardEvent('').clipboardData || new DataTransfer();
+        dataTransfer.items.add(file);
+        input.files = dataTransfer.files;
     }
 }
 
