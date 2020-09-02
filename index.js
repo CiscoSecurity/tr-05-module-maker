@@ -353,9 +353,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function openFileOption()
 {
-  let inputElement = document.getElementById("file1");
+  let inputElement = document.getElementById('jsonFile');
   inputElement.click();
-  inputElement.addEventListener("change", handleFiles, false);
+  inputElement.addEventListener('change', handleFiles, false);
 }
 
 async function handleFiles(){
@@ -410,10 +410,10 @@ async function mapJSON(result) {
 
     }
     catch (e) {
-        alert('An error occurred while loading JSON from a file.' + e.toString()); // ToDo
+        alert('An error occurred while loading JSON from a file.');
     }
 
-    let modal = document.getElementById('myModal');
+    let modal = document.getElementById('ModalForPull');
 
     modal.style.display = 'none';
 }
@@ -441,8 +441,8 @@ async function setProperties(properties) {
     }
 }
 
-async function setCapabilities(capabilities) { // !!!!!!!!! toDo
-    for (const pair of capabilities) { // ToDo ! Fix
+async function setCapabilities(capabilities) {
+    for (const pair of capabilities) {
         let apiInput = document.getElementById(`${pair['id']}Value`);
         if (apiInput === null) {
             let newInput = (await (await fetch('supported_apis.html')).text());
@@ -525,7 +525,7 @@ function setExternalReferences(external_references) {
 }
 
 function openJSONFromAPIOption() {
-    let modal = document.getElementById('myModal');
+    let modal = document.getElementById('modalForPull');
     let span = document.getElementsByClassName('close')[0];
     let client_id = document.getElementsByName('pull-client-id')[0];
     let password = document.getElementsByName('pull-client-password')[0];
