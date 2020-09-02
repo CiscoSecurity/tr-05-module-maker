@@ -39,10 +39,7 @@
 
         <div class="content">
             <h1>Module</h1>
-            <!-- The Modal -->
             <div id="myModal" class="modal">
-
-                <!-- Modal content -->
                 <div class="modal-content">
                     <span class="close">
                         <svg>
@@ -52,17 +49,19 @@
                         Pull the module type from your Threat Response organization.
                         </p>
                     </span>
+                    <form id="pull-module-type-form">
                         <label class="centered">Client ID
-                            <input type="text" class="creds" id="pull-client-id" required>
+                            <input type="text" class="creds" name="pull-client-id">
                         </label>
                         <label class="centered">Client Password
-                            <input type="password" id="pull-client-password"  class="creds" required>
+                            <input type="password" name="pull-client-password"  class="creds">
                         </label>
                         <label class="centered">Module Type ID
-                            <input type="text" id="module-type-id" required>
+                            <input type="text" name="module-type-id">
                         </label>
                         <button type="button" class="controls-button centered" onclick="pull()">Pull
                         </button>
+                    </form>
                 </div>
 
             </div>
