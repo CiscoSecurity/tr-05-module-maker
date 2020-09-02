@@ -54,7 +54,7 @@ function isValid(form){
     for (let i = 0; i < creds.length; i++){
         result = result && creds[i].reportValidity();
     }
-    result = result && form[0].reportValidity();
+    result = result && form.reportValidity();
     return  result;
 }
 

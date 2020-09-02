@@ -47,7 +47,7 @@
                         </svg>
                     </span>
                     <p class="controls-option-text">
-                        Pull the module type from your Threat Response organization.
+                        Pull module type from your Threat Response organization.
                     </p>
                     <form id="pull-module-type-form">
                         <label class="centered">Client ID
@@ -154,12 +154,14 @@
                     </fieldset>
 
                     <label>Flags
-                        <input type="text" name="flags" placeholder="Enter flags separated by commas">
+                        <input type="text" name="flags" placeholder="Enter flags separated by commas"
+                               form="configuration" autocomplete="off">
                     </label>
 
                     <div id="drop-area">
                         <label>Logo
-                            <input type="file" accept="image/*" name="logo" form="configuration" id="logo" autocomplete="off">
+                            <input type="file" accept="image/*" name="logo" form="configuration" id="logo"
+                                   autocomplete="off">
                         </label>
                     </div>
 
@@ -186,21 +188,21 @@
                                    autocomplete="off" onchange="showInputForLinks(this.id)" form="configuration">
                             <label for="FreeTrial">Free Trial</label>
                             <input type="text" id="FreeTrialValue" form="configuration" class="hidden-input"
-                                   name="Free Trial">
+                                   name="Free Trial" autocomplete="off">
                         </div>
                         <div>
                             <input type="checkbox" id="SignUp" class="references-checkbox" autocomplete="off"
                                    onchange="showInputForLinks(this.id)" form="configuration">
                             <label for="SignUp">Sign Up</label>
                             <input type="text" id="SignUpValue" form="configuration" class="hidden-input"
-                                   name="Sign Up">
+                                   name="Sign Up" autocomplete="off">
                         </div>
                         <div>
                             <input type="checkbox" id="ContactUs" class="references-checkbox"
                                    autocomplete="off" onchange="showInputForLinks(this.id)" form="configuration">
                             <label for="ContactUs">Contact Us</label>
                             <input type="text" id="ContactUsValue" form="configuration" class="hidden-input"
-                                   name="Contact Us">
+                                   name="Contact Us" autocomplete="off">
                         </div>
                         <div class="link-label-pairs">
                             <input type="text" form="configuration" placeholder="Enter label" class="input-reference"
