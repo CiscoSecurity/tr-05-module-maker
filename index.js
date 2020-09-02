@@ -413,7 +413,7 @@ async function mapJSON(result) {
         alert('An error occurred while loading JSON from a file.');
     }
 
-    let modal = document.getElementById('ModalForPull');
+    let modal = document.getElementById('modalForPull');
 
     modal.style.display = 'none';
 }
@@ -459,10 +459,12 @@ async function setCapabilities(capabilities) {
 async function setLogo(logoURL) {
     let res = await fetch(logoURL);
     let blob = await res.blob();
-    let type = logoURL.split(';')[0].split('/')[1].split('+')[0];
+    let type = logoURL.split(';')[0].split('/')[1];
+    let extension = type.split('+')[0];
 
     if (logoURL.split(';')[0].split('/')[0] === 'data:image') {
-        let file = new File([blob], `logo.${type}`, {type: `image/${type}`});
+        let file =
+            new File([blob], `logo.${extension}`, {type: `image/${type}`});
         let input = document.getElementById('logo');
 
         const dT = new ClipboardEvent('').clipboardData || new DataTransfer();
