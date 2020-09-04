@@ -1,6 +1,15 @@
 <fieldset class="conf-spec-fieldset">
 
-    <p>key:<input type="text" name="key" class="conf-spec" required form="configuration"/></p>
+    <p>key:
+        <input type="text" name="key" class="conf-spec" required form="configuration" list="key-input-list"/>
+    </p>
+    <datalist id="key-input-list">
+        <option value="url">
+        <option value="token">
+        <option value="user">
+        <option value="basic-auth-password">
+        <option value="basic-auth-user">
+    </datalist>
     <p>type:
         <select name="type">
             <option value="password">password</option>

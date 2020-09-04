@@ -75,6 +75,7 @@ label > textarea {
     padding-right: 20px;
     border-bottom: 1px solid #DFDFDF;
     background-color: white;
+    display: flex;
 }
 
 .header-logo {
@@ -135,14 +136,38 @@ label > textarea {
     background-color: #049FD9;
     color: #FFFFFF;
     font-size: 14px;
+    text-align: left;
+    display:flex;
+    flex-direction: column;
 }
 
 .sidebar-header {
-    width: 100%;
-    text-align: center;
-    vertical-align: middle;
     font-size: 18px;
     line-height: 24px;
+    padding: 20px 20px 10px 30px;
+}
+
+.sidebar-item {
+    cursor: pointer;
+    list-style:none;
+    text-align: left;
+    padding: 0 20px 0 30px;
+    height: 30px;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    display:flex;
+}
+
+.sidebar-item:hover{
+    background-color: #0083b3;
+    box-shadow: inset 5px 0 0 #fff;
+}
+
+::selection {
+    background: rgba(125,188,255,.6);
 }
 
 .content {
@@ -267,4 +292,40 @@ h1 {
     color: #444447;
     padding-bottom: 14px;
     border-bottom: 1px solid #E9E9E9;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;
+    min-width: 250px;
+    width: 15%;
+}
+
+.close > svg {
+    width: 16px;
+    height: 16px;
+  float: right;
+}
+
+.close:hover,
+.close:focus {
+  cursor: pointer;
 }
