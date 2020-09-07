@@ -26,7 +26,7 @@ async function save() {
         // Create a `Blob` with the file content.
         let type = 'text/plain';
         let title = form.get('title').trim().replace(/ /g, '_')
-        let name = `${title}_settings.json`;
+        let name = `${title}_module_type.json`;
         let blob = new Blob([json], {type: type});
 
         // Download the file.
