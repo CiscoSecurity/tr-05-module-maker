@@ -529,19 +529,15 @@ function setExternalReferences(external_references) {
 function openJSONFromAPIOption() {
     let modal = document.getElementById('modalForPull');
     let span = document.getElementsByClassName('close')[0];
-    let client_id = document.getElementsByName('pull-client-id')[0];
-    let password = document.getElementsByName('pull-client-password')[0];
-    let module_type_id = document.getElementsByName('module-type-id')[0];
     let form = document.querySelector('#pull-module-type-form');
-    client_id.required = true;
-    password.required = true;
-    module_type_id.required = true;
+    let inputs = Array.from(form.elements).filter(
+        element => element.tagName.toLowerCase() === 'input'
+    );
+    inputs.map(input => input.required = true);
     modal.style.display = 'block';
     span.onclick = function () {
         modal.style.display = 'none';
-        client_id.required = false;
-        password.required = false;
-        module_type_id.required = false;
+        inputs.map(input => input.required = false);
         form.reset();
     }
 }
