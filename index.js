@@ -99,7 +99,7 @@ async function push() {
 
 
 function getBase64(file) {
-    if (file) {
+    if (file.size > 0) {
         return new Promise(resolve => {
                 let reader = new FileReader();
                 reader.onloadend = function (e) {
@@ -478,7 +478,7 @@ async function setConfSpec(configuration_specs) {
         let count = await addConfigFieldset();
         for (let key of Object.keys(spec)) {
             let input = document.getElementsByName(key);
-            if (key === 'required') {
+            if (key === 'required' && spec[key] === true) {
                 input[count].checked = true;
             }
             else if (key === 'options') {
@@ -532,6 +532,7 @@ function openJSONFromAPIOption() {
     let client_id = document.getElementsByName('pull-client-id')[0];
     let password = document.getElementsByName('pull-client-password')[0];
     let module_type_id = document.getElementsByName('module-type-id')[0];
+    let form = document.querySelector('#pull-module-type-form');
     client_id.required = true;
     password.required = true;
     module_type_id.required = true;
@@ -541,14 +542,15 @@ function openJSONFromAPIOption() {
         client_id.required = false;
         password.required = false;
         module_type_id.required = false;
+        form.reset();
     }
 }
 
 async function pull() {
-    let form = document.querySelector('#pull-module-type-form')
+    let form = document.querySelector('#pull-module-type-form');
     let isValid = form.reportValidity();
     if (isValid) {
-        form = new FormData(form);
+        let formData = new FormData(form);
 
         async function get_module_type(id, token) {
             let response = await fetch(url + '/iroh/iroh-int/module-type/' + id, {
@@ -566,11 +568,12 @@ async function pull() {
             }
         }
 
-        let client_id = form.get('pull-client-id');
-        let password = form.get('pull-client-password');
-        let module_type_id = form.get('module-type-id');
+        let client_id = formData.get('pull-client-id');
+        let password = formData.get('pull-client-password');
+        let module_type_id = formData.get('module-type-id');
         let token = await authorize(client_id, password);
 
         await get_module_type(module_type_id, token);
+        form.reset();
     }
 }
