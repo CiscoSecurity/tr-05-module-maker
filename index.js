@@ -487,8 +487,8 @@ async function setConfSpec(configuration_specs) {
                     let fieldsets =
                         document.querySelectorAll(`#wrapper-of-options-${count} > fieldset`);
                     let options = fieldsets[i].getElementsByTagName('input');
-                    options[0].value = spec['options'][i].label;
-                    options[1].value = spec['options'][i].value;
+                    options[0].value = spec['options'][i].value;
+                    options[1].value = spec['options'][i].label;
                 }
             }
             else {
