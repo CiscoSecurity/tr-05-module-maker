@@ -526,12 +526,14 @@ function setExternalReferences(external_references) {
     }
 }
 
-function hideModal() {
-    let modal = document.getElementById('modalForPull');
-    let form = document.querySelector('#pull-module-type-form');
-    let inputs = Array.from(form.elements).filter(
+function getInputs(form) {
+    return Array.from(form.elements).filter(
         element => element.tagName.toLowerCase() === 'input'
     );
+}
+
+function hideModal(form, modal) {
+    let inputs = getInputs(form);
     modal.style.display = 'none';
     inputs.map(input => input.required = false );
     form.reset();
@@ -541,12 +543,12 @@ function openJSONFromAPIOption() {
     let modal = document.getElementById('modalForPull');
     let span = document.getElementsByClassName('close')[0];
     let form = document.querySelector('#pull-module-type-form');
-    let inputs = Array.from(form.elements).filter(
-        element => element.tagName.toLowerCase() === 'input'
-    );
+    let inputs = getInputs(form);
     inputs.map(input => input.required = true);
     modal.style.display = 'block';
-    span.onclick = hideModal;
+    span.onclick = function () {
+        hideModal(form, modal)
+    };
 }
 
 async function pull() {
@@ -576,6 +578,11 @@ async function pull() {
         let module_type_id = formData.get('module-type-id');
         let token = await authorize(client_id, password);
 
-        await get_module_type(module_type_id, token).then(hideModal);
+        let modal = document.getElementById('modalForPull');
+        await get_module_type(module_type_id, token).then(
+            function () {
+                hideModal(form, modal)
+            }
+        );
     }
 }
