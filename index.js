@@ -109,6 +109,9 @@ function getBase64(file) {
             }
         );
     }
+    else {
+        return ""
+    }
 }
 
 function getSelectedProperties() {
@@ -358,18 +361,22 @@ function openFileOption()
   inputElement.addEventListener('change', handleFiles, false);
 }
 
-async function handleFiles(){
+async function handleFiles() {
     let file = this.files[0];
     let reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
-    reader.onload = async function(evt) {
-        await mapJSON(evt.target.result);
+    reader.onload = async function (evt) {
+        try {
+            await mapJSON(evt.target.result);
+        }
+        catch (e) {
+            alert('An error occurred while loading JSON from a file.');
+        }
     }
 }
 
 async function mapJSON(result) {
     document.getElementById('configuration').reset();
-    try {
         let json;
         if (typeof result === 'string') {
             json = JSON.parse(result);
@@ -402,20 +409,13 @@ async function mapJSON(result) {
         while (prev_conf.length > 0) {
             prev_conf[0].parentNode.removeChild(prev_conf[0]);
         }
+        if (json.configuration_spec) {
         await setConfSpec(json.configuration_spec);
+        }
 
         if (json.external_references) {
             setExternalReferences(json.external_references);
         }
-
-    }
-    catch (e) {
-        alert('An error occurred while loading JSON from a file.');
-    }
-
-    let modal = document.getElementById('modalForPull');
-
-    modal.style.display = 'none';
 }
 
 async function setProperties(properties) {
@@ -526,20 +526,29 @@ function setExternalReferences(external_references) {
     }
 }
 
+function getInputs(form) {
+    return Array.from(form.elements).filter(
+        element => element.tagName.toLowerCase() === 'input'
+    );
+}
+
+function hideModal(form, modal) {
+    let inputs = getInputs(form);
+    modal.style.display = 'none';
+    inputs.map(input => input.required = false);
+    form.reset();
+}
+
 function openJSONFromAPIOption() {
     let modal = document.getElementById('modalForPull');
     let span = document.getElementsByClassName('close')[0];
     let form = document.querySelector('#pull-module-type-form');
-    let inputs = Array.from(form.elements).filter(
-        element => element.tagName.toLowerCase() === 'input'
-    );
+    let inputs = getInputs(form);
     inputs.map(input => input.required = true);
     modal.style.display = 'block';
     span.onclick = function () {
-        modal.style.display = 'none';
-        inputs.map(input => input.required = false);
-        form.reset();
-    }
+        hideModal(form, modal)
+    };
 }
 
 async function pull() {
@@ -569,7 +578,11 @@ async function pull() {
         let module_type_id = formData.get('module-type-id');
         let token = await authorize(client_id, password);
 
-        await get_module_type(module_type_id, token);
-        form.reset();
+        let modal = document.getElementById('modalForPull');
+        await get_module_type(module_type_id, token).then(
+            function () {
+                hideModal(form, modal)
+            }
+        );
     }
 }
