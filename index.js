@@ -535,7 +535,7 @@ function getInputs(form) {
 function hideModal(form, modal) {
     let inputs = getInputs(form);
     modal.style.display = 'none';
-    inputs.map(input => input.required = false );
+    inputs.map(input => input.required = false);
     form.reset();
 }
 
