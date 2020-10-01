@@ -1,0 +1,10 @@
+.site {
+  display: flex;
+  flex-direction: column;
+}
+::selection {
+  background: rgba(125,188,255,.6);
+}
+button {
+  font: 400 14px CiscoSans, Arial, sans-serif;
+}

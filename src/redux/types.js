@@ -1,0 +1,15 @@
+export const ADD_CAPABILITY = 'ADD_CAPABILITY';
+export const DELETE_CAPABILITY = 'DELETE_CAPABILITY';
+
+export const UPDATE_SUPPORTED_API = 'UPDATE_SUPPORTED_API';
+
+export const TOGGLE_AUTH_TYPE = 'UPDATE_AUTH_TYPE';
+
+export const UPDATE_SINGLE_INPUT = 'UPDATE_SINGLE_INPUT';
+
+export const UPDATE_FlAGS = 'UPDATE_FlAGS';
+
+export const LOAD_FILE = 'LOAD_FILE';
+
+
+

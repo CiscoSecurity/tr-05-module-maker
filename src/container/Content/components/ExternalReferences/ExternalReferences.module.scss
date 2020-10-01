@@ -1,0 +1,12 @@
+.reference_wrapper {
+    display: flex;
+    align-items: center;
+}
+.predefined_input {
+    flex: 1;
+    margin: 4px;
+}
+.custom_input {
+    flex: auto;
+    margin: 4px;
+}
