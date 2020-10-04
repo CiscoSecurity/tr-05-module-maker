@@ -10,7 +10,7 @@ const Capabilities = ({syncCapabilities}) => {
                     <fieldset>
                         <p>{Constants.CAPABILITIES_TEXT}</p>
                         {syncCapabilities.map(api => {
-                            return <Capability api={api} key={api}/>
+                            return <Capability api={api} key={api.id}/>
                         })}
                     </fieldset>
                 </div>

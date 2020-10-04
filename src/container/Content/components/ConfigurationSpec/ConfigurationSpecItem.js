@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "./ConfigurationSpec.module.scss"
 import * as Constants from "../../../../globals/constants";
+import Options from "./Options";
 
 
 export default class ConfigurationSpecItem extends React.Component {
+
     render() {
         return (
             <div className={styles.confSpecWrapper}>
                 <div className={styles.column}>
+                    <div>
                         <div className={styles.inputDiv}>
                             key
                             <input
@@ -29,7 +32,13 @@ export default class ConfigurationSpecItem extends React.Component {
                     </datalist>
                     <div className={styles.inputDiv}>
                         type
-                        <select name="type" className={styles.customInput} defaultValue={'DEFAULT'}>
+{/*                        <Select
+                            className={styles.customInput}
+                            placeholder={Constants.SELECT_PLACEHOLDER}
+                            options = {Constants.TYPE_OPTIONS}
+                        >
+                        </Select>*/}
+            <select name="type" className={styles.customInput} defaultValue={'DEFAULT'}>
                             <option value="DEFAULT" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                             {
                                 Constants.TYPE_OPTIONS.map(
@@ -44,8 +53,10 @@ export default class ConfigurationSpecItem extends React.Component {
                         label
                         <input type="text" name="label" className={styles.customInput} required/>
                     </div>
+                    </div>
                 </div>
                 <div className={styles.column}>
+                    <div>
                     <div className={styles.inputDiv}>
                         tooltip
                         <input type="text" name="tooltip" className={styles.customInput}/>
@@ -62,6 +73,7 @@ export default class ConfigurationSpecItem extends React.Component {
                         group
                         <input type="text" name="group" className={styles.customInput}/>
                     </div>
+                    </div>
                 </div>
                 <div className={styles.column}>
                     <div className={styles.row}>
@@ -71,16 +83,9 @@ export default class ConfigurationSpecItem extends React.Component {
                         </div>
                         <div className={styles.closeIcon}>x</div>
                     </div>
-                    <fieldset>
-                        <div className={styles.inputDiv}>
-                            value
-                            <input type="text" name="option" className={styles.customInput}/>
-                        </div>
-                        <div className={styles.inputDiv}>
-                            label
-                            <input type="text" name="option" className={styles.customInput}/>
-                        </div>
-                    </fieldset>
+                    <div>
+                        <Options/>
+                    </div>
                 </div>
             </div>)
 

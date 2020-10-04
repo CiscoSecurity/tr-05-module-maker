@@ -5,15 +5,23 @@ import {
     TOGGLE_AUTH_TYPE,
     UPDATE_SINGLE_INPUT,
     UPDATE_FlAGS,
-    LOAD_FILE
+    LOAD_FILE, ADD_CONF_SPEC, UPDATE_CAPABILITY_DESCR
 } from "./types"
 
 export function addCapability(api) {
 return {
     type: ADD_CAPABILITY,
-    payload: api
+    payload: {"id": api}
 }
 }
+
+export function updateCapabilityDescription(api) {
+    return {
+        type: UPDATE_CAPABILITY_DESCR,
+        payload: {"id": api.id, "description": api.description}
+}
+}
+
 
 export function deleteCapability(api) {
     return {
@@ -53,5 +61,20 @@ export function onFileLoaded(imageFile) {
     return {
         type: LOAD_FILE,
         payload: imageFile
+    }
+}
+
+export function addConfSpec() {
+    return {
+        type: ADD_CONF_SPEC,
+        payload:   {
+            "key": "string",
+            "type": "password",
+            "label": "string",
+            "tooltip": "string",
+            "subtype": "string",
+            "required": true,
+            "group": "string"
+        }
     }
 }

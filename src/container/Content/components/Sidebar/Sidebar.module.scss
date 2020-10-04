@@ -1,9 +1,11 @@
+@import "src/globals/constants/colors";
+
 .Sidebar {
   width: 251px;
   height: 100%;
   position: fixed;
-  background-color: #049FD9;
-  color: #fff;
+  background-color: $blue-background;
+  color: $white-color;
   font-size: 14px;
   text-align: left;
   display: flex;
@@ -25,8 +27,8 @@
 }
 
 .sidebarItem:hover {
-  background-color: #0083b3;
-  box-shadow: inset 5px 0 0 #fff;
+  background-color: $sidebar-hover-color;
+  box-shadow: inset 5px 0 0 $white-color;
 }
 
 .sidebarHeader {
@@ -34,9 +36,9 @@
   line-height: 24px;
   padding: 70px 20px 10px 30px;
   margin: 0;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .hiddenInput {

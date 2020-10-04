@@ -1,3 +1,5 @@
+@import "src/globals/constants/colors";
+
 .content {
     margin-left: 250px;
     padding: 55px 10px 0 10px;
@@ -11,9 +13,9 @@
     line-height: 1.1;
     margin: 10px 0;
     font-size: 24px;
-    color: #444447;
+    color: $header-text-color;
     padding-bottom: 14px;
-    border-bottom: 1px solid #E9E9E9;
+    border-bottom: 1px solid $border-color;
 }
 
 .row {
@@ -40,7 +42,7 @@
 
 input {
     &:not([type="checkbox"]) {
-        border: 1px solid #c6c7ca;
+        border: 1px solid $border-color;
         font: 400 14px CiscoSans, Arial, sans-serif;
         border-radius: 5px;
         height: 19px;
@@ -48,7 +50,7 @@ input {
     }
 }
 textarea {
-    border: 1px solid #c6c7ca;
+    border: 1px solid $border-color;
     font: 400 14px CiscoSans, Arial, sans-serif;
     border-radius: 5px;
     height: 20px;
@@ -56,26 +58,23 @@ textarea {
 }
 
 select {
-    border: 1px solid #c6c7ca;
+    border: 1px solid $border-color;
     font: 400 14px CiscoSans, Arial, sans-serif;
     border-radius: 5px;
-    height: 30px;
+    height: 32px;
     padding: 5px;
 }
 
 fieldset {
     border-radius: 3px;
-    border: 1px solid #dfdfdf;
+    border: 1px solid $border-color;
     padding: 4px;
     margin: 0;
 }
-
 input[type="checkbox"] {
     transform: scale(1.5);
-    color: #39393b;
     size: 10px;
     padding: 0;
     margin: 3px 8px 3px 8px;
     border: 2px;
 }
-

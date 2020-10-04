@@ -1,27 +1,43 @@
 import {
     ADD_CAPABILITY,
     UPDATE_SUPPORTED_API, TOGGLE_AUTH_TYPE,
-    UPDATE_SINGLE_INPUT, UPDATE_FlAGS, LOAD_FILE, DELETE_CAPABILITY
+    UPDATE_SINGLE_INPUT, UPDATE_FlAGS, LOAD_FILE, DELETE_CAPABILITY, ADD_CONF_SPEC, UPDATE_CAPABILITY_DESCR
 } from "./types"
 
 const initialState = {
     capabilities: [],
     properties: {"supported-apis": []},
+    configuration_spec: []
 }
 
 export const jsonReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CAPABILITY:
-            if (!state.capabilities.includes(action.payload)) {
+            if (state.capabilities.filter(obj => Object.values(obj).includes(action.payload.id)).length === 0) {
                 return {...state, capabilities: state.capabilities.concat([action.payload])}
             } else {
                 return {...state, capabilities: state.capabilities}
             }
         case DELETE_CAPABILITY: // ToDo Simplify
-            if ((state.properties['supported-apis'].filter(elem => elem.startsWith(action.payload))).length>0) {
+            if ((state.properties['supported-apis'].filter(elem => elem.startsWith(action.payload))).length > 0) {
                 return {...state, capabilities: state.capabilities}
             } else {
-                return {...state, capabilities: state.capabilities.filter((api) => api !== action.payload)}
+                return {...state, capabilities: state.capabilities.filter((api) => api.id !== action.payload)}
+            }
+
+        case UPDATE_CAPABILITY_DESCR:
+            let item = state.capabilities.filter((api) => api.id === action.payload.id);
+            let elementIndex = state.capabilities.indexOf(item[0]);
+            return {
+                ...state, capabilities: state.capabilities.map((item, index) => {
+                    if (index !== elementIndex) {
+                        return item
+                    }
+                    return {
+                        ...item,
+                        ...action.payload
+                    }
+                })
             }
 
         case UPDATE_SUPPORTED_API:
@@ -72,6 +88,11 @@ export const jsonReducer = (state = initialState, action) => {
 
         case LOAD_FILE:
             return {...state, 'logo': action.payload}
+
+        case ADD_CONF_SPEC:
+            return {...state,
+                configuration_spec: state.configuration_spec.concat([action.payload])
+            }
 
         default:
             return state
