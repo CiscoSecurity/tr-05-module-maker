@@ -11,7 +11,7 @@ class Capability extends React.Component {
         };
     }
 
-    changeDescriptionHandler = event => {
+    onDescriptionChange = event => {
         event.persist()
         this.setState(prev => ({...prev, ...{
                 [event.target.name] : event.target.value
@@ -33,7 +33,7 @@ class Capability extends React.Component {
                     className={styles.inputDescription}
                     placeholder="Enter description"
                     autoComplete="off"
-                    onChange={this.changeDescriptionHandler}
+                    onChange={this.onDescriptionChange}
                 />
             </div>
         )

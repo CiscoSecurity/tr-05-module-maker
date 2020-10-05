@@ -12,7 +12,7 @@ class PredefinedInput extends React.Component {
         }
     }
 
-    changeCheckboxHandler = (event) => {
+    onCheckboxToggle = (event) => {
         this.props.toggleLink(event.target.name);
         this.setState(prev => ({
             ...prev, ...{
@@ -21,7 +21,7 @@ class PredefinedInput extends React.Component {
         }))
     }
 
-    changeInputHandler = (event) => {
+    onInputValueChange = (event) => {
         event.persist()
         this.setState(prev => ({
             ...prev, ...{
@@ -40,7 +40,7 @@ class PredefinedInput extends React.Component {
         return (
             <div className={styles.reference_wrapper}>
                 <input type="checkbox" autoComplete="off" name={this.props.label}
-                       onChange={this.changeCheckboxHandler}/>
+                       onChange={this.onCheckboxToggle}/>
                 {this.props.label}
                 <input
                     type="text"
@@ -48,7 +48,7 @@ class PredefinedInput extends React.Component {
                     autoComplete="off"
                     value={this.state.link}
                     className={styles.predefined_input}
-                    onChange={this.changeInputHandler}
+                    onChange={this.onInputValueChange}
                     disabled={this.props.syncReferences.filter(el =>
                         Object.values(el).includes(this.props.label)
                     ).length === 0}

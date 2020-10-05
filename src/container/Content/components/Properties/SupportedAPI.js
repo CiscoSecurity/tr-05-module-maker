@@ -13,7 +13,7 @@ class SupportedAPI extends React.Component {
         }
     }
 
-    changeHandler = (event) => {
+    onCheckboxToggle = (event) => {
         this.props.updateSupportedAPI(this.state.title);
 
         if (event.target.checked) {
@@ -25,10 +25,12 @@ class SupportedAPI extends React.Component {
     }
 
     render() {
-        return <div className={styles.supportedAPI}>
-            <input type="checkbox" autoComplete="off" onChange={this.changeHandler}/>
-            {this.state.title}
-        </div>
+        return (
+            <div className={styles.supportedAPI}>
+                <input type="checkbox" autoComplete="off" onChange={this.onCheckboxToggle}/>
+                {this.state.title}
+            </div>
+        )
     }
 }
 
