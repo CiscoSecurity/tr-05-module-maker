@@ -55,7 +55,7 @@ class Content extends React.Component {
             </div>
             <div className={styles.row}>
                 <div className={styles.column}>
-                    <p>Title</p>
+                    <p>{Constants.INPUT_TITLE_LABEL}</p>
                     <textarea
                         required
                         autoComplete="off"
@@ -63,13 +63,13 @@ class Content extends React.Component {
                         name="title"
                         onChange={this.changeInputHandler}
                     />
-                    <p>Default Name</p>
+                    <p>{Constants.DEFAULT_NAME_LABEL}</p>
                     <textarea required
                               autoComplete="off"
                               value={this.state.default_name}
                               name="default_name"
                               onChange={this.changeInputHandler}/>
-                    <p>Short Description</p>
+                    <p>{Constants.SHORT_DESCRIPTION_LABEL}</p>
                     <textarea autoComplete="off"
                               value={this.state.short_description}
                               name="short_description"
@@ -78,19 +78,19 @@ class Content extends React.Component {
                     <Capabilities/>
                 </div>
                 <div className={styles.column}>
-                    <p>Description</p>
+                    <p>{Constants.DESCRIPTION_LABEL}</p>
                         <MarkdownEditor name="description"/>
-                    <p>Tips</p>
+                    <p>{Constants.TIPS_LABEL}</p>
                         <MarkdownEditor name="tips"/>
                     <ExternalReferences/>
-                    <p>Flags</p>
+                    <p>{Constants.FLAGS_LABEL}</p>
                     <input type="text"
                            name="flags"
-                           placeholder="Enter flags separated by commas"
+                           placeholder={Constants.FLAGS_PLACEHOLDER}
                            autoComplete="off"
                            value={this.state.flags}
                            onChange={this.changeFlagsHandler}/>
-                    <p>Logo</p>
+                    <p>{Constants.LOGO_LABEL}</p>
                     <input type="file" accept="image/*" name="logo"
                            autoComplete="off" onChange={this.handleLoadLocalFile}/>
                 </div>
