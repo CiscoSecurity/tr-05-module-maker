@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Properties.module.scss";
-import {connect} from "react-redux";
-import {addCapability, deleteCapability, updateSupportedAPI} from "../../../../redux/actions";
+import { connect } from "react-redux";
+import { addCapability, deleteCapability, updateSupportedAPI } from "../../../../redux/actions";
 
 
 class SupportedAPI extends React.Component {

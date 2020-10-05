@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Capabilities.module.scss"
-import {updateCapabilityDescription} from "../../../../redux/actions";
-import {connect} from "react-redux";
+import { updateCapabilityDescription } from "../../../../redux/actions";
+import { connect } from "react-redux";
 
 
 class Capability extends React.Component {

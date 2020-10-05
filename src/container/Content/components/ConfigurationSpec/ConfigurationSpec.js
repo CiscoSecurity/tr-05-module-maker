@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ConfigurationSpec.module.scss"
 import ConfigurationSpecItem from "./ConfigurationSpecItem"
 import { addConfSpec } from "../../../../redux/actions";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 class ConfigurationSpec extends React.Component {
     render() {

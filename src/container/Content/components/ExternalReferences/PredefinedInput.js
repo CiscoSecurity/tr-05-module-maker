@@ -1,7 +1,7 @@
 import styles from "./ExternalReferences.module.scss";
 import React from "react";
-import {toggleLink, updateLink} from "../../../../redux/actions";
-import {connect} from "react-redux";
+import { toggleLink, updateLink } from "../../../../redux/actions";
+import { connect } from "react-redux";
 
 
 class PredefinedInput extends React.Component {

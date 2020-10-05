@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import Capability from "./Capability";
 import * as Constants from "../../../../globals/constants/constants";
 
