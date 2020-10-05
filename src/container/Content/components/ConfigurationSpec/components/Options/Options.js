@@ -1,6 +1,6 @@
 import React from "react";
 import  "./Options.scss";
-import Icons from "../../../../../globals/icons/sprite.svg";
+import Icons from "globals/icons/sprite.svg";
 
 
 export default class Options extends React.Component {

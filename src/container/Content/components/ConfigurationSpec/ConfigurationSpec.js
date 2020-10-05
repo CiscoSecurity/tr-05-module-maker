@@ -1,6 +1,6 @@
 import React from "react";
 import "./ConfigurationSpec.scss"
-import ConfigurationSpecItem from "./components/ConfigurationSpecItem"
+import ConfigurationSpecItem from "./components/ConfigurationSpecItem/ConfigurationSpecItem"
 import { addConfSpec } from "redux/actions";
 import { connect } from "react-redux";
 

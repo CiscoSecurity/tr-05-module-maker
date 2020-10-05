@@ -1,8 +1,8 @@
 import React from "react";
 import "./ConfigurationSpecItem.scss"
-import * as Constants from "../../../../../globals/constants/constants";
-import Icons from "../../../../../globals/icons/sprite.svg";
-import Options from "./Options";
+import * as Constants from "globals/constants/constants";
+import Icons from "globals/icons/sprite.svg";
+import Options from "../Options/Options";
 
 
 export default class ConfigurationSpecItem extends React.Component {

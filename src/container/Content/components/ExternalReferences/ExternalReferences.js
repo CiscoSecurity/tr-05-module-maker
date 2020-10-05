@@ -1,7 +1,7 @@
 import React from "react";
 import PredefinedInput from "./components/PredefinedInput/PredefinedInput";
 import CustomInput from "./components/CustomInput/CustomInput";
-import * as Constants from "../../../../globals/constants/constants";
+import * as Constants from "globals/constants/constants";
 
 
 class ExternalReferences extends React.Component {
