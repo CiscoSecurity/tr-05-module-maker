@@ -6,7 +6,6 @@ import Options from "./Options";
 
 
 export default class ConfigurationSpecItem extends React.Component {
-
     render() {
         return (
             <div className={styles.confSpecWrapper}>

@@ -1,8 +1,6 @@
 import React from "react";
 import SupportedAPI from "./SupportedAPI";
 import AuthType from "./AuthType";
-import styles from "./Properties.module.scss"
-import {connect} from "react-redux";
 
 
 class Properties extends React.Component {
@@ -10,15 +8,15 @@ class Properties extends React.Component {
         super(props);
         this.state = {
             apis: [
-                {checked: false, title: 'health', class: 'health'},
-                {checked: false, title: 'deliberate/observables', class: 'deliberate'},
-                {checked: false, title: 'refer/observables', class: 'refer'},
-                {checked: false, title: 'observe/observables', class: 'observe'},
-                {checked: false, title: 'respond/observables', class: 'respond'},
-                {checked: false, title: 'respond/trigger', class: 'respond'},
-                {checked: false, title: 'tiles', class: 'tiles'},
-                {checked: false, title: 'tiles/tile', class: 'tiles'},
-                {checked: false, title: 'tiles/tile-data', class: 'tiles'},
+                {title: 'health', class: 'health'},
+                {title: 'deliberate/observables', class: 'deliberate'},
+                {title: 'refer/observables', class: 'refer'},
+                {title: 'observe/observables', class: 'observe'},
+                {title: 'respond/observables', class: 'respond'},
+                {title: 'respond/trigger', class: 'respond'},
+                {title: 'tiles', class: 'tiles'},
+                {title: 'tiles/tile', class: 'tiles'},
+                {title: 'tiles/tile-data', class: 'tiles'},
             ]
         }
     };
@@ -48,5 +46,4 @@ class Properties extends React.Component {
     }
 }
 
-//export default connect(mapStateToProps, null)(Properties);
 export default Properties;

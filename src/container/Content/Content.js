@@ -10,7 +10,6 @@ import * as Constants from "../../globals/constants/constants";
 import {updateSingleInput, updateFlags, onFileLoaded} from "../../redux/actions";
 
 
-
 class Content extends React.Component {
     constructor(props) {
         super(props);
