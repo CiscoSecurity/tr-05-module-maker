@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./Sidebar.module.scss"
-import * as Constants from "../../../../globals/constants/constants";
+import "./Sidebar.scss"
+import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
 
 
@@ -22,21 +22,21 @@ class Sidebar extends React.Component {
 
     render() {
         return (
-            <div className={styles.Sidebar}>
-                <p className={styles.sidebarHeader}>{Constants.SIDEBAR_TITLE}</p>
-                <ul className={styles.list}>
-                    <input type="file" className={styles.hiddenInput} accept="application/JSON"/>
-                    <li className={styles.sidebarItem}>
-                        {Constants.OPEN_FROM_FILE}
+            <div className="Sidebar">
+                <p>{ Constants.SIDEBAR_TITLE }</p>
+                <ul>
+                    <input type="file" accept="application/JSON"/>
+                    <li>
+                        { Constants.OPEN_FROM_FILE }
                     </li>
-                    <li className={styles.sidebarItem}>
-                        {Constants.OPEN_FROM_API}
+                    <li>
+                        { Constants.OPEN_FROM_API }
                     </li>
-                    <li className={styles.sidebarItem} onClick={this.onSaveButtonClick}>
-                        {Constants.SAVE_JSON}
+                    <li onClick={this.onSaveButtonClick}>
+                        { Constants.SAVE_JSON }
                     </li>
-                    <li className={styles.sidebarItem}>
-                        {Constants.PUSH_JSON}
+                    <li>
+                        { Constants.PUSH_JSON }
                     </li>
                 </ul>
             </div>

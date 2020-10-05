@@ -1,6 +1,6 @@
 import React from "react";
-import SupportedAPI from "./SupportedAPI";
-import AuthType from "./AuthType";
+import SupportedAPI from "./SupportedAPI/SupportedAPI";
+import AuthType from "./AuthType/AuthType";
 
 
 class Properties extends React.Component {

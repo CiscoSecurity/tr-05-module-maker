@@ -1,6 +1,6 @@
 import React from "react";
-import PredefinedInput from "./PredefinedInput";
-import CustomInput from "./CustomInput";
+import PredefinedInput from "./components/PredefinedInput/PredefinedInput";
+import CustomInput from "./components/CustomInput/CustomInput";
 import * as Constants from "../../../../globals/constants/constants";
 
 

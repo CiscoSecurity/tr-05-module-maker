@@ -1,6 +1,6 @@
-import styles from "./ExternalReferences.module.scss";
+import "./PredefinedInput.scss";
 import React from "react";
-import { toggleLink, updateLink } from "../../../../redux/actions";
+import { toggleLink, updateLink } from "redux/actions";
 import { connect } from "react-redux";
 
 
@@ -38,7 +38,7 @@ class PredefinedInput extends React.Component {
 
     render() {
         return (
-            <div className={styles.reference_wrapper}>
+            <div className="reference_wrapper">
                 <input type="checkbox" autoComplete="off" name={this.props.label}
                        onChange={this.onCheckboxToggle}/>
                 {this.props.label}
@@ -47,7 +47,7 @@ class PredefinedInput extends React.Component {
                     name={this.props.label}
                     autoComplete="off"
                     value={this.state.link}
-                    className={styles.predefined_input}
+                    className="predefined_input"
                     onChange={this.onInputValueChange}
                     disabled={this.props.syncReferences.filter(el =>
                         Object.values(el).includes(this.props.label)

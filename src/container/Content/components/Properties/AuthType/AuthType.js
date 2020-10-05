@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Properties.module.scss";
-import * as Constants from "../../../../globals/constants/constants";
-import { toggleAuthType } from "../../../../redux/actions";
+import "./AuthType.scss";
+import * as Constants from "globals/constants/constants";
+import { toggleAuthType } from "redux/actions";
 import { connect } from "react-redux";
 
 
@@ -15,7 +15,7 @@ class AuthType extends React.Component {
 
 render() {
     return (
-        <div className={styles.divAuth}>
+        <div className="divAuth">
 
             <input type="checkbox"
                    autoComplete="off"
@@ -23,7 +23,7 @@ render() {
             />
 
             <label>authorization</label>
-            <select className={styles.selectAuth}
+            <select className="selectAuth"
                     defaultValue={"DEFAULT"}
                     disabled={!Object.keys(this.props.syncProperties).includes("auth-type")}>
                 <option value="DEFAULT" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>

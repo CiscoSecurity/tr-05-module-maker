@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Properties.module.scss";
+import "./SupportedAPI.scss";
 import { connect } from "react-redux";
-import { addCapability, deleteCapability, updateSupportedAPI } from "../../../../redux/actions";
+import { addCapability, deleteCapability, updateSupportedAPI } from "redux/actions";
 
 
 class SupportedAPI extends React.Component {
@@ -26,7 +26,7 @@ class SupportedAPI extends React.Component {
 
     render() {
         return (
-            <div className={styles.supportedAPI}>
+            <div className="supportedAPI">
                 <input type="checkbox" autoComplete="off" onChange={this.onCheckboxToggle}/>
                 {this.state.title}
             </div>

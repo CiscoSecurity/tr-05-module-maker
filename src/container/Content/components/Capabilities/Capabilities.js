@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import Capability from "./Capability";
-import * as Constants from "../../../../globals/constants/constants";
+import Capability from "./components/Capability";
+import * as Constants from "globals/constants/constants";
+import "./Capabilities.scss"
 
 
 const Capabilities = ({syncCapabilities}) => {
@@ -9,7 +10,7 @@ const Capabilities = ({syncCapabilities}) => {
                 <div>
                     <p>Capabilities</p>
                     <fieldset>
-                        <p>{Constants.CAPABILITIES_TEXT}</p>
+                        <p className="capabilitiesTip">{Constants.CAPABILITIES_TEXT}</p>
                         {syncCapabilities.map(api => {
                             return <Capability api={api} key={api.id}/>
                         })}

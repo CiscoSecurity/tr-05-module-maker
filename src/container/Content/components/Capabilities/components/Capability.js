@@ -1,14 +1,13 @@
 import React from "react";
-import styles from "./Capabilities.module.scss"
-import { updateCapabilityDescription } from "../../../../redux/actions";
+import "./Capability.scss"
+import { updateCapabilityDescription } from "../../../../../redux/actions";
 import { connect } from "react-redux";
 
 
 class Capability extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-        };
+        this.state = {};
     }
 
     onDescriptionChange = event => {
@@ -24,13 +23,12 @@ class Capability extends React.Component {
 
     render() {
         return (
-            <div className={styles.capabilitiesWrapper}>
-                {this.props.api.id}
+            <div className="capabilitiesWrapper">
+                <p>{this.props.api.id}</p>
                 <input
                     type="text"
                     value={this.state.description}
                     name={this.props.api.id}
-                    className={styles.inputDescription}
                     placeholder="Enter description"
                     autoComplete="off"
                     onChange={this.onDescriptionChange}
@@ -38,7 +36,6 @@ class Capability extends React.Component {
             </div>
         )
     }
-
 }
 
 const mapDispatchToProps = {

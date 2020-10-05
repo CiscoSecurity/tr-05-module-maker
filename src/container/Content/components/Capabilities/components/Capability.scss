@@ -2,9 +2,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-}
 
-.inputDescription {
-  margin: 4px;
-  flex: 1;
+  input {
+    margin: 4px;
+    flex: 1;
+  }
+  p {
+    padding: 4px;
+  }
 }

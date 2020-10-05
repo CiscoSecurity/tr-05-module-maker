@@ -34,6 +34,7 @@ class MarkdownEditor extends React.Component {
     render() {
         return  <ReactMde
             maxEditorHeight="189"
+            maxPreviewHeight="189"
             toolbarCommands={
                 [
                     ["header"],["bold"], ["italic"], ["strikethrough"],
