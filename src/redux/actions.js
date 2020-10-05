@@ -5,7 +5,11 @@ import {
     TOGGLE_AUTH_TYPE,
     UPDATE_SINGLE_INPUT,
     UPDATE_FlAGS,
-    LOAD_FILE, ADD_CONF_SPEC, UPDATE_CAPABILITY_DESCR
+    LOAD_FILE,
+    ADD_CONF_SPEC,
+    UPDATE_CAPABILITY_DESCR,
+    ADD_LINK,
+    DELETE_LINK, TOGGLE_LINK, UPDATE_LINK
 } from "./types"
 
 export function addCapability(api) {
@@ -68,13 +72,28 @@ export function addConfSpec() {
     return {
         type: ADD_CONF_SPEC,
         payload:   {
-            "key": "string",
-            "type": "password",
-            "label": "string",
-            "tooltip": "string",
-            "subtype": "string",
-            "required": true,
-            "group": "string"
+            "key": "",
+            "type": "",
+            "label": "",
+            "tooltip": "",
+            "subtype": "",
+            "required": false,
+            "group": ""
         }
+    }
+}
+
+export function toggleLink(label) {
+    return {
+        type: TOGGLE_LINK,
+        payload: label
+    }
+}
+
+export function updateLink(pair){
+
+    return {
+        type: UPDATE_LINK,
+        payload: {label: pair.label, link: pair.link}
     }
 }

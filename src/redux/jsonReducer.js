@@ -1,13 +1,21 @@
 import {
     ADD_CAPABILITY,
-    UPDATE_SUPPORTED_API, TOGGLE_AUTH_TYPE,
-    UPDATE_SINGLE_INPUT, UPDATE_FlAGS, LOAD_FILE, DELETE_CAPABILITY, ADD_CONF_SPEC, UPDATE_CAPABILITY_DESCR
+    UPDATE_SUPPORTED_API,
+    TOGGLE_AUTH_TYPE,
+    UPDATE_SINGLE_INPUT,
+    UPDATE_FlAGS,
+    LOAD_FILE,
+    DELETE_CAPABILITY,
+    ADD_CONF_SPEC,
+    UPDATE_CAPABILITY_DESCR,
+    TOGGLE_LINK, UPDATE_LINK
 } from "./types"
 
 const initialState = {
     capabilities: [],
     properties: {"supported-apis": []},
-    configuration_spec: []
+    configuration_spec: [],
+    external_references: []
 }
 
 export const jsonReducer = (state = initialState, action) => {
@@ -18,7 +26,7 @@ export const jsonReducer = (state = initialState, action) => {
             } else {
                 return {...state, capabilities: state.capabilities}
             }
-        case DELETE_CAPABILITY: // ToDo Simplify
+        case DELETE_CAPABILITY:
             if ((state.properties['supported-apis'].filter(elem => elem.startsWith(action.payload))).length > 0) {
                 return {...state, capabilities: state.capabilities}
             } else {
@@ -92,6 +100,37 @@ export const jsonReducer = (state = initialState, action) => {
         case ADD_CONF_SPEC:
             return {...state,
                 configuration_spec: state.configuration_spec.concat([action.payload])
+            }
+
+        case TOGGLE_LINK:
+            if (state.external_references.filter(el => Object.values(el).includes(action.payload)).length === 0) {
+                return {
+                    ...state,
+                    external_references: state.external_references.concat(
+                        {"label": action.payload,
+                        "link": ""}
+                        )
+                }
+            }
+            else {
+                return {
+                    ...state,
+                    external_references: state.external_references.filter(el => !Object.values(el).includes(action.payload))
+                }
+            }
+        case UPDATE_LINK:
+            let obj = state.external_references.filter((ref) => ref.label === action.payload.label);
+            let objIndex = state.external_references.indexOf(obj[0]);
+            return {
+                ...state, external_references: state.external_references.map((item, index) => {
+                    if (index !== objIndex) {
+                        return item
+                    }
+                    return {
+                        ...item,
+                        ...action.payload
+                    }
+                })
             }
 
         default:

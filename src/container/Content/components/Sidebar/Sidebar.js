@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Sidebar.module.scss"
-import * as Constants from "../../../../globals/constants";
-import {connect, useStore} from "react-redux";
+import * as Constants from "../../../../globals/constants/constants";
+import {connect} from "react-redux";
 
 
 class Sidebar extends React.Component {
@@ -10,7 +10,7 @@ class Sidebar extends React.Component {
     }
 
     save = () => {
-        let data = this.props.syncJSON; // is it ok ?
+        let data = this.props.syncJSON;
         let fileData = JSON.stringify(data);
         const blob = new Blob([fileData], {type: "text/plain"});
         const url = URL.createObjectURL(blob);
@@ -22,21 +22,20 @@ class Sidebar extends React.Component {
 
     render() {
         return <div className={styles.Sidebar}>
-            <p className={styles.sidebarHeader}>
-                Settings</p>
+            <p className={styles.sidebarHeader}>{Constants.SIDEBAR_TITLE}</p>
             <ul className={styles.list}>
                 <input type="file" className={styles.hiddenInput} accept="application/JSON"/>
                 <li className={styles.sidebarItem}>
-                    Open JSON from File
+                    {Constants.OPEN_FROM_FILE}
                 </li>
                 <li className={styles.sidebarItem}>
-                    Open JSON from TR API
+                    {Constants.OPEN_FROM_API}
                 </li>
                 <li className={styles.sidebarItem} onClick={this.save}>
-                    Save JSON
+                    {Constants.SAVE_JSON}
                 </li>
                 <li className={styles.sidebarItem}>
-                    Push JSON to TR
+                    {Constants.PUSH_JSON}
                 </li>
             </ul>
         </div>;

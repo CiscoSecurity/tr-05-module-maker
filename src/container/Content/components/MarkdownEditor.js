@@ -33,7 +33,7 @@ class MarkdownEditor extends React.Component {
 
     render() {
         return  <ReactMde
-            //maxEditorHeight="250px"
+            maxEditorHeight="189"
             toolbarCommands={
                 [
                     ["header"],["bold"], ["italic"], ["strikethrough"],
@@ -58,4 +58,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(null, mapDispatchToProps)(MarkdownEditor);
-//export default MarkdownEditor;

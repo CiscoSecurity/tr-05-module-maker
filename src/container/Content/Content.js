@@ -6,7 +6,7 @@ import ExternalReferences from "./components/ExternalReferences/ExternalReferenc
 import Properties from "./components/Properties/Properties";
 import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec";
 import Capabilities from "./components/Capabilities/Capabilities";
-import * as Constants from "../../globals/constants";
+import * as Constants from "../../globals/constants/constants";
 import {updateSingleInput, updateFlags, onFileLoaded} from "../../redux/actions";
 
 

@@ -1,20 +1,15 @@
 import React from "react";
 import styles from "./Properties.module.scss";
-import * as Constants from "../../../../globals/constants";
+import * as Constants from "../../../../globals/constants/constants";
 import { toggleAuthType } from "../../../../redux/actions";
 import { connect } from "react-redux";
-import Select from 'react-select';
 
 
 class AuthType extends React.Component {
   constructor(props) {
         super(props);
         this.state = {
-            auth_type_options: [
-                {label: 'authorization-header', value: 'authorization-header'},
-                {label: 'basic', value: 'basic'},
-                {label: 'bearer', value: 'bearer'}
-                ]
+            auth_type_options: ["authorization-header", "basic", "bearer"],
         }
     }
 
@@ -28,14 +23,18 @@ render() {
             />
 
             <label>authorization</label>
-            <Select
-                className={styles.selectAuth}
-                placeholder={Constants.SELECT_PLACEHOLDER}
-                isClearable="true"
-                options={this.state.auth_type_options}
-                isDisabled={!Object.keys(this.props.syncProperties).includes("auth-type")}
-            >
-            </Select>
+            <select className={styles.selectAuth}
+                    defaultValue={"DEFAULT"}
+                    disabled={!Object.keys(this.props.syncProperties).includes("auth-type")}>
+                <option value="DEFAULT" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
+                {
+                   this.state.auth_type_options.map(
+                        option => {
+                            return <option>{option}</option>
+                        }
+                    )
+                }
+            </select>
         </div>
     )
 }

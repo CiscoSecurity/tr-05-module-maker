@@ -1,3 +1,5 @@
+@import "src/globals/constants/colors";
+
 .reference_wrapper {
     display: flex;
     align-items: center;
@@ -8,5 +10,13 @@
 }
 .custom_input {
     flex: auto;
+    margin: 4px;
+}
+
+.predefined_input {
+    &:disabled {
+        background-color: $input-disabled-background;
+    }
+    flex: 1;
     margin: 4px;
 }
