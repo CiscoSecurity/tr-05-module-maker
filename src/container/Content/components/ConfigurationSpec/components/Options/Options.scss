@@ -1,0 +1,27 @@
+@import "src/globals/constants/colors";
+
+.optionsWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  border: 1px solid $border-color;
+  padding: 4px;
+
+  .optionsIconWrapper {
+    flex: 1;
+    align-self: flex-end;
+
+    .closeIcon {
+      fill: $gray-color;
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .inputDiv {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+}

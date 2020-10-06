@@ -1,0 +1,14 @@
+@import "src/globals/constants/colors";
+
+.divAuth {
+  display: flex;
+  align-items: center;
+
+  .selectAuth {
+    &:disabled {
+      background-color: $input-disabled-background;
+    }
+    flex: 1;
+    margin-left: 4px;
+  }
+}

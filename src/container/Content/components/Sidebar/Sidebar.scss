@@ -1,0 +1,52 @@
+@import "src/globals/constants/colors";
+
+.Sidebar {
+  width: 251px;
+  height: 100%;
+  position: fixed;
+  background-color: $blue-background;
+  color: $white-color;
+  font-size: 14px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+
+  p {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 70px 20px 10px 30px;
+    margin: 0;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    input {
+      display: none;
+    }
+
+    li {
+      cursor: pointer;
+      list-style: none;
+      text-align: left;
+      padding: 0 20px 0 30px;
+      height: 30px;
+      align-items: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      position: relative;
+      display: flex;
+
+      &:hover {
+        background-color: $sidebar-hover-color;
+        box-shadow: inset 5px 0 0 $white-color;
+      }
+    }
+  }
+}

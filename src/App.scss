@@ -1,0 +1,12 @@
+@import "globals/constants/colors";
+
+.site {
+  display: flex;
+  flex-direction: column;
+}
+::selection {
+  background: $selection-color;
+}
+button {
+  font: 400 14px CiscoSans, Arial, sans-serif;
+}

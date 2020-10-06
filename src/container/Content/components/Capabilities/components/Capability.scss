@@ -1,0 +1,13 @@
+.capabilitiesWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  input {
+    margin: 4px;
+    flex: 1;
+  }
+  p {
+    padding: 4px;
+  }
+}
