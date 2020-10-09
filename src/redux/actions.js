@@ -1,15 +1,21 @@
 import {
     ADD_CAPABILITY,
-    DELETE_CAPABILITY,
-    UPDATE_SUPPORTED_API,
-    TOGGLE_AUTH_TYPE,
-    UPDATE_SINGLE_INPUT,
-    UPDATE_FlAGS,
-    LOAD_FILE,
     ADD_CONF_SPEC,
+    ADD_OPTIONS,
+    DELETE_ALL_OPTIONS,
+    DELETE_CAPABILITY,
+    DELETE_CONF_SPEC,
+    DELETE_OPTION,
+    LOAD_FILE,
+    TOGGLE_AUTH_TYPE,
+    TOGGLE_LINK,
+    UPDATE_AUTH_TYPE,
     UPDATE_CAPABILITY_DESCR,
-    ADD_LINK,
-    DELETE_LINK, TOGGLE_LINK, UPDATE_LINK
+    UPDATE_CONF_SPEC,
+    UPDATE_FlAGS,
+    UPDATE_LINK,
+    UPDATE_SINGLE_INPUT,
+    UPDATE_SUPPORTED_API
 } from "./types"
 
 export function addCapability(api) {
@@ -47,6 +53,13 @@ export function toggleAuthType() {
     }
 }
 
+export function updateAuthType(type) {
+    return {
+        type: UPDATE_AUTH_TYPE,
+        payload: type
+    }
+}
+
 export function updateSingleInput(pair) {
     return {
         type: UPDATE_SINGLE_INPUT,
@@ -78,8 +91,55 @@ export function addConfSpec() {
             "tooltip": "",
             "subtype": "",
             "required": false,
-            "group": ""
+            "group": "",
+            "options": [],
+            "id": new Date().getTime()
         }
+    }
+}
+
+export function deleteConfSpec(id) {
+    return {
+        type: DELETE_CONF_SPEC,
+        payload: id
+    }
+}
+
+export function updateConfSpec(id, pair) {
+    return {
+        type: UPDATE_CONF_SPEC,
+        payload: {
+            id: id,
+            pair: pair
+        }
+    }
+}
+
+export function addOptions(id) {
+    return {
+        type: ADD_OPTIONS,
+        payload:
+            {
+                "options": {
+                    "value": "", "label": "",
+                    "id": new Date().getTime()
+                },
+                "conf_spec_id": id
+            }
+    }
+}
+
+export function deleteAllOptions(id) {
+    return {
+        type: DELETE_ALL_OPTIONS,
+        payload: id
+    }
+}
+
+export function deleteOption(option_id, conf_spec_id) {
+    return {
+        type: DELETE_OPTION,
+        payload: {option_id: option_id, conf_spec_id: conf_spec_id}
     }
 }
 
@@ -90,7 +150,7 @@ export function toggleLink(label) {
     }
 }
 
-export function updateLink(pair){
+export function updateLink(pair) {
 
     return {
         type: UPDATE_LINK,

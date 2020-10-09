@@ -15,6 +15,31 @@
     display: flex;
     flex-direction: column;
     margin-left: 4px;
+    padding-right: 10px;
+    margin-top: 15px;
+
+    button {
+      flex: 1;
+      height: 28px;
+      min-width: 75px;
+      color: $white-color;
+      background-color: $blue-background;
+      border-radius: 3px;
+      border: 0;
+      box-shadow: none;
+      font-weight: 400;
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-top: 4px;
+
+      &:hover {
+        background: $hover-color;
+      }
+    }
 
     .inputDiv {
       flex: 1;
@@ -36,12 +61,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+  }
+  .closeIcon {
+    fill: $gray-color;
+    width: 15px;
+    height: 15px;
+    margin: 4px;
 
-        .closeIcon {
-          fill: $gray-color;
-          width: 15px;
-          height: 15px;
-        }
+    &:hover {
+      fill: $hover-color;
     }
   }
 }

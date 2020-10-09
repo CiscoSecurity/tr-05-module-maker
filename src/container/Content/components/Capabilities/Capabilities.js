@@ -21,9 +21,8 @@ const Capabilities = ({syncCapabilities}) => {
 
 const mapStateToProps = state => {
     return {
-        syncCapabilities: state.json.capabilities
+        syncCapabilities: state.capabilities
     }
 }
-
 
 export default connect(mapStateToProps, null)(Capabilities);

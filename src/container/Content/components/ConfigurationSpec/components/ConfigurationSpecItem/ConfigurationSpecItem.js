@@ -3,9 +3,73 @@ import "./ConfigurationSpecItem.scss"
 import * as Constants from "globals/constants/constants";
 import Icons from "globals/icons/sprite.svg";
 import Options from "../Options/Options";
+import { addOptions } from "redux/actions";
+import { connect } from "react-redux";
+import {deleteConfSpec, deleteAllOptions, updateConfSpec} from "redux/actions";
 
 
-export default class ConfigurationSpecItem extends React.Component {
+/*function confSpecInput({name}) {
+   return(
+       <input
+        type="text"
+        name={name}
+        className="customInput"
+        required
+    />
+    )
+}*/
+
+class ConfigurationSpecItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showOptions: false,
+            key: "",
+            type: "",
+            label: "",
+            tooltip: "",
+            subtype: "",
+            required: false,
+            group: "",
+        }
+    }
+    onSelectChange = (event) => {
+        this.onInputChange(event);
+        if (event.target.value === 'options') {
+            this.props.addOptions(this.props.role);
+            this.setState({showOptions: true})
+        }
+        else {
+            this.props.deleteAllOptions(this.props.role);
+            this.setState({showOptions: false});
+        }
+    }
+    onDeleteIconClick = (event) => {
+        this.props.deleteConfSpec(this.props.role);
+    }
+
+    onInputChange = (event) => {
+        event.persist()
+        let value = '';
+        if (event.target.type==="checkbox"){
+            value = event.target.checked;
+        }
+        else {
+            value = event.target.value;
+        }
+        this.setState(prev => ({
+            ...prev, ...{
+                [event.target.name]: value
+            }
+        }))
+
+        this.props.updateConfSpec(
+            this.props.role,
+            {name: event.target.name, value: value}
+            )
+
+    }
+
     render() {
         return (
             <div className="confSpecWrapper">
@@ -18,6 +82,8 @@ export default class ConfigurationSpecItem extends React.Component {
                                 name="key"
                                 className="customInput"
                                 required
+                                value={this.state.key}
+                                onChange={this.onInputChange}
                                 list="key-input-list"
                             />
                         </div>
@@ -32,7 +98,8 @@ export default class ConfigurationSpecItem extends React.Component {
                         </datalist>
                         <div className="inputDiv">
                             type
-                            <select name="type" className="customInput" defaultValue={'DEFAULT'}>
+                            <select name="type" className="customInput"
+                                    defaultValue={'DEFAULT'} onChange={this.onSelectChange}>
                                 <option value="DEFAULT" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                                 {
                                     Constants.TYPE_OPTIONS.map(
@@ -45,45 +112,58 @@ export default class ConfigurationSpecItem extends React.Component {
                         </div>
                         <div className="inputDiv">
                             label
-                            <input type="text" name="label" className="customInput" required/>
+                            <input type="text" name="label" className="customInput" required  value={this.state.label}
+                                   onChange={this.onInputChange}/>
                         </div>
                     </div>
                 </div>
+
+                {  this.state.showOptions
+                    ?
+                    <Options conf_spec_id={this.props.role} options={this.props.syncConfSpecItem.options}/>
+                    : null
+                }
+
                 <div className="column">
                     <div>
                         <div className="inputDiv">
                             tooltip
-                            <input type="text" name="tooltip" className="customInput"/>
+                            <input type="text" name="tooltip" className="customInput" value={this.state.tooltip} onChange={this.onInputChange}/>
                         </div>
                         <div className="inputDiv">
                             subtype
-                            <input type="text" name="subtype" className="customInput"/>
+                            <input type="text" name="subtype" className="customInput" value={this.state.subtype} onChange={this.onInputChange}/>
                         </div>
                         <div className="inputDiv">
                             group
-                            <input type="text" name="group" className="customInput"/>
+                            <input type="text" name="group" className="customInput" value={this.state.group} onChange={this.onInputChange}/>
                         </div>
                         <div className="checkboxDiv">
                             required
-                            <input type="checkbox" name="required"/>
+                            <input type="checkbox" name="required" value={this.state.required} onChange={this.onInputChange}/>
                         </div>
                     </div>
                 </div>
-                <div className="column">
-                    <div className="confSpecRow">
-                        <div>
-                            Options
-                            <button className="addNewButton">Add new</button>
-                        </div>
-                        <div>
-                            <svg className="closeIcon">
-                                <use xlinkHref={`${Icons}#icon-small-x-close`}/>
-                            </svg>
-                        </div>
-                    </div>
-                    <Options/>
-                </div>
+                    <svg className="closeIcon" onClick={this.onDeleteIconClick}>
+                        <use xlinkHref={`${Icons}#icon-small-x-close`}/>
+                    </svg>
             </div>
         )
     }
 }
+
+
+const mapDispatchToProps = {
+    addOptions,
+    deleteAllOptions,
+    deleteConfSpec,
+    updateConfSpec
+}
+
+const mapStateToProps = state => {
+    return {
+        syncConfSpec: state.configuration_spec
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConfigurationSpecItem);

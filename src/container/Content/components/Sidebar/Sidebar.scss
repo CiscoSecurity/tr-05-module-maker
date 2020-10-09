@@ -44,7 +44,7 @@
       display: flex;
 
       &:hover {
-        background-color: $sidebar-hover-color;
+        background-color: $hover-color;
         box-shadow: inset 5px 0 0 $white-color;
       }
     }

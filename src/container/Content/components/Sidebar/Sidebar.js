@@ -46,7 +46,7 @@ class Sidebar extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        syncJSON: state.json
+        syncJSON: state
     }
 }
 

@@ -10,11 +10,14 @@ class ExternalReferences extends React.Component {
             <div>
                 <p>External References</p>
                 <fieldset>
-                    {
+                    {/*{
                         Constants.LABELS.map(
                             item => (<PredefinedInput label={item}/>)
                         )
-                    }
+                    }*/}
+                    <CustomInput/>
+                    <CustomInput/>
+                    <CustomInput/>
                     <CustomInput/>
                     <CustomInput/>
                 </fieldset>

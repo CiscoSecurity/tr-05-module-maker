@@ -16,6 +16,9 @@
       fill: $gray-color;
       width: 15px;
       height: 15px;
+      &:hover {
+        fill: $hover-color;
+      }
     }
   }
 

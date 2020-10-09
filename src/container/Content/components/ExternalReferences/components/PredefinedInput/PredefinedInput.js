@@ -65,7 +65,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = state => {
     return {
-        syncReferences: state.json.external_references
+        syncReferences: state.external_references
     }
 }
 
