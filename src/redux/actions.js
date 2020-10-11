@@ -1,19 +1,19 @@
 import {
     ADD_CAPABILITY,
-    ADD_CONF_SPEC,
+    ADD_CONF_SPEC, ADD_EXTERNAL_REFERENCE,
     ADD_OPTIONS,
     DELETE_ALL_OPTIONS,
     DELETE_CAPABILITY,
-    DELETE_CONF_SPEC,
+    DELETE_CONF_SPEC, DELETE_EXTERNAL_REFERENCE,
     DELETE_OPTION,
     LOAD_FILE,
     TOGGLE_AUTH_TYPE,
     TOGGLE_LINK,
     UPDATE_AUTH_TYPE,
     UPDATE_CAPABILITY_DESCR,
-    UPDATE_CONF_SPEC,
+    UPDATE_CONF_SPEC, UPDATE_EXTERNAL_REFERENCE,
     UPDATE_FlAGS,
-    UPDATE_LINK,
+    UPDATE_LINK, UPDATE_OPTION,
     UPDATE_SINGLE_INPUT,
     UPDATE_SUPPORTED_API
 } from "./types"
@@ -143,17 +143,33 @@ export function deleteOption(option_id, conf_spec_id) {
     }
 }
 
-export function toggleLink(label) {
+export function updateOption(option_id, conf_spec_id, pair) {
     return {
-        type: TOGGLE_LINK,
-        payload: label
+        type: UPDATE_OPTION,
+        payload: {option_id: option_id, conf_spec_id: conf_spec_id, pair: pair}
     }
 }
 
-export function updateLink(pair) {
 
+export function updateExternalReference(id, pair) {
     return {
-        type: UPDATE_LINK,
-        payload: {label: pair.label, link: pair.link}
+        type: UPDATE_EXTERNAL_REFERENCE,
+        payload: {id: id, pair: pair}
+    }
+}
+
+export function addExternalReference() {
+    return {
+        type: ADD_EXTERNAL_REFERENCE,
+        payload: {
+            "id": new Date().getTime()
+        }
+    }
+}
+
+export function deleteExternalReference(id) {
+    return {
+        type: DELETE_EXTERNAL_REFERENCE,
+        payload: id
     }
 }

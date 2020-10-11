@@ -37,3 +37,4 @@ export const HEADER_TITLE = "Threat Response Module Maker";
 
 //ExternalReferences.js
 export const LABELS = ["Sign Up", "Free Trial", "Contact Us"];
+export const SECTION_TITLE = "External References";

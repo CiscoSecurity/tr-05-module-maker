@@ -48,7 +48,10 @@ render() {
             <select className="selectAuth"
                     value={this.state.selected_value}
                     onChange={this.onAuthSelection}
-                    disabled={!Object.keys(this.props.syncProperties).includes("auth-type")}>
+                    disabled={!Object.keys(this.props.syncProperties).includes("auth-type")}
+                    required={Object.keys(this.props.syncProperties).includes("auth-type")&&"required"}
+
+            >
                 <option value="DEFAULT" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                 {
                    this.state.auth_type_options.map(

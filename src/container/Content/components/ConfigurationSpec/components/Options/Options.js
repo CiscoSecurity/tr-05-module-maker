@@ -10,7 +10,7 @@ class Options extends React.Component {
         super(props);
     }
 
-    onButtonClick = event => {
+    onButtonClick = () => {
         this.props.addOptions(this.props.conf_spec_id)
     }
 

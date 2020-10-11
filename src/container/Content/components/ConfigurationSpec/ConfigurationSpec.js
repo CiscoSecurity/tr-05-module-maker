@@ -12,7 +12,7 @@ class ConfigurationSpec extends React.Component {
                     <div>
                     Configuration Spec
                     <button onClick={this.props.addConfSpec}>
-                        Add new
+                        + Add new
                     </button>
                     </div>
                 </div>

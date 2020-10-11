@@ -1,37 +1,36 @@
-import { TOGGLE_LINK, UPDATE_LINK } from "./types"
+import {
+    ADD_EXTERNAL_REFERENCE,
+    DELETE_EXTERNAL_REFERENCE,
+    UPDATE_EXTERNAL_REFERENCE,
+} from "./types"
 
 const initialState = []
 
 export const externalReferencesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case TOGGLE_LINK:
-            if (state.filter(
-                el => Object.values(el).includes(action.payload)).length === 0
-            ) {
-                return state.concat(
-                        {
-                            "label": action.payload,
-                            "link": ""
-                        }
-                    )
+        case ADD_EXTERNAL_REFERENCE:
+            return state.concat(
+                {
+                    "label": "",
+                    "link": "",
+                    "id": action.payload.id
+                }
+            )
 
-            } else {
-                return state.filter(
-                        el => !Object.values(el).includes(action.payload)
-                    )
-            }
-        case UPDATE_LINK:
-            let obj = state.filter(
-                (ref) => ref.label === action.payload.label);
-            let objIndex = state.indexOf(obj[0]);
+        case DELETE_EXTERNAL_REFERENCE:
+            return state.filter(
+                el => !Object.values(el).includes(action.payload)
+            )
+
+        case UPDATE_EXTERNAL_REFERENCE:
             return state.map(
-                    (item, index) => {
-                        if (index !== objIndex) {
+                    item => {
+                        if (item.id !== action.payload.id) {
                             return item
                         }
                         return {
                             ...item,
-                            ...action.payload
+                            [action.payload.pair.name]: action.payload.pair.value
                         }
                     }
                 )

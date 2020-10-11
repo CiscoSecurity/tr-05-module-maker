@@ -1,16 +1,61 @@
 import "./CustomInput.scss";
 import React from "react";
 import * as Constants from "globals/constants/constants";
+import { connect } from "react-redux";
+import Icons from "globals/icons/sprite.svg";
+import { deleteExternalReference, updateExternalReference } from "redux/actions";
 
 
-export default class CustomInput extends React.Component {
+class CustomInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            "label": "",
+            "link": ""
+        }
+    }
+    changeInputHandler = event => {
+        event.persist()
+        this.setState(prev => ({
+            ...prev, ...{
+                [event.target.name]: event.target.value
+            }
+        }))
+        this.props.updateExternalReference(
+            this.props.id,
+            {
+            name: event.target.name,
+            value: event.target.value.trim()
+            }
+            )
+    }
+
+    onDeleteIconClick = () => {
+        this.props.deleteExternalReference(this.props.id);
+    }
+
     render() {
         return(
             <div className="reference_wrapper">
-                <input type="text" placeholder="Enter label" className="custom_input"
-                       autoComplete="off" list="ext-ref"/>
-                <input type="text" placeholder="Enter link" className="custom_input"
-                       autoComplete="off" />
+                <input type="text"
+                       name="label"
+                       placeholder="Enter label"
+                       className="custom_input"
+                       autoComplete="off"
+                       list="ext-ref"
+                       value={this.state.label}
+                       onChange={this.changeInputHandler}
+                       required
+                />
+                <input type="text"
+                       name="link"
+                       placeholder="Enter link"
+                       className="custom_input"
+                       autoComplete="off"
+                       value={this.state.link}
+                       onChange={this.changeInputHandler}
+                       required
+                />
                 <datalist id="ext-ref">
                     {
                         Constants.LABELS.map(
@@ -20,7 +65,23 @@ export default class CustomInput extends React.Component {
                         )
                     }
                 </datalist>
+                <svg className="closeIcon" onClick={this.onDeleteIconClick}>
+                    <use xlinkHref={`${Icons}#icon-small-x-close`}/>
+                </svg>
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        syncReferences: state.external_references
+    }
+}
+
+const mapDispatchToProps = {
+    deleteExternalReference,
+    updateExternalReference
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomInput);

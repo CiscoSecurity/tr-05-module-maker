@@ -32,6 +32,7 @@ class Capability extends React.Component {
                     placeholder="Enter description"
                     autoComplete="off"
                     onChange={this.onDescriptionChange}
+                    required
                 />
             </div>
         )

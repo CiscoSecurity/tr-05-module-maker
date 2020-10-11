@@ -9,16 +9,36 @@ class Sidebar extends React.Component {
         super(props);
     }
 
-    onSaveButtonClick = () => {
-        const data = this.props.syncJSON;
-        const fileData = JSON.stringify(data);
-        const blob = new Blob([fileData], {type: "text/plain"});
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.download = `${data.title}_module_type.json`;
-        link.href = url;
-        link.click();
+    constructValidJSON(data){
+        for (const elem of data.configuration_spec) {
+            if (elem.options) {
+                elem.options.map(
+                    option => delete option["id"]
+                )
+            }
+            delete elem["id"]
+        }
+        data.external_references.map(
+            element => delete element["id"]
+        )
+        return data
     }
+
+    onSaveButtonClick = () => {
+/*        const form = document.getElementsByTagName('form')[0];
+        const valid = form.reportValidity();
+        if (valid) {*/
+
+            const data = JSON.parse(JSON.stringify(this.props.syncJSON));
+            const formattedData = this.constructValidJSON(data);
+            const fileData = JSON.stringify(formattedData);
+            const blob = new Blob([fileData], {type: "text/plain"});
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.download = `${data.title}_module_type.json`;
+            link.href = url;
+            link.click();
+        }
 
     render() {
         return (
