@@ -44,6 +44,7 @@ class OptionsItem extends React.Component {
                            className="customInput"
                            value={this.state.value}
                            onChange={this.onInputUpdate}
+                           required
                     />
                 </div>
                 <div className="inputDiv">
@@ -53,6 +54,7 @@ class OptionsItem extends React.Component {
                            className="customInput"
                            value={this.state.label}
                            onChange={this.onInputUpdate}
+                           required
                     />
                 </div>
             </div>
