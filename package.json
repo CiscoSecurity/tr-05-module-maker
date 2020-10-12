@@ -4,16 +4,16 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "@testing-library/user-event": "^12.1.7",
     "node-sass": "^4.14.1",
+    "npm": "^6.14.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-mde": "^11.0.0",
     "react-redux": "^7.2.1",
     "react-scripts": "3.4.3",
-    "react-select": "^3.1.0",
     "redux": "^4.0.5",
     "showdown": "^1.9.1"
   },
@@ -21,9 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint '**/*.js'",
-    "stylelint": "stylelint '**/*.{html,scss}'"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,9 +39,6 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.11.0",
-    "eslint-plugin-react": "^7.21.4",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0"
   }
