@@ -25,20 +25,23 @@ class Sidebar extends React.Component {
     }
 
     onSaveButtonClick = () => {
-/*        const form = document.getElementsByTagName('form')[0];
+        const form = document.getElementById("mainForm");
         const valid = form.reportValidity();
-        if (valid) {*/
-
+        if (valid) {
             const data = JSON.parse(JSON.stringify(this.props.syncJSON));
             const formattedData = this.constructValidJSON(data);
             const fileData = JSON.stringify(formattedData);
             const blob = new Blob([fileData], {type: "text/plain"});
             const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
+            const link = document.createElement("a");
             link.download = `${data.title}_module_type.json`;
             link.href = url;
             link.click();
         }
+        else {
+            alert("Please, fill out highlighted fields")
+        }
+    }
 
     render() {
         return (

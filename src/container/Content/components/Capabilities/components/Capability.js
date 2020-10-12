@@ -1,6 +1,6 @@
 import React from "react";
 import "./Capability.scss"
-import { updateCapabilityDescription } from "redux/actions";
+import { updateCapabilityDescription } from "../capabilitiesActions";
 import { connect } from "react-redux";
 
 

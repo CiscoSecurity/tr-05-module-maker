@@ -7,8 +7,7 @@ import Properties from "./components/Properties/Properties";
 import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec";
 import Capabilities from "./components/Capabilities/Capabilities";
 import * as Constants from "globals/constants/constants";
-import { updateSingleInput, updateFlags, onFileLoaded } from "redux/actions";
-import { withFormik } from 'formik';
+import { updateSingleInput, updateFlags, onFileLoaded } from "./otherInputsActions";
 
 
 class Content extends React.Component {
@@ -53,9 +52,8 @@ class Content extends React.Component {
     }
 
     render() {
-        const { submitCount, isValid, touched, handleChange, handleBlur, values, errors } = this.props;
         return (
-            <form>
+            <form id="mainForm">
             <div className="content">
                 <div className="row">
                     <h1 className="title">{Constants.MAIN_TITLE}</h1>

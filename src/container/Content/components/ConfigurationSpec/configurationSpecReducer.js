@@ -6,11 +6,10 @@ import {
     DELETE_OPTION,
     UPDATE_CONF_SPEC,
     UPDATE_OPTION
-} from "./types"
+} from "globals/constants/types"
 
-const initialState = []
 
-export const configurationSpecReducer = (state = initialState, action) => {
+export const configurationSpecReducer = (state = [], action) => {
     switch (action.type) {
         case ADD_CONF_SPEC:
             return state.concat([action.payload])

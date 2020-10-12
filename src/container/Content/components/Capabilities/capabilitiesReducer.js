@@ -1,8 +1,5 @@
-import {
-    ADD_CAPABILITY,
-    DELETE_CAPABILITY,
-    UPDATE_CAPABILITY_DESCR,
-} from "./types"
+import { ADD_CAPABILITY, DELETE_CAPABILITY, UPDATE_CAPABILITY_DESCR }
+from "globals/constants/types"
 
 const initialState = [];
 

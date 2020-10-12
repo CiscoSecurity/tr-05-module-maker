@@ -1,9 +1,8 @@
 import React from "react";
-import  "./Options.scss"; //ToDo
+import  "./Options.scss";
 import Icons from "globals/icons/sprite.svg";
-import {connect} from "react-redux";
-import {deleteOption} from "redux/actions";
-import {updateOption} from "redux/actions";
+import { connect } from "react-redux";
+import { deleteOption, updateOption } from "../../configurationSpecActions";
 
 
 class OptionsItem extends React.Component {

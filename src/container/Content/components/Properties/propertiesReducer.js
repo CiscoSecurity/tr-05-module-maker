@@ -1,7 +1,7 @@
 import {
     TOGGLE_AUTH_TYPE, UPDATE_AUTH_TYPE,
     UPDATE_SUPPORTED_API
-} from "./types"
+} from "globals/constants/types"
 
 const initialState = {
  "supported-apis": []

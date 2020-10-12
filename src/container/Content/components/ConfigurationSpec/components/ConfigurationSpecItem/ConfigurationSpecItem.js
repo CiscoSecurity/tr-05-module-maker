@@ -3,21 +3,9 @@ import "./ConfigurationSpecItem.scss"
 import * as Constants from "globals/constants/constants";
 import Icons from "globals/icons/sprite.svg";
 import Options from "../Options/Options";
-import { addOptions } from "redux/actions";
 import { connect } from "react-redux";
-import {deleteConfSpec, deleteAllOptions, updateConfSpec} from "redux/actions";
+import {deleteConfSpec, deleteAllOptions, updateConfSpec, addOptions} from "../../configurationSpecActions";
 
-
-/*function confSpecInput({name}) {
-   return(
-       <input
-        type="text"
-        name={name}
-        className="customInput"
-        required
-    />
-    )
-}*/
 
 class ConfigurationSpecItem extends React.Component {
     constructor(props) {
@@ -91,20 +79,20 @@ class ConfigurationSpecItem extends React.Component {
                             {
                                 Constants.KEY_DATALIST.map(
                                     option => {
-                                        return <option>{option}</option>
+                                        return <option key={`${option} ${this.props.role}`}>{option}</option>
                                     }
                                 )
                             }
                         </datalist>
                         <div className="inputDiv">
                             type
-                            <select name="type" className="customInput"
-                                    defaultValue={'DEFAULT'} onChange={this.onSelectChange}>
-                                <option value="DEFAULT" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
+                            <select name="type" className="customInput" required
+                                    defaultValue="" onChange={this.onSelectChange}>
+                                <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                                 {
                                     Constants.TYPE_OPTIONS.map(
                                         option => {
-                                            return <option>{option}</option>
+                                            return <option key={option}>{option}</option>
                                         }
                                     )
                                 }

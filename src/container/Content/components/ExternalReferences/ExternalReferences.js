@@ -3,12 +3,12 @@ import CustomInput from "./components/CustomInput/CustomInput";
 import * as Constants from "globals/constants/constants";
 import "container/Content/components/ExternalReferences/ExternalReferences.scss"
 import { connect } from "react-redux";
-import { addExternalReference } from "redux/actions";
+import { addExternalReference } from "./externalReferencesActions";
 
 
 class ExternalReferences extends React.Component {
 
-    onAddButtonClick = event => {
+    onAddButtonClick = () => {
         this.props.addExternalReference()
     }
 

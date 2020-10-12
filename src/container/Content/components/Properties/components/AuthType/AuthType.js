@@ -1,7 +1,7 @@
 import React from "react";
 import "./AuthType.scss";
 import * as Constants from "globals/constants/constants";
-import { toggleAuthType, updateAuthType } from "redux/actions";
+import { toggleAuthType, updateAuthType } from "../../propertiesActions";
 import { connect } from "react-redux";
 
 
@@ -10,7 +10,7 @@ class AuthType extends React.Component {
         super(props);
         this.state = {
             auth_type_options: ["authorization-header", "basic", "bearer"],
-            selected_value: "DEFAULT"
+            selected_value: ""
         }
     }
 
@@ -20,7 +20,7 @@ class AuthType extends React.Component {
         if (!event.target.checked) {
             this.setState(prev => ({
                 ...prev, ...{
-                    selected_value: "DEFAULT"
+                    selected_value: ""
                 }
             }))
         }
@@ -52,11 +52,11 @@ render() {
                     required={Object.keys(this.props.syncProperties).includes("auth-type")&&"required"}
 
             >
-                <option value="DEFAULT" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
+                <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                 {
                    this.state.auth_type_options.map(
                         option => {
-                            return <option value={option}>{option}</option>
+                            return <option value={option} key={option}>{option}</option>
                         }
                     )
                 }

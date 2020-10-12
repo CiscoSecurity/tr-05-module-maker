@@ -2,7 +2,7 @@ import {
     ADD_EXTERNAL_REFERENCE,
     DELETE_EXTERNAL_REFERENCE,
     UPDATE_EXTERNAL_REFERENCE,
-} from "./types"
+} from "globals/constants/types"
 
 const initialState = []
 

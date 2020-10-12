@@ -1,8 +1,8 @@
 import React from "react";
 import "./Options.scss";
 import OptionsItem from "./OptionItem";
-import {addOptions} from "redux/actions";
-import {connect} from "react-redux";
+import { addOptions } from "../../configurationSpecActions";
+import { connect } from "react-redux";
 
 
 class Options extends React.Component {
