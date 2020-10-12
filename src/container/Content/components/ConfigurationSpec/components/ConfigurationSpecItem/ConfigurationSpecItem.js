@@ -4,7 +4,8 @@ import * as Constants from "globals/constants/constants";
 import Icons from "globals/icons/sprite.svg";
 import Options from "../Options/Options";
 import { connect } from "react-redux";
-import { deleteConfSpec, deleteAllOptions, updateConfSpec, addOptions } from "../../configurationSpecActions";
+import { deleteConfSpec, deleteAllOptions, updateConfSpec, addOptions }
+from "../../configurationSpecActions";
 
 
 class ConfigurationSpecItem extends React.Component {
@@ -32,14 +33,14 @@ class ConfigurationSpecItem extends React.Component {
             this.setState({showOptions: false});
         }
     }
-    onDeleteIconClick = (event) => {
+    onDeleteIconClick = () => {
         this.props.deleteConfSpec(this.props.role);
     }
 
     onInputChange = (event) => {
         event.persist()
         let value = '';
-        if (event.target.type==="checkbox"){
+        if (event.target.type === "checkbox"){
             value = event.target.checked;
         }
         else {
