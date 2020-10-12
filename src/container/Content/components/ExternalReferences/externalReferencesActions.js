@@ -1,4 +1,5 @@
-import {ADD_EXTERNAL_REFERENCE, DELETE_EXTERNAL_REFERENCE, UPDATE_EXTERNAL_REFERENCE} from "../../../../globals/constants/types";
+import { ADD_EXTERNAL_REFERENCE, DELETE_EXTERNAL_REFERENCE, UPDATE_EXTERNAL_REFERENCE }
+from "globals/constants/types";
 
 export function updateExternalReference(id, pair) {
     return {

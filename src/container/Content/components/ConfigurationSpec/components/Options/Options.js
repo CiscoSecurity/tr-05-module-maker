@@ -22,7 +22,13 @@ class Options extends React.Component {
                         Options
                     </div>
                 </div>
-                {this.props.options.map(elem => <OptionsItem key={elem.id} option_id={elem.id} conf_spec_id={this.props.conf_spec_id}/>)}
+                {this.props.options.map(
+                    elem => <OptionsItem key={elem.id}
+                                         option_id={elem.id}
+                                         conf_spec_id={this.props.conf_spec_id}
+                    />
+                    )
+                }
                 <button className="addNewButton" onClick={this.onButtonClick}>
                     + Add another option
                 </button>

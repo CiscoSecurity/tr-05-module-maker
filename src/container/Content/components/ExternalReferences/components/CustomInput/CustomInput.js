@@ -3,7 +3,8 @@ import React from "react";
 import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
 import Icons from "globals/icons/sprite.svg";
-import { deleteExternalReference, updateExternalReference } from "container/Content/components/ExternalReferences/externalReferencesActions";
+import { deleteExternalReference, updateExternalReference }
+from "container/Content/components/ExternalReferences/externalReferencesActions";
 
 
 class CustomInput extends React.Component {
@@ -60,7 +61,11 @@ class CustomInput extends React.Component {
                     {
                         Constants.LABELS.map(
                             option => {
-                                return <option key={`${option} ${this.props.id}`}>{option}</option>
+                                return (
+                                    <option key={`${option} ${this.props.id}`}>
+                                        {option}
+                                    </option>
+                                )
                             }
                         )
                     }

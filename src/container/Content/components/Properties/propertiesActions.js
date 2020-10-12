@@ -1,4 +1,5 @@
-import {TOGGLE_AUTH_TYPE, UPDATE_AUTH_TYPE, UPDATE_SUPPORTED_API} from "../../../../globals/constants/types";
+import { TOGGLE_AUTH_TYPE, UPDATE_AUTH_TYPE, UPDATE_SUPPORTED_API }
+from "globals/constants/types";
 
 export function updateSupportedAPI(api) {
     return {

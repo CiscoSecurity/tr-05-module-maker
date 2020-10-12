@@ -10,14 +10,15 @@ import {
 
 
 export const configurationSpecReducer = (state = [], action) => {
+    let spec = state.filter((spec) => spec.id === action.payload.conf_spec_id);
+    let indexOfSpec = state.indexOf(spec[0]);
+
     switch (action.type) {
         case ADD_CONF_SPEC:
             return state.concat([action.payload])
         case ADD_OPTIONS:
-            let item = state.filter((spec) => spec.id === action.payload.conf_spec_id);
-            let elementIndex = state.indexOf(item[0]);
             return state.map((item, index) => {
-                    if (index !== elementIndex) {
+                    if (index !== indexOfSpec) {
                         return item
                     }
                     return {
@@ -28,13 +29,13 @@ export const configurationSpecReducer = (state = [], action) => {
             )
 
         case DELETE_CONF_SPEC:
-            return state.filter((spec) => spec.id !== action.payload);
+            return state.filter(
+                (spec) => spec.id !== action.payload.conf_spec_id
+            );
 
         case DELETE_ALL_OPTIONS:
-            let elemToDelete = state.filter((spec) => spec.id === action.payload);
-            let indexToDelete = state.indexOf(elemToDelete[0]);
             return state.map((item, index) => {
-                    if (index !== indexToDelete) {
+                    if (index !== indexOfSpec) {
                         return item
                     }
                     return {
@@ -44,24 +45,22 @@ export const configurationSpecReducer = (state = [], action) => {
                 }
             )
         case DELETE_OPTION:
-            let spec = state.filter((spec) => spec.id === action.payload.conf_spec_id);
-            let indexOfSpec = state.indexOf(spec[0]);
             return state.map((item, index) => {
                     if (index !== indexOfSpec) {
                         return item
                     }
                     return {
                         ...item,
-                        "options": item.options.filter(el => el.id !== action.payload.option_id)
+                        "options": item.options.filter(
+                            el => el.id !== action.payload.option_id
+                        )
                     }
                 }
             )
 
         case UPDATE_CONF_SPEC:
-            let itemToUpdate = state.filter((spec) => spec.id === action.payload.id);
-            let indexToUpdate = state.indexOf(itemToUpdate[0]);
             return state.map((item, index) => {
-                    if (index !== indexToUpdate) {
+                    if (index !== indexOfSpec) {
                         return item
                     }
                     return {
@@ -72,15 +71,13 @@ export const configurationSpecReducer = (state = [], action) => {
             )
 
         case UPDATE_OPTION:
-            let optionToUpdate = state.filter((spec) => spec.id === action.payload.conf_spec_id);
-            let indexOfOption = state.indexOf(optionToUpdate[0]); //ToDo --> indexOfOption --> option_id
             return state.map((item, index) => {
-                    if (index !== indexOfOption) {
+                    if (index !== indexOfSpec) {
                         return item
                     }
                     return {
                         ...item,
-                        "options": item.options.map((option, ind) => {
+                        "options": item.options.map((option) => {
                                 if (option.id !== action.payload.option_id) {
                                     return option
                                 }

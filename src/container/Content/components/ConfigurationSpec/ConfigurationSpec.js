@@ -18,8 +18,13 @@ class ConfigurationSpec extends React.Component {
                 </div>
                 {
                     this.props.syncConfSpec.map(
-                        elem => (<ConfigurationSpecItem role={elem.id} key={elem.id}
-                                                        syncConfSpecItem={elem}/>)
+                        elem => (
+                            <ConfigurationSpecItem
+                                role={elem.id}
+                                key={elem.id}
+                                syncConfSpecItem={elem}
+                            />
+                            )
                     )
                 }
             </div>

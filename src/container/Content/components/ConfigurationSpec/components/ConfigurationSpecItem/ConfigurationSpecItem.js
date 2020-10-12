@@ -4,7 +4,7 @@ import * as Constants from "globals/constants/constants";
 import Icons from "globals/icons/sprite.svg";
 import Options from "../Options/Options";
 import { connect } from "react-redux";
-import {deleteConfSpec, deleteAllOptions, updateConfSpec, addOptions} from "../../configurationSpecActions";
+import { deleteConfSpec, deleteAllOptions, updateConfSpec, addOptions } from "../../configurationSpecActions";
 
 
 class ConfigurationSpecItem extends React.Component {
@@ -100,7 +100,8 @@ class ConfigurationSpecItem extends React.Component {
                         </div>
                         <div className="inputDiv">
                             label
-                            <input type="text" name="label" className="customInput" required  value={this.state.label}
+                            <input type="text" name="label" className="customInput"
+                                   required  value={this.state.label}
                                    onChange={this.onInputChange}/>
                         </div>
                     </div>
@@ -108,7 +109,10 @@ class ConfigurationSpecItem extends React.Component {
 
                 {  this.state.showOptions
                     ?
-                    <Options conf_spec_id={this.props.role} options={this.props.syncConfSpecItem.options}/>
+                    <Options
+                        conf_spec_id={this.props.role}
+                        options={this.props.syncConfSpecItem.options}
+                    />
                     : null
                 }
 
@@ -116,19 +120,23 @@ class ConfigurationSpecItem extends React.Component {
                     <div>
                         <div className="inputDiv">
                             tooltip
-                            <input type="text" name="tooltip" className="customInput" value={this.state.tooltip} onChange={this.onInputChange}/>
+                            <input type="text" name="tooltip" className="customInput"
+                                   value={this.state.tooltip} onChange={this.onInputChange}/>
                         </div>
                         <div className="inputDiv">
                             subtype
-                            <input type="text" name="subtype" className="customInput" value={this.state.subtype} onChange={this.onInputChange}/>
+                            <input type="text" name="subtype" className="customInput"
+                                   value={this.state.subtype} onChange={this.onInputChange}/>
                         </div>
                         <div className="inputDiv">
                             group
-                            <input type="text" name="group" className="customInput" value={this.state.group} onChange={this.onInputChange}/>
+                            <input type="text" name="group" className="customInput"
+                                   value={this.state.group} onChange={this.onInputChange}/>
                         </div>
                         <div className="checkboxDiv">
                             required
-                            <input type="checkbox" name="required" value={this.state.required} onChange={this.onInputChange}/>
+                            <input type="checkbox" name="required"
+                                   value={this.state.required} onChange={this.onInputChange}/>
                         </div>
                     </div>
                 </div>

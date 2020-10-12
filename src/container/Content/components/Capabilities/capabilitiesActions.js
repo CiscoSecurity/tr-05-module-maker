@@ -1,16 +1,16 @@
-import {ADD_CAPABILITY, DELETE_CAPABILITY, UPDATE_CAPABILITY_DESCR} from "../../../../globals/constants/types";
+import {ADD_CAPABILITY, DELETE_CAPABILITY, UPDATE_CAPABILITY_DESCR} from "globals/constants/types";
 
 export function addCapability(api) {
     return {
         type: ADD_CAPABILITY,
-        payload: {"id": api}
+        payload: {id: api}
     }
 }
 
 export function updateCapabilityDescription(api) {
     return {
         type: UPDATE_CAPABILITY_DESCR,
-        payload: {"id": api.id, "description": api.description}
+        payload: {id: api.id, "description": api.description}
     }
 }
 

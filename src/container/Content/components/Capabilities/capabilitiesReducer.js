@@ -1,5 +1,4 @@
-import { ADD_CAPABILITY, DELETE_CAPABILITY, UPDATE_CAPABILITY_DESCR }
-from "globals/constants/types"
+import {ADD_CAPABILITY, DELETE_CAPABILITY, UPDATE_CAPABILITY_DESCR} from "globals/constants/types"
 
 const initialState = [];
 
@@ -28,7 +27,7 @@ export const capabilitiesReducer = (state = initialState, action) => {
                         ...action.payload
                     }
                 }
-                )
+            )
 
         default:
             return state

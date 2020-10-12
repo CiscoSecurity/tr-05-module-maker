@@ -4,7 +4,7 @@ import {
     DELETE_CONF_SPEC,
     DELETE_OPTION,
     UPDATE_CONF_SPEC, UPDATE_OPTION
-} from "../../../../globals/constants/types";
+} from "globals/constants/types";
 
 export function addConfSpec() {
     return {
@@ -26,7 +26,7 @@ export function addConfSpec() {
 export function deleteConfSpec(id) {
     return {
         type: DELETE_CONF_SPEC,
-        payload: id
+        payload: {conf_spec_id: id}
     }
 }
 
@@ -34,7 +34,7 @@ export function updateConfSpec(id, pair) {
     return {
         type: UPDATE_CONF_SPEC,
         payload: {
-            id: id,
+            conf_spec_id: id,
             pair: pair
         }
     }
@@ -45,11 +45,11 @@ export function addOptions(id) {
         type: ADD_OPTIONS,
         payload:
             {
-                "options": {
-                    "value": "", "label": "",
-                    "id": new Date().getTime()
+                options: {
+                    value: "", "label": "",
+                    id: new Date().getTime()
                 },
-                "conf_spec_id": id
+                conf_spec_id: id
             }
     }
 }
@@ -57,7 +57,7 @@ export function addOptions(id) {
 export function deleteAllOptions(id) {
     return {
         type: DELETE_ALL_OPTIONS,
-        payload: id
+        payload: {conf_spec_id: id}
     }
 }
 
