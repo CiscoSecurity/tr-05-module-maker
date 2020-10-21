@@ -6,13 +6,10 @@ import { connect } from "react-redux";
 
 
 class AuthType extends React.Component {
-  constructor(props) {
-        super(props);
-        this.state = {
+   state = {
             auth_type_options: ["authorization-header", "basic", "bearer"],
             selected_value: ""
         }
-    }
 
 
     onCheckboxToggle = event => {
@@ -44,7 +41,7 @@ render() {
                    onClick={this.onCheckboxToggle}
             />
 
-            <label>authorization</label>
+            <label> { Constants.AUTH_LABEL } </label>
             <select className="selectAuth"
                     value={this.state.selected_value}
                     onChange={this.onAuthSelection}
@@ -71,10 +68,8 @@ const mapDispatchToProps = {
     updateAuthType
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = (state) => ({
         syncProperties: state.properties
-    }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthType);

@@ -17,7 +17,9 @@ class ExternalReferences extends React.Component {
             <div>
                 <div>
                 <p> {Constants.SECTION_TITLE}
-                    <button onClick={this.onAddButtonClick} type="button">+ Add</button>
+                    <button onClick={this.onAddButtonClick} type="button">
+                        {Constants.ADD_BTN_TITLE}
+                    </button>
                 </p>
                 </div>
                     {
@@ -35,10 +37,8 @@ const mapDispatchToProps = {
     addExternalReference
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = (state) => ({
         syncExternalReferences: state.external_references
-    }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExternalReferences);

@@ -3,25 +3,22 @@ import "./ConfigurationSpecItem.scss"
 import * as Constants from "globals/constants/constants";
 import Icons from "globals/icons/sprite.svg";
 import Options from "../Options/Options";
-import { connect } from "react-redux";
-import { deleteConfSpec, deleteAllOptions, updateConfSpec, addOptions }
-from "../../configurationSpecActions";
+import {connect} from "react-redux";
+import {addOptions, deleteAllOptions, deleteConfSpec, updateConfSpec} from "../../configurationSpecActions";
 
 
 class ConfigurationSpecItem extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showOptions: false,
-            key: "",
-            type: "",
-            label: "",
-            tooltip: "",
-            subtype: "",
-            required: false,
-            group: "",
-        }
+    state = {
+        showOptions: false,
+        key: "",
+        type: "",
+        label: "",
+        tooltip: "",
+        subtype: "",
+        required: false,
+        group: "",
     }
+
     onSelectChange = (event) => {
         this.onInputChange(event);
         if (event.target.value === 'options') {
@@ -65,7 +62,7 @@ class ConfigurationSpecItem extends React.Component {
                 <div className="column">
                     <div>
                         <div className="inputDiv">
-                            key
+                            {Constants.KEY_LABEL}
                             <input
                                 type="text"
                                 name="key"
@@ -86,9 +83,9 @@ class ConfigurationSpecItem extends React.Component {
                             }
                         </datalist>
                         <div className="inputDiv">
-                            type
-                            <select name="type" className="customInput" required
-                                    defaultValue="" onChange={this.onSelectChange}>
+                            {Constants.TYPE_LABEL}
+                            <select className="customInput" required value={this.state.type}
+                                    onChange={this.onSelectChange}>
                                 <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                                 {
                                     Constants.TYPE_OPTIONS.map(
@@ -100,7 +97,7 @@ class ConfigurationSpecItem extends React.Component {
                             </select>
                         </div>
                         <div className="inputDiv">
-                            label
+                            {Constants.LABEL}
                             <input type="text" name="label" className="customInput"
                                    required  value={this.state.label}
                                    onChange={this.onInputChange}/>
@@ -120,22 +117,22 @@ class ConfigurationSpecItem extends React.Component {
                 <div className="column">
                     <div>
                         <div className="inputDiv">
-                            tooltip
+                            {Constants.TOOLTIP_LABEL}
                             <input type="text" name="tooltip" className="customInput"
                                    value={this.state.tooltip} onChange={this.onInputChange}/>
                         </div>
                         <div className="inputDiv">
-                            subtype
+                            {Constants.SUBTYPE_LABEL}
                             <input type="text" name="subtype" className="customInput"
                                    value={this.state.subtype} onChange={this.onInputChange}/>
                         </div>
                         <div className="inputDiv">
-                            group
+                            {Constants.GROUP_LABEL}
                             <input type="text" name="group" className="customInput"
                                    value={this.state.group} onChange={this.onInputChange}/>
                         </div>
                         <div className="checkboxDiv">
-                            required
+                            {Constants.REQUIRED_LABEL}
                             <input type="checkbox" name="required"
                                    value={this.state.required} onChange={this.onInputChange}/>
                         </div>
@@ -157,10 +154,8 @@ const mapDispatchToProps = {
     updateConfSpec
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = (state) => ({
         syncConfSpec: state.configuration_spec
-    }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConfigurationSpecItem);

@@ -8,13 +8,11 @@ from "container/Content/components/ExternalReferences/externalReferencesActions"
 
 
 class CustomInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             "label": "",
             "link": ""
         }
-    }
+
     changeInputHandler = event => {
         event.persist()
         this.setState(prev => ({
@@ -78,11 +76,9 @@ class CustomInput extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = (state) => ({
         syncReferences: state.external_references
-    }
-}
+})
 
 const mapDispatchToProps = {
     deleteExternalReference,

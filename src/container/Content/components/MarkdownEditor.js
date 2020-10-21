@@ -7,14 +7,12 @@ import { connect } from "react-redux";
 
 
 class MarkdownEditor extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             value: "",
             tab: "write",
             name: this.props.name
-        };
     };
+
     handleValueChange = value => {
         this.setState({ value });
         this.props.updateSingleInput({name: this.state.name, value: value})

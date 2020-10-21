@@ -47,10 +47,8 @@ const mapDispatchToProps = {
     updateSupportedAPI
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = (state) => ({
         syncProperties: state.properties
-    }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(SupportedAPI);

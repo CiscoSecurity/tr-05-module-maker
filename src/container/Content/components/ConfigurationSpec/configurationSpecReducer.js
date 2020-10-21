@@ -8,17 +8,18 @@ import {
     UPDATE_OPTION
 } from "globals/constants/types"
 
+function getIndexOfSpec(state, payload) {
+    let spec = state.filter((spec) => spec.id === payload.conf_spec_id);
+    return state.indexOf(spec[0])
+}
 
 export const configurationSpecReducer = (state = [], action) => {
-    let spec = state.filter((spec) => spec.id === action.payload.conf_spec_id);
-    let indexOfSpec = state.indexOf(spec[0]);
-
     switch (action.type) {
         case ADD_CONF_SPEC:
             return state.concat([action.payload])
         case ADD_OPTIONS:
             return state.map((item, index) => {
-                    if (index !== indexOfSpec) {
+                    if (index !== getIndexOfSpec(state, action.payload)) {
                         return item
                     }
                     return {
@@ -35,7 +36,7 @@ export const configurationSpecReducer = (state = [], action) => {
 
         case DELETE_ALL_OPTIONS:
             return state.map((item, index) => {
-                    if (index !== indexOfSpec) {
+                    if (index !== getIndexOfSpec(state, action.payload)) {
                         return item
                     }
                     return {
@@ -46,7 +47,7 @@ export const configurationSpecReducer = (state = [], action) => {
             )
         case DELETE_OPTION:
             return state.map((item, index) => {
-                    if (index !== indexOfSpec) {
+                    if (index !== getIndexOfSpec(state, action.payload)) {
                         return item
                     }
                     return {
@@ -60,7 +61,7 @@ export const configurationSpecReducer = (state = [], action) => {
 
         case UPDATE_CONF_SPEC:
             return state.map((item, index) => {
-                    if (index !== indexOfSpec) {
+                    if (index !== getIndexOfSpec(state, action.payload)) {
                         return item
                     }
                     return {
@@ -72,7 +73,7 @@ export const configurationSpecReducer = (state = [], action) => {
 
         case UPDATE_OPTION:
             return state.map((item, index) => {
-                    if (index !== indexOfSpec) {
+                    if (index !== getIndexOfSpec(state, action.payload)) {
                         return item
                     }
                     return {

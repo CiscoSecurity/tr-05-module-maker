@@ -1,25 +1,19 @@
 import { ADD_EXTERNAL_REFERENCE, DELETE_EXTERNAL_REFERENCE, UPDATE_EXTERNAL_REFERENCE }
 from "globals/constants/types";
 
-export function updateExternalReference(id, pair) {
-    return {
+export const updateExternalReference = (id, pair) => ({
         type: UPDATE_EXTERNAL_REFERENCE,
         payload: {id: id, pair: pair}
-    }
-}
+})
 
-export function addExternalReference() {
-    return {
+export const addExternalReference = () => ({
         type: ADD_EXTERNAL_REFERENCE,
         payload: {
             "id": new Date().getTime()
         }
-    }
-}
+})
 
-export function deleteExternalReference(id) {
-    return {
+export const deleteExternalReference = (id) => ({
         type: DELETE_EXTERNAL_REFERENCE,
         payload: id
-    }
-}
+})

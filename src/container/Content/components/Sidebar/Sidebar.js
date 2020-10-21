@@ -6,10 +6,6 @@ import Modal from "../Modal/Modal";
 
 
 class Sidebar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     constructValidJSON() {
         const data = JSON.parse(JSON.stringify(this.props.syncJSON));
         for (const elem of data.configuration_spec) {
@@ -43,7 +39,7 @@ class Sidebar extends React.Component {
             link.click();
         }
         else {
-            alert("Please, fill out highlighted fields")
+            alert(Constants.FILL_REQUIRED_ALERT)
         }
     }
 
@@ -53,7 +49,7 @@ class Sidebar extends React.Component {
             modal.style.display = "block";
         }
         else {
-            alert("Please, fill out highlighted fields")
+            alert(Constants.FILL_REQUIRED_ALERT)
         }
     }
 
@@ -82,11 +78,9 @@ class Sidebar extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = (state) => ({
         syncJSON: state
-    }
-}
+})
 
-export default connect(mapStateToProps, null)(Sidebar);
+export default connect(mapStateToProps)(Sidebar);
 

@@ -85,14 +85,14 @@ const Modal = (props) => (
                         { Constants.PUSH_MODAL_TEXT }
                     </p>
                     <label htmlFor="client_id" className="centered">
-                        Client ID
+                        { Constants.CLIENT_ID_LABEL }
                     </label>
                     <div>
                         <Field type="text" name="client_id" id="client_id" required/>
                         <ErrorMessage name="client_id" component="div" className='error'/>
                     </div>
                     <label htmlFor="password" className="centered">
-                        Client Password
+                        { Constants.CLIENT_PASSWORD_LABEL }
                     </label>
                     <div>
                         <Field name="password" type="password" id="password" required/>
@@ -100,7 +100,7 @@ const Modal = (props) => (
                     </div>
                     <div>
                         <button type="submit" disabled={isSubmitting}>
-                            Push
+                            { Constants.PUSH_BTN_TITLE }
                         </button>
                     </div>
                 </Form>

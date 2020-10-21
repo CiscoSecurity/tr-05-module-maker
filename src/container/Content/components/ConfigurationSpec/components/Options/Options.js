@@ -3,13 +3,10 @@ import "./Options.scss";
 import OptionsItem from "./OptionItem";
 import { addOptions } from "../../configurationSpecActions";
 import { connect } from "react-redux";
+import * as Constants from "globals/constants/constants";
 
 
 class Options extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     onButtonClick = () => {
         this.props.addOptions(this.props.conf_spec_id)
     }
@@ -19,7 +16,7 @@ class Options extends React.Component {
             <div className="column">
                 <div className="confSpecRow">
                     <div>
-                        Options
+                        {Constants.OPTIONS_SECTION_LABEL}
                     </div>
                 </div>
                 {this.props.options.map(

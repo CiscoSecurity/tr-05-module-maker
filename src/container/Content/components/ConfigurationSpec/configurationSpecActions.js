@@ -6,8 +6,7 @@ import {
     UPDATE_CONF_SPEC, UPDATE_OPTION
 } from "globals/constants/types";
 
-export function addConfSpec() {
-    return {
+export const addConfSpec = () => ({
         type: ADD_CONF_SPEC,
         payload:   {
             "key": "",
@@ -20,27 +19,22 @@ export function addConfSpec() {
             "options": [],
             "id": new Date().getTime()
         }
-    }
-}
+})
 
-export function deleteConfSpec(id) {
-    return {
+export const deleteConfSpec = (id) => ({
         type: DELETE_CONF_SPEC,
         payload: {conf_spec_id: id}
-    }
-}
+})
 
-export function updateConfSpec(id, pair) {
-    return {
+export const updateConfSpec = (id, pair) => ({
         type: UPDATE_CONF_SPEC,
         payload: {
             conf_spec_id: id,
             pair: pair
         }
-    }
-}
+})
 
-export function addOptions(id) {
+export const addOptions = (id) => {
     return {
         type: ADD_OPTIONS,
         payload:
@@ -54,23 +48,17 @@ export function addOptions(id) {
     }
 }
 
-export function deleteAllOptions(id) {
-    return {
+export const deleteAllOptions = (id) => ({
         type: DELETE_ALL_OPTIONS,
         payload: {conf_spec_id: id}
-    }
-}
+})
 
-export function deleteOption(option_id, conf_spec_id) {
-    return {
+export const deleteOption = (option_id, conf_spec_id) => ({
         type: DELETE_OPTION,
         payload: {option_id: option_id, conf_spec_id: conf_spec_id}
-    }
-}
+})
 
-export function updateOption(option_id, conf_spec_id, pair) {
-    return {
+export const updateOption = (option_id, conf_spec_id, pair) => ({
         type: UPDATE_OPTION,
         payload: {option_id: option_id, conf_spec_id: conf_spec_id, pair: pair}
-    }
-}
+})

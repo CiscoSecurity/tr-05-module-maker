@@ -1,22 +1,16 @@
 import { TOGGLE_AUTH_TYPE, UPDATE_AUTH_TYPE, UPDATE_SUPPORTED_API }
 from "globals/constants/types";
 
-export function updateSupportedAPI(api) {
-    return {
+export const updateSupportedAPI = (api) => ({
         type: UPDATE_SUPPORTED_API,
         payload: api
-    }
-}
+})
 
-export function toggleAuthType() {
-    return {
+export const toggleAuthType = () => ({
         type: TOGGLE_AUTH_TYPE
-    }
-}
+})
 
-export function updateAuthType(type) {
-    return {
+export const updateAuthType = (type) => ({
         type: UPDATE_AUTH_TYPE,
         payload: type
-    }
-}
+})

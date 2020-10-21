@@ -4,23 +4,17 @@ import {
     UPDATE_CAPABILITY_DESCR
 } from "globals/constants/types";
 
-export function addCapability(api) {
-    return {
+export const addCapability = (api) => ({
         type: ADD_CAPABILITY,
         payload: {id: api}
-    }
-}
+})
 
-export function updateCapabilityDescription(api) {
-    return {
+export const updateCapabilityDescription = (api) => ({
         type: UPDATE_CAPABILITY_DESCR,
         payload: {id: api.id, "description": api.description}
-    }
-}
+})
 
-export function deleteCapability(api) {
-    return {
-        type: DELETE_CAPABILITY,
-        payload: api
-    }
-}
+export const deleteCapability = (api) => ({
+    type: DELETE_CAPABILITY,
+    payload: api
+})

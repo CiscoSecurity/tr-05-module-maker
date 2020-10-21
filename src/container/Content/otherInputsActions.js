@@ -1,22 +1,16 @@
 import { LOAD_FILE, UPDATE_FlAGS, UPDATE_SINGLE_INPUT } from "globals/constants/types";
 
-export function updateSingleInput(pair) {
-    return {
+export const updateSingleInput = (pair) => ({
         type: UPDATE_SINGLE_INPUT,
         payload: {name: pair.name, value: pair.value}
-    }
-}
+})
 
-export function updateFlags(list) {
-    return {
+export const updateFlags = (list) => ({
         type: UPDATE_FlAGS,
         payload: list
-    }
-}
+})
 
-export function onFileLoaded(imageFile) {
-    return {
+export const onFileLoaded = (imageFile) => ({
         type: LOAD_FILE,
         payload: imageFile
-    }
-}
+})

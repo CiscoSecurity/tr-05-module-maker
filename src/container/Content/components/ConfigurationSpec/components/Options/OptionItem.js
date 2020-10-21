@@ -3,16 +3,15 @@ import  "./Options.scss";
 import Icons from "globals/icons/sprite.svg";
 import { connect } from "react-redux";
 import { deleteOption, updateOption } from "../../configurationSpecActions";
+import * as Constants from "globals/constants/constants";
 
 
 class OptionsItem extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             value: "",
             label: ""
         }
-    }
+
     onDeleteIconClick = () => {
         this.props.deleteOption(this.props.option_id, this.props.conf_spec_id)
     }
@@ -37,7 +36,7 @@ class OptionsItem extends React.Component {
                     </svg>
                 </div>
                 <div className="inputDiv">
-                    value
+                    {Constants.VALUE_FIELD_TEXT}
                     <input type="text"
                            name="value"
                            className="customInput"
@@ -47,7 +46,7 @@ class OptionsItem extends React.Component {
                     />
                 </div>
                 <div className="inputDiv">
-                    label
+                    {Constants.LABEL_FIELD_TEXT}
                     <input type="text"
                            name="label"
                            className="customInput"
