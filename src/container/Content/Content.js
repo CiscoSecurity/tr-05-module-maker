@@ -51,14 +51,14 @@ class Content extends React.Component {
         reader.readAsDataURL(file);
     }
 
+
     render() {
         return (
-            <form id="mainForm">
             <div className="content">
                 <div className="row">
                     <h1 className="title">{Constants.MAIN_TITLE}</h1>
                 </div>
-                <div className="row">
+                <form className="row" id="mainForm">
                     <div className="column">
                         <p>{Constants.INPUT_TITLE_LABEL}</p>
                         <textarea
@@ -99,10 +99,9 @@ class Content extends React.Component {
                         <input type="file" accept="image/*" name="logo"
                                autoComplete="off" onChange={this.handleLoadLocalFile}/>
                     </div>
-                </div>
+                </form>
                 <ConfigurationSpec/>
             </div>
-            </form>
         )
     }
 }

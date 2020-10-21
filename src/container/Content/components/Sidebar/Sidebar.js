@@ -2,6 +2,7 @@ import React from "react";
 import "./Sidebar.scss"
 import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
+import Modal from "../Modal/Modal";
 
 
 class Sidebar extends React.Component {
@@ -9,7 +10,8 @@ class Sidebar extends React.Component {
         super(props);
     }
 
-    constructValidJSON(data){
+    constructValidJSON() {
+        const data = JSON.parse(JSON.stringify(this.props.syncJSON));
         for (const elem of data.configuration_spec) {
             if (elem.options) {
                 elem.options.map(
@@ -24,19 +26,31 @@ class Sidebar extends React.Component {
         return data
     }
 
-    onSaveButtonClick = () => {
+    isValidForm() {
         const form = document.getElementById("mainForm");
-        const valid = form.reportValidity();
-        if (valid) {
-            const data = JSON.parse(JSON.stringify(this.props.syncJSON));
-            const formattedData = this.constructValidJSON(data);
+        return form.reportValidity();
+    }
+
+    onSaveButtonClick = () => {
+        if (this.isValidForm()) {
+            const formattedData = this.constructValidJSON();
             const fileData = JSON.stringify(formattedData);
             const blob = new Blob([fileData], {type: "text/plain"});
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
-            link.download = `${data.title}_module_type.json`;
+            link.download = `${formattedData.title}_module_type.json`;
             link.href = url;
             link.click();
+        }
+        else {
+            alert("Please, fill out highlighted fields")
+        }
+    }
+
+    onPushButtonClick = () => {
+        if (this.isValidForm()) {
+            const modal = document.getElementById("modal");
+            modal.style.display = "block";
         }
         else {
             alert("Please, fill out highlighted fields")
@@ -58,10 +72,11 @@ class Sidebar extends React.Component {
                     <li onClick={this.onSaveButtonClick}>
                         { Constants.SAVE_JSON }
                     </li>
-                    <li>
+                    <li onClick={this.onPushButtonClick}>
                         { Constants.PUSH_JSON }
                     </li>
                 </ul>
+                <Modal json={this.constructValidJSON()}/>
             </div>
         )
     }
@@ -74,3 +89,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, null)(Sidebar);
+
