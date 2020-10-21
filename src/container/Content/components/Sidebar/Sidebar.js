@@ -6,6 +6,10 @@ import Modal from "../Modal/Modal";
 
 
 class Sidebar extends React.Component {
+    state = {
+        showModal: false
+    }
+
     constructValidJSON() {
         const data = JSON.parse(JSON.stringify(this.props.syncJSON));
         for (const elem of data.configuration_spec) {
@@ -43,14 +47,18 @@ class Sidebar extends React.Component {
         }
     }
 
-    onPushButtonClick = () => {
+    onPushButtonClick = (e) => {
+        e.persist()
         if (this.isValidForm()) {
-            const modal = document.getElementById("modal");
-            modal.style.display = "block";
+            this.setState({showModal: true});
         }
         else {
             alert(Constants.FILL_REQUIRED_ALERT)
         }
+    }
+
+    onCloseModalClick = () => {
+        this.setState({showModal: false});
     }
 
     render() {
@@ -72,7 +80,13 @@ class Sidebar extends React.Component {
                         { Constants.PUSH_JSON }
                     </li>
                 </ul>
-                <Modal json={this.constructValidJSON()}/>
+                {
+                   this.state.showModal &&
+                   <Modal
+                       json={this.constructValidJSON()}
+                       handler={this.onCloseModalClick}
+                   />
+                }
             </div>
         )
     }

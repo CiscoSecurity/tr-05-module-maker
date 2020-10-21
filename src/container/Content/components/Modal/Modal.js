@@ -1,59 +1,10 @@
 import React from 'react';
-import {ErrorMessage, Field, Form, Formik} from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Icons from "globals/icons/sprite.svg";
 import './Modal.scss';
 import *  as Constants from "globals/constants/constants"
+import pushModuleType from "services"
 
-
-async function authorize(values) {
-    const response =  await fetch(Constants.URL + Constants.AUTH_ENDPOINT,{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Accept': 'application/json',
-                'Authorization': 'Basic ' + btoa(values.client_id + ':' + values.password)
-            },
-            body: 'grant_type=client_credentials'
-        }
-    )
-    if (response.ok === false) {
-        alert('Error: ' + (response.statusText || 'Authorization failed'))
-    }
-    const data = await response.json();
-    return data['access_token'];
-}
-
-async function push(values, json) {
-    const token = await authorize(values);
-    if (token) {
-        const response = await fetch(Constants.URL + Constants.MODULE_TYPE_ENDPOINT,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "Authorization": "Bearer " + token
-                },
-                "body": JSON.stringify(json)
-            }
-        )
-        const data = await response.json();
-        if (response.ok === false || data["error"]) {
-            alert("Error: " + response.statusText || data["error_description"])
-        }
-        else {
-            alert(Constants.MESSAGE_SUCCESS + data['id'])
-            const modal = document.getElementById("modal");
-            modal.style.display = "none";
-        }
-    }
-}
-
-
-function hideModal () {
-    const modal = document.getElementById("modal");
-    modal.style.display = "none";
-}
 
 const Modal = (props) => (
     <div className='modal' id='modal'>
@@ -70,14 +21,14 @@ const Modal = (props) => (
                 return errors;
             }}
             onSubmit={ async (values, { setSubmitting }) => {
-                await push(values, props.json)
+                await pushModuleType(values, props.json)
                 setSubmitting(false)
             }}
         >
 
             {({ isSubmitting }) => (
                 <Form className="modal-content">
-                    <svg className="closeIcon" onClick={ hideModal }>
+                    <svg className="closeIcon" onClick={props.handler}>
                         <use xlinkHref={`${Icons}#icon-small-x-close`}/>
                     </svg>
 
@@ -107,8 +58,6 @@ const Modal = (props) => (
             )}
         </Formik>
     </div>
-
 );
 
 export default Modal;
-
