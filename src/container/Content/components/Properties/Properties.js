@@ -4,9 +4,7 @@ import AuthType from "./components/AuthType/AuthType";
 
 
 class Properties extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             apis: [
                 {title: 'health', class: 'health'},
                 {title: 'deliberate/observables', class: 'deliberate'},
@@ -19,7 +17,6 @@ class Properties extends React.Component {
                 {title: 'tiles/tile-data', class: 'tiles'},
             ]
         }
-    };
 
     render() {
         return (

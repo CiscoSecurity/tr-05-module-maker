@@ -1,26 +1,41 @@
 import React from "react";
-import  "./Options.scss";
-import Icons from "globals/icons/sprite.svg";
+import "./Options.scss";
+import OptionsItem from "./OptionItem";
+import { addOptions } from "../../configurationSpecActions";
+import { connect } from "react-redux";
+import * as Constants from "globals/constants/constants";
 
 
-export default class Options extends React.Component {
+class Options extends React.Component {
+    onButtonClick = () => {
+        this.props.addOptions(this.props.conf_spec_id)
+    }
+
     render() {
         return (
-            <div className="optionsWrapper">
-                <div className="optionsIconWrapper">
-                    <svg className="closeIcon">
-                        <use xlinkHref={`${Icons}#icon-small-x-close`}/>
-                    </svg>
+            <div className="column">
+                <div className="confSpecRow">
+                    <div>
+                        { Constants.OPTIONS_SECTION_LABEL }
+                    </div>
                 </div>
-                <div className="inputDiv">
-                    value
-                    <input type="text" name="option" className="customInput"/>
-                </div>
-                <div className="inputDiv">
-                    label
-                    <input type="text" name="option" className="customInput"/>
-                </div>
+                {this.props.options.map(
+                    elem => <OptionsItem key={elem.id}
+                                         option_id={elem.id}
+                                         conf_spec_id={this.props.conf_spec_id}
+                    />
+                    )
+                }
+                <button className="addNewButton" onClick={this.onButtonClick}>
+                    { Constants.OPTIONS_BTN_TITLE }
+                </button>
             </div>
         )
     }
 }
+
+const mapDispatchToProps = {
+    addOptions
+}
+
+export default connect(null, mapDispatchToProps)(Options)

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Capability.scss"
-import { updateCapabilityDescription } from "redux/actions";
+import { updateCapabilityDescription } from "../capabilitiesActions";
 import { connect } from "react-redux";
 
 
@@ -32,6 +32,7 @@ class Capability extends React.Component {
                     placeholder="Enter description"
                     autoComplete="off"
                     onChange={this.onDescriptionChange}
+                    required
                 />
             </div>
         )

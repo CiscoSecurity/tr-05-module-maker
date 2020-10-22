@@ -1,8 +1,9 @@
 import React from "react";
 import "./ConfigurationSpec.scss"
 import ConfigurationSpecItem from "./components/ConfigurationSpecItem/ConfigurationSpecItem"
-import { addConfSpec } from "redux/actions";
+import { addConfSpec } from "./configurationSpecActions";
 import { connect } from "react-redux";
+import * as Constants from "globals/constants/constants";
 
 class ConfigurationSpec extends React.Component {
     render() {
@@ -12,13 +13,19 @@ class ConfigurationSpec extends React.Component {
                     <div>
                     Configuration Spec
                     <button onClick={this.props.addConfSpec}>
-                        Add new
+                        { Constants.ADD_BTN_TITLE }
                     </button>
                     </div>
                 </div>
                 {
                     this.props.syncConfSpec.map(
-                    () => (<ConfigurationSpecItem />)
+                        elem => (
+                            <ConfigurationSpecItem
+                                role={elem.id}
+                                key={elem.id}
+                                syncConfSpecItem={elem}
+                            />
+                            )
                     )
                 }
             </div>
@@ -30,10 +37,8 @@ const mapDispatchToProps = {
     addConfSpec,
 }
 
-const mapStateToProps = state => {
-    return {
-        syncConfSpec: state.json.configuration_spec
-    }
-}
+const mapStateToProps = (state) => ({
+        syncConfSpec: state.configuration_spec
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConfigurationSpec);

@@ -1,7 +1,9 @@
 import React from "react";
 import "./SupportedAPI.scss";
 import { connect } from "react-redux";
-import { addCapability, deleteCapability, updateSupportedAPI } from "redux/actions";
+import { updateSupportedAPI } from "../../propertiesActions";
+import { addCapability, deleteCapability }
+from "container/Content/components/Capabilities/capabilitiesActions";
 
 
 class SupportedAPI extends React.Component {
@@ -14,15 +16,20 @@ class SupportedAPI extends React.Component {
     }
 
     onCheckboxToggle = (event) => {
+
         this.props.updateSupportedAPI(this.state.title);
 
         if (event.target.checked) {
-        this.props.addCapability(this.state.class);
+            this.props.addCapability(this.state.class);
         }
+
         else {
-        this.props.deleteCapability(this.state.class);
+            if (this.props.syncProperties["supported-apis"].filter(
+                elem => elem.startsWith(this.state.class)).length === 1) {
+                this.props.deleteCapability(this.state.class);
+            }
+          }
         }
-    }
 
     render() {
         return (
@@ -40,4 +47,8 @@ const mapDispatchToProps = {
     updateSupportedAPI
 }
 
-export default connect(null, mapDispatchToProps)(SupportedAPI);
+const mapStateToProps = (state) => ({
+        syncProperties: state.properties
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SupportedAPI);

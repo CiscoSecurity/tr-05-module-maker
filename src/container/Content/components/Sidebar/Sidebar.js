@@ -2,22 +2,62 @@ import React from "react";
 import "./Sidebar.scss"
 import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
+import Modal from "../Modal/Modal";
 
 
 class Sidebar extends React.Component {
-    constructor(props) {
-        super(props);
+    state = {
+        showModal: false
+    }
+
+    constructValidJSON() {
+        const data = JSON.parse(JSON.stringify(this.props.syncJSON));
+        for (const elem of data.configuration_spec) {
+            if (elem.options) {
+                elem.options.map(
+                    option => delete option["id"]
+                )
+            }
+            delete elem["id"]
+        }
+        data.external_references.map(
+            element => delete element["id"]
+        )
+        return data
+    }
+
+    isValidForm() {
+        const form = document.getElementById("mainForm");
+        return form.reportValidity();
     }
 
     onSaveButtonClick = () => {
-        const data = this.props.syncJSON;
-        const fileData = JSON.stringify(data);
-        const blob = new Blob([fileData], {type: "text/plain"});
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.download = `${data.title}_module_type.json`;
-        link.href = url;
-        link.click();
+        if (this.isValidForm()) {
+            const formattedData = this.constructValidJSON();
+            const fileData = JSON.stringify(formattedData);
+            const blob = new Blob([fileData], {type: "text/plain"});
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.download = `${formattedData.title}_module_type.json`;
+            link.href = url;
+            link.click();
+        }
+        else {
+            alert(Constants.FILL_REQUIRED_ALERT)
+        }
+    }
+
+    onPushButtonClick = () => {
+        if (this.isValidForm()) {
+            this.setState({showModal: true});
+        }
+        else {
+            alert(Constants.FILL_REQUIRED_ALERT)
+        }
+    }
+
+    onCloseModalClick = () => {
+        this.setState({showModal: false});
     }
 
     render() {
@@ -35,19 +75,25 @@ class Sidebar extends React.Component {
                     <li onClick={this.onSaveButtonClick}>
                         { Constants.SAVE_JSON }
                     </li>
-                    <li>
+                    <li onClick={this.onPushButtonClick}>
                         { Constants.PUSH_JSON }
                     </li>
                 </ul>
+                {
+                   this.state.showModal &&
+                   <Modal
+                       json={this.constructValidJSON()}
+                       closeModalHandler={this.onCloseModalClick}
+                   />
+                }
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        syncJSON: state.json
-    }
-}
+const mapStateToProps = (state) => ({
+        syncJSON: state
+})
 
-export default connect(mapStateToProps, null)(Sidebar);
+export default connect(mapStateToProps)(Sidebar);
+

@@ -5,10 +5,11 @@
   align-items: center;
 
   .selectAuth {
+    flex: 1;
+    margin-left: 4px;
+
     &:disabled {
       background-color: $input-disabled-background;
     }
-    flex: 1;
-    margin-left: 4px;
   }
 }

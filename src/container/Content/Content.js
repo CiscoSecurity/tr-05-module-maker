@@ -7,20 +7,17 @@ import Properties from "./components/Properties/Properties";
 import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec";
 import Capabilities from "./components/Capabilities/Capabilities";
 import * as Constants from "globals/constants/constants";
-import { updateSingleInput, updateFlags, onFileLoaded } from "redux/actions";
+import { onFileLoaded, updateFlags, updateSingleInput } from "./otherInputsActions";
 
 
 class Content extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             "title": "",
             "default_name": "",
             "short_description": "",
             "flags": "",
             "logo": "",
-        };
-    }
+        }
 
     changeInputHandler = event => {
         event.persist()
@@ -51,59 +48,63 @@ class Content extends React.Component {
         reader.readAsDataURL(file);
     }
 
+
     render() {
         return (
             <div className="content">
                 <div className="row">
                     <h1 className="title">{Constants.MAIN_TITLE}</h1>
                 </div>
-                <div className="row">
-                    <div className="column">
-                        <p>{Constants.INPUT_TITLE_LABEL}</p>
-                        <textarea
-                            required
-                            autoComplete="off"
-                            value={this.state.title}
-                            name="title"
-                            onChange={this.changeInputHandler}
-                        />
-                        <p>{Constants.DEFAULT_NAME_LABEL}</p>
-                        <textarea required
-                                  autoComplete="off"
-                                  value={this.state.default_name}
-                                  name="default_name"
-                                  onChange={this.changeInputHandler}/>
-                        <p>{Constants.SHORT_DESCRIPTION_LABEL}</p>
-                        <textarea autoComplete="off"
-                                  value={this.state.short_description}
-                                  name="short_description"
-                                  onChange={this.changeInputHandler}/>
-                        <Properties/>
-                        <Capabilities/>
+                <form id="mainForm">
+                    <div className="row">
+                        <div className="column">
+                            <p>{Constants.INPUT_TITLE_LABEL}</p>
+                            <textarea
+                                required
+                                autoComplete="off"
+                                value={this.state.title}
+                                name="title"
+                                onChange={this.changeInputHandler}
+                            />
+                            <p>{Constants.DEFAULT_NAME_LABEL}</p>
+                            <textarea required
+                                      autoComplete="off"
+                                      value={this.state.default_name}
+                                      name="default_name"
+                                      onChange={this.changeInputHandler}/>
+                            <p>{Constants.SHORT_DESCRIPTION_LABEL}</p>
+                            <textarea autoComplete="off"
+                                      value={this.state.short_description}
+                                      name="short_description"
+                                      onChange={this.changeInputHandler}/>
+                            <Properties/>
+                            <Capabilities/>
+                        </div>
+                        <div className="column">
+                            <p>{Constants.DESCRIPTION_LABEL}</p>
+                            <MarkdownEditor name="description"/>
+                            <p>{Constants.TIPS_LABEL}</p>
+                            <MarkdownEditor name="tips"/>
+                            <ExternalReferences/>
+                            <p>{Constants.FLAGS_LABEL}</p>
+                            <input type="text"
+                                   name="flags"
+                                   placeholder={Constants.FLAGS_PLACEHOLDER}
+                                   autoComplete="off"
+                                   value={this.state.flags}
+                                   onChange={this.changeFlagsHandler}/>
+                            <p>{Constants.LOGO_LABEL}</p>
+                            <input type="file" accept="image/*" name="logo"
+                                   autoComplete="off" onChange={this.handleLoadLocalFile}/>
+                        </div>
                     </div>
-                    <div className="column">
-                        <p>{Constants.DESCRIPTION_LABEL}</p>
-                        <MarkdownEditor name="description"/>
-                        <p>{Constants.TIPS_LABEL}</p>
-                        <MarkdownEditor name="tips"/>
-                        <ExternalReferences/>
-                        <p>{Constants.FLAGS_LABEL}</p>
-                        <input type="text"
-                               name="flags"
-                               placeholder={Constants.FLAGS_PLACEHOLDER}
-                               autoComplete="off"
-                               value={this.state.flags}
-                               onChange={this.changeFlagsHandler}/>
-                        <p>{Constants.LOGO_LABEL}</p>
-                        <input type="file" accept="image/*" name="logo"
-                               autoComplete="off" onChange={this.handleLoadLocalFile}/>
-                    </div>
-                </div>
-                <ConfigurationSpec/>
+                    <ConfigurationSpec/>
+                </form>
             </div>
         )
     }
 }
+
 
 const mapDispatchToProps = {
     updateSingleInput,

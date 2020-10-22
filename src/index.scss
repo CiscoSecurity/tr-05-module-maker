@@ -2,11 +2,13 @@
   font-family: CiscoSans;
   src: url("globals/fonts/CiscoSansTTRegular.woff");
 }
+
 @font-face {
   font-family: CiscoSans;
   src: url("globals/fonts/CiscoSansTTLight.woff");
   font-weight: 400;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -15,6 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

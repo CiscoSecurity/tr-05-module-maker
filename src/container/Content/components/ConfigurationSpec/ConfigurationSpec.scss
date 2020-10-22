@@ -7,8 +7,8 @@
 
   button {
     flex: 1;
-    height: 28px;
     min-width: 75px;
+    max-height: 28px;
     color: $white-color;
     background-color: $blue-background;
     border-radius: 3px;
@@ -22,6 +22,9 @@
     cursor: pointer;
     white-space: nowrap;
     margin: 4px;
+
+    &:hover {
+      background-color: $hover-color;
+    }
   }
 }
-
