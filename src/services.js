@@ -38,8 +38,6 @@ export default async function pushModuleType(values, json) {
         }
         else {
             alert(Constants.MESSAGE_SUCCESS + data['id'])
-            const modal = document.getElementById("modal");
-            modal.style.display = "none";
         }
     }
 }

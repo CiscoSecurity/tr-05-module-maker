@@ -23,12 +23,13 @@ const Modal = (props) => (
             onSubmit={ async (values, { setSubmitting }) => {
                 await pushModuleType(values, props.json)
                 setSubmitting(false)
+                props.closeModalHandler();
             }}
         >
 
             {({ isSubmitting }) => (
                 <Form className="modal-content">
-                    <svg className="closeIcon" onClick={props.handler}>
+                    <svg className="closeIcon" onClick={props.closeModalHandler}>
                         <use xlinkHref={`${Icons}#icon-small-x-close`}/>
                     </svg>
 

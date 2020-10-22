@@ -83,7 +83,7 @@ class Sidebar extends React.Component {
                    this.state.showModal &&
                    <Modal
                        json={this.constructValidJSON()}
-                       handler={this.onCloseModalClick}
+                       closeModalHandler={this.onCloseModalClick}
                    />
                 }
             </div>
