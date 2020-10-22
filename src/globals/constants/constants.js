@@ -49,6 +49,7 @@ export const LABEL_FIELD_TEXT = "label";
 
 // Options.js
 export const OPTIONS_SECTION_LABEL = "Options";
+export const OPTIONS_BTN_TITLE = "+ Add option";
 
 
 // Header.js

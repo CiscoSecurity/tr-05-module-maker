@@ -3,8 +3,9 @@ import "./ConfigurationSpecItem.scss"
 import * as Constants from "globals/constants/constants";
 import Icons from "globals/icons/sprite.svg";
 import Options from "../Options/Options";
-import {connect} from "react-redux";
-import {addOptions, deleteAllOptions, deleteConfSpec, updateConfSpec} from "../../configurationSpecActions";
+import { connect } from "react-redux";
+import { addOptions, deleteAllOptions, deleteConfSpec, updateConfSpec }
+from "../../configurationSpecActions";
 
 
 class ConfigurationSpecItem extends React.Component {

@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import "./Content.scss";
 import MarkdownEditor from "./components/MarkdownEditor";
 import ExternalReferences from "./components/ExternalReferences/ExternalReferences";
@@ -7,7 +7,7 @@ import Properties from "./components/Properties/Properties";
 import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec";
 import Capabilities from "./components/Capabilities/Capabilities";
 import * as Constants from "globals/constants/constants";
-import {onFileLoaded, updateFlags, updateSingleInput} from "./otherInputsActions";
+import { onFileLoaded, updateFlags, updateSingleInput } from "./otherInputsActions";
 
 
 class Content extends React.Component {
