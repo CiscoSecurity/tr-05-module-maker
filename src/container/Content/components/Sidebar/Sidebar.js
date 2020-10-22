@@ -47,8 +47,7 @@ class Sidebar extends React.Component {
         }
     }
 
-    onPushButtonClick = (e) => {
-        e.persist()
+    onPushButtonClick = () => {
         if (this.isValidForm()) {
             this.setState({showModal: true});
         }
