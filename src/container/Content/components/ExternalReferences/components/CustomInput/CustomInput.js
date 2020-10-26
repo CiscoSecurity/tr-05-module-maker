@@ -8,20 +8,10 @@ from "container/Content/components/ExternalReferences/externalReferencesActions"
 
 
 class CustomInput extends React.Component {
-    state = {
-            "label": "",
-            "link": ""
-        }
-
     changeInputHandler = event => {
         event.persist()
-        this.setState(prev => ({
-            ...prev, ...{
-                [event.target.name]: event.target.value
-            }
-        }))
         this.props.updateExternalReference(
-            this.props.id,
+            this.props.reference.id,
             {
             name: event.target.name,
             value: event.target.value.trim()
@@ -30,7 +20,7 @@ class CustomInput extends React.Component {
     }
 
     onDeleteIconClick = () => {
-        this.props.deleteExternalReference(this.props.id);
+        this.props.deleteExternalReference(this.props.reference.id);
     }
 
     render() {
@@ -42,7 +32,7 @@ class CustomInput extends React.Component {
                        className="custom_input"
                        autoComplete="off"
                        list="ext-ref"
-                       value={this.state.label}
+                       value={this.props.reference.label}
                        onChange={this.changeInputHandler}
                        required
                 />
@@ -51,7 +41,7 @@ class CustomInput extends React.Component {
                        placeholder="Enter link"
                        className="custom_input"
                        autoComplete="off"
-                       value={this.state.link}
+                       value={this.props.reference.link}
                        onChange={this.changeInputHandler}
                        required
                 />
@@ -60,7 +50,7 @@ class CustomInput extends React.Component {
                         Constants.LABELS.map(
                             option => {
                                 return (
-                                    <option key={`${option} ${this.props.id}`}>
+                                    <option key={`${option} ${this.props.reference.id}`}>
                                         {option}
                                     </option>
                                 )
@@ -76,13 +66,10 @@ class CustomInput extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-        syncReferences: state.external_references
-})
 
 const mapDispatchToProps = {
     deleteExternalReference,
     updateExternalReference
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomInput);
+export default connect(null, mapDispatchToProps)(CustomInput);

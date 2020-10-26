@@ -24,7 +24,7 @@ class ExternalReferences extends React.Component {
                 </div>
                     {
                         this.props.syncExternalReferences.map(
-                            item => (<CustomInput id={item.id} key={item.id}/>)
+                            item => (<CustomInput reference={item} key={item.id}/>)
                         )
                     }
             </div>

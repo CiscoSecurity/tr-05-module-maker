@@ -1,5 +1,3 @@
-import React from "react";
-
 export const SELECT_PLACEHOLDER = "Select your option";
 
 // Content.js

@@ -21,12 +21,12 @@ class Options extends React.Component {
                 </div>
                 {this.props.options.map(
                     elem => <OptionsItem key={elem.id}
-                                         option_id={elem.id}
+                                         option={elem}
                                          conf_spec_id={this.props.conf_spec_id}
                     />
                     )
                 }
-                <button className="addNewButton" onClick={this.onButtonClick}>
+                <button type="button" className="addNewButton" onClick={this.onButtonClick}>
                     { Constants.OPTIONS_BTN_TITLE }
                 </button>
             </div>

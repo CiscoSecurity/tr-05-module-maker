@@ -8,28 +8,16 @@ import { connect } from "react-redux";
 class AuthType extends React.Component {
    state = {
             auth_type_options: ["authorization-header", "basic", "bearer"],
-            selected_value: ""
         }
 
 
-    onCheckboxToggle = event => {
+    onCheckboxToggle = () => {
         this.props.toggleAuthType();
-        if (!event.target.checked) {
-            this.setState(prev => ({
-                ...prev, ...{
-                    selected_value: ""
-                }
-            }))
-        }
     }
+
     onAuthSelection = event => {
-        event.persist()
-       this.setState(prev => ({
-            ...prev, ...{
-                selected_value: event.target.value
-            }
-        }))
-      this.props.updateAuthType(event.target.value)
+       event.persist();
+       this.props.updateAuthType(event.target.value)
     }
 
 render() {
@@ -39,11 +27,12 @@ render() {
             <input type="checkbox"
                    autoComplete="off"
                    onClick={this.onCheckboxToggle}
+                   checked={Object.keys(this.props.syncProperties).includes("auth-type")}
             />
 
             <label> { Constants.AUTH_LABEL } </label>
             <select className="selectAuth"
-                    value={this.state.selected_value}
+                    value={this.props.syncProperties["auth-type"] || ""}
                     onChange={this.onAuthSelection}
                     disabled={!Object.keys(this.props.syncProperties).includes("auth-type")}
                     required={Object.keys(this.props.syncProperties).includes("auth-type")&&"required"}
@@ -69,7 +58,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-        syncProperties: state.properties
+    syncProperties: state.properties
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthType);

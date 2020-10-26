@@ -1,14 +1,17 @@
 import React from "react";
 import "./Sidebar.scss"
 import * as Constants from "globals/constants/constants";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import Modal from "../Modal/Modal";
+import {v, VALIDATION_SCHEMA} from "globals/constants/schema";
+import { readStateFromFile } from "rootActions";
 
 
 class Sidebar extends React.Component {
     state = {
         showModal: false
     }
+
 
     constructValidJSON() {
         const data = JSON.parse(JSON.stringify(this.props.syncJSON));
@@ -60,13 +63,39 @@ class Sidebar extends React.Component {
         this.setState({showModal: false});
     }
 
+    handleFile = (event) => {
+        event.preventDefault();
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const json = JSON.parse(reader.result);
+                const valResult = v.validate(json, VALIDATION_SCHEMA)
+                if (valResult.errors && valResult.errors.length) {
+                    alert(valResult.errors)
+                } else {
+                    this.props.readStateFromFile(json)
+                }
+            };
+            reader.readAsText(file, 'UTF-8');
+        }
+    }
+
+    onOpenButtonClick = () => {
+        let inputElement = document.getElementById('JSON');
+        inputElement.click();
+        inputElement.addEventListener('change', this.handleFile, false);
+    }
+
+
+
     render() {
         return (
             <div className="Sidebar">
                 <p>{ Constants.SIDEBAR_TITLE }</p>
                 <ul>
-                    <input type="file" accept="application/JSON"/>
-                    <li>
+                    <input type="file" id="JSON" accept="application/JSON"/>
+                    <li onClick={this.onOpenButtonClick}>
                         { Constants.OPEN_FROM_FILE }
                     </li>
                     <li>
@@ -91,9 +120,31 @@ class Sidebar extends React.Component {
     }
 }
 
+const formatState = (state) => {
+    const {
+        external_references,
+        configuration_spec,
+        properties,
+        capabilities,
+        other_inputs
+    } = state;
+    return {
+        external_references,
+        configuration_spec,
+        properties,
+        capabilities,
+        ...other_inputs
+    }
+};
+
+
 const mapStateToProps = (state) => ({
-        syncJSON: state
+        syncJSON: formatState(state)
 })
 
-export default connect(mapStateToProps)(Sidebar);
+const mapDispatchToProps = {
+    readStateFromFile
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
 

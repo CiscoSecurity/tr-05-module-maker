@@ -7,13 +7,10 @@ from "container/Content/components/Capabilities/capabilitiesActions";
 
 
 class SupportedAPI extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
             title: this.props.api.title,
             class: this.props.api.class
         }
-    }
 
     onCheckboxToggle = (event) => {
 
@@ -34,7 +31,11 @@ class SupportedAPI extends React.Component {
     render() {
         return (
             <div className="supportedAPI">
-                <input type="checkbox" autoComplete="off" onChange={this.onCheckboxToggle}/>
+                <input type="checkbox"
+                       autoComplete="off"
+                       onChange={this.onCheckboxToggle}
+                       checked={this.props.syncProperties["supported-apis"].includes(this.state.title)}
+                />
                 {this.state.title}
             </div>
         )
@@ -48,7 +49,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-        syncProperties: state.properties
+      syncProperties: state.properties
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SupportedAPI);

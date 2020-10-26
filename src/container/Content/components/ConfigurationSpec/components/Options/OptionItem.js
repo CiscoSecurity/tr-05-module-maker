@@ -13,17 +13,12 @@ class OptionsItem extends React.Component {
         }
 
     onDeleteIconClick = () => {
-        this.props.deleteOption(this.props.option_id, this.props.conf_spec_id)
+        this.props.deleteOption(this.props.option.id, this.props.conf_spec_id)
     }
 
     onInputUpdate = event => {
         event.persist()
-        this.setState(prev => ({
-            ...prev, ...{
-                [event.target.name]: event.target.value
-            }
-        }))
-        this.props.updateOption(this.props.option_id, this.props.conf_spec_id,
+        this.props.updateOption(this.props.option.id, this.props.conf_spec_id,
             {name: event.target.name, value: event.target.value.trim()})
     }
 
@@ -40,7 +35,7 @@ class OptionsItem extends React.Component {
                     <input type="text"
                            name="value"
                            className="customInput"
-                           value={this.state.value}
+                           value={this.props.option.value}
                            onChange={this.onInputUpdate}
                            required
                     />
@@ -50,7 +45,7 @@ class OptionsItem extends React.Component {
                     <input type="text"
                            name="label"
                            className="customInput"
-                           value={this.state.label}
+                           value={this.props.option.label}
                            onChange={this.onInputUpdate}
                            required
                     />
