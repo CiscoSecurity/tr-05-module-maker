@@ -1,6 +1,6 @@
-import { READ_STATE_FROM_FILE } from "globals/constants/types";
+import { READ_STATE_FROM_BACKEND } from "globals/constants/types";
 
-export const readStateFromFile = (json) => ({
-    type: READ_STATE_FROM_FILE,
+export const readStateFromBackend = (json) => ({
+    type: READ_STATE_FROM_BACKEND,
     payload: json
 })

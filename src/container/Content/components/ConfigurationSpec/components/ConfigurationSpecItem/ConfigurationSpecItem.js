@@ -135,7 +135,7 @@ class ConfigurationSpecItem extends React.Component {
                         <div className="checkboxDiv">
                             {Constants.REQUIRED_LABEL}
                             <input type="checkbox" name="required"
-                                   value={this.props.syncConfSpecItem.required} onChange={this.onInputChange}/>
+                                   checked={this.props.syncConfSpecItem.required} onChange={this.onInputChange}/>
                         </div>
                     </div>
                 </div>

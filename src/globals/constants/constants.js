@@ -22,6 +22,8 @@ export const OPEN_FROM_API = "Open JSON from TR API";
 export const SAVE_JSON = "Save JSON";
 export const PUSH_JSON = "Push JSON to TR";
 export const FILL_REQUIRED_ALERT = "Please, fill out highlighted fields";
+export const VALIDATION_ERROR_MESSAGE = "Wrong JSON structure: ";
+export const FILE_LOADING_FAILURE = "Error occurred reading file: ";
 
 // ConfigurationSpec.js
 export const ADD_BTN_TITLE = "+ Add";

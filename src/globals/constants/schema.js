@@ -1,9 +1,20 @@
-import {Validator} from "jsonschema";
+import { Validator } from "jsonschema";
 
 export const v = new Validator();
 
 const Properties = {
-"type": "object"
+    "type": "object",
+    "properties": {
+        "supported-apis": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "auth-type": {
+            "type": "string"
+        }
+    }
 }
 
 const Capability = {
@@ -123,8 +134,6 @@ v.addSchema(Properties, '/Properties');
 v.addSchema(ConfigurationSpecOptions, '/ConfigurationSpecOptions');
 v.addSchema(ConfigurationSpecField, '/ConfigurationSpecField');
 
-
-
 export const VALIDATION_SCHEMA = {
     "type": "object",
     "properties": {
@@ -133,6 +142,7 @@ export const VALIDATION_SCHEMA = {
         "logo": {"type": "string"},
         "short_description": {"type": "string"},
         "title": {"type": "string"},
+        "flags": {"type": "array"},
         "external_references": {
             "type": "array",
             "items": {

@@ -4,7 +4,7 @@ import {
 } from "globals/constants/types"
 
 const initialState = {
- "supported-apis": [],
+ "supported-apis": []
 }
 
 export const propertiesReducer = (state = initialState, action) => {

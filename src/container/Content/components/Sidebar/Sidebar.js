@@ -1,10 +1,10 @@
 import React from "react";
 import "./Sidebar.scss"
 import * as Constants from "globals/constants/constants";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import Modal from "../Modal/Modal";
 import {v, VALIDATION_SCHEMA} from "globals/constants/schema";
-import { readStateFromFile } from "rootActions";
+import { readStateFromBackend } from "rootActions";
 
 
 class Sidebar extends React.Component {
@@ -68,14 +68,17 @@ class Sidebar extends React.Component {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onloadend = () => {
+            reader.onload = () => {
                 const json = JSON.parse(reader.result);
                 const valResult = v.validate(json, VALIDATION_SCHEMA)
-                if (valResult.errors && valResult.errors.length) {
-                    alert(valResult.errors)
+                if (!valResult.valid) {
+                    alert(Constants.VALIDATION_ERROR_MESSAGE + valResult.errors.join(", "))
                 } else {
-                    this.props.readStateFromFile(json)
+                    this.props.readStateFromBackend(json)
                 }
+            };
+            reader.onerror = () => {
+                alert(Constants.FILE_LOADING_FAILURE + file.name)
             };
             reader.readAsText(file, 'UTF-8');
         }
@@ -143,7 +146,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    readStateFromFile
+    readStateFromBackend
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
