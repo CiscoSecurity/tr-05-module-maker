@@ -1,0 +1,26 @@
+@import "src/globals/constants/colors";
+
+.imgWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .imgUpload {
+    border: none;
+    color: transparent;
+    width: 90px;
+  }
+
+  .closeIcon {
+    fill: $gray-color;
+    width: 15px;
+    height: 15px;
+    margin: 4px;
+    vertical-align: top;
+
+    &:hover {
+      fill: $hover-color;
+      cursor: pointer;
+    }
+  }
+}

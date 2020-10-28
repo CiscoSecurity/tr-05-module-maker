@@ -8,7 +8,7 @@ import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec"
 import Capabilities from "./components/Capabilities/Capabilities";
 import * as Constants from "globals/constants/constants";
 import { onFileLoaded, updateFlags, updateSingleInput } from "./otherInputsActions";
-import FileInput from "./components/FileInput";
+import FileInput from "./components/FileInput/FileInput";
 
 
 class Content extends React.Component {
@@ -30,7 +30,6 @@ class Content extends React.Component {
             reader.onloadend = () => this.props.onFileLoaded(reader.result);
             reader.readAsDataURL(file);
         }
-        this.props.onFileLoaded("");
     }
 
 
@@ -79,9 +78,10 @@ class Content extends React.Component {
                                    value={this.props.syncContent.flags || ""}
                                    onChange={this.changeFlagsHandler}/>
                             <p>{Constants.LOGO_LABEL}</p>
-{/*                            <input type="file" accept="image/*" name="logo"
-                                   autoComplete="off" onChange={this.handleLoadLocalFile}/>*/}
-                            <FileInput value={this.props.syncContent.logo} onChange={this.handleLoadLocalFile} style={{height: "100px"}}/>
+                            <FileInput
+                                value={this.props.syncContent.logo}
+                                onChange={this.handleLoadLocalFile}
+                            />
                         </div>
                     </div>
                     <ConfigurationSpec/>

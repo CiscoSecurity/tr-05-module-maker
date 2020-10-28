@@ -12,6 +12,7 @@ export const UPDATE_AUTH_TYPE = 'UPDATE_AUTH_TYPE';
 export const UPDATE_SINGLE_INPUT = 'UPDATE_SINGLE_INPUT';
 export const UPDATE_FlAGS = 'UPDATE_FlAGS';
 export const LOAD_FILE = 'LOAD_FILE';
+export const DELETE_LOGO = 'DELETE_LOGO';
 
 // Configuration Spec
 export const ADD_CONF_SPEC = 'ADD_CONF_SPEC';

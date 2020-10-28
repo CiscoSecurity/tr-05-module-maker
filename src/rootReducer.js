@@ -1,7 +1,7 @@
 import { otherInputsReducer } from "./container/Content/otherInputsReducer";
 import { externalReferencesReducer } from "./container/Content/components/ExternalReferences/externalReferencesReducer";
 import { configurationSpecReducer } from "./container/Content/components/ConfigurationSpec/configurationSpecReducer";
-import { propertiesReducer} from "./container/Content/components/Properties/propertiesReducer";
+import { propertiesReducer } from "./container/Content/components/Properties/propertiesReducer";
 import { capabilitiesReducer } from "./container/Content/components/Capabilities/capabilitiesReducer";
 import { combineReducers } from "redux";
 import { READ_STATE_FROM_BACKEND } from "./globals/constants/types";
