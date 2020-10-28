@@ -9,7 +9,7 @@ const FileInput = ({ value, onChange, deleteLogo }) => (
         <input type="file" onChange={onChange} className="imgUpload"/>
         { Boolean(value) &&
         (<div>
-                <img src={value} alt="" width="50"/>
+                <img src={value} alt="" width="50" className="img"/>
                 <svg className="closeIcon" onClick={deleteLogo}>
                     <use xlinkHref={`${Icons}#icon-small-x-close`}/>
                 </svg>

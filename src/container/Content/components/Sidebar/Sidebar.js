@@ -85,7 +85,7 @@ class Sidebar extends React.Component {
     }
 
     onOpenButtonClick = () => {
-        let inputElement = document.getElementById('JSON');
+        let inputElement = document.getElementById('JSONfile');
         inputElement.click();
         inputElement.addEventListener('change', this.handleFile, false);
     }
@@ -97,7 +97,7 @@ class Sidebar extends React.Component {
             <div className="Sidebar">
                 <p>{ Constants.SIDEBAR_TITLE }</p>
                 <ul>
-                    <input type="file" id="JSON" accept="application/JSON"/>
+                    <input type="file" id="JSONfile" accept="application/JSON"/>
                     <li onClick={this.onOpenButtonClick}>
                         { Constants.OPEN_FROM_FILE }
                     </li>

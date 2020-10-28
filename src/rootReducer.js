@@ -19,8 +19,8 @@ const appReducer = combineReducers({
 
 export const rootReducer = (state, action) => {
     if (action.type === READ_STATE_FROM_BACKEND) {
-        const references = action.payload.external_references.map(
-            ref => Object.assign(ref, {id: uuidv4()})
+       action.payload.external_references.map(
+           ref => ref["id"] = uuidv4()
         )
         for (const elem of action.payload.configuration_spec) {
             if (elem.options) {
@@ -32,7 +32,7 @@ export const rootReducer = (state, action) => {
         }
 
         return {
-            ...state, external_references: references,
+            ...state, external_references: action.payload.external_references,
             configuration_spec: action.payload.configuration_spec,
             properties: action.payload.properties,
             capabilities: action.payload.capabilities,

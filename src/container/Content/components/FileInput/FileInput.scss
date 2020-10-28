@@ -6,9 +6,11 @@
   justify-content: flex-start;
 
   .imgUpload {
-    border: none;
-    color: transparent;
-    width: 90px;
+    width: 85px;
+  }
+
+  .img {
+    margin-left: 4px;
   }
 
   .closeIcon {
