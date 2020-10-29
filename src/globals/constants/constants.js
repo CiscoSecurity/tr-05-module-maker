@@ -51,7 +51,6 @@ export const LABEL_FIELD_TEXT = "label";
 export const OPTIONS_SECTION_LABEL = "Options";
 export const OPTIONS_BTN_TITLE = "+ Add option";
 
-
 // Header.js
 export const HEADER_TITLE = "Threat Response Module Maker";
 
@@ -68,6 +67,7 @@ export const PUSH_MODAL_TEXT = "Create a new module type in your Threat Response
 export const CLIENT_ID_LABEL = "Client ID";
 export const CLIENT_PASSWORD_LABEL = "Client Password";
 export const PUSH_BTN_TITLE = "Push";
+export const CANCEL_BTN_TITLE = "Cancel";
 
 // AuthType.js
 export const AUTH_LABEL = "authorization";

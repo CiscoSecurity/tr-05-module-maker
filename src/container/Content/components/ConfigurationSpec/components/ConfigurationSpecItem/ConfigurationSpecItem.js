@@ -10,14 +10,7 @@ from "../../configurationSpecActions";
 
 class ConfigurationSpecItem extends React.Component {
     state = {
-        showOptions: this.props.syncConfSpecItem.options.length > 0,
-        key: "",
-        type:  this.props.syncConfSpecItem.type || "",
-        label: "",
-        tooltip: "",
-        subtype: "",
-        required: false,
-        group: "",
+        showOptions: this.props.syncConfSpecItem.options.length > 0
     }
 
     onSelectChange = (event) => {
@@ -85,7 +78,10 @@ class ConfigurationSpecItem extends React.Component {
                         </datalist>
                         <div className="inputDiv">
                             {Constants.TYPE_LABEL}
-                            <select name="type" className="customInput" required value={this.state.type}
+                            <select name="type"
+                                    className="customInput"
+                                    required
+                                    value={this.props.syncConfSpecItem.type || ''}
                                     onChange={this.onSelectChange}>
                                 <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                                 {

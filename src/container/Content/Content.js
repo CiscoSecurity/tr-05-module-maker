@@ -75,7 +75,7 @@ class Content extends React.Component {
                                    name="flags"
                                    placeholder={Constants.FLAGS_PLACEHOLDER}
                                    autoComplete="off"
-                                   value={this.props.syncContent.flags || ""}
+                                   value={this.props.syncContent.flags || ''}
                                    onChange={this.changeFlagsHandler}/>
                             <p>{Constants.LOGO_LABEL}</p>
                             <FileInput

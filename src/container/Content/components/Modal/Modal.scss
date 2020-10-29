@@ -31,7 +31,7 @@
     cursor: pointer;
 
     &:hover {
-      fill: $hover-color;
+      fill: $hover-color-dark;
     }
   }
 
@@ -76,13 +76,16 @@
     padding: 5px;
   }
 
+  .controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   button {
     max-height: 28px;
     min-width: 75px;
-    color: $white-color;
-    background-color: $blue-background;
     border-radius: 3px;
-    border: 0;
     box-shadow: none;
     font-weight: 400;
     line-height: 1.5;
@@ -94,8 +97,26 @@
     white-space: nowrap;
     margin-top: 10px;
 
-    &:hover {
-      background: $hover-color;
+    &.submit {
+      border: 0;
+      margin-left: 50px;
+      color: $white-color;
+      background-color: $blue-background;
+
+      &:hover {
+        background: $hover-color-dark;
+      }
+    }
+
+    &.cancel {
+      border: 1px solid $blue-background;
+      margin-right: 50px;
+      color: $blue-background;
+      background-color: $white-color;
+
+      &:hover {
+        background: $hover-color-light;
+      }
     }
   }
 }
