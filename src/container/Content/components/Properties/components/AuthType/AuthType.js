@@ -26,7 +26,7 @@ render() {
 
             <input type="checkbox"
                    autoComplete="off"
-                   onClick={this.onCheckboxToggle}
+                   onChange={this.onCheckboxToggle}
                    checked={Object.keys(this.props.syncProperties).includes("auth-type")}
             />
 
