@@ -17,23 +17,22 @@ const appReducer = combineReducers({
     }
 )
 
+function addIDs (list) {
+    for (const elem of list) {
+        if (elem.options) {
+            addIDs(elem.options);
+        }
+        elem["id"] = uuidv4()
+    }
+    return list
+}
+
 export const rootReducer = (state, action) => {
     if (action.type === READ_STATE_FROM_BACKEND) {
-       action.payload.external_references.map(
-           ref => ref["id"] = uuidv4()
-        )
-        for (const elem of action.payload.configuration_spec) {
-            if (elem.options) {
-                elem.options.map(
-                    option => option["id"] = uuidv4()
-                )
-            }
-            elem["id"] = uuidv4()
-        }
-
         return {
-            ...state, external_references: action.payload.external_references,
-            configuration_spec: action.payload.configuration_spec,
+            ...state,
+            external_references: addIDs(action.payload.external_references),
+            configuration_spec: addIDs(action.payload.configuration_spec),
             properties: action.payload.properties,
             capabilities: action.payload.capabilities,
             other_inputs: {

@@ -12,7 +12,7 @@ async function authorize(values) {
         }
     )
     if (response.ok === false) {
-        alert('Error: ' + (response.statusText || 'Authorization failed'))
+        throw (response.statusText || 'Authorization failed')
     }
     const data = await response.json();
     return data['access_token'];
@@ -34,10 +34,10 @@ export default async function pushModuleType(values, json) {
         )
         const data = await response.json();
         if (response.ok === false || data["error"]) {
-            alert("Error: " + response.statusText || data["error_description"])
+            throw (response.statusText || data["error_description"])
         }
         else {
-            alert(Constants.MESSAGE_SUCCESS + data['id'])
+            return data['id']
         }
     }
 }

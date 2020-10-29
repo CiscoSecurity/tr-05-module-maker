@@ -1,15 +1,20 @@
-import React from "react";
+import React, { createRef } from "react";
 import "./Sidebar.scss"
 import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
 import Modal from "../Modal/Modal";
-import {v, VALIDATION_SCHEMA} from "globals/constants/schema";
+import { CustomAlert} from "../CustomAlert/CustomAlert";
+import { v, VALIDATION_SCHEMA } from "globals/constants/schema";
 import { readStateFromBackend } from "rootActions";
 
 
 class Sidebar extends React.Component {
     state = {
-        showModal: false
+        showModal: false,
+        showAlert: false,
+        alertMessage: "",
+        alertTitle: "",
+        inputEl: createRef()
     }
 
 
@@ -45,22 +50,28 @@ class Sidebar extends React.Component {
             link.href = url;
             link.click();
         }
-        else {
-            alert(Constants.FILL_REQUIRED_ALERT)
-        }
     }
 
     onPushButtonClick = () => {
         if (this.isValidForm()) {
             this.setState({showModal: true});
         }
-        else {
-            alert(Constants.FILL_REQUIRED_ALERT)
-        }
     }
 
     onCloseModalClick = () => {
         this.setState({showModal: false});
+    }
+
+    onCloseAlertClick = () => {
+        this.setState({showAlert: false});
+    }
+
+    throwAlert = (title, message) => {
+        this.setState({
+            showAlert: true,
+            alertMessage: message,
+            alertTitle: title
+        })
     }
 
     handleFile = (event) => {
@@ -72,24 +83,31 @@ class Sidebar extends React.Component {
                 const json = JSON.parse(reader.result);
                 const valResult = v.validate(json, VALIDATION_SCHEMA)
                 if (!valResult.valid) {
-                    alert(Constants.VALIDATION_ERROR_MESSAGE + valResult.errors.join(", "))
+                    this.throwAlert(
+                        Constants.ALERT_TITLE_FAILURE,
+                        Constants.VALIDATION_ERROR_MESSAGE
+                        + valResult.errors.join(", ")
+                    )
                 } else {
                     this.props.readStateFromBackend(json)
                 }
             };
             reader.onerror = () => {
-                alert(Constants.FILE_LOADING_FAILURE + file.name)
+                this.throwAlert(
+                    Constants.ALERT_TITLE_FAILURE,
+                    Constants.FILE_LOADING_FAILURE
+                    + file.name
+                );
             };
             reader.readAsText(file, 'UTF-8');
         }
     }
 
     onOpenButtonClick = () => {
-        let inputElement = document.getElementById('JSONfile');
+        const inputElement = this.state.inputEl.current;
         inputElement.click();
         inputElement.addEventListener('change', this.handleFile, false);
     }
-
 
 
     render() {
@@ -97,7 +115,7 @@ class Sidebar extends React.Component {
             <div className="Sidebar">
                 <p>{ Constants.SIDEBAR_TITLE }</p>
                 <ul>
-                    <input type="file" id="JSONfile" accept="application/JSON"/>
+                    <input type="file" ref={this.state.inputEl} accept="application/JSON"/>
                     <li onClick={this.onOpenButtonClick}>
                         { Constants.OPEN_FROM_FILE }
                     </li>
@@ -116,7 +134,16 @@ class Sidebar extends React.Component {
                    <Modal
                        json={this.constructValidJSON()}
                        closeModalHandler={this.onCloseModalClick}
+                       alertHandler={this.throwAlert}
                    />
+                }
+                {
+                    this.state.showAlert &&
+                        <CustomAlert
+                            title={this.state.alertTitle}
+                            message={this.state.alertMessage}
+                            closeAlertHandler={this.onCloseAlertClick}
+                        />
                 }
             </div>
         )

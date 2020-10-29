@@ -1,4 +1,5 @@
 export const SELECT_PLACEHOLDER = "Select your option";
+export const LOGO = "logo";
 
 // Content.js
 export const MAIN_TITLE = "Module";
@@ -71,3 +72,8 @@ export const CANCEL_BTN_TITLE = "Cancel";
 
 // AuthType.js
 export const AUTH_LABEL = "authorization";
+
+// CustomAlert.js
+export const CLOSE_BTN_LABEL = "Close";
+export const ALERT_TITLE_FAILURE = "Failure: an error occurred";
+export const ALERT_TITLE_SUCCESS = "Success";
