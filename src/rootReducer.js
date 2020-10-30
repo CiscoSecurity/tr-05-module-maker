@@ -23,6 +23,7 @@ function addIDs (list) {
             if (elem.options) {
                 addIDs(elem.options);
             }
+            else elem.options = []
             elem["id"] = uuidv4()
         }
     }
