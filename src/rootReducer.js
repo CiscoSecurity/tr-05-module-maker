@@ -17,15 +17,15 @@ const appReducer = combineReducers({
     }
 )
 
-function addIDs (List) {
-    if (List && List.length > 0) {
-        List.map(
+function addIDs (currentList) {
+    if (currentList) {
+        currentList.map(
             el => {
                 el["id"] = uuidv4()
             }
         )
     }
-    return List || []
+    return currentList || []
 }
 
 function reformatConfSpec (spec) {
