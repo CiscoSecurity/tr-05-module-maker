@@ -18,32 +18,32 @@ const appReducer = combineReducers({
 )
 
 function addIDs (list) {
-    for (const elem of list) {
-        if (elem.options) {
-            addIDs(elem.options);
+    if (list) {
+        for (const elem of list) {
+            if (elem.options) {
+                addIDs(elem.options);
+            }
+            elem["id"] = uuidv4()
         }
-        elem["id"] = uuidv4()
     }
-    return list
+    return list || []
 }
 
 export const rootReducer = (state, action) => {
     if (action.type === READ_STATE_FROM_BACKEND) {
+        const {
+            external_references,
+            configuration_spec,
+            properties,
+            capabilities,
+            ...otherInputs} = action.payload;
         return {
             ...state,
             external_references: addIDs(action.payload.external_references),
             configuration_spec: addIDs(action.payload.configuration_spec),
-            properties: action.payload.properties,
-            capabilities: action.payload.capabilities,
-            other_inputs: {
-                title: action.payload.title,
-                short_description: action.payload.short_description,
-                tips: action.payload.tips,
-                description: action.payload.description,
-                flags: action.payload.flags,
-                logo: action.payload.logo,
-                default_name: action.payload.default_name
-            }
+            properties: action.payload.properties || [],
+            capabilities: action.payload.capabilities || [],
+            other_inputs: otherInputs
         }
     }
     return appReducer(state, action)

@@ -21,7 +21,7 @@ class SupportedAPI extends React.Component {
         }
 
         else {
-            if (this.props.syncProperties["supported-apis"].filter(
+            if (this.props.syncSupportedAPIs.filter(
                 elem => elem.startsWith(this.state.class)).length === 1) {
                 this.props.deleteCapability(this.state.class);
             }
@@ -34,7 +34,7 @@ class SupportedAPI extends React.Component {
                 <input type="checkbox"
                        autoComplete="off"
                        onChange={this.onCheckboxToggle}
-                       checked={this.props.syncProperties["supported-apis"].includes(this.state.title)}
+                       checked={this.props.syncSupportedAPIs.includes(this.state.title)}
                 />
                 {this.state.title}
             </div>
@@ -49,7 +49,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-      syncProperties: state.properties
+      syncSupportedAPIs: state.properties["supported-apis"] || []
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SupportedAPI);
