@@ -80,16 +80,24 @@ class Sidebar extends React.Component {
         if (file) {
             const reader = new FileReader();
             reader.onload = () => {
-                const json = JSON.parse(reader.result);
-                const valResult = v.validate(json, VALIDATION_SCHEMA)
-                if (!valResult.valid) {
+                try {
+                    const json = JSON.parse(reader.result);
+                    const valResult = v.validate(json, VALIDATION_SCHEMA)
+                    if (!valResult.valid) {
+                        this.throwAlert(
+                            Constants.ALERT_TITLE_FAILURE,
+                            Constants.VALIDATION_ERROR_MESSAGE
+                            + valResult.errors.join(", ")
+                        )
+                    } else {
+                        this.props.readStateFromBackend(json)
+                    }
+                }
+                catch (error) {
                     this.throwAlert(
                         Constants.ALERT_TITLE_FAILURE,
-                        Constants.VALIDATION_ERROR_MESSAGE
-                        + valResult.errors.join(", ")
+                        String(error)
                     )
-                } else {
-                    this.props.readStateFromBackend(json)
                 }
             };
             reader.onerror = () => {
