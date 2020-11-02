@@ -88,6 +88,10 @@
       margin: 0;
       min-width: 75px;
       cursor: pointer;
+
+      &:hover {
+        fill: $hover-color-dark;
+      }
     }
   }
 }
