@@ -5,13 +5,8 @@ import { connect } from "react-redux";
 
 
 class Capability extends React.Component {
-    state = {};
-
     onDescriptionChange = event => {
         event.persist()
-        this.setState(prev => ({...prev, ...{
-                [event.target.name] : event.target.value
-            }}))
         this.props.updateCapabilityDescription({
             id: this.props.api.id, description: event.target.value.trim()
         }

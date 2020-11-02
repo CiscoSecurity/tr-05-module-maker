@@ -1,6 +1,6 @@
 import { Validator } from "jsonschema";
 
-export const v = new Validator();
+export const validator = new Validator();
 
 const Properties = {
     "type": "object",
@@ -128,11 +128,11 @@ const ConfigurationSpecField = {
     ]
 }
 
-v.addSchema(Capability, '/Capability');
-v.addSchema(ExternalReference, '/ExternalReference');
-v.addSchema(Properties, '/Properties');
-v.addSchema(ConfigurationSpecOptions, '/ConfigurationSpecOptions');
-v.addSchema(ConfigurationSpecField, '/ConfigurationSpecField');
+validator.addSchema(Capability, '/Capability');
+validator.addSchema(ExternalReference, '/ExternalReference');
+validator.addSchema(Properties, '/Properties');
+validator.addSchema(ConfigurationSpecOptions, '/ConfigurationSpecOptions');
+validator.addSchema(ConfigurationSpecField, '/ConfigurationSpecField');
 
 export const VALIDATION_SCHEMA = {
     "type": "object",

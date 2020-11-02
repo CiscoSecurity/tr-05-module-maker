@@ -18,8 +18,12 @@ async function authorize(values) {
     return data['access_token'];
 }
 
-export default async function pushModuleType(values, json) {
-    const token = await authorize(values);
+export default async function pushModuleType(values, json, alertHandler) {
+    const token = await authorize(values).catch(error => alertHandler(
+        Constants.ALERT_TITLE_FAILURE,
+        String(error)
+    ));
+
     if (token) {
         const response = await fetch(Constants.URL + Constants.MODULE_TYPE_ENDPOINT,
             {
@@ -34,10 +38,15 @@ export default async function pushModuleType(values, json) {
         )
         const data = await response.json();
         if (response.ok === false || data["error"]) {
-            throw (response.statusText || data["error_description"])
-        }
-        else {
-            return data['id']
+            alertHandler(
+                Constants.ALERT_TITLE_FAILURE,
+                response.statusText || data["error_description"]
+            )
+        } else {
+            alertHandler(
+                Constants.ALERT_TITLE_SUCCESS,
+                Constants.MESSAGE_SUCCESS + data['id']
+            )
         }
     }
 }

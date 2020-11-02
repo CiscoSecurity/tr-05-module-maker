@@ -21,17 +21,11 @@ const Modal = (props) => (
                 return errors;
             }}
             onSubmit={ async (values, { setSubmitting }) => {
-                try {
-                    const id = await pushModuleType(values, props.json);
-                    props.alertHandler(
-                        Constants.ALERT_TITLE_SUCCESS,
-                        Constants.MESSAGE_SUCCESS + id
-                    )
-                    props.closeModalHandler();
-                }
-                catch (e) {
-                    props.alertHandler(Constants.ALERT_TITLE_FAILURE, e)
-                }
+                await pushModuleType(
+                    values,
+                    props.json,
+                    props.alertHandler
+                );
                 setSubmitting(false);
             }}
         >

@@ -4,7 +4,7 @@ import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
 import Modal from "../Modal/Modal";
 import { CustomAlert} from "../CustomAlert/CustomAlert";
-import { v, VALIDATION_SCHEMA } from "globals/constants/schema";
+import { validator, VALIDATION_SCHEMA } from "globals/constants/schema";
 import { readStateFromBackend } from "rootActions";
 
 
@@ -82,7 +82,7 @@ class Sidebar extends React.Component {
             reader.onload = () => {
                 try {
                     const json = JSON.parse(reader.result);
-                    const valResult = v.validate(json, VALIDATION_SCHEMA)
+                    const valResult = validator.validate(json, VALIDATION_SCHEMA)
                     if (!valResult.valid) {
                         this.throwAlert(
                             Constants.ALERT_TITLE_FAILURE,
