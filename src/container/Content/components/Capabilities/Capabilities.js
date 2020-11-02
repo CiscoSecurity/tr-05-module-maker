@@ -23,4 +23,4 @@ const mapStateToProps = (state) => ({
         syncCapabilities: state.capabilities
 })
 
-export default connect(mapStateToProps, null)(Capabilities);
+export default connect(mapStateToProps)(Capabilities);

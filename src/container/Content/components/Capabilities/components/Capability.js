@@ -5,16 +5,8 @@ import { connect } from "react-redux";
 
 
 class Capability extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     onDescriptionChange = event => {
         event.persist()
-        this.setState(prev => ({...prev, ...{
-                [event.target.name] : event.target.value
-            }}))
         this.props.updateCapabilityDescription({
             id: this.props.api.id, description: event.target.value.trim()
         }
@@ -27,7 +19,7 @@ class Capability extends React.Component {
                 <p>{this.props.api.id}</p>
                 <input
                     type="text"
-                    value={this.state.description}
+                    value={this.props.api.description}
                     name={this.props.api.id}
                     placeholder="Enter description"
                     autoComplete="off"
@@ -38,6 +30,7 @@ class Capability extends React.Component {
         )
     }
 }
+
 
 const mapDispatchToProps = {
     updateCapabilityDescription

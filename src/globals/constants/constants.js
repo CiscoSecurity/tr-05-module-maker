@@ -1,6 +1,5 @@
-import React from "react";
-
 export const SELECT_PLACEHOLDER = "Select your option";
+export const LOGO = "logo";
 
 // Content.js
 export const MAIN_TITLE = "Module";
@@ -24,6 +23,8 @@ export const OPEN_FROM_API = "Open JSON from TR API";
 export const SAVE_JSON = "Save JSON";
 export const PUSH_JSON = "Push JSON to TR";
 export const FILL_REQUIRED_ALERT = "Please, fill out highlighted fields";
+export const VALIDATION_ERROR_MESSAGE = "Wrong JSON structure: ";
+export const FILE_LOADING_FAILURE = "Error occurred reading file: ";
 
 // ConfigurationSpec.js
 export const ADD_BTN_TITLE = "+ Add";
@@ -51,7 +52,6 @@ export const LABEL_FIELD_TEXT = "label";
 export const OPTIONS_SECTION_LABEL = "Options";
 export const OPTIONS_BTN_TITLE = "+ Add option";
 
-
 // Header.js
 export const HEADER_TITLE = "Threat Response Module Maker";
 
@@ -68,6 +68,12 @@ export const PUSH_MODAL_TEXT = "Create a new module type in your Threat Response
 export const CLIENT_ID_LABEL = "Client ID";
 export const CLIENT_PASSWORD_LABEL = "Client Password";
 export const PUSH_BTN_TITLE = "Push";
+export const CANCEL_BTN_TITLE = "Cancel";
 
 // AuthType.js
 export const AUTH_LABEL = "authorization";
+
+// CustomAlert.js
+export const CLOSE_BTN_LABEL = "Close";
+export const ALERT_TITLE_FAILURE = "Failure: an error occurred";
+export const ALERT_TITLE_SUCCESS = "Success";

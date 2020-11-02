@@ -1,4 +1,5 @@
-import { LOAD_FILE, UPDATE_FlAGS, UPDATE_SINGLE_INPUT } from "globals/constants/types";
+import { LOAD_FILE, UPDATE_FlAGS, UPDATE_SINGLE_INPUT, DELETE_LOGO }
+from "globals/constants/types";
 
 export const updateSingleInput = (pair) => ({
         type: UPDATE_SINGLE_INPUT,
@@ -13,4 +14,8 @@ export const updateFlags = (list) => ({
 export const onFileLoaded = (imageFile) => ({
         type: LOAD_FILE,
         payload: imageFile
+})
+
+export const deleteLogo = () => ({
+        type: DELETE_LOGO
 })

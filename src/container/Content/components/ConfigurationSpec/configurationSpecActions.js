@@ -5,6 +5,8 @@ import {
     DELETE_OPTION,
     UPDATE_CONF_SPEC, UPDATE_OPTION
 } from "globals/constants/types";
+import { v4 as uuidv4 } from 'uuid';
+
 
 export const addConfSpec = () => ({
         type: ADD_CONF_SPEC,
@@ -17,7 +19,7 @@ export const addConfSpec = () => ({
             "required": false,
             "group": "",
             "options": [],
-            "id": new Date().getTime()
+            "id": uuidv4()
         }
 })
 
@@ -40,8 +42,8 @@ export const addOptions = (id) => {
         payload:
             {
                 options: {
-                    value: "", "label": "",
-                    id: new Date().getTime()
+                    value: "", label: "",
+                    id: uuidv4()
                 },
                 conf_spec_id: id
             }

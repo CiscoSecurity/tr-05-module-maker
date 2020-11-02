@@ -12,14 +12,18 @@ async function authorize(values) {
         }
     )
     if (response.ok === false) {
-        alert('Error: ' + (response.statusText || 'Authorization failed'))
+        throw (response.statusText || 'Authorization failed')
     }
     const data = await response.json();
     return data['access_token'];
 }
 
-export default async function pushModuleType(values, json) {
-    const token = await authorize(values);
+export default async function pushModuleType(values, json, alertHandler) {
+    const token = await authorize(values).catch(error => alertHandler(
+        Constants.ALERT_TITLE_FAILURE,
+        String(error)
+    ));
+
     if (token) {
         const response = await fetch(Constants.URL + Constants.MODULE_TYPE_ENDPOINT,
             {
@@ -34,10 +38,15 @@ export default async function pushModuleType(values, json) {
         )
         const data = await response.json();
         if (response.ok === false || data["error"]) {
-            alert("Error: " + response.statusText || data["error_description"])
-        }
-        else {
-            alert(Constants.MESSAGE_SUCCESS + data['id'])
+            alertHandler(
+                Constants.ALERT_TITLE_FAILURE,
+                response.statusText || data["error_description"]
+            )
+        } else {
+            alertHandler(
+                Constants.ALERT_TITLE_SUCCESS,
+                Constants.MESSAGE_SUCCESS + data['id']
+            )
         }
     }
 }

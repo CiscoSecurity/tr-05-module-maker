@@ -37,7 +37,7 @@
       margin-top: 4px;
 
       &:hover {
-        background: $hover-color;
+        background: $hover-color-dark;
       }
     }
 
@@ -71,7 +71,7 @@
     margin: 4px;
 
     &:hover {
-      fill: $hover-color;
+      fill: $hover-color-dark;
     }
   }
 }

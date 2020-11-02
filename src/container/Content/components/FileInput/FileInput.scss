@@ -1,16 +1,16 @@
 @import "src/globals/constants/colors";
 
-.reference_wrapper {
+.imgWrapper {
   display: flex;
-  align-items: center;
-  border-radius: 3px;
-  border: 1px solid $border-color;
-  padding: 4px;
-  margin-bottom: 6px;
+  flex-direction: row;
+  justify-content: flex-start;
 
-  .custom_input {
-    flex: auto;
-    margin: 4px;
+  .imgUpload {
+    width: 85px;
+  }
+
+  .img {
+    margin-left: 4px;
   }
 
   .closeIcon {
@@ -18,9 +18,11 @@
     width: 15px;
     height: 15px;
     margin: 4px;
+    vertical-align: top;
 
     &:hover {
       fill: $hover-color-dark;
+      cursor: pointer;
     }
   }
 }

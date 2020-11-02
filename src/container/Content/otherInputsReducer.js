@@ -1,4 +1,7 @@
-import { LOAD_FILE, UPDATE_FlAGS, UPDATE_SINGLE_INPUT } from "globals/constants/types"
+import {DELETE_LOGO, LOAD_FILE, UPDATE_FlAGS, UPDATE_SINGLE_INPUT}
+from "globals/constants/types"
+import * as Constants from "globals/constants/constants";
+
 
 export const otherInputsReducer = (state = {}, action) => {
     switch (action.type) {
@@ -10,7 +13,12 @@ export const otherInputsReducer = (state = {}, action) => {
 
         case LOAD_FILE:
             return {...state, "logo": action.payload}
-
+        case DELETE_LOGO:
+            return Object.fromEntries(
+                Object.entries(state).filter(
+                    ([key, val]) => key !== Constants.LOGO
+                )
+            )
         default:
             return state
     }

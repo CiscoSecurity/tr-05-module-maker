@@ -12,7 +12,7 @@ class ConfigurationSpec extends React.Component {
                 <div className="confSpecRow">
                     <div>
                     Configuration Spec
-                    <button onClick={this.props.addConfSpec}>
+                    <button type="button" onClick={this.props.addConfSpec}>
                         { Constants.ADD_BTN_TITLE }
                     </button>
                     </div>

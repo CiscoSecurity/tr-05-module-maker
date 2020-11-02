@@ -1,14 +1,22 @@
-import React from "react";
+import React, { createRef } from "react";
 import "./Sidebar.scss"
 import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
 import Modal from "../Modal/Modal";
+import { CustomAlert} from "../CustomAlert/CustomAlert";
+import { validator, VALIDATION_SCHEMA } from "globals/constants/schema";
+import { readStateFromBackend } from "rootActions";
 
 
 class Sidebar extends React.Component {
     state = {
-        showModal: false
+        showModal: false,
+        showAlert: false,
+        alertMessage: "",
+        alertTitle: "",
+        inputEl: createRef()
     }
+
 
     constructValidJSON() {
         const data = JSON.parse(JSON.stringify(this.props.syncJSON));
@@ -42,17 +50,11 @@ class Sidebar extends React.Component {
             link.href = url;
             link.click();
         }
-        else {
-            alert(Constants.FILL_REQUIRED_ALERT)
-        }
     }
 
     onPushButtonClick = () => {
         if (this.isValidForm()) {
             this.setState({showModal: true});
-        }
-        else {
-            alert(Constants.FILL_REQUIRED_ALERT)
         }
     }
 
@@ -60,13 +62,69 @@ class Sidebar extends React.Component {
         this.setState({showModal: false});
     }
 
+    onCloseAlertClick = () => {
+        this.setState({showAlert: false});
+    }
+
+    throwAlert = (title, message) => {
+        this.setState({
+            showAlert: true,
+            alertMessage: message,
+            alertTitle: title
+        })
+    }
+
+    handleFile = (event) => {
+        event.preventDefault();
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    const json = JSON.parse(reader.result);
+                    const valResult = validator.validate(json, VALIDATION_SCHEMA)
+                    if (!valResult.valid) {
+                        this.throwAlert(
+                            Constants.ALERT_TITLE_FAILURE,
+                            Constants.VALIDATION_ERROR_MESSAGE
+                            + valResult.errors.join(", ")
+                        )
+                    } else {
+                        this.props.readStateFromBackend(json)
+                    }
+                }
+                catch (error) {
+                    this.throwAlert(
+                        Constants.ALERT_TITLE_FAILURE,
+                        String(error)
+                    )
+                }
+            };
+            reader.onerror = () => {
+                this.throwAlert(
+                    Constants.ALERT_TITLE_FAILURE,
+                    Constants.FILE_LOADING_FAILURE
+                    + file.name
+                );
+            };
+            reader.readAsText(file, 'UTF-8');
+        }
+    }
+
+    onOpenButtonClick = () => {
+        const inputElement = this.state.inputEl.current;
+        inputElement.click();
+        inputElement.addEventListener('change', this.handleFile, false);
+    }
+
+
     render() {
         return (
             <div className="Sidebar">
                 <p>{ Constants.SIDEBAR_TITLE }</p>
                 <ul>
-                    <input type="file" accept="application/JSON"/>
-                    <li>
+                    <input type="file" ref={this.state.inputEl} accept="application/JSON"/>
+                    <li onClick={this.onOpenButtonClick}>
                         { Constants.OPEN_FROM_FILE }
                     </li>
                     <li>
@@ -84,16 +142,47 @@ class Sidebar extends React.Component {
                    <Modal
                        json={this.constructValidJSON()}
                        closeModalHandler={this.onCloseModalClick}
+                       alertHandler={this.throwAlert}
                    />
+                }
+                {
+                    this.state.showAlert &&
+                        <CustomAlert
+                            title={this.state.alertTitle}
+                            message={this.state.alertMessage}
+                            closeAlertHandler={this.onCloseAlertClick}
+                        />
                 }
             </div>
         )
     }
 }
 
+const formatState = (state) => {
+    const {
+        external_references,
+        configuration_spec,
+        properties,
+        capabilities,
+        other_inputs
+    } = state;
+    return {
+        external_references,
+        configuration_spec,
+        properties,
+        capabilities,
+        ...other_inputs
+    }
+};
+
+
 const mapStateToProps = (state) => ({
-        syncJSON: state
+        syncJSON: formatState(state)
 })
 
-export default connect(mapStateToProps)(Sidebar);
+const mapDispatchToProps = {
+    readStateFromBackend
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
 

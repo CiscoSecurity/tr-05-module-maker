@@ -10,14 +10,7 @@ from "../../configurationSpecActions";
 
 class ConfigurationSpecItem extends React.Component {
     state = {
-        showOptions: false,
-        key: "",
-        type: "",
-        label: "",
-        tooltip: "",
-        subtype: "",
-        required: false,
-        group: "",
+        showOptions: this.props.syncConfSpecItem.options.length > 0
     }
 
     onSelectChange = (event) => {
@@ -69,7 +62,7 @@ class ConfigurationSpecItem extends React.Component {
                                 name="key"
                                 className="customInput"
                                 required
-                                value={this.state.key}
+                                value={this.props.syncConfSpecItem.key}
                                 onChange={this.onInputChange}
                                 list="key-input-list"
                             />
@@ -85,7 +78,10 @@ class ConfigurationSpecItem extends React.Component {
                         </datalist>
                         <div className="inputDiv">
                             {Constants.TYPE_LABEL}
-                            <select className="customInput" required value={this.state.type}
+                            <select name="type"
+                                    className="customInput"
+                                    required
+                                    value={this.props.syncConfSpecItem.type || ''}
                                     onChange={this.onSelectChange}>
                                 <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                                 {
@@ -100,7 +96,7 @@ class ConfigurationSpecItem extends React.Component {
                         <div className="inputDiv">
                             {Constants.LABEL}
                             <input type="text" name="label" className="customInput"
-                                   required  value={this.state.label}
+                                   required  value={this.props.syncConfSpecItem.label}
                                    onChange={this.onInputChange}/>
                         </div>
                     </div>
@@ -120,22 +116,22 @@ class ConfigurationSpecItem extends React.Component {
                         <div className="inputDiv">
                             {Constants.TOOLTIP_LABEL}
                             <input type="text" name="tooltip" className="customInput"
-                                   value={this.state.tooltip} onChange={this.onInputChange}/>
+                                   value={this.props.syncConfSpecItem.tooltip} onChange={this.onInputChange}/>
                         </div>
                         <div className="inputDiv">
                             {Constants.SUBTYPE_LABEL}
                             <input type="text" name="subtype" className="customInput"
-                                   value={this.state.subtype} onChange={this.onInputChange}/>
+                                   value={this.props.syncConfSpecItem.subtype} onChange={this.onInputChange}/>
                         </div>
                         <div className="inputDiv">
                             {Constants.GROUP_LABEL}
                             <input type="text" name="group" className="customInput"
-                                   value={this.state.group} onChange={this.onInputChange}/>
+                                   value={this.props.syncConfSpecItem['group']} onChange={this.onInputChange}/>
                         </div>
                         <div className="checkboxDiv">
                             {Constants.REQUIRED_LABEL}
                             <input type="checkbox" name="required"
-                                   value={this.state.required} onChange={this.onInputChange}/>
+                                   checked={this.props.syncConfSpecItem.required} onChange={this.onInputChange}/>
                         </div>
                     </div>
                 </div>

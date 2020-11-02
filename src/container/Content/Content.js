@@ -8,44 +8,28 @@ import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec"
 import Capabilities from "./components/Capabilities/Capabilities";
 import * as Constants from "globals/constants/constants";
 import { onFileLoaded, updateFlags, updateSingleInput } from "./otherInputsActions";
+import FileInput from "./components/FileInput/FileInput";
 
 
 class Content extends React.Component {
-    state = {
-            "title": "",
-            "default_name": "",
-            "short_description": "",
-            "flags": "",
-            "logo": "",
-        }
-
     changeInputHandler = event => {
         event.persist()
-        this.setState(prev => ({
-            ...prev, ...{
-                [event.target.name]: event.target.value
-            }
-        }))
         this.props.updateSingleInput({name: event.target.name, value: event.target.value.trim()})
     }
 
     changeFlagsHandler = event => {
         event.persist()
-        this.setState(prev => ({
-            ...prev, ...{
-                [event.target.name]: event.target.value.trim()
-            }
-        }))
         this.props.updateFlags(event.target.value.split(','))
     }
 
     handleLoadLocalFile = (event) => {
         event.preventDefault();
-        const reader = new FileReader();
         const file = event.target.files[0];
-
-        reader.onloadend = () => this.props.onFileLoaded(reader.result);
-        reader.readAsDataURL(file);
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => this.props.onFileLoaded(reader.result);
+            reader.readAsDataURL(file);
+        }
     }
 
 
@@ -62,19 +46,19 @@ class Content extends React.Component {
                             <textarea
                                 required
                                 autoComplete="off"
-                                value={this.state.title}
+                                value={this.props.syncContent.title || '' }
                                 name="title"
                                 onChange={this.changeInputHandler}
                             />
                             <p>{Constants.DEFAULT_NAME_LABEL}</p>
                             <textarea required
                                       autoComplete="off"
-                                      value={this.state.default_name}
+                                      value={this.props.syncContent.default_name || ''}
                                       name="default_name"
                                       onChange={this.changeInputHandler}/>
                             <p>{Constants.SHORT_DESCRIPTION_LABEL}</p>
                             <textarea autoComplete="off"
-                                      value={this.state.short_description}
+                                      value={this.props.syncContent.short_description || ''}
                                       name="short_description"
                                       onChange={this.changeInputHandler}/>
                             <Properties/>
@@ -91,11 +75,13 @@ class Content extends React.Component {
                                    name="flags"
                                    placeholder={Constants.FLAGS_PLACEHOLDER}
                                    autoComplete="off"
-                                   value={this.state.flags}
+                                   value={this.props.syncContent.flags || ''}
                                    onChange={this.changeFlagsHandler}/>
                             <p>{Constants.LOGO_LABEL}</p>
-                            <input type="file" accept="image/*" name="logo"
-                                   autoComplete="off" onChange={this.handleLoadLocalFile}/>
+                            <FileInput
+                                value={this.props.syncContent.logo}
+                                onChange={this.handleLoadLocalFile}
+                            />
                         </div>
                     </div>
                     <ConfigurationSpec/>
@@ -106,10 +92,14 @@ class Content extends React.Component {
 }
 
 
+const mapStateToProps = (state) => ({
+    syncContent: state.other_inputs
+})
+
 const mapDispatchToProps = {
     updateSingleInput,
     updateFlags,
     onFileLoaded
 }
 
-export default connect(null, mapDispatchToProps)(Content);
+export default connect(mapStateToProps, mapDispatchToProps)(Content);

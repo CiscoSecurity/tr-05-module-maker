@@ -22,7 +22,12 @@
     font: 400 14px CiscoSans, Arial, sans-serif;
     border-radius: 5px;
     height: 20px;
-    padding: 5px;
+    padding: 5px 0 0 6px;
+    resize: vertical;
+  }
+
+  .mde-preview {
+    font-size: 14px;
   }
 
   input {

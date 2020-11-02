@@ -21,9 +21,12 @@ const Modal = (props) => (
                 return errors;
             }}
             onSubmit={ async (values, { setSubmitting }) => {
-                await pushModuleType(values, props.json)
-                setSubmitting(false)
-                props.closeModalHandler();
+                await pushModuleType(
+                    values,
+                    props.json,
+                    props.alertHandler
+                );
+                setSubmitting(false);
             }}
         >
 
@@ -50,9 +53,12 @@ const Modal = (props) => (
                         <Field name="password" type="password" id="password" required/>
                         <ErrorMessage name="password" component="div" className='error'/>
                     </div>
-                    <div>
-                        <button type="submit" disabled={isSubmitting}>
+                    <div className="controls">
+                        <button type="submit" disabled={isSubmitting} className="submit">
                             { Constants.PUSH_BTN_TITLE }
+                        </button>
+                        <button type="button" onClick={props.closeModalHandler} className="cancel">
+                            { Constants.CANCEL_BTN_TITLE }
                         </button>
                     </div>
                 </Form>

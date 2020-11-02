@@ -7,6 +7,7 @@
   border-radius: 3px;
   border: 1px solid $border-color;
   padding: 4px;
+  margin-bottom: 4px;
 
   .optionsIconWrapper {
     flex: 1;
@@ -18,7 +19,7 @@
       height: 15px;
 
       &:hover {
-        fill: $hover-color;
+        fill: $hover-color-dark;
       }
     }
   }
