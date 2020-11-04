@@ -3,7 +3,10 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Icons from "globals/icons/sprite.svg";
 import './Modal.scss';
 import *  as Constants from "globals/constants/constants"
-import pushModuleType from "services"
+import Loader from "react-loader";
+import { pushModuleType } from "../../../../rootActions";
+import { hideModal, showAlert } from "../visibilityActions";
+import { connect } from "react-redux";
 
 
 const Modal = (props) => (
@@ -21,18 +24,16 @@ const Modal = (props) => (
                 return errors;
             }}
             onSubmit={ async (values, { setSubmitting }) => {
-                await pushModuleType(
-                    values,
-                    props.json,
-                    props.alertHandler
-                );
+                props.pushModuleType(props.json, values)
                 setSubmitting(false);
             }}
         >
 
             {({ isSubmitting }) => (
-                <Form className="modal-content">
-                    <svg className="closeIcon" onClick={props.closeModalHandler}>
+                props.loader?
+                    <Loader loaded={false} className="spinner" />
+                : <Form className="modal-content">
+                    <svg className="closeIcon" onClick={props.hideModal}>
                         <use xlinkHref={`${Icons}#icon-small-x-close`}/>
                     </svg>
 
@@ -57,7 +58,7 @@ const Modal = (props) => (
                         <button type="submit" disabled={isSubmitting} className="submit">
                             { Constants.PUSH_BTN_TITLE }
                         </button>
-                        <button type="button" onClick={props.closeModalHandler} className="cancel">
+                        <button type="button" onClick={props.hideModal} className="cancel">
                             { Constants.CANCEL_BTN_TITLE }
                         </button>
                     </div>
@@ -67,4 +68,14 @@ const Modal = (props) => (
     </div>
 );
 
-export default Modal;
+const mapStateToProps = (state) => ({
+    loader: state.elements_visibility.loader
+})
+
+const mapDispatchToProps = {
+    hideModal,
+    showAlert,
+    pushModuleType
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

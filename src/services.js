@@ -1,6 +1,6 @@
 import * as Constants from "./globals/constants/constants";
 
-async function authorize(values) {
+export async function authorize(values) {
     const response =  await fetch(Constants.URL + Constants.AUTH_ENDPOINT,{
             method: 'POST',
             headers: {
@@ -11,19 +11,37 @@ async function authorize(values) {
             body: 'grant_type=client_credentials'
         }
     )
-    if (response.ok === false) {
-        throw (response.statusText || 'Authorization failed')
+    if (!response.ok) {
+        throw response.statusText || 'Authorization failed'
     }
     const data = await response.json();
     return data['access_token'];
 }
 
-export default async function pushModuleType(values, json, alertHandler) {
-    const token = await authorize(values).catch(error => alertHandler(
-        Constants.ALERT_TITLE_FAILURE,
-        String(error)
-    ));
+export async function loadJSONfromTR(module_type_id, token) {
+    if (token) {
+        const response = await fetch(
+            Constants.URL +
+            '/iroh/iroh-int/module-type/'
+            + module_type_id, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        })
+        const data = await response.json();
+        if (!response.ok) {
+            throw (response.statusText || data['error_description'])
+        }
+        else {
+            return data
+        }
+    }
+}
 
+
+export async function pushModuleType(token, json) {
     if (token) {
         const response = await fetch(Constants.URL + Constants.MODULE_TYPE_ENDPOINT,
             {
@@ -37,16 +55,13 @@ export default async function pushModuleType(values, json, alertHandler) {
             }
         )
         const data = await response.json();
-        if (response.ok === false || data["error"]) {
-            alertHandler(
-                Constants.ALERT_TITLE_FAILURE,
-                response.statusText || data["error_description"]
+        if (!response.ok) {
+            throw(
+                response.statusText || data['errors']
             )
-        } else {
-            alertHandler(
-                Constants.ALERT_TITLE_SUCCESS,
-                Constants.MESSAGE_SUCCESS + data['id']
-            )
+        }
+        else {
+            return data['id']
         }
     }
 }

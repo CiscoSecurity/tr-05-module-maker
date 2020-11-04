@@ -32,6 +32,7 @@ class OptionsItem extends React.Component {
                 </div>
                 <div className="inputDiv">
                     {Constants.VALUE_FIELD_TEXT}
+                    <span className="requiredField">*</span>
                     <input type="text"
                            name="value"
                            className="customInput"
@@ -42,6 +43,7 @@ class OptionsItem extends React.Component {
                 </div>
                 <div className="inputDiv">
                     {Constants.LABEL_FIELD_TEXT}
+                    <span className="requiredField">*</span>
                     <input type="text"
                            name="label"
                            className="customInput"

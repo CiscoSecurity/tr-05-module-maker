@@ -17,6 +17,11 @@
     border-bottom: 1px solid $border-color;
   }
 
+  .requiredField {
+    color: $required-sign-color; // ToDo
+    display: inline;
+  }
+
   textarea {
     border: 1px solid $border-color;
     font: 400 14px CiscoSans, Arial, sans-serif;

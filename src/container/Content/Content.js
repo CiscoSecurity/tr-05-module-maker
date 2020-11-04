@@ -14,7 +14,13 @@ import FileInput from "./components/FileInput/FileInput";
 class Content extends React.Component {
     changeInputHandler = event => {
         event.persist()
-        this.props.updateSingleInput({name: event.target.name, value: event.target.value.trim()})
+        this.props.updateSingleInput({name: event.target.name, value: event.target.value})
+    }
+
+    trimInputValue = event => {
+        this.props.updateSingleInput({
+            name: event.target.name, value: event.target.value.trim()
+        })
     }
 
     changeFlagsHandler = event => {
@@ -42,7 +48,9 @@ class Content extends React.Component {
                 <form id="mainForm">
                     <div className="row">
                         <div className="column">
-                            <p>{Constants.INPUT_TITLE_LABEL}</p>
+                            <p>{Constants.INPUT_TITLE_LABEL}
+                                <span className="requiredField">*</span>
+                            </p>
                             <textarea
                                 required
                                 autoComplete="off"
@@ -50,17 +58,28 @@ class Content extends React.Component {
                                 name="title"
                                 onChange={this.changeInputHandler}
                             />
-                            <p>{Constants.DEFAULT_NAME_LABEL}</p>
+                            <p>{Constants.DEFAULT_NAME_LABEL}
+                                <span className="requiredField">*</span>
+                            </p>
                             <textarea required
                                       autoComplete="off"
                                       value={this.props.syncContent.default_name || ''}
                                       name="default_name"
-                                      onChange={this.changeInputHandler}/>
+                                      onChange={this.changeInputHandler}
+                                      onBlur={this.trimInputValue}
+                            />
                             <p>{Constants.SHORT_DESCRIPTION_LABEL}</p>
                             <textarea autoComplete="off"
                                       value={this.props.syncContent.short_description || ''}
                                       name="short_description"
                                       onChange={this.changeInputHandler}/>
+                            <p>{Constants.FLAGS_LABEL}</p>
+                            <input type="text"
+                                   name="flags"
+                                   placeholder={Constants.FLAGS_PLACEHOLDER}
+                                   autoComplete="off"
+                                   value={this.props.syncContent.flags || ''}
+                                   onChange={this.changeFlagsHandler}/>
                             <Properties/>
                             <Capabilities/>
                         </div>
@@ -70,13 +89,6 @@ class Content extends React.Component {
                             <p>{Constants.TIPS_LABEL}</p>
                             <MarkdownEditor name="tips"/>
                             <ExternalReferences/>
-                            <p>{Constants.FLAGS_LABEL}</p>
-                            <input type="text"
-                                   name="flags"
-                                   placeholder={Constants.FLAGS_PLACEHOLDER}
-                                   autoComplete="off"
-                                   value={this.props.syncContent.flags || ''}
-                                   onChange={this.changeFlagsHandler}/>
                             <p>{Constants.LOGO_LABEL}</p>
                             <FileInput
                                 value={this.props.syncContent.logo}

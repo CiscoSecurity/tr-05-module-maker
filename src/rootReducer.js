@@ -6,6 +6,7 @@ import { capabilitiesReducer } from "./container/Content/components/Capabilities
 import { combineReducers } from "redux";
 import { READ_STATE_FROM_BACKEND } from "./globals/constants/types";
 import { v4 as uuidv4 } from 'uuid';
+import { visibilityReducer } from "./container/Content/components/visibilityReducer";
 
 
 const appReducer = combineReducers({
@@ -13,7 +14,8 @@ const appReducer = combineReducers({
             properties: propertiesReducer,
             capabilities: capabilitiesReducer,
             external_references: externalReferencesReducer,
-            configuration_spec: configurationSpecReducer
+            configuration_spec: configurationSpecReducer,
+            elements_visibility: visibilityReducer
     }
 )
 
@@ -38,19 +40,22 @@ function reformatConfSpec (spec) {
 
 export const rootReducer = (state, action) => {
     if (action.type === READ_STATE_FROM_BACKEND) {
-        const {
-            external_references,
-            configuration_spec,
-            properties,
-            capabilities,
-            ...otherInputs} = action.payload;
         return {
             ...state,
             external_references: addIDs(action.payload.external_references),
             configuration_spec: reformatConfSpec(action.payload.configuration_spec),
             properties: action.payload.properties || [],
             capabilities: action.payload.capabilities || [],
-            other_inputs: otherInputs
+            other_inputs: {
+                // The API response contains additional fields that need to be excluded
+                title: action.payload.title,
+                short_description: action.payload.short_description,
+                tips: action.payload.tips,
+                description: action.payload.description,
+                flags: action.payload.flags,
+                logo: action.payload.logo,
+                default_name: action.payload.default_name
+            }
         }
     }
     return appReducer(state, action)

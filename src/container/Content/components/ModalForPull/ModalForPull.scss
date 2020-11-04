@@ -1,0 +1,32 @@
+@import "src/globals/constants/colors";
+
+.modal {
+  .loader {
+    justify-content: center;
+    display: flex;
+    margin-top: 30vh;
+  }
+
+  .pull-button {
+    max-height: 28px;
+    min-width: 75px;
+    color: $white-color;
+    background-color: $blue-background;
+    border-radius: 3px;
+    border: 0;
+    box-shadow: none;
+    font-weight: 400;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    text-align: center;
+    vertical-align: middle;
+    align-self: center;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-top: 10px;
+
+    &:hover {
+      background: $hover-color-dark;
+    }
+  }
+}

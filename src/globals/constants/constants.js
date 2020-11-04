@@ -70,6 +70,10 @@ export const CLIENT_PASSWORD_LABEL = "Client Password";
 export const PUSH_BTN_TITLE = "Push";
 export const CANCEL_BTN_TITLE = "Cancel";
 
+// ModalForPull.js
+export const PULL_BTN_TITLE = "Pull";
+export const PULL_MODAL_TEXT = "Pull module type from your Threat Response organization";
+
 // AuthType.js
 export const AUTH_LABEL = "authorization";
 

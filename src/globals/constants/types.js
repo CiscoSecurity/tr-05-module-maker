@@ -30,3 +30,18 @@ export const DELETE_EXTERNAL_REFERENCE = 'DELETE_EXTERNAL_REFERENCE';
 
 // Root
 export const READ_STATE_FROM_BACKEND = 'READ_STATE_FROM_BACKEND';
+export const PULL_MODULE_TYPE = 'PULL_MODULE_TYPE';
+export const PUSH_MODULE_TYPE = 'PUSH_MODULE_TYPE';
+
+// Visibility
+export const SHOW_MODAL = "SHOW_MODAL";
+export const HIDE_MODAL = "HIDE_MODAL";
+
+export const SHOW_ALERT = "SHOW_ALERT";
+export const HIDE_ALERT = "HIDE_ALERT";
+
+export const SHOW_LOADER = "SHOW_LOADER";
+export const HIDE_LOADER = "HIDE_LOADER";
+
+export const SHOW_MODAL_FOR_PULL = "SHOW_MODAL_FOR_PULL";
+export const HIDE_MODAL_FOR_PULL = "HIDE_MODAL_FOR_PULL";

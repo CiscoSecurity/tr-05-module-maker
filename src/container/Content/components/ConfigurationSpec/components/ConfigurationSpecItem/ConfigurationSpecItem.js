@@ -57,6 +57,7 @@ class ConfigurationSpecItem extends React.Component {
                     <div>
                         <div className="inputDiv">
                             {Constants.KEY_LABEL}
+                            <span className="requiredField">*</span>
                             <input
                                 type="text"
                                 name="key"
@@ -78,6 +79,7 @@ class ConfigurationSpecItem extends React.Component {
                         </datalist>
                         <div className="inputDiv">
                             {Constants.TYPE_LABEL}
+                            <span className="requiredField">*</span>
                             <select name="type"
                                     className="customInput"
                                     required
@@ -95,6 +97,7 @@ class ConfigurationSpecItem extends React.Component {
                         </div>
                         <div className="inputDiv">
                             {Constants.LABEL}
+                            <span className="requiredField">*</span>
                             <input type="text" name="label" className="customInput"
                                    required  value={this.props.syncConfSpecItem.label}
                                    onChange={this.onInputChange}/>

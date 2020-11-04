@@ -3,14 +3,15 @@ import "./Sidebar.scss"
 import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
 import Modal from "../Modal/Modal";
-import { CustomAlert} from "../CustomAlert/CustomAlert";
+import { CustomAlert } from "../CustomAlert/CustomAlert";
 import { validator, VALIDATION_SCHEMA } from "globals/constants/schema";
 import { readStateFromBackend } from "rootActions";
+import ModalForPull from "../ModalForPull/ModalForPull";
+import {hideAlert, hideModal, hideModalForPull, showAlert, showModal, showModalForPull} from "../visibilityActions";
 
 
 class Sidebar extends React.Component {
     state = {
-        showModal: false,
         showAlert: false,
         alertMessage: "",
         alertTitle: "",
@@ -54,24 +55,8 @@ class Sidebar extends React.Component {
 
     onPushButtonClick = () => {
         if (this.isValidForm()) {
-            this.setState({showModal: true});
+            this.props.showModal();
         }
-    }
-
-    onCloseModalClick = () => {
-        this.setState({showModal: false});
-    }
-
-    onCloseAlertClick = () => {
-        this.setState({showAlert: false});
-    }
-
-    throwAlert = (title, message) => {
-        this.setState({
-            showAlert: true,
-            alertMessage: message,
-            alertTitle: title
-        })
     }
 
     handleFile = (event) => {
@@ -84,7 +69,7 @@ class Sidebar extends React.Component {
                     const json = JSON.parse(reader.result);
                     const valResult = validator.validate(json, VALIDATION_SCHEMA)
                     if (!valResult.valid) {
-                        this.throwAlert(
+                        this.props.showAlert(
                             Constants.ALERT_TITLE_FAILURE,
                             Constants.VALIDATION_ERROR_MESSAGE
                             + valResult.errors.join(", ")
@@ -94,14 +79,14 @@ class Sidebar extends React.Component {
                     }
                 }
                 catch (error) {
-                    this.throwAlert(
+                    this.props.showAlert(
                         Constants.ALERT_TITLE_FAILURE,
                         String(error)
                     )
                 }
             };
             reader.onerror = () => {
-                this.throwAlert(
+                this.props.showAlert(
                     Constants.ALERT_TITLE_FAILURE,
                     Constants.FILE_LOADING_FAILURE
                     + file.name
@@ -127,7 +112,7 @@ class Sidebar extends React.Component {
                     <li onClick={this.onOpenButtonClick}>
                         { Constants.OPEN_FROM_FILE }
                     </li>
-                    <li>
+                    <li onClick={this.props.showModalForPull}>
                         { Constants.OPEN_FROM_API }
                     </li>
                     <li onClick={this.onSaveButtonClick}>
@@ -138,20 +123,22 @@ class Sidebar extends React.Component {
                     </li>
                 </ul>
                 {
-                   this.state.showModal &&
+                   this.props.modalVisible &&
                    <Modal
                        json={this.constructValidJSON()}
-                       closeModalHandler={this.onCloseModalClick}
-                       alertHandler={this.throwAlert}
                    />
                 }
                 {
-                    this.state.showAlert &&
+                    this.props.customAlert &&
                         <CustomAlert
-                            title={this.state.alertTitle}
-                            message={this.state.alertMessage}
-                            closeAlertHandler={this.onCloseAlertClick}
+                            title={this.props.customAlert.title}
+                            message={this.props.customAlert.message}
+                            closeAlertHandler={this.props.hideAlert}
                         />
+                }
+                {
+                    this.props.modalForPull &&
+                    <ModalForPull/>
                 }
             </div>
         )
@@ -177,11 +164,20 @@ const formatState = (state) => {
 
 
 const mapStateToProps = (state) => ({
-        syncJSON: formatState(state)
+        syncJSON: formatState(state),
+    modalVisible: state.elements_visibility.modal,
+    modalForPull: state.elements_visibility.modalForPull,
+    customAlert: state.elements_visibility.customAlert
 })
 
 const mapDispatchToProps = {
-    readStateFromBackend
+    readStateFromBackend,
+    showModal,
+    hideModal,
+    showModalForPull,
+    hideModalForPull,
+    showAlert,
+    hideAlert
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

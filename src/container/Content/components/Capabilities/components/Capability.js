@@ -16,7 +16,9 @@ class Capability extends React.Component {
     render() {
         return (
             <div className="capabilitiesWrapper">
-                <p>{this.props.api.id}</p>
+                <p>{this.props.api.id}
+                    <span className="requiredField">*</span>
+                </p>
                 <input
                     type="text"
                     value={this.props.api.description}
