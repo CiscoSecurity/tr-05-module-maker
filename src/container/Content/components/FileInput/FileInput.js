@@ -1,12 +1,12 @@
-import React, {useCallback} from "react";
+import React, { useCallback } from "react";
 import "./FileInput.scss"
 import Icons from "globals/icons/sprite.svg";
-import {deleteLogo, onFileLoaded} from "../../otherInputsActions";
-import {connect} from "react-redux";
-import {useDropzone} from 'react-dropzone'
+import { deleteLogo, onFileLoaded } from "../../otherInputsActions";
+import { connect } from "react-redux";
+import { useDropzone } from 'react-dropzone'
 
 
-const getColor = (isDragActive) => {
+const getStyle = (isDragActive) => {
     if (isDragActive) {
         return {"borderColor": "#049fd9"};
     }
@@ -26,11 +26,13 @@ const FileInput = ({ value, deleteLogo, onFileLoaded }) => {
         }
 
     }, [onFileLoaded])
-    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, multiple: false, accept: "image/*"})
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({
+        onDrop, multiple: false, accept: "image/*"
+    })
 
     return (
         <div className="dropzone-wrapper">
-            <div {...getRootProps({className: "dropzone", style: getColor(isDragActive)})}>
+            <div {...getRootProps({className: "dropzone", style: getStyle(isDragActive)})}>
                 <input {...getInputProps()} />
                 <p>Drag 'n' drop your logo here, or click to select logo</p>
             </div>

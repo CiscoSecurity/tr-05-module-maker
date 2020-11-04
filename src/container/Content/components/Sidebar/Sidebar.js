@@ -4,10 +4,13 @@ import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
 import Modal from "../Modal/Modal";
 import { CustomAlert } from "../CustomAlert/CustomAlert";
-import { validator, VALIDATION_SCHEMA } from "globals/constants/schema";
+import { VALIDATION_SCHEMA, validator } from "globals/constants/schema";
 import { readStateFromBackend } from "rootActions";
 import ModalForPull from "../ModalForPull/ModalForPull";
-import {hideAlert, hideModal, hideModalForPull, showAlert, showModal, showModalForPull} from "../visibilityActions";
+import {
+    hideAlert, hideModal, hideModalForPull,
+    showAlert, showModal, showModalForPull
+} from "../visibilityActions";
 
 
 class Sidebar extends React.Component {
@@ -164,7 +167,7 @@ const formatState = (state) => {
 
 
 const mapStateToProps = (state) => ({
-        syncJSON: formatState(state),
+    syncJSON: formatState(state),
     modalVisible: state.elements_visibility.modal,
     modalForPull: state.elements_visibility.modalForPull,
     customAlert: state.elements_visibility.customAlert
