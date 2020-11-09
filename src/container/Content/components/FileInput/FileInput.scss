@@ -13,13 +13,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
     border-width: 2px;
     border-radius: 2px;
-    border-color: #eee;
+    border-color: $border-light-color;
     border-style: dotted;
-    background-color: #fafafa;
-    color: #bdbdbd;
+    background-color: $dropzone-background;
+    color: $gray-color;
     outline: none;
     margin: 4px;
     cursor: pointer;
@@ -27,7 +27,7 @@
 
   .img {
     margin-top: 4px;
-    border: 2px solid #eaeaea;
+    border: 2px solid $border-light-color;
     border-radius: 2px;
   }
 

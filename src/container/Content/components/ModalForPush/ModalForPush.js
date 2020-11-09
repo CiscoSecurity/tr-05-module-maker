@@ -1,15 +1,15 @@
 import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Icons from "globals/icons/sprite.svg";
-import './Modal.scss';
+import './ModalForPush.scss';
 import *  as Constants from "globals/constants/constants"
 import Loader from "react-loader";
-import { pushModuleType } from "../../../../rootActions";
-import { hideModal, showAlert } from "../visibilityActions";
+import { pushModuleTypeRequest } from "rootActions";
+import { hideModalForPush, showAlert } from "../visibilityActions";
 import { connect } from "react-redux";
 
 
-const Modal = (props) => (
+const ModalForPush = (props) => (
     <div className='modal' id='modal'>
         <Formik
             initialValues={{ client_id: '', password: '' }}
@@ -24,7 +24,7 @@ const Modal = (props) => (
                 return errors;
             }}
             onSubmit={ async (values, { setSubmitting }) => {
-                props.pushModuleType(props.json, values)
+                props.pushModuleTypeRequest(props.json, values)
                 setSubmitting(false);
             }}
         >
@@ -33,7 +33,7 @@ const Modal = (props) => (
                 props.loader?
                     <Loader loaded={false} className="spinner" />
                 : <Form className="modal-content">
-                    <svg className="closeIcon" onClick={props.hideModal}>
+                    <svg className="closeIcon" onClick={props.hideModalForPush}>
                         <use xlinkHref={`${Icons}#icon-small-x-close`}/>
                     </svg>
 
@@ -55,11 +55,11 @@ const Modal = (props) => (
                         <ErrorMessage name="password" component="div" className='error'/>
                     </div>
                     <div className="controls">
+                        <button type="button" onClick={props.hideModalForPush} className="cancel">
+                            { Constants.CANCEL_BTN_TITLE }
+                        </button>
                         <button type="submit" disabled={isSubmitting} className="submit">
                             { Constants.PUSH_BTN_TITLE }
-                        </button>
-                        <button type="button" onClick={props.hideModal} className="cancel">
-                            { Constants.CANCEL_BTN_TITLE }
                         </button>
                     </div>
                 </Form>
@@ -73,9 +73,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    hideModal,
+    hideModalForPush,
     showAlert,
-    pushModuleType
+    pushModuleTypeRequest
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalForPush);

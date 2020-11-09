@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import "./Content.scss";
 import MarkdownEditor from "./components/MarkdownEditor";
 import ExternalReferences from "./components/ExternalReferences/ExternalReferences";
@@ -7,20 +7,27 @@ import Properties from "./components/Properties/Properties";
 import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec";
 import Capabilities from "./components/Capabilities/Capabilities";
 import * as Constants from "globals/constants/constants";
-import { onFileLoaded, updateFlags, updateSingleInput } from "./otherInputsActions";
+import {onFileLoaded, updateFlags, updateSingleInput} from "./additionalInputsActions";
 import FileInput from "./components/FileInput/FileInput";
+import {addConfSpec} from "./components/ConfigurationSpec/configurationSpecActions";
 
 
 class Content extends React.Component {
     changeInputHandler = event => {
         event.persist()
-        this.props.updateSingleInput({name: event.target.name, value: event.target.value})
+        this.props.updateSingleInput({
+            name: event.target.name, value: event.target.value
+        })
     }
 
     trimInputValue = event => {
         this.props.updateSingleInput({
             name: event.target.name, value: event.target.value.trim()
         })
+    }
+
+    trimFlags = event => {
+        this.props.updateFlags(event.target.value.split(',').map(item=>item.trim()))
     }
 
     changeFlagsHandler = event => {
@@ -48,19 +55,20 @@ class Content extends React.Component {
                 <form id="mainForm">
                     <div className="row">
                         <div className="column">
-                            <p>{Constants.INPUT_TITLE_LABEL}
-                                <span className="requiredField">*</span>
-                            </p>
+                            <label className="input-label">{Constants.INPUT_TITLE_LABEL}
+                                <span className="required-field">*</span>
+                            </label>
                             <textarea
                                 required
                                 autoComplete="off"
                                 value={this.props.syncContent.title || '' }
                                 name="title"
                                 onChange={this.changeInputHandler}
+                                onBlur={this.trimInputValue}
                             />
-                            <p>{Constants.DEFAULT_NAME_LABEL}
-                                <span className="requiredField">*</span>
-                            </p>
+                            <label className="input-label">{Constants.DEFAULT_NAME_LABEL}
+                                <span className="required-field">*</span>
+                            </label>
                             <textarea required
                                       autoComplete="off"
                                       value={this.props.syncContent.default_name || ''}
@@ -68,35 +76,39 @@ class Content extends React.Component {
                                       onChange={this.changeInputHandler}
                                       onBlur={this.trimInputValue}
                             />
-                            <p>{Constants.SHORT_DESCRIPTION_LABEL}</p>
+                            <label className="input-label">{Constants.SHORT_DESCRIPTION_LABEL}</label>
                             <textarea autoComplete="off"
                                       value={this.props.syncContent.short_description || ''}
                                       name="short_description"
-                                      onChange={this.changeInputHandler}/>
-                            <p>{Constants.FLAGS_LABEL}</p>
+                                      onChange={this.changeInputHandler}
+                                      onBlur={this.trimInputValue}
+                            />
+                            <label className="input-label">{Constants.FLAGS_LABEL}</label>
                             <input type="text"
                                    name="flags"
                                    placeholder={Constants.FLAGS_PLACEHOLDER}
                                    autoComplete="off"
                                    value={this.props.syncContent.flags || ''}
-                                   onChange={this.changeFlagsHandler}/>
-                            <Properties/>
-                            <Capabilities/>
-                        </div>
-                        <div className="column">
-                            <p>{Constants.DESCRIPTION_LABEL}</p>
-                            <MarkdownEditor name="description"/>
-                            <p>{Constants.TIPS_LABEL}</p>
-                            <MarkdownEditor name="tips"/>
-                            <ExternalReferences/>
-                            <p>{Constants.LOGO_LABEL}</p>
+                                   onChange={this.changeFlagsHandler}
+                                   onBlur={this.trimFlags}
+                            />
+                            <label className="input-label">{Constants.LOGO_LABEL}</label>
                             <FileInput
                                 value={this.props.syncContent.logo}
                                 onChange={this.handleLoadLocalFile}
                             />
+                            <Properties/>
+                            <Capabilities/>
+                            <ExternalReferences/>
+                            <ConfigurationSpec/>
+                        </div>
+                        <div className="column">
+                            <label className="input-label">{Constants.DESCRIPTION_LABEL}</label>
+                            <MarkdownEditor name="description"/>
+                            <label className="input-label">{Constants.TIPS_LABEL}</label>
+                            <MarkdownEditor name="tips"/>
                         </div>
                     </div>
-                    <ConfigurationSpec/>
                 </form>
             </div>
         )
@@ -111,7 +123,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     updateSingleInput,
     updateFlags,
-    onFileLoaded
+    onFileLoaded,
+    addConfSpec
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

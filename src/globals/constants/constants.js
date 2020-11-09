@@ -50,7 +50,7 @@ export const LABEL_FIELD_TEXT = "label";
 
 // Options.js
 export const OPTIONS_SECTION_LABEL = "Options";
-export const OPTIONS_BTN_TITLE = "+ Add option";
+export const OPTIONS_BTN_TITLE = "+ Add";
 
 // Header.js
 export const HEADER_TITLE = "Threat Response Module Maker";
@@ -59,7 +59,7 @@ export const HEADER_TITLE = "Threat Response Module Maker";
 export const LABELS = ["Sign Up", "Free Trial", "Contact Us"];
 export const SECTION_TITLE = "External References";
 
-// Modal.js
+// ModalForPush.js
 export const URL = "https://visibility.amp.cisco.com";
 export const AUTH_ENDPOINT = "/iroh/oauth2/token";
 export const MODULE_TYPE_ENDPOINT = "/iroh/iroh-int/module-type";
@@ -73,6 +73,7 @@ export const CANCEL_BTN_TITLE = "Cancel";
 // ModalForPull.js
 export const PULL_BTN_TITLE = "Pull";
 export const PULL_MODAL_TEXT = "Pull module type from your Threat Response organization";
+export const MODULE_TYPE_ID = "Module Type ID";
 
 // AuthType.js
 export const AUTH_LABEL = "authorization";

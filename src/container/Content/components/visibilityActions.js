@@ -1,19 +1,21 @@
-import { HIDE_MODAL, SHOW_MODAL } from "globals/constants/types";
 import {
+    HIDE_MODAL_FOR_PUSH,
+    SHOW_MODAL_FOR_PUSH,
     HIDE_ALERT,
     HIDE_LOADER,
     HIDE_MODAL_FOR_PULL,
-    SHOW_ALERT, SHOW_LOADER,
+    SHOW_ALERT,
+    SHOW_LOADER,
     SHOW_MODAL_FOR_PULL
 } from "globals/constants/types";
 
 
-export const showModal = () => ({
-    type: SHOW_MODAL
+export const showModalForPush = () => ({
+    type: SHOW_MODAL_FOR_PUSH
 })
 
-export const hideModal = () => ({
-    type: HIDE_MODAL
+export const hideModalForPush = () => ({
+    type: HIDE_MODAL_FOR_PUSH
 })
 
 export const showLoader = () => ({

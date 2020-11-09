@@ -2,22 +2,19 @@ import React, { createRef } from "react";
 import "./Sidebar.scss"
 import * as Constants from "globals/constants/constants";
 import { connect } from "react-redux";
-import Modal from "../Modal/Modal";
+import ModalForPush from "../ModalForPush/ModalForPush";
 import { CustomAlert } from "../CustomAlert/CustomAlert";
-import { VALIDATION_SCHEMA, validator } from "globals/constants/schema";
+import { validator, VALIDATION_SCHEMA } from "globals/constants/schema";
 import { readStateFromBackend } from "rootActions";
 import ModalForPull from "../ModalForPull/ModalForPull";
 import {
-    hideAlert, hideModal, hideModalForPull,
-    showAlert, showModal, showModalForPull
+    hideAlert, hideModalForPush, hideModalForPull,
+    showAlert, showModalForPush, showModalForPull
 } from "../visibilityActions";
 
 
 class Sidebar extends React.Component {
     state = {
-        showAlert: false,
-        alertMessage: "",
-        alertTitle: "",
         inputEl: createRef()
     }
 
@@ -50,7 +47,8 @@ class Sidebar extends React.Component {
             const blob = new Blob([fileData], {type: "text/plain"});
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
-            link.download = `${formattedData.title}_module_type.json`;
+            const title = formattedData.title.replace(/ /g, '_');
+            link.download = `${title}_module_type.json`;
             link.href = url;
             link.click();
         }
@@ -58,7 +56,7 @@ class Sidebar extends React.Component {
 
     onPushButtonClick = () => {
         if (this.isValidForm()) {
-            this.props.showModal();
+            this.props.showModalForPush();
         }
     }
 
@@ -126,8 +124,8 @@ class Sidebar extends React.Component {
                     </li>
                 </ul>
                 {
-                   this.props.modalVisible &&
-                   <Modal
+                   this.props.modalForPush &&
+                   <ModalForPush
                        json={this.constructValidJSON()}
                    />
                 }
@@ -168,15 +166,15 @@ const formatState = (state) => {
 
 const mapStateToProps = (state) => ({
     syncJSON: formatState(state),
-    modalVisible: state.elements_visibility.modal,
+    modalForPush: state.elements_visibility.modalForPush,
     modalForPull: state.elements_visibility.modalForPull,
     customAlert: state.elements_visibility.customAlert
 })
 
 const mapDispatchToProps = {
     readStateFromBackend,
-    showModal,
-    hideModal,
+    showModalForPush,
+    hideModalForPush,
     showModalForPull,
     hideModalForPull,
     showAlert,

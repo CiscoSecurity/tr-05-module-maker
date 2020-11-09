@@ -5,7 +5,7 @@ import './ModalForPull.scss';
 import *  as Constants from "globals/constants/constants"
 import Loader from "react-loader"
 import { connect } from "react-redux";
-import { pullModuleType } from "rootActions";
+import { pullModuleTypeRequest } from "rootActions";
 import { hideModalForPull } from "../visibilityActions";
 
 
@@ -27,7 +27,7 @@ const ModalForPull = (props) => (
                 return errors;
             }}
             onSubmit={ async (values, { setSubmitting }) => {
-                props.pullModuleType(values.module_type_id, values.client_id, values.password)
+                props.pullModuleTypeRequest(values.module_type_id, values.client_id, values.password)
                 setSubmitting(false)
             }}
         >
@@ -58,14 +58,17 @@ const ModalForPull = (props) => (
                             <ErrorMessage name="password" component="div" className='error'/>
                         </div>
                         <label htmlFor="module_type_id" className="centered">
-                            Module Type ID
+                            { Constants.MODULE_TYPE_ID }
                         </label>
                         <div>
                             <Field name="module_type_id" type="module_type_id" id="module_type_id" required/>
                             <ErrorMessage name="module_type_id" component="div" className='error'/>
                         </div>
-                        <div>
-                            <button type="submit" disabled={isSubmitting} className="pull-button">
+                        <div className="controls">
+                            <button type="button" onClick={props.hideModalForPull} className="cancel">
+                                { Constants.CANCEL_BTN_TITLE }
+                            </button>
+                            <button type="submit" disabled={isSubmitting} className="submit">
                                 { Constants.PULL_BTN_TITLE }
                             </button>
                         </div>
@@ -80,7 +83,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    pullModuleType,
+    pullModuleTypeRequest,
     hideModalForPull
 }
 

@@ -1,15 +1,13 @@
 import {
-    HIDE_ALERT, SHOW_ALERT, SHOW_LOADER,
-    SHOW_MODAL, SHOW_MODAL_FOR_PULL
-} from "globals/constants/types";
-import {
-    HIDE_LOADER, HIDE_MODAL, HIDE_MODAL_FOR_PULL
+    HIDE_ALERT, HIDE_MODAL_FOR_PUSH, SHOW_ALERT, SHOW_LOADER,
+    SHOW_MODAL_FOR_PUSH, SHOW_MODAL_FOR_PULL,
+    HIDE_LOADER, HIDE_MODAL_FOR_PULL
 }
 from "globals/constants/types";
 
 
 const initialState = {
-    modal: false,
+    modalForPush: false,
     modalForPull: false,
     loader: false,
     customAlert: null
@@ -17,10 +15,10 @@ const initialState = {
 
 export const visibilityReducer = (state=initialState, action) => {
     switch (action.type) {
-        case SHOW_MODAL:
-            return {...state, modal: true}
-        case HIDE_MODAL:
-            return {...state, modal: false}
+        case SHOW_MODAL_FOR_PUSH:
+            return {...state, modalForPush: true}
+        case HIDE_MODAL_FOR_PUSH:
+            return {...state, modalForPush: false}
         case SHOW_LOADER:
             return {...state, loader: true}
         case HIDE_LOADER:

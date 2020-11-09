@@ -1,4 +1,4 @@
-import { otherInputsReducer } from "./container/Content/otherInputsReducer";
+import { additionalInputsReducer } from "./container/Content/additionalInputsReducer";
 import { externalReferencesReducer } from "./container/Content/components/ExternalReferences/externalReferencesReducer";
 import { configurationSpecReducer } from "./container/Content/components/ConfigurationSpec/configurationSpecReducer";
 import { propertiesReducer } from "./container/Content/components/Properties/propertiesReducer";
@@ -10,7 +10,7 @@ import { visibilityReducer } from "./container/Content/components/visibilityRedu
 
 
 const appReducer = combineReducers({
-            other_inputs: otherInputsReducer,
+            other_inputs: additionalInputsReducer,
             properties: propertiesReducer,
             capabilities: capabilitiesReducer,
             external_references: externalReferencesReducer,
@@ -22,9 +22,7 @@ const appReducer = combineReducers({
 function addIDs (currentList) {
     if (currentList) {
         currentList.map(
-            el => {
-                el["id"] = uuidv4()
-            }
+            el => el.id = uuidv4()
         )
     }
     return currentList || []

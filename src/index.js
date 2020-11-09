@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import 'globals/styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { applyMiddleware, compose, createStore } from "redux";
@@ -13,7 +13,9 @@ const saga = createSagaMiddleware();
 
 const store = createStore(
     rootReducer,
-    compose(applyMiddleware(saga), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+    compose(applyMiddleware(saga),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        )
 )
 
 saga.run(sagaWatcher);

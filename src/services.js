@@ -11,14 +11,14 @@ export async function authorize(values) {
             body: 'grant_type=client_credentials'
         }
     )
-    if (!response.ok) {
-        throw response.statusText || 'Authorization failed'
-    }
     const data = await response.json();
+    if (!response.ok) {
+        throw response.statusText || data['error_description']
+    }
     return data['access_token'];
 }
 
-export async function loadJSONfromTR(module_type_id, token) {
+export async function pullModuleType(module_type_id, token) {
     if (token) {
         const response = await fetch(
             Constants.URL +

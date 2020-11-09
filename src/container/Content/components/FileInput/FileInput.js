@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import "./FileInput.scss"
 import Icons from "globals/icons/sprite.svg";
-import { deleteLogo, onFileLoaded } from "../../otherInputsActions";
+import { deleteLogo, onFileLoaded } from "../../additionalInputsActions";
 import { connect } from "react-redux";
 import { useDropzone } from 'react-dropzone'
 
@@ -38,7 +38,7 @@ const FileInput = ({ value, deleteLogo, onFileLoaded }) => {
             </div>
             {Boolean(value) &&
             (<div>
-                <img src={value} alt="" height="70" className="img"/>
+                <img src={value} alt="" height="60" className="img"/>
                 <svg className="closeIcon" onClick={deleteLogo}>
                     <use xlinkHref={`${Icons}#icon-small-x-close`}/>
                 </svg>

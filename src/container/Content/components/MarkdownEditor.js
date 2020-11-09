@@ -2,7 +2,7 @@ import React from "react";
 import ReactMde from "react-mde";
 import ReactMarkdown from "react-markdown";
 import "react-mde/lib/styles/css/react-mde-all.css";
-import { updateSingleInput } from "container/Content/otherInputsActions";
+import { updateSingleInput } from "container/Content/additionalInputsActions";
 import { connect } from "react-redux";
 
 
@@ -24,8 +24,8 @@ class MarkdownEditor extends React.Component {
 
     render() {
         return  <ReactMde
-            maxEditorHeight={180}
-            minPreviewHeight={170}
+            minEditorHeight={333}
+            minPreviewHeight={323}
             toolbarCommands={
                 [
                     ["header"],["bold"], ["italic"], ["strikethrough"],
