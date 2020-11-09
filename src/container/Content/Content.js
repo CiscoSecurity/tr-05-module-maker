@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import "./Content.scss";
 import MarkdownEditor from "./components/MarkdownEditor";
 import ExternalReferences from "./components/ExternalReferences/ExternalReferences";
