@@ -51,7 +51,7 @@ function* pullSagaWorker(action) {
         yield put(onPullModuleTypeSuccess(payload))
     }
     catch (e){
-        yield put(onPullModuleTypeError(String(e)))
+        yield put(onPullModuleTypeError(String(e).replace(/^\w/, c => c.toUpperCase())))
     }
 }
 
@@ -63,7 +63,7 @@ function* onPushSuccessSagaWorker(action) {
 
 function* onPushErrorSagaWorker(action) {
     yield put(hideLoader())
-    yield put(showAlert(Constants.ALERT_TITLE_FAILURE, String(action.payload)))
+    yield put(showAlert(Constants.ALERT_TITLE_FAILURE, action.payload))
 }
 
 function* pushSagaWorker(action) {
@@ -74,7 +74,7 @@ function* pushSagaWorker(action) {
         yield put(onPushModuleTypeSuccess(id))
     }
     catch (e){
-        yield put(onPushModuleTypeError(String(e)))
+        yield put(onPushModuleTypeError(String(e).replace(/^\w/, c => c.toUpperCase())))
     }
 }
 
