@@ -7,9 +7,9 @@ import Properties from "./components/Properties/Properties";
 import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec";
 import Capabilities from "./components/Capabilities/Capabilities";
 import * as Constants from "globals/constants/constants";
-import {onFileLoaded, updateFlags, updateSingleInput} from "./additionalInputsActions";
+import { onFileLoaded, updateFlags, updateSingleInput } from "./additionalInputsActions";
 import FileInput from "./components/FileInput/FileInput";
-import {addConfSpec} from "./components/ConfigurationSpec/configurationSpecActions";
+import { addConfSpec } from "./components/ConfigurationSpec/configurationSpecActions";
 
 
 class Content extends React.Component {
