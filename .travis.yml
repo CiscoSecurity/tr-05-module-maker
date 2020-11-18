@@ -4,4 +4,4 @@ before_script:
   - npm install
 scripts:
   - npx stylelint "**/*.{html,scss}"
-  - test
+  - npm run test
