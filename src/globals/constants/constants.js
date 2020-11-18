@@ -65,7 +65,6 @@ export const LABELS = ["Sign Up", "Free Trial", "Contact Us"];
 export const SECTION_TITLE = "External References";
 
 // ModalForPush.js
-export const URL = "https://visibility.amp.cisco.com";
 export const AUTH_ENDPOINT = "/iroh/oauth2/token";
 export const MODULE_TYPE_ENDPOINT = "/iroh/iroh-int/module-type";
 export const MESSAGE_SUCCESS = "The module type was successfully created with id: "
