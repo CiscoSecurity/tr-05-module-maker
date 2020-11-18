@@ -25,30 +25,34 @@ class OptionsItem extends React.Component {
     render() {
         return (
             <div className="optionsWrapper">
+                <div className="column">
+                    <div className="inputDiv">
+                        {Constants.VALUE_FIELD_TEXT}
+                        <span className="required-field">*</span>
+                        <input type="text"
+                               name="value"
+                               className="customInput"
+                               value={this.props.option.value}
+                               onChange={this.onInputUpdate}
+                               required
+                        />
+                    </div>
+                    <div className="inputDiv">
+                        {Constants.LABEL_FIELD_TEXT}
+                        <span className="required-field">*</span>
+                        <input type="text"
+                               name="label"
+                               className="customInput"
+                               value={this.props.option.label}
+                               onChange={this.onInputUpdate}
+                               required
+                        />
+                    </div>
+                </div>
                 <div className="optionsIconWrapper">
                     <svg className="closeIcon" onClick={this.onDeleteIconClick}>
                         <use xlinkHref={`${Icons}#icon-small-x-close`}/>
                     </svg>
-                </div>
-                <div className="inputDiv">
-                    {Constants.VALUE_FIELD_TEXT}
-                    <input type="text"
-                           name="value"
-                           className="customInput"
-                           value={this.props.option.value}
-                           onChange={this.onInputUpdate}
-                           required
-                    />
-                </div>
-                <div className="inputDiv">
-                    {Constants.LABEL_FIELD_TEXT}
-                    <input type="text"
-                           name="label"
-                           className="customInput"
-                           value={this.props.option.label}
-                           onChange={this.onInputUpdate}
-                           required
-                    />
                 </div>
             </div>
         )

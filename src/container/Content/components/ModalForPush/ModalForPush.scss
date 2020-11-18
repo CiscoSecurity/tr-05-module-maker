@@ -1,23 +1,24 @@
 @import "src/globals/constants/colors";
 
 .modal {
-  display: block;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
   background-color: $white-color;
   margin: auto;
   padding: 20px;
-  border-radius: 3px;
+  border-radius: 6px;
   border: 1px solid $border-color;
   min-width: 250px;
   width: 15%;
@@ -70,6 +71,15 @@
     flex: 1;
   }
 
+  select {
+    border: 1px solid $border-color;
+    font: 400 14px CiscoSans, Arial, sans-serif;
+    border-radius: 5px;
+    height: 19px;
+    padding: 5px;
+    flex: 1;
+  }
+
   label {
     display: block;
     color: $black-color;
@@ -79,43 +89,45 @@
   .controls {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-  }
+    justify-content: flex-end;
+    margin-bottom: 10px;
 
-  button {
-    max-height: 28px;
-    min-width: 75px;
-    border-radius: 3px;
-    box-shadow: none;
-    font-weight: 400;
-    line-height: 1.5;
-    text-overflow: ellipsis;
-    text-align: center;
-    vertical-align: middle;
-    align-self: center;
-    cursor: pointer;
-    white-space: nowrap;
-    margin-top: 20px;
+    button {
+      max-height: 28px;
+      min-width: 75px;
+      border-radius: 3px;
+      box-shadow: none;
+      font-weight: 400;
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-top: 20px;
+      border-width: thin;
+      border-style: solid;
 
-    &.submit {
-      border: 0;
-      margin-right: 10px;
-      color: $white-color;
-      background-color: $blue-background;
+      &.submit {
+        margin-left: 5px;
+        color: $white-color;
+        background-color: $blue-background;
+        border-color: $blue-background;
 
-      &:hover {
-        background: $hover-color-dark;
+        &:hover {
+          background: $hover-color-dark;
+        }
       }
-    }
 
-    &.cancel {
-      border: 1px solid $blue-background;
-      margin-left: 10px;
-      color: $blue-background;
-      background-color: $white-color;
+      &.cancel {
+        border: 1px solid $blue-background;
+        margin-right: 5px;
+        color: $blue-background;
+        background-color: $white-color;
 
-      &:hover {
-        background: $hover-color-light;
+        &:hover {
+          background: $hover-color-light;
+        }
       }
     }
   }

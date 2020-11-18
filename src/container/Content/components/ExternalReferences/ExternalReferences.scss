@@ -1,24 +1,30 @@
 @import "src/globals/constants/colors";
 
-p > button {
-  flex: 1;
-  min-width: 75px;
-  max-height: 28px;
-  color: $white-color;
-  background-color: $blue-background;
-  border-radius: 3px;
-  border: 0;
-  box-shadow: none;
-  font-weight: 400;
-  line-height: 1.5;
-  text-overflow: ellipsis;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  white-space: nowrap;
-  margin: 4px;
+.reference-section {
+  margin-top: 4px;
 
-  &:hover {
-    background-color: $hover-color-dark;
+  label {
+    button {
+      flex: 1;
+      min-width: 75px;
+      max-height: 28px;
+      color: $white-color;
+      background-color: $blue-background;
+      border-radius: 3px;
+      border: 0;
+      box-shadow: none;
+      font-weight: 400;
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      white-space: nowrap;
+      margin: 4px;
+
+      &:hover {
+        background-color: $hover-color-dark;
+      }
+    }
   }
 }

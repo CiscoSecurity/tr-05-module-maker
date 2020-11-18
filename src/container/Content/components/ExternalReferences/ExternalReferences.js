@@ -14,13 +14,13 @@ class ExternalReferences extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="reference-section">
                 <div>
-                <p> {Constants.SECTION_TITLE}
+                <label className='input-label'> {Constants.SECTION_TITLE}
                     <button onClick={this.onAddButtonClick} type="button">
                         {Constants.ADD_BTN_TITLE}
                     </button>
-                </p>
+                </label>
                 </div>
                     {
                         this.props.syncExternalReferences.map(

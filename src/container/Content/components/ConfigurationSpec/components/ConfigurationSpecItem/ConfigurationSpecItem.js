@@ -28,6 +28,13 @@ class ConfigurationSpecItem extends React.Component {
         this.props.deleteConfSpec(this.props.role);
     }
 
+    trimInputValue = event => {
+        this.props.updateConfSpec(
+            this.props.role,
+            {name: event.target.name, value: event.target.value.trim()}
+        )
+    }
+
     onInputChange = (event) => {
         event.persist()
         let value = '';
@@ -53,10 +60,10 @@ class ConfigurationSpecItem extends React.Component {
     render() {
         return (
             <div className="confSpecWrapper">
-                <div className="column">
-                    <div>
+                <div className='column'>
                         <div className="inputDiv">
                             {Constants.KEY_LABEL}
+                            <span className="required-field">*</span>
                             <input
                                 type="text"
                                 name="key"
@@ -64,6 +71,7 @@ class ConfigurationSpecItem extends React.Component {
                                 required
                                 value={this.props.syncConfSpecItem.key}
                                 onChange={this.onInputChange}
+                                onBlur={this.trimInputValue}
                                 list="key-input-list"
                             />
                         </div>
@@ -78,6 +86,7 @@ class ConfigurationSpecItem extends React.Component {
                         </datalist>
                         <div className="inputDiv">
                             {Constants.TYPE_LABEL}
+                            <span className="required-field">*</span>
                             <select name="type"
                                     className="customInput"
                                     required
@@ -93,51 +102,67 @@ class ConfigurationSpecItem extends React.Component {
                                 }
                             </select>
                         </div>
+                    {  this.state.showOptions
+                        ?
+                        <Options
+                            conf_spec_id={this.props.role}
+                            options={this.props.syncConfSpecItem.options}
+                        />
+                        : null
+                    }
                         <div className="inputDiv">
                             {Constants.LABEL}
-                            <input type="text" name="label" className="customInput"
-                                   required  value={this.props.syncConfSpecItem.label}
-                                   onChange={this.onInputChange}/>
+                            <span className="required-field">*</span>
+                            <input type="text"
+                                   name="label"
+                                   className="customInput"
+                                   required
+                                   value={this.props.syncConfSpecItem.label}
+                                   onChange={this.onInputChange}
+                                   onBlur={this.trimInputValue}
+                            />
                         </div>
-                    </div>
-                </div>
-
-                {  this.state.showOptions
-                    ?
-                    <Options
-                        conf_spec_id={this.props.role}
-                        options={this.props.syncConfSpecItem.options}
-                    />
-                    : null
-                }
-
-                <div className="column">
-                    <div>
                         <div className="inputDiv">
                             {Constants.TOOLTIP_LABEL}
-                            <input type="text" name="tooltip" className="customInput"
-                                   value={this.props.syncConfSpecItem.tooltip} onChange={this.onInputChange}/>
+                            <input type="text"
+                                   name="tooltip"
+                                   className="customInput"
+                                   value={this.props.syncConfSpecItem.tooltip}
+                                   onChange={this.onInputChange}
+                                   onBlur={this.trimInputValue}
+                            />
                         </div>
                         <div className="inputDiv">
                             {Constants.SUBTYPE_LABEL}
-                            <input type="text" name="subtype" className="customInput"
-                                   value={this.props.syncConfSpecItem.subtype} onChange={this.onInputChange}/>
+                            <input type="text"
+                                   name="subtype"
+                                   className="customInput"
+                                   value={this.props.syncConfSpecItem.subtype}
+                                   onChange={this.onInputChange}
+                                   onBlur={this.trimInputValue}
+                            />
                         </div>
                         <div className="inputDiv">
                             {Constants.GROUP_LABEL}
-                            <input type="text" name="group" className="customInput"
-                                   value={this.props.syncConfSpecItem['group']} onChange={this.onInputChange}/>
+                            <input type="text"
+                                   name="group"
+                                   className="customInput"
+                                   value={this.props.syncConfSpecItem['group']}
+                                   onChange={this.onInputChange}
+                                   onBlur={this.trimInputValue}
+                            />
                         </div>
                         <div className="checkboxDiv">
                             {Constants.REQUIRED_LABEL}
                             <input type="checkbox" name="required"
                                    checked={this.props.syncConfSpecItem.required} onChange={this.onInputChange}/>
                         </div>
-                    </div>
                 </div>
+                <div>
                     <svg className="closeIcon" onClick={this.onDeleteIconClick}>
                         <use xlinkHref={`${Icons}#icon-small-x-close`}/>
                     </svg>
+                </div>
             </div>
         )
     }

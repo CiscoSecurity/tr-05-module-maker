@@ -13,10 +13,13 @@ class Options extends React.Component {
 
     render() {
         return (
-            <div className="column">
+            <div>
                 <div className="confSpecRow">
-                    <div>
+                    <div className="options-title">
                         { Constants.OPTIONS_SECTION_LABEL }
+                        <button type="button" className="addNewButton" onClick={this.onButtonClick}>
+                            { Constants.OPTIONS_BTN_TITLE }
+                        </button>
                     </div>
                 </div>
                 {this.props.options.map(
@@ -26,9 +29,6 @@ class Options extends React.Component {
                     />
                     )
                 }
-                <button type="button" className="addNewButton" onClick={this.onButtonClick}>
-                    { Constants.OPTIONS_BTN_TITLE }
-                </button>
             </div>
         )
     }

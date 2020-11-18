@@ -1,7 +1,7 @@
 import * as Constants from "./globals/constants/constants";
 
-async function authorize(values) {
-    const response =  await fetch(Constants.URL + Constants.AUTH_ENDPOINT,{
+export async function authorize(values) {
+    const response =  await fetch(values.iroh_service_url + Constants.AUTH_ENDPOINT,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -11,21 +11,41 @@ async function authorize(values) {
             body: 'grant_type=client_credentials'
         }
     )
-    if (response.ok === false) {
-        throw (response.statusText || 'Authorization failed')
-    }
     const data = await response.json();
+    if (!response.ok) {
+        throw response.statusText || data['error_description']
+    }
     return data['access_token'];
 }
 
-export default async function pushModuleType(values, json, alertHandler) {
-    const token = await authorize(values).catch(error => alertHandler(
-        Constants.ALERT_TITLE_FAILURE,
-        String(error)
-    ));
 
+export async function pullModuleType(values, token) {
     if (token) {
-        const response = await fetch(Constants.URL + Constants.MODULE_TYPE_ENDPOINT,
+        const response = await fetch(
+            values.iroh_service_url +
+            '/iroh/iroh-int/module-type/'
+            + values.module_type_id, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        })
+        const data = await response.json();
+        if (!response.ok) {
+            throw (response.statusText || data['error_description'])
+        }
+        else {
+            return data
+        }
+    }
+}
+
+
+export async function pushModuleType(token, values) {
+    if (token) {
+        const response = await fetch(values.iroh_service_url
+            + Constants.MODULE_TYPE_ENDPOINT,
             {
                 method: "POST",
                 headers: {
@@ -33,20 +53,17 @@ export default async function pushModuleType(values, json, alertHandler) {
                     "Accept": "application/json",
                     "Authorization": "Bearer " + token
                 },
-                "body": JSON.stringify(json)
+                "body": JSON.stringify(values.json)
             }
         )
         const data = await response.json();
-        if (response.ok === false || data["error"]) {
-            alertHandler(
-                Constants.ALERT_TITLE_FAILURE,
-                response.statusText || data["error_description"]
+        if (!response.ok) {
+            throw(
+                response.statusText || data['errors']
             )
-        } else {
-            alertHandler(
-                Constants.ALERT_TITLE_SUCCESS,
-                Constants.MESSAGE_SUCCESS + data['id']
-            )
+        }
+        else {
+            return data['id']
         }
     }
 }

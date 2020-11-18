@@ -3,7 +3,7 @@ from "globals/constants/types"
 import * as Constants from "globals/constants/constants";
 
 
-export const otherInputsReducer = (state = {}, action) => {
+export const additionalInputsReducer = (state = {}, action) => {
     switch (action.type) {
         case UPDATE_SINGLE_INPUT:
             return {...state, [action.payload.name]: action.payload.value}
