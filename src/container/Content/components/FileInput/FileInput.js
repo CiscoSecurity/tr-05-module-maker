@@ -6,13 +6,6 @@ import { connect } from "react-redux";
 import { useDropzone } from 'react-dropzone'
 
 
-const getStyle = (isDragActive) => {
-    if (isDragActive) {
-        return {"borderColor": "#049fd9"};
-    }
-    return {"borderColor": '#eeeeee'};
-}
-
 const FileInput = ({ value, deleteLogo, onFileLoaded }) => {
     const onDrop = useCallback((acceptedFiles) => {
         const file = acceptedFiles[0]
@@ -32,7 +25,7 @@ const FileInput = ({ value, deleteLogo, onFileLoaded }) => {
 
     return (
         <div className="dropzone-wrapper">
-            <div {...getRootProps({className: "dropzone", style: getStyle(isDragActive)})}>
+            <div {...getRootProps({className: `dropzone${isDragActive ? '-active' : ''}`})}>
                 <input {...getInputProps()} />
                 <p>Drag 'n' drop your logo here, or click to select logo</p>
             </div>

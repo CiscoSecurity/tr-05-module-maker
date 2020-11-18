@@ -71,6 +71,15 @@
     flex: 1;
   }
 
+  select {
+    border: 1px solid $border-color;
+    font: 400 14px CiscoSans, Arial, sans-serif;
+    border-radius: 5px;
+    height: 19px;
+    padding: 5px;
+    flex: 1;
+  }
+
   label {
     display: block;
     color: $black-color;

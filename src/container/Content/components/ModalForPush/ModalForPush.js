@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 const ModalForPush = (props) => (
     <div className='modal' id='modal'>
         <Formik
-            initialValues={{ client_id: '', password: '' }}
+            initialValues={{ client_id: '', password: '', iroh_service_url: '' }}
             validate={values => {
                 const errors = {};
                 if (!values.client_id) {
@@ -20,6 +20,9 @@ const ModalForPush = (props) => (
                 }
                 if (!values.password) {
                     errors.password = 'is required';
+                }
+                if (!values.iroh_service_url) {
+                    errors.iroh_service_url = 'is required';
                 }
                 return errors;
             }}
@@ -53,6 +56,18 @@ const ModalForPush = (props) => (
                     <div>
                         <Field name="password" type="password" id="password" required/>
                         <ErrorMessage name="password" component="div" className='error'/>
+                    </div>
+                    <label htmlFor="iroh_service_url" className="centered">
+                        { Constants.REGION_LABEL }
+                    </label>
+                    <div>
+                        <Field as="select" name="iroh_service_url" required>
+                          <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
+                          <option value={ Constants.IROH_SERVICES_URLS.Europe }>Europe</option>
+                          <option value={ Constants.IROH_SERVICES_URLS["North America"] }>North America</option>
+                          <option value={ Constants.IROH_SERVICES_URLS.Asia }>Asia</option>
+                        </Field>
+                      <ErrorMessage name="iroh_service_url" component="div" className='error'/>
                     </div>
                     <div className="controls">
                         <button type="button" onClick={props.hideModalForPush} className="cancel">

@@ -47,7 +47,7 @@ function* pullSagaWorker(action) {
     try {
         yield put(showLoader())
         const token = yield call(authorize, action.payload)
-        const payload = yield call(pullModuleType, action.payload.module_type_id, token)
+        const payload = yield call(pullModuleType, action.payload, token)
         yield put(onPullModuleTypeSuccess(payload))
     }
     catch (e){
@@ -70,7 +70,7 @@ function* pushSagaWorker(action) {
     try {
         yield put(showLoader())
         const token = yield call(authorize, action.payload)
-        const id = yield call(pushModuleType, token, action.payload.json)
+        const id = yield call(pushModuleType, token, action.payload)
         yield put(onPushModuleTypeSuccess(id))
     }
     catch (e){

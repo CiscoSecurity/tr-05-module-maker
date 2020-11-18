@@ -15,12 +15,15 @@ export const readStateFromBackend = (json) => ({
     payload: json
 })
 
-export const pullModuleTypeRequest = (module_type_id, client_id, password) => ({
+export const pullModuleTypeRequest = (
+    module_type_id, client_id, password, iroh_service_url
+    ) => ({
     type: PULL_MODULE_TYPE_REQUEST,
     payload: {
         module_type_id: module_type_id,
         client_id: client_id,
-        password: password
+        password: password,
+        iroh_service_url: iroh_service_url
     }
 })
 
@@ -39,7 +42,8 @@ export const pushModuleTypeRequest = (json, values) => ({
     payload: {
         json: json,
         client_id: values.client_id,
-        password: values.password
+        password: values.password,
+        iroh_service_url: values.iroh_service_url
     }
 })
 

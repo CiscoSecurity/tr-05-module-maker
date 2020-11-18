@@ -12,7 +12,7 @@ import { hideModalForPull } from "../visibilityActions";
 const ModalForPull = (props) => (
     <div className='modal' id='modal'>
         <Formik
-            initialValues={{ client_id: '', password: '', module_type_id: '' }}
+            initialValues={{ client_id: '', password: '', module_type_id: '', iroh_service_url: '' }}
             validate={values => {
                 const errors = {};
                 if (!values.client_id) {
@@ -24,10 +24,18 @@ const ModalForPull = (props) => (
                 if (!values.module_type_id) {
                     errors.module_type_id = 'is required';
                 }
+                if (!values.iroh_service_url) {
+                    errors.iroh_service_url = 'is required';
+                }
                 return errors;
             }}
             onSubmit={ async (values, { setSubmitting }) => {
-                props.pullModuleTypeRequest(values.module_type_id, values.client_id, values.password)
+                props.pullModuleTypeRequest(
+                    values.module_type_id,
+                    values.client_id,
+                    values.password,
+                    values.iroh_service_url
+                )
                 setSubmitting(false)
             }}
         >
@@ -63,6 +71,18 @@ const ModalForPull = (props) => (
                         <div>
                             <Field name="module_type_id" type="module_type_id" id="module_type_id" required/>
                             <ErrorMessage name="module_type_id" component="div" className='error'/>
+                        </div>
+                        <label htmlFor="iroh_service_url" className="centered">
+                            { Constants.REGION_LABEL }
+                        </label>
+                        <div>
+                            <Field as="select" name="iroh_service_url" required>
+                                <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
+                                <option value={ Constants.IROH_SERVICES_URLS.Europe }>Europe</option>
+                                <option value={ Constants.IROH_SERVICES_URLS["North America"] }>North America</option>
+                                <option value={ Constants.IROH_SERVICES_URLS.Asia }>Asia</option>
+                            </Field>
+                            <ErrorMessage name="iroh_service_url" component="div" className='error'/>
                         </div>
                         <div className="controls">
                             <button type="button" onClick={props.hideModalForPull} className="cancel">

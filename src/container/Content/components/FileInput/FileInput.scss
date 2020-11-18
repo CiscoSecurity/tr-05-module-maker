@@ -8,7 +8,7 @@
   padding: 6px;
   border-radius: 5px;
 
-  .dropzone {
+  [class^="dropzone"] {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -23,6 +23,10 @@
     outline: none;
     margin: 4px;
     cursor: pointer;
+  }
+
+  .dropzone-active {
+    border-color: $blue-background;
   }
 
   .img {

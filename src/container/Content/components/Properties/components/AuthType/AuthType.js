@@ -6,11 +6,6 @@ import { connect } from "react-redux";
 
 
 class AuthType extends React.Component {
-   state = {
-            auth_type_options: ["authorization-header", "basic", "bearer"],
-        }
-
-
     onCheckboxToggle = () => {
         this.props.toggleAuthType();
     }
@@ -40,7 +35,7 @@ render() {
             >
                 <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
                 {
-                   this.state.auth_type_options.map(
+                   Constants.AUTH_TYPE_OPTIONS.map(
                         option => {
                             return <option value={option} key={option}>{option}</option>
                         }

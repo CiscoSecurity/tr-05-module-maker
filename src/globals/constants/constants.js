@@ -1,5 +1,10 @@
 export const SELECT_PLACEHOLDER = "Select your option";
 export const LOGO = "logo";
+export const IROH_SERVICES_URLS = {
+    "Europe": "https://visibility.eu.amp.cisco.com",
+    "North America": "https://visibility.amp.cisco.com",
+    "Asia": "https://visibility.apjc.amp.cisco.com"
+}
 
 // Content.js
 export const MAIN_TITLE = "Module";
@@ -74,9 +79,11 @@ export const CANCEL_BTN_TITLE = "Cancel";
 export const PULL_BTN_TITLE = "Pull";
 export const PULL_MODAL_TEXT = "Pull module type from your Threat Response organization";
 export const MODULE_TYPE_ID = "Module Type ID";
+export const REGION_LABEL = "Region";
 
 // AuthType.js
 export const AUTH_LABEL = "authorization";
+export const AUTH_TYPE_OPTIONS = ["authorization-header", "basic", "bearer", "configuration-token"]
 
 // CustomAlert.js
 export const CLOSE_BTN_LABEL = "Close";
