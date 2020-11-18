@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/tr-05-module-maker/static/css/main.6456e237.chunk.css",
-    "main.js": "/tr-05-module-maker/static/js/main.7c568aa8.chunk.js",
-    "main.js.map": "/tr-05-module-maker/static/js/main.7c568aa8.chunk.js.map",
+    "main.css": "/tr-05-module-maker/static/css/main.b414e0e3.chunk.css",
+    "main.js": "/tr-05-module-maker/static/js/main.8620078d.chunk.js",
+    "main.js.map": "/tr-05-module-maker/static/js/main.8620078d.chunk.js.map",
     "runtime-main.js": "/tr-05-module-maker/static/js/runtime-main.d588aec7.js",
     "runtime-main.js.map": "/tr-05-module-maker/static/js/runtime-main.d588aec7.js.map",
-    "static/css/2.0f8c67e6.chunk.css": "/tr-05-module-maker/static/css/2.0f8c67e6.chunk.css",
-    "static/js/2.a73872ca.chunk.js": "/tr-05-module-maker/static/js/2.a73872ca.chunk.js",
-    "static/js/2.a73872ca.chunk.js.map": "/tr-05-module-maker/static/js/2.a73872ca.chunk.js.map",
+    "static/css/2.9fb67da3.chunk.css": "/tr-05-module-maker/static/css/2.9fb67da3.chunk.css",
+    "static/js/2.002bd28d.chunk.js": "/tr-05-module-maker/static/js/2.002bd28d.chunk.js",
+    "static/js/2.002bd28d.chunk.js.map": "/tr-05-module-maker/static/js/2.002bd28d.chunk.js.map",
     "index.html": "/tr-05-module-maker/index.html",
-    "precache-manifest.f464c777af64c40f820e50ca96527213.js": "/tr-05-module-maker/precache-manifest.f464c777af64c40f820e50ca96527213.js",
+    "precache-manifest.90d64f94ef1a91b0b15114e7f86657f4.js": "/tr-05-module-maker/precache-manifest.90d64f94ef1a91b0b15114e7f86657f4.js",
     "service-worker.js": "/tr-05-module-maker/service-worker.js",
-    "static/css/2.0f8c67e6.chunk.css.map": "/tr-05-module-maker/static/css/2.0f8c67e6.chunk.css.map",
-    "static/css/main.6456e237.chunk.css.map": "/tr-05-module-maker/static/css/main.6456e237.chunk.css.map",
-    "static/js/2.a73872ca.chunk.js.LICENSE.txt": "/tr-05-module-maker/static/js/2.a73872ca.chunk.js.LICENSE.txt",
+    "static/css/2.9fb67da3.chunk.css.map": "/tr-05-module-maker/static/css/2.9fb67da3.chunk.css.map",
+    "static/css/main.b414e0e3.chunk.css.map": "/tr-05-module-maker/static/css/main.b414e0e3.chunk.css.map",
+    "static/js/2.002bd28d.chunk.js.LICENSE.txt": "/tr-05-module-maker/static/js/2.002bd28d.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/tr-05-module-maker/static/media/CiscoSansTTRegular.aeaec016.woff",
     "static/media/sprite.svg": "/tr-05-module-maker/static/media/sprite.31710dea.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d588aec7.js",
-    "static/css/2.0f8c67e6.chunk.css",
-    "static/js/2.a73872ca.chunk.js",
-    "static/css/main.6456e237.chunk.css",
-    "static/js/main.7c568aa8.chunk.js"
+    "static/css/2.9fb67da3.chunk.css",
+    "static/js/2.002bd28d.chunk.js",
+    "static/css/main.b414e0e3.chunk.css",
+    "static/js/main.8620078d.chunk.js"
   ]
 }
