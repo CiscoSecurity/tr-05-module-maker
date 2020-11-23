@@ -9,6 +9,7 @@ describe('properties actions', () => {
         }
         expect(actions.toggleAuthType()).toEqual(expectedAction)
     })
+
     it('should create an action to update supported API', () => {
         const api = 'health'
         const expectedAction = {
@@ -17,6 +18,7 @@ describe('properties actions', () => {
         }
         expect(actions.updateSupportedAPI(api)).toEqual(expectedAction)
     })
+
     it('should create an action to update auth-type', () => {
         const type = 'basic'
         const expectedAction = {
@@ -26,4 +28,3 @@ describe('properties actions', () => {
         expect(actions.updateAuthType(type)).toEqual(expectedAction)
     })
 })
-

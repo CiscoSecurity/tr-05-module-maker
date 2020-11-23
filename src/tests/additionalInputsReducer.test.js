@@ -1,12 +1,13 @@
-import {additionalInputsReducer} from "../container/Content/additionalInputsReducer"
+import { additionalInputsReducer } from "../container/Content/additionalInputsReducer"
 import * as types from "../globals/constants/types"
 import * as mocks from "./mocks/mockPayloads"
 
 
 describe('additional inputs reducer', () => {
     it('should return the initial state', () => {
-        expect(additionalInputsReducer(undefined,
-            {})).toEqual({})
+        expect(
+            additionalInputsReducer(undefined, {})
+        ).toEqual({})
     })
 
     it('should handle UPDATE_SINGLE_INPUT', () => {
@@ -54,4 +55,3 @@ describe('additional inputs reducer', () => {
         ).toEqual({})
     })
 })
-

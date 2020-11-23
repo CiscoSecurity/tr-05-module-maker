@@ -9,8 +9,9 @@ jest.mock('uuid', () => ({ v4: () => mocks.ID }));
 
 describe('external references reducer', () => {
     it('should return the initial state', () => {
-        expect(externalReferencesReducer(undefined,
-            {})).toEqual([])
+        expect(
+            externalReferencesReducer(undefined, {})
+        ).toEqual([])
     })
 
     it('should handle ADD_EXTERNAL_REFERENCE', () => {
@@ -21,6 +22,7 @@ describe('external references reducer', () => {
             })
         ).toEqual([mocks.EMPTY_EXTERNAL_REFERENCE_MOCK])
     })
+
     it('should handle UPDATE_EXTERNAL_REFERENCE', () => {
         const pair = {name: 'link', value: 'https://www.google.com/'}
         expect(
@@ -36,6 +38,7 @@ describe('external references reducer', () => {
             id: mocks.ID
         }])
     })
+
     it('should handle DELETE_EXTERNAL_REFERENCE', () => {
         expect(
             externalReferencesReducer([mocks.EMPTY_EXTERNAL_REFERENCE_MOCK], {
@@ -45,4 +48,3 @@ describe('external references reducer', () => {
         ).toEqual([])
     })
 })
-

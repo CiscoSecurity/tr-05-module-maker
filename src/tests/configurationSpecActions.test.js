@@ -14,6 +14,7 @@ describe('configuration spec actions', () => {
         }
         expect(actions.addConfSpec()).toEqual(expectedAction)
     })
+
     it('should create an action to update configuration spec', () => {
         const payload = {
             conf_spec_id: mocks.ID,
@@ -23,8 +24,11 @@ describe('configuration spec actions', () => {
             type: types.UPDATE_CONF_SPEC,
             payload: payload
         }
-        expect(actions.updateConfSpec(payload.conf_spec_id, payload.pair)).toEqual(expectedAction)
+        expect(
+            actions.updateConfSpec(payload.conf_spec_id, payload.pair)
+        ).toEqual(expectedAction)
     })
+
     it('should create an action to delete configuration spec', () => {
         const id = mocks.ID
         const expectedAction = {
@@ -34,4 +38,3 @@ describe('configuration spec actions', () => {
         expect(actions.deleteConfSpec(id)).toEqual(expectedAction)
     })
 })
-

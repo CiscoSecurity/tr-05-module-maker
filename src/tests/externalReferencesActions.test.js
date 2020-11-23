@@ -14,19 +14,25 @@ describe('external references actions', () => {
         }
         expect(actions.addExternalReference()).toEqual(expectedAction)
     })
+
     it('should create an action to update external reference', () => {
         const pair = {name: 'link', value: 'https://www.google.com/'}
         const expectedAction = {
             type: types.UPDATE_EXTERNAL_REFERENCE,
             payload: {id: mocks.ID, pair: pair}
         }
-        expect(actions.updateExternalReference(mocks.ID, pair)).toEqual(expectedAction)
+        expect(
+            actions.updateExternalReference(mocks.ID, pair)
+        ).toEqual(expectedAction)
     })
+
     it('should create an action to delete external reference', () => {
         const expectedAction = {
             type: types.DELETE_EXTERNAL_REFERENCE,
             payload: mocks.ID
         }
-        expect(actions.deleteExternalReference(mocks.ID)).toEqual(expectedAction)
+        expect(
+            actions.deleteExternalReference(mocks.ID)
+        ).toEqual(expectedAction)
     })
 })

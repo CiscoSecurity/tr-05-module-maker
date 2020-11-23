@@ -30,6 +30,7 @@ describe('additional inputs actions', () => {
         }
         expect(actions.onFileLoaded(image)).toEqual(expectedAction)
     })
+
     it('should create an action to delete logo', () => {
         const expectedAction = {
             type: types.DELETE_LOGO,
@@ -37,4 +38,3 @@ describe('additional inputs actions', () => {
         expect(actions.deleteLogo()).toEqual(expectedAction)
     })
 })
-

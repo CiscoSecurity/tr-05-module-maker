@@ -9,8 +9,9 @@ jest.mock('uuid', () => ({ v4: () => mocks.ID }));
 
 describe('configuration spec reducer', () => {
     it('should return the initial state', () => {
-        expect(configurationSpecReducer(undefined,
-            {})).toEqual([])
+        expect(
+            configurationSpecReducer(undefined, {})
+        ).toEqual([])
     })
 
     it('should handle ADD_CONF_SPEC', () => {
@@ -34,20 +35,22 @@ describe('configuration spec reducer', () => {
         expect(
             configurationSpecReducer([mocks.EMPTY_CONF_SPEC_MOCK], {
                 type: types.UPDATE_CONF_SPEC,
-                payload:  payload
+                payload: payload
             })
         ).toEqual([
                 mocks.UPDATED_CONF_SPEC_MOCK
             ]
         )
     })
+
     it('should handle DELETE_CONF_SPEC', () => {
         expect(
-            configurationSpecReducer([mocks.EMPTY_CONF_SPEC_MOCK], {
-                type: types.DELETE_CONF_SPEC,
-                payload:  {conf_spec_id: mocks.ID}
+            configurationSpecReducer(
+                [mocks.EMPTY_CONF_SPEC_MOCK],
+                {
+                    type: types.DELETE_CONF_SPEC,
+                    payload: {conf_spec_id: mocks.ID}
             })
         ).toEqual([])
     })
 })
-

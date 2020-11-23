@@ -5,8 +5,9 @@ import * as types from "../globals/constants/types"
 
 describe('properties reducer', () => {
     it('should return the initial state', () => {
-        expect(propertiesReducer(undefined,
-            {})).toEqual({"supported-apis": []})
+        expect(
+            propertiesReducer(undefined, {})
+        ).toEqual({"supported-apis": []})
     })
 
     it('should handle TOGGLE_AUTH_TYPE', () => {
@@ -39,6 +40,7 @@ describe('properties reducer', () => {
             })
         ).toEqual({'supported-apis': []})
     })
+
     it('should handle UPDATE_AUTH_TYPE', () => {
         const type = 'basic'
         expect(

@@ -12,6 +12,7 @@ describe('capabilities actions', () => {
         }
         expect(actions.addCapability(api)).toEqual(expectedAction)
     })
+
     it('should create an action to update capability', () => {
         const api = mocks.UPDATE_CAPABILITY_DESCR_MOCK
         const expectedAction = {
@@ -20,6 +21,7 @@ describe('capabilities actions', () => {
         }
         expect(actions.updateCapabilityDescription(api)).toEqual(expectedAction)
     })
+
     it('should create an action to delete capability', () => {
         const api = 'health'
         const expectedAction = {
@@ -29,4 +31,3 @@ describe('capabilities actions', () => {
         expect(actions.deleteCapability(api)).toEqual(expectedAction)
     })
 })
-
