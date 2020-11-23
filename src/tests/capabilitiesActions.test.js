@@ -1,5 +1,6 @@
 import * as actions from "../container/Content/components/Capabilities/capabilitiesActions"
 import * as types from "../globals/constants/types"
+import * as mocks from "./mocks/mockPayloads"
 
 
 describe('capabilities actions', () => {
@@ -12,10 +13,10 @@ describe('capabilities actions', () => {
         expect(actions.addCapability(api)).toEqual(expectedAction)
     })
     it('should create an action to update capability', () => {
-        const api = {id: 'health', description: 'Check the health of some API'}
+        const api = mocks.UPDATE_CAPABILITY_DESCR_MOCK
         const expectedAction = {
             type: types.UPDATE_CAPABILITY_DESCR,
-            payload: {id: api.id, description: api.description}
+            payload: api
         }
         expect(actions.updateCapabilityDescription(api)).toEqual(expectedAction)
     })

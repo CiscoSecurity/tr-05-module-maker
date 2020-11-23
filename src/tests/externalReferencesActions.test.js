@@ -1,35 +1,32 @@
 import * as actions from "../container/Content/components/ExternalReferences/externalReferencesActions"
 import * as types from "../globals/constants/types"
+import * as mocks from "./mocks/mockPayloads";
 
 
-jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
+jest.mock('uuid', () => ({ v4: () => mocks.ID }));
 
 
 describe('external references actions', () => {
     it('should create an action to add external reference', () => {
-        const id = '00000000-0000-0000-0000-000000000000'
         const expectedAction = {
             type: types.ADD_EXTERNAL_REFERENCE,
-            payload: {id: id}
+            payload: {id: mocks.ID}
         }
         expect(actions.addExternalReference()).toEqual(expectedAction)
     })
     it('should create an action to update external reference', () => {
-        const id = '00000000-0000-0000-0000-000000000000'
-        const pair = {value: 'https://www.google.com/', label: 'Google'}
+        const pair = {name: 'link', value: 'https://www.google.com/'}
         const expectedAction = {
             type: types.UPDATE_EXTERNAL_REFERENCE,
-            payload: {id: id, pair: pair}
+            payload: {id: mocks.ID, pair: pair}
         }
-        expect(actions.updateExternalReference(id, pair)).toEqual(expectedAction)
+        expect(actions.updateExternalReference(mocks.ID, pair)).toEqual(expectedAction)
     })
     it('should create an action to delete external reference', () => {
-        const id = '00000000-0000-0000-0000-000000000000'
         const expectedAction = {
             type: types.DELETE_EXTERNAL_REFERENCE,
-            payload: id
+            payload: mocks.ID
         }
-        expect(actions.deleteExternalReference(id)).toEqual(expectedAction)
+        expect(actions.deleteExternalReference(mocks.ID)).toEqual(expectedAction)
     })
 })
-
