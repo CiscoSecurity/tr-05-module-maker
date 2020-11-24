@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileInput should render FileInput with image preview 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(FileInput)
+    onChange={[MockFunction]}
+    value="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+  >
+    <FileInput
+      deleteLogo={[Function]}
+      onChange={[MockFunction]}
+      onFileLoaded={[Function]}
+      value="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+    >
+      <div
+        className="dropzone-wrapper"
+      >
+        <div
+          className="dropzone"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragEnter={[Function]}
+          onDragLeave={[Function]}
+          onDragOver={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <input
+            accept="image/*"
+            autoComplete="off"
+            multiple={false}
+            onChange={[Function]}
+            onClick={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+            tabIndex={-1}
+            type="file"
+          />
+          <p>
+            Drag 'n' drop your logo here, or click to select logo
+          </p>
+        </div>
+        <div>
+          <img
+            alt=""
+            className="img"
+            height="60"
+            src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+          />
+          <svg
+            className="closeIcon"
+            onClick={[Function]}
+          >
+            <use
+              xlinkHref="sprite.svg#icon-small-x-close"
+            />
+          </svg>
+        </div>
+      </div>
+    </FileInput>
+  </Connect(FileInput)>
+</Provider>
+`;
+
+exports[`FileInput should render FileInput without image preview 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(FileInput)
+    onChange={[MockFunction]}
+    value=""
+  >
+    <FileInput
+      deleteLogo={[Function]}
+      onChange={[MockFunction]}
+      onFileLoaded={[Function]}
+      value=""
+    >
+      <div
+        className="dropzone-wrapper"
+      >
+        <div
+          className="dropzone"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragEnter={[Function]}
+          onDragLeave={[Function]}
+          onDragOver={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <input
+            accept="image/*"
+            autoComplete="off"
+            multiple={false}
+            onChange={[Function]}
+            onClick={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+            tabIndex={-1}
+            type="file"
+          />
+          <p>
+            Drag 'n' drop your logo here, or click to select logo
+          </p>
+        </div>
+      </div>
+    </FileInput>
+  </Connect(FileInput)>
+</Provider>
+`;

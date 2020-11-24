@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Capabilities should render Capabilities with 1 Capability 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Capabilities)>
+    <Capabilities
+      dispatch={[Function]}
+      syncCapabilities={
+        Array [
+          Object {
+            "id": "health",
+          },
+        ]
+      }
+    >
+      <div>
+        <p>
+          Capabilities
+        </p>
+        <fieldset>
+          <p
+            className="capabilitiesTip"
+          >
+            Select at least one of the Supported APIs to write a description
+          </p>
+          <Connect(Capability)
+            api={
+              Object {
+                "id": "health",
+              }
+            }
+            key="health"
+          >
+            <Capability
+              api={
+                Object {
+                  "id": "health",
+                }
+              }
+              updateCapabilityDescription={[Function]}
+            >
+              <div
+                className="capabilitiesWrapper"
+              >
+                <p>
+                  health
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                </p>
+                <input
+                  autoComplete="off"
+                  name="health"
+                  onChange={[Function]}
+                  placeholder="Enter description"
+                  required={true}
+                  type="text"
+                />
+              </div>
+            </Capability>
+          </Connect(Capability)>
+        </fieldset>
+      </div>
+    </Capabilities>
+  </Connect(Capabilities)>
+</Provider>
+`;
+
+exports[`Capabilities should render Capabilities with several inner entities 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Capabilities)>
+    <Capabilities
+      dispatch={[Function]}
+      syncCapabilities={
+        Array [
+          Object {
+            "id": "health",
+          },
+          Object {
+            "id": "respond",
+          },
+        ]
+      }
+    >
+      <div>
+        <p>
+          Capabilities
+        </p>
+        <fieldset>
+          <p
+            className="capabilitiesTip"
+          >
+            Select at least one of the Supported APIs to write a description
+          </p>
+          <Connect(Capability)
+            api={
+              Object {
+                "id": "health",
+              }
+            }
+            key="health"
+          >
+            <Capability
+              api={
+                Object {
+                  "id": "health",
+                }
+              }
+              updateCapabilityDescription={[Function]}
+            >
+              <div
+                className="capabilitiesWrapper"
+              >
+                <p>
+                  health
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                </p>
+                <input
+                  autoComplete="off"
+                  name="health"
+                  onChange={[Function]}
+                  placeholder="Enter description"
+                  required={true}
+                  type="text"
+                />
+              </div>
+            </Capability>
+          </Connect(Capability)>
+          <Connect(Capability)
+            api={
+              Object {
+                "id": "respond",
+              }
+            }
+            key="respond"
+          >
+            <Capability
+              api={
+                Object {
+                  "id": "respond",
+                }
+              }
+              updateCapabilityDescription={[Function]}
+            >
+              <div
+                className="capabilitiesWrapper"
+              >
+                <p>
+                  respond
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                </p>
+                <input
+                  autoComplete="off"
+                  name="respond"
+                  onChange={[Function]}
+                  placeholder="Enter description"
+                  required={true}
+                  type="text"
+                />
+              </div>
+            </Capability>
+          </Connect(Capability)>
+        </fieldset>
+      </div>
+    </Capabilities>
+  </Connect(Capabilities)>
+</Provider>
+`;

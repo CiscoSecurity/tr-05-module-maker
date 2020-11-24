@@ -41,3 +41,26 @@ export const EMPTY_EXTERNAL_REFERENCE_MOCK = {
     label: '',
     id: ID
 }
+
+export const FILLED_CONF_SPEC_MOCK = {
+    key: 'url',
+    type: 'string',
+    label: 'URL',
+    required: true,
+    tooltip: 'The base URL of the Serverless Relay',
+    options: [],
+    id: '00000000-0000-0000-0000-000000000001'
+}
+
+export const EXTERNAL_REFERENCES = [
+    {
+        label: "Sign Up",
+        link: "https://haveibeenpwned.com/API/Key",
+        id: '00000000-0000-0000-0000-000000000002'
+    },
+    {
+        label: "FAQs",
+        link: "https://haveibeenpwned.com/FAQs",
+        id: '00000000-0000-0000-0000-000000000003'
+    },
+]

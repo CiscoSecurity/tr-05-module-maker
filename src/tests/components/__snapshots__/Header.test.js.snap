@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render a header 1`] = `
+<div
+  className="header"
+>
+  <div>
+    <svg
+      className="iconCiscoLogo"
+    >
+      <use
+        xlinkHref="sprite.svg#icon-cisco-logo"
+      />
+    </svg>
+  </div>
+  <div>
+    <p
+      className="headerTitle"
+    >
+      Threat Response Module Maker
+    </p>
+  </div>
+</div>
+`;
