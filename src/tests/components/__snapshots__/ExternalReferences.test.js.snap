@@ -19,12 +19,12 @@ exports[`ExternalReferences should render ExternalReferences with several Custom
       syncExternalReferences={
         Array [
           Object {
-            "id": "00000000-0000-0000-0000-000000000002",
+            "id": "00000000-0000-0000-0000-000000000003",
             "label": "Sign Up",
             "link": "https://haveibeenpwned.com/API/Key",
           },
           Object {
-            "id": "00000000-0000-0000-0000-000000000003",
+            "id": "00000000-0000-0000-0000-000000000004",
             "label": "FAQs",
             "link": "https://haveibeenpwned.com/FAQs",
           },
@@ -49,10 +49,10 @@ exports[`ExternalReferences should render ExternalReferences with several Custom
           </label>
         </div>
         <Connect(CustomInput)
-          key="00000000-0000-0000-0000-000000000002"
+          key="00000000-0000-0000-0000-000000000003"
           reference={
             Object {
-              "id": "00000000-0000-0000-0000-000000000002",
+              "id": "00000000-0000-0000-0000-000000000003",
               "label": "Sign Up",
               "link": "https://haveibeenpwned.com/API/Key",
             }
@@ -62,7 +62,7 @@ exports[`ExternalReferences should render ExternalReferences with several Custom
             deleteExternalReference={[Function]}
             reference={
               Object {
-                "id": "00000000-0000-0000-0000-000000000002",
+                "id": "00000000-0000-0000-0000-000000000003",
                 "label": "Sign Up",
                 "link": "https://haveibeenpwned.com/API/Key",
               }
@@ -97,17 +97,17 @@ exports[`ExternalReferences should render ExternalReferences with several Custom
                 id="ext-ref"
               >
                 <option
-                  key="Sign Up 00000000-0000-0000-0000-000000000002"
+                  key="Sign Up 00000000-0000-0000-0000-000000000003"
                 >
                   Sign Up
                 </option>
                 <option
-                  key="Free Trial 00000000-0000-0000-0000-000000000002"
+                  key="Free Trial 00000000-0000-0000-0000-000000000003"
                 >
                   Free Trial
                 </option>
                 <option
-                  key="Contact Us 00000000-0000-0000-0000-000000000002"
+                  key="Contact Us 00000000-0000-0000-0000-000000000003"
                 >
                   Contact Us
                 </option>
@@ -124,10 +124,10 @@ exports[`ExternalReferences should render ExternalReferences with several Custom
           </CustomInput>
         </Connect(CustomInput)>
         <Connect(CustomInput)
-          key="00000000-0000-0000-0000-000000000003"
+          key="00000000-0000-0000-0000-000000000004"
           reference={
             Object {
-              "id": "00000000-0000-0000-0000-000000000003",
+              "id": "00000000-0000-0000-0000-000000000004",
               "label": "FAQs",
               "link": "https://haveibeenpwned.com/FAQs",
             }
@@ -137,7 +137,7 @@ exports[`ExternalReferences should render ExternalReferences with several Custom
             deleteExternalReference={[Function]}
             reference={
               Object {
-                "id": "00000000-0000-0000-0000-000000000003",
+                "id": "00000000-0000-0000-0000-000000000004",
                 "label": "FAQs",
                 "link": "https://haveibeenpwned.com/FAQs",
               }
@@ -172,17 +172,17 @@ exports[`ExternalReferences should render ExternalReferences with several Custom
                 id="ext-ref"
               >
                 <option
-                  key="Sign Up 00000000-0000-0000-0000-000000000003"
+                  key="Sign Up 00000000-0000-0000-0000-000000000004"
                 >
                   Sign Up
                 </option>
                 <option
-                  key="Free Trial 00000000-0000-0000-0000-000000000003"
+                  key="Free Trial 00000000-0000-0000-0000-000000000004"
                 >
                   Free Trial
                 </option>
                 <option
-                  key="Contact Us 00000000-0000-0000-0000-000000000003"
+                  key="Contact Us 00000000-0000-0000-0000-000000000004"
                 >
                   Contact Us
                 </option>

@@ -37,4 +37,43 @@ describe('configuration spec actions', () => {
         }
         expect(actions.deleteConfSpec(id)).toEqual(expectedAction)
     })
+
+    it('should create an action to delete all options', () => {
+        const id = mocks.ID
+        const expectedAction = {
+            type: types.DELETE_ALL_OPTIONS,
+            payload: {conf_spec_id: id}
+        }
+        expect(actions.deleteAllOptions(id)).toEqual(expectedAction)
+    })
+
+    it('should create an action to delete option', () => {
+        const id = mocks.ID
+        const expectedAction = {
+            type: types.DELETE_OPTION,
+            payload: {
+                conf_spec_id: id,
+                option_id: id
+            }
+        }
+        expect(actions.deleteOption(id, id)).toEqual(expectedAction)
+    })
+
+    it('should create an action to update option', () => {
+        const id = mocks.ID
+        const expectedAction = {
+            type: types.UPDATE_OPTION,
+            payload: {
+                conf_spec_id: id,
+                option_id: id,
+                pair: {
+                    name: 'label',
+                    value: 'test'
+                }
+            }
+        }
+        expect(actions.updateOption(
+            id, id, {name: 'label', value: 'test'}
+            )).toEqual(expectedAction)
+    })
 })

@@ -53,4 +53,47 @@ describe('configuration spec reducer', () => {
             })
         ).toEqual([])
     })
+
+    it('should handle DELETE_ALL_OPTIONS', () => {
+        expect(
+            configurationSpecReducer(
+                [mocks.FILLED_CONF_SPEC_MOCK],
+                {
+                    type: types.DELETE_ALL_OPTIONS,
+                    payload: {conf_spec_id: mocks.FILLED_CONF_SPEC_MOCK.id}
+                })
+        ).toEqual([mocks.FILLED_CONF_SPEC_WITHOUT_OPTIONS_MOCK])
+    })
+
+    it('should handle DELETE_OPTION', () => {
+        expect(
+            configurationSpecReducer(
+                [mocks.FILLED_CONF_SPEC_MOCK],
+                {
+                    type: types.DELETE_OPTION,
+                    payload: {
+                        conf_spec_id: mocks.FILLED_CONF_SPEC_MOCK.id,
+                        option_id: mocks.FILLED_CONF_SPEC_MOCK.options[0].id
+                    }
+                })
+        ).toEqual([mocks.FILLED_CONF_SPEC_WITHOUT_OPTIONS_MOCK])
+    })
+
+    it('should handle UPDATE_OPTION', () => {
+        expect(
+            configurationSpecReducer(
+                [mocks.FILLED_CONF_SPEC_MOCK],
+                {
+                    type: types.UPDATE_OPTION,
+                    payload: {
+                        conf_spec_id: mocks.FILLED_CONF_SPEC_MOCK.id,
+                        option_id: mocks.FILLED_CONF_SPEC_MOCK.options[0].id,
+                        pair: {
+                            name: 'label',
+                            value: 'test label'
+                        }
+                    }
+                })
+        ).toEqual([mocks.FILLED_CONF_SPEC_MOCK_WITH_UPDATED_OPTION])
+    })
 })

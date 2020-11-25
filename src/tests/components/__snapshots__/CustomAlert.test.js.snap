@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomAlert should render CustomAlert 1`] = `
+<CustomAlert
+  message="Test message"
+  title="Test title"
+>
+  <div
+    className="alert"
+  >
+    <div
+      className="alertContent"
+    >
+      <div
+        className="alertHeader"
+      >
+        Test title
+        <svg
+          className="closeIcon"
+        >
+          <use
+            xlinkHref="sprite.svg#icon-small-x-close"
+          />
+        </svg>
+      </div>
+      <div
+        className="alertBody"
+      >
+        Test message
+      </div>
+      <div
+        className="alertFooter"
+      >
+        <button
+          className="closeButton"
+          type="button"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</CustomAlert>
+`;

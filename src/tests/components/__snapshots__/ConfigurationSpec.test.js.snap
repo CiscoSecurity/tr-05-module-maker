@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfigurationSpec should render Capabilities with several ConfigurationSpecItems 1`] = `
+exports[`ConfigurationSpec should render ConfigurationSpec with several ConfigurationSpecItems 1`] = `
 <Provider
   store={
     Object {
@@ -30,10 +30,16 @@ exports[`ConfigurationSpec should render Capabilities with several Configuration
             "type": "",
           },
           Object {
-            "id": "00000000-0000-0000-0000-000000000001",
+            "id": "00000000-0000-0000-0000-000000000002",
             "key": "url",
             "label": "URL",
-            "options": Array [],
+            "options": Array [
+              Object {
+                "id": "00000000-0000-0000-0000-000000000001",
+                "label": "https://example.com/",
+                "value": "https://example.com/",
+              },
+            ],
             "required": true,
             "tooltip": "The base URL of the Serverless Relay",
             "type": "string",
@@ -91,10 +97,16 @@ exports[`ConfigurationSpec should render Capabilities with several Configuration
                   "type": "",
                 },
                 Object {
-                  "id": "00000000-0000-0000-0000-000000000001",
+                  "id": "00000000-0000-0000-0000-000000000002",
                   "key": "url",
                   "label": "URL",
-                  "options": Array [],
+                  "options": Array [
+                    Object {
+                      "id": "00000000-0000-0000-0000-000000000001",
+                      "label": "https://example.com/",
+                      "value": "https://example.com/",
+                    },
+                  ],
                   "required": true,
                   "tooltip": "The base URL of the Serverless Relay",
                   "type": "string",
@@ -315,14 +327,20 @@ exports[`ConfigurationSpec should render Capabilities with several Configuration
           </ConfigurationSpecItem>
         </Connect(ConfigurationSpecItem)>
         <Connect(ConfigurationSpecItem)
-          key="00000000-0000-0000-0000-000000000001"
-          role="00000000-0000-0000-0000-000000000001"
+          key="00000000-0000-0000-0000-000000000002"
+          role="00000000-0000-0000-0000-000000000002"
           syncConfSpecItem={
             Object {
-              "id": "00000000-0000-0000-0000-000000000001",
+              "id": "00000000-0000-0000-0000-000000000002",
               "key": "url",
               "label": "URL",
-              "options": Array [],
+              "options": Array [
+                Object {
+                  "id": "00000000-0000-0000-0000-000000000001",
+                  "label": "https://example.com/",
+                  "value": "https://example.com/",
+                },
+              ],
               "required": true,
               "tooltip": "The base URL of the Serverless Relay",
               "type": "string",
@@ -333,7 +351,7 @@ exports[`ConfigurationSpec should render Capabilities with several Configuration
             addOptions={[Function]}
             deleteAllOptions={[Function]}
             deleteConfSpec={[Function]}
-            role="00000000-0000-0000-0000-000000000001"
+            role="00000000-0000-0000-0000-000000000002"
             syncConfSpec={
               Array [
                 Object {
@@ -348,10 +366,16 @@ exports[`ConfigurationSpec should render Capabilities with several Configuration
                   "type": "",
                 },
                 Object {
-                  "id": "00000000-0000-0000-0000-000000000001",
+                  "id": "00000000-0000-0000-0000-000000000002",
                   "key": "url",
                   "label": "URL",
-                  "options": Array [],
+                  "options": Array [
+                    Object {
+                      "id": "00000000-0000-0000-0000-000000000001",
+                      "label": "https://example.com/",
+                      "value": "https://example.com/",
+                    },
+                  ],
                   "required": true,
                   "tooltip": "The base URL of the Serverless Relay",
                   "type": "string",
@@ -360,10 +384,16 @@ exports[`ConfigurationSpec should render Capabilities with several Configuration
             }
             syncConfSpecItem={
               Object {
-                "id": "00000000-0000-0000-0000-000000000001",
+                "id": "00000000-0000-0000-0000-000000000002",
                 "key": "url",
                 "label": "URL",
-                "options": Array [],
+                "options": Array [
+                  Object {
+                    "id": "00000000-0000-0000-0000-000000000001",
+                    "label": "https://example.com/",
+                    "value": "https://example.com/",
+                  },
+                ],
                 "required": true,
                 "tooltip": "The base URL of the Serverless Relay",
                 "type": "string",
@@ -401,27 +431,27 @@ exports[`ConfigurationSpec should render Capabilities with several Configuration
                   id="key-input-list"
                 >
                   <option
-                    key="basic-auth-password 00000000-0000-0000-0000-000000000001"
+                    key="basic-auth-password 00000000-0000-0000-0000-000000000002"
                   >
                     basic-auth-password
                   </option>
                   <option
-                    key="basic-auth-user 00000000-0000-0000-0000-000000000001"
+                    key="basic-auth-user 00000000-0000-0000-0000-000000000002"
                   >
                     basic-auth-user
                   </option>
                   <option
-                    key="token 00000000-0000-0000-0000-000000000001"
+                    key="token 00000000-0000-0000-0000-000000000002"
                   >
                     token
                   </option>
                   <option
-                    key="url 00000000-0000-0000-0000-000000000001"
+                    key="url 00000000-0000-0000-0000-000000000002"
                   >
                     url
                   </option>
                   <option
-                    key="user 00000000-0000-0000-0000-000000000001"
+                    key="user 00000000-0000-0000-0000-000000000002"
                   >
                     user
                   </option>
@@ -486,6 +516,132 @@ exports[`ConfigurationSpec should render Capabilities with several Configuration
                     </option>
                   </select>
                 </div>
+                <Connect(Options)
+                  conf_spec_id="00000000-0000-0000-0000-000000000002"
+                  options={
+                    Array [
+                      Object {
+                        "id": "00000000-0000-0000-0000-000000000001",
+                        "label": "https://example.com/",
+                        "value": "https://example.com/",
+                      },
+                    ]
+                  }
+                >
+                  <Options
+                    addOptions={[Function]}
+                    conf_spec_id="00000000-0000-0000-0000-000000000002"
+                    options={
+                      Array [
+                        Object {
+                          "id": "00000000-0000-0000-0000-000000000001",
+                          "label": "https://example.com/",
+                          "value": "https://example.com/",
+                        },
+                      ]
+                    }
+                  >
+                    <div>
+                      <div
+                        className="confSpecRow"
+                      >
+                        <div
+                          className="options-title"
+                        >
+                          Options
+                          <button
+                            className="addNewButton"
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            + Add
+                          </button>
+                        </div>
+                      </div>
+                      <Connect(OptionsItem)
+                        conf_spec_id="00000000-0000-0000-0000-000000000002"
+                        key="00000000-0000-0000-0000-000000000001"
+                        option={
+                          Object {
+                            "id": "00000000-0000-0000-0000-000000000001",
+                            "label": "https://example.com/",
+                            "value": "https://example.com/",
+                          }
+                        }
+                      >
+                        <OptionsItem
+                          conf_spec_id="00000000-0000-0000-0000-000000000002"
+                          deleteOption={[Function]}
+                          option={
+                            Object {
+                              "id": "00000000-0000-0000-0000-000000000001",
+                              "label": "https://example.com/",
+                              "value": "https://example.com/",
+                            }
+                          }
+                          updateOption={[Function]}
+                        >
+                          <div
+                            className="optionsWrapper"
+                          >
+                            <div
+                              className="column"
+                            >
+                              <div
+                                className="inputDiv"
+                              >
+                                value
+                                <span
+                                  className="required-field"
+                                >
+                                  *
+                                </span>
+                                <input
+                                  className="customInput"
+                                  name="value"
+                                  onChange={[Function]}
+                                  required={true}
+                                  type="text"
+                                  value="https://example.com/"
+                                />
+                              </div>
+                              <div
+                                className="inputDiv"
+                              >
+                                label
+                                <span
+                                  className="required-field"
+                                >
+                                  *
+                                </span>
+                                <input
+                                  className="customInput"
+                                  name="label"
+                                  onChange={[Function]}
+                                  required={true}
+                                  type="text"
+                                  value="https://example.com/"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className="optionsIconWrapper"
+                            >
+                              <svg
+                                className="closeIcon"
+                                onClick={[Function]}
+                              >
+                                <use
+                                  xlinkHref="sprite.svg#icon-small-x-close"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </OptionsItem>
+                      </Connect(OptionsItem)>
+                    </div>
+                  </Options>
+                </Connect(Options)>
                 <div
                   className="inputDiv"
                 >

@@ -24,7 +24,7 @@ describe('ConfigurationSpec', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     })
 
-    it('should render Capabilities with several ConfigurationSpecItems', () => {
+    it('should render ConfigurationSpec with several ConfigurationSpecItems', () => {
         const store = mockStore({
             configuration_spec: [
                 mocks.EMPTY_CONF_SPEC_MOCK,
