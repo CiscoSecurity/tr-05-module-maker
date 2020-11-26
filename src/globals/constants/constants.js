@@ -88,7 +88,15 @@ export const REGION_LABEL = "Region";
 // AuthType.js
 export const AUTH_LABEL = "authorization";
 export const AUTH_TYPE_OPTIONS = ["authorization-header", "basic", "bearer", "configuration-token"];
+
+// ConfToken.js
 export const CONF_TOKEN_OPTIONS = ["RS256", "HS256"];
+export const CONFIGURATION_TOKEN_ALG = "configuration-token-alg";
+export const CONFIGURATION_TOKEN_AUDIENCE = "configuration-token-audience";
+
+// ConfTokenDetail.js
+export const CUSTOM_JWKS_HOST = "custom_jwks_host";
+export const CONFIGURATION_TOKEN_KEY = "configuration-token-key";
 
 // CustomAlert.js
 export const CLOSE_BTN_LABEL = "Close";

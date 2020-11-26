@@ -2,7 +2,7 @@ import {
     TOGGLE_AUTH_TYPE, UPDATE_AUTH_TYPE, UPDATE_CONF_TOKEN,
     UPDATE_SUPPORTED_API
 } from "globals/constants/types"
-import {TOGGLE_ALGORITHM} from "../../../../globals/constants/types";
+import { TOGGLE_ALGORITHM } from "globals/constants/types";
 
 const initialState = {
  "supported-apis": []

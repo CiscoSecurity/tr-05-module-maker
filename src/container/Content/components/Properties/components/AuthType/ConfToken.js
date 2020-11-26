@@ -23,7 +23,7 @@ class ConfToken extends React.Component {
         return (
             <div>
                 <div className='conf-token-input'>
-                    <label>configuration-token-alg</label>
+                    <label>{Constants.CONFIGURATION_TOKEN_ALG}</label>
                     <select value={this.props.syncProperties['configuration-token-alg'] || ""}
                             name='configuration-token-alg'
                             onChange={this.onSelectUpdate}
@@ -44,7 +44,7 @@ class ConfToken extends React.Component {
                         : ''
                 }
                 <div className='conf-token-input'>
-                    <label>configuration-token-audience</label>
+                    <label>{Constants.CONFIGURATION_TOKEN_AUDIENCE}</label>
                     <input value={this.props.syncProperties['configuration-token-audience'] || ""}
                            name='configuration-token-audience'
                            onChange={this.changeInputHandler}

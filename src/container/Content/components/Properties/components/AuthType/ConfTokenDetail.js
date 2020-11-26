@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateConfToken } from "../../propertiesActions";
+import * as Constants from "globals/constants/constants";
 
 
 class ConfTokenDetail extends React.Component {
@@ -14,7 +15,7 @@ class ConfTokenDetail extends React.Component {
     render() {
         if (this.props.alg === 'RS256') {
             return (<div className='conf-token-input'>
-                <label>custom-jwks-host</label>
+                <label>{Constants.CUSTOM_JWKS_HOST}</label>
                 <input value={this.props.syncProperties['custom_jwks_host'] || ""}
                        name='custom_jwks_host'
                        onChange={this.changeInputHandler}
@@ -23,7 +24,7 @@ class ConfTokenDetail extends React.Component {
         } else {
             return (
                 <div className='conf-token-input'>
-                    <label>configuration-token-key</label>
+                    <label>{Constants.CONFIGURATION_TOKEN_KEY}</label>
                     <input value={this.props.syncProperties['configuration-token-key'] || ""}
                            name='configuration-token-key'
                            onChange={this.changeInputHandler}
