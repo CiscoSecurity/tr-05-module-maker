@@ -1,7 +1,8 @@
 import {
-    TOGGLE_AUTH_TYPE, UPDATE_AUTH_TYPE,
+    TOGGLE_AUTH_TYPE, UPDATE_AUTH_TYPE, UPDATE_CONF_TOKEN,
     UPDATE_SUPPORTED_API
 } from "globals/constants/types"
+import {TOGGLE_ALGORITHM} from "../../../../globals/constants/types";
 
 const initialState = {
  "supported-apis": []
@@ -27,7 +28,7 @@ export const propertiesReducer = (state = initialState, action) => {
             if (Object.keys(state).includes("auth-type")) {
                 return Object.fromEntries(
                         Object.entries(state).filter(
-                            ([key, val]) => key !== "auth-type"
+                            ([key, val]) => key === "supported-apis"
                         )
                 )
             } else {
@@ -41,6 +42,26 @@ export const propertiesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 "auth-type": action.payload
+            }
+        case UPDATE_CONF_TOKEN:
+            return {...state,
+                [action.payload.name]: action.payload.value
+            }
+
+        case TOGGLE_ALGORITHM:
+            if (action.payload === 'RS256'){
+                return Object.fromEntries(
+                    Object.entries(state).filter(
+                        ([key, val]) => key !== 'configuration-token-key'
+                    )
+                )
+            }
+            else {
+                return Object.fromEntries(
+                    Object.entries(state).filter(
+                        ([key, val]) => key !== 'custom_jwks_host'
+                    )
+                )
             }
 
         default:

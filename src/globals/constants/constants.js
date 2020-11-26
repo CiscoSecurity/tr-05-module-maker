@@ -27,9 +27,14 @@ export const OPEN_FROM_FILE = "Open JSON from File";
 export const OPEN_FROM_API = "Open JSON from TR API";
 export const SAVE_JSON = "Save JSON";
 export const PUSH_JSON = "Push JSON to TR";
-export const FILL_REQUIRED_ALERT = "Please, fill out highlighted fields";
 export const VALIDATION_ERROR_MESSAGE = "Wrong JSON structure: ";
 export const FILE_LOADING_FAILURE = "Error occurred reading file: ";
+export const JSON_ELEMENTS_ORDER = [
+    "title", "default_name", "short_description",
+    "description", "tips", "external_references",
+    "configuration_spec", "capabilities",
+    "properties", "flags", "logo"
+];
 
 // ConfigurationSpec.js
 export const ADD_BTN_TITLE = "+ Add";
@@ -82,7 +87,8 @@ export const REGION_LABEL = "Region";
 
 // AuthType.js
 export const AUTH_LABEL = "authorization";
-export const AUTH_TYPE_OPTIONS = ["authorization-header", "basic", "bearer", "configuration-token"]
+export const AUTH_TYPE_OPTIONS = ["authorization-header", "basic", "bearer", "configuration-token"];
+export const CONF_TOKEN_OPTIONS = ["RS256", "HS256"];
 
 // CustomAlert.js
 export const CLOSE_BTN_LABEL = "Close";

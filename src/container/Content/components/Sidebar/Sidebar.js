@@ -11,6 +11,7 @@ import {
     hideAlert, hideModalForPush, hideModalForPull,
     showAlert, showModalForPush, showModalForPull
 } from "../visibilityActions";
+import { arrangeJSON } from "utils/formattingUtils";
 
 
 class Sidebar extends React.Component {
@@ -28,11 +29,14 @@ class Sidebar extends React.Component {
                 )
             }
             delete elem["id"]
+            Object.keys(elem).forEach(
+                (key) => (elem[key].length === 0) && delete elem[key]
+            );
         }
         data.external_references.map(
             element => delete element["id"]
         )
-        return data
+        return arrangeJSON(data)
     }
 
     isValidForm() {
@@ -43,7 +47,7 @@ class Sidebar extends React.Component {
     onSaveButtonClick = () => {
         if (this.isValidForm()) {
             const formattedData = this.constructValidJSON();
-            const fileData = JSON.stringify(formattedData);
+            const fileData = JSON.stringify(formattedData, null, 2);
             const blob = new Blob([fileData], {type: "text/plain"});
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");

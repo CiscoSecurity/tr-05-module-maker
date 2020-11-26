@@ -1,0 +1,11 @@
+.conf-token-input {
+  margin: 4px 0 0 27px;
+  display: flex;
+  align-items: center;
+
+  input,
+  select {
+    margin-left: 4px;
+    flex: 1;
+  }
+}
