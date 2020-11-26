@@ -45,9 +45,10 @@ render() {
                 }
             </select>
         </div>
-            { Object.keys(this.props.syncProperties).includes("auth-type")
-            && this.props.syncProperties["auth-type"] ==="configuration-token"
-                ?<ConfToken/>
+            {
+                Object.keys(this.props.syncProperties).includes("auth-type")
+                && this.props.syncProperties["auth-type"] === "configuration-token"
+                ? <ConfToken/>
                 : ""
             }
         </div>
