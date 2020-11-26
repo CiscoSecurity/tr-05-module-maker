@@ -64,10 +64,12 @@ exports[`Capabilities should render Capabilities with 1 Capability 1`] = `
                 <input
                   autoComplete="off"
                   name="health"
+                  onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Enter description"
                   required={true}
                   type="text"
+                  value=""
                 />
               </div>
             </Capability>
@@ -146,10 +148,12 @@ exports[`Capabilities should render Capabilities with several inner entities 1`]
                 <input
                   autoComplete="off"
                   name="health"
+                  onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Enter description"
                   required={true}
                   type="text"
+                  value=""
                 />
               </div>
             </Capability>
@@ -184,10 +188,12 @@ exports[`Capabilities should render Capabilities with several inner entities 1`]
                 <input
                   autoComplete="off"
                   name="respond"
+                  onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Enter description"
                   required={true}
                   type="text"
+                  value=""
                 />
               </div>
             </Capability>
