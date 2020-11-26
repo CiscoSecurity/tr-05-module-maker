@@ -1,0 +1,1129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar should render Sidebar with CustomAlert 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Sidebar)>
+    <Sidebar
+      customAlert={
+        Object {
+          "message": "Test message",
+          "title": "Test title",
+        }
+      }
+      hideAlert={[Function]}
+      hideModalForPull={[Function]}
+      hideModalForPush={[Function]}
+      modalForPull={false}
+      modalForPush={false}
+      readStateFromBackend={[Function]}
+      showAlert={[Function]}
+      showModalForPull={[Function]}
+      showModalForPush={[Function]}
+      syncJSON={
+        Object {
+          "capabilities": undefined,
+          "configuration_spec": undefined,
+          "external_references": undefined,
+          "properties": undefined,
+        }
+      }
+    >
+      <div
+        className="Sidebar"
+      >
+        <p>
+          Settings
+        </p>
+        <ul>
+          <input
+            accept="application/JSON"
+            type="file"
+          />
+          <li
+            onClick={[Function]}
+          >
+            Open JSON from File
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Open JSON from TR API
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Save JSON
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Push JSON to TR
+          </li>
+        </ul>
+        <CustomAlert
+          closeAlertHandler={[Function]}
+          message="Test message"
+          title="Test title"
+        >
+          <div
+            className="alert"
+          >
+            <div
+              className="alertContent"
+            >
+              <div
+                className="alertHeader"
+              >
+                Test title
+                <svg
+                  className="closeIcon"
+                  onClick={[Function]}
+                >
+                  <use
+                    xlinkHref="sprite.svg#icon-small-x-close"
+                  />
+                </svg>
+              </div>
+              <div
+                className="alertBody"
+              >
+                Test message
+              </div>
+              <div
+                className="alertFooter"
+              >
+                <button
+                  className="closeButton"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </CustomAlert>
+      </div>
+    </Sidebar>
+  </Connect(Sidebar)>
+</Provider>
+`;
+
+exports[`Sidebar should render Sidebar with modalForPull 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Sidebar)>
+    <Sidebar
+      customAlert={null}
+      hideAlert={[Function]}
+      hideModalForPull={[Function]}
+      hideModalForPush={[Function]}
+      modalForPull={true}
+      modalForPush={false}
+      readStateFromBackend={[Function]}
+      showAlert={[Function]}
+      showModalForPull={[Function]}
+      showModalForPush={[Function]}
+      syncJSON={
+        Object {
+          "capabilities": undefined,
+          "configuration_spec": Array [],
+          "external_references": Array [],
+          "properties": undefined,
+        }
+      }
+    >
+      <div
+        className="Sidebar"
+      >
+        <p>
+          Settings
+        </p>
+        <ul>
+          <input
+            accept="application/JSON"
+            type="file"
+          />
+          <li
+            onClick={[Function]}
+          >
+            Open JSON from File
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Open JSON from TR API
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Save JSON
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Push JSON to TR
+          </li>
+        </ul>
+        <Connect(ModalForPull)>
+          <ModalForPull
+            hideModalForPull={[Function]}
+            loader={false}
+            pullModuleTypeRequest={[Function]}
+          >
+            <div
+              className="modal"
+              id="modal"
+            >
+              <Formik
+                initialValues={
+                  Object {
+                    "client_id": "",
+                    "iroh_service_url": "",
+                    "module_type_id": "",
+                    "password": "",
+                  }
+                }
+                onSubmit={[Function]}
+                validate={[Function]}
+              >
+                <Form
+                  className="modal-content"
+                >
+                  <form
+                    action="#"
+                    className="modal-content"
+                    onReset={[Function]}
+                    onSubmit={[Function]}
+                  >
+                    <svg
+                      className="closeIcon"
+                      onClick={[Function]}
+                    >
+                      <use
+                        xlinkHref="sprite.svg#icon-small-x-close"
+                      />
+                    </svg>
+                    <p
+                      className="push-modal-text"
+                    >
+                      Pull module type from your Threat Response organization
+                    </p>
+                    <label
+                      className="centered"
+                      htmlFor="client_id"
+                    >
+                      Client ID
+                    </label>
+                    <div>
+                      <Field
+                        id="client_id"
+                        name="client_id"
+                        required={true}
+                        type="text"
+                      >
+                        <input
+                          id="client_id"
+                          name="client_id"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          required={true}
+                          type="text"
+                          value=""
+                        />
+                      </Field>
+                      <FormikConnect(ErrorMessageImpl)
+                        className="error"
+                        component="div"
+                        name="client_id"
+                      >
+                        <ErrorMessageImpl
+                          className="error"
+                          component="div"
+                          formik={
+                            Object {
+                              "dirty": false,
+                              "errors": Object {},
+                              "getFieldHelpers": [Function],
+                              "getFieldMeta": [Function],
+                              "getFieldProps": [Function],
+                              "handleBlur": [Function],
+                              "handleChange": [Function],
+                              "handleReset": [Function],
+                              "handleSubmit": [Function],
+                              "initialErrors": Object {},
+                              "initialStatus": undefined,
+                              "initialTouched": Object {},
+                              "initialValues": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "module_type_id": "",
+                                "password": "",
+                              },
+                              "isSubmitting": false,
+                              "isValid": true,
+                              "isValidating": false,
+                              "registerField": [Function],
+                              "resetForm": [Function],
+                              "setErrors": [Function],
+                              "setFieldError": [Function],
+                              "setFieldTouched": [Function],
+                              "setFieldValue": [Function],
+                              "setFormikState": [Function],
+                              "setStatus": [Function],
+                              "setSubmitting": [Function],
+                              "setTouched": [Function],
+                              "setValues": [Function],
+                              "status": undefined,
+                              "submitCount": 0,
+                              "submitForm": [Function],
+                              "touched": Object {},
+                              "unregisterField": [Function],
+                              "validateField": [Function],
+                              "validateForm": [Function],
+                              "validateOnBlur": true,
+                              "validateOnChange": true,
+                              "validateOnMount": false,
+                              "values": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "module_type_id": "",
+                                "password": "",
+                              },
+                            }
+                          }
+                          name="client_id"
+                        />
+                      </FormikConnect(ErrorMessageImpl)>
+                    </div>
+                    <label
+                      className="centered"
+                      htmlFor="password"
+                    >
+                      Client Password
+                    </label>
+                    <div>
+                      <Field
+                        id="password"
+                        name="password"
+                        required={true}
+                        type="password"
+                      >
+                        <input
+                          id="password"
+                          name="password"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          required={true}
+                          type="password"
+                          value=""
+                        />
+                      </Field>
+                      <FormikConnect(ErrorMessageImpl)
+                        className="error"
+                        component="div"
+                        name="password"
+                      >
+                        <ErrorMessageImpl
+                          className="error"
+                          component="div"
+                          formik={
+                            Object {
+                              "dirty": false,
+                              "errors": Object {},
+                              "getFieldHelpers": [Function],
+                              "getFieldMeta": [Function],
+                              "getFieldProps": [Function],
+                              "handleBlur": [Function],
+                              "handleChange": [Function],
+                              "handleReset": [Function],
+                              "handleSubmit": [Function],
+                              "initialErrors": Object {},
+                              "initialStatus": undefined,
+                              "initialTouched": Object {},
+                              "initialValues": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "module_type_id": "",
+                                "password": "",
+                              },
+                              "isSubmitting": false,
+                              "isValid": true,
+                              "isValidating": false,
+                              "registerField": [Function],
+                              "resetForm": [Function],
+                              "setErrors": [Function],
+                              "setFieldError": [Function],
+                              "setFieldTouched": [Function],
+                              "setFieldValue": [Function],
+                              "setFormikState": [Function],
+                              "setStatus": [Function],
+                              "setSubmitting": [Function],
+                              "setTouched": [Function],
+                              "setValues": [Function],
+                              "status": undefined,
+                              "submitCount": 0,
+                              "submitForm": [Function],
+                              "touched": Object {},
+                              "unregisterField": [Function],
+                              "validateField": [Function],
+                              "validateForm": [Function],
+                              "validateOnBlur": true,
+                              "validateOnChange": true,
+                              "validateOnMount": false,
+                              "values": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "module_type_id": "",
+                                "password": "",
+                              },
+                            }
+                          }
+                          name="password"
+                        />
+                      </FormikConnect(ErrorMessageImpl)>
+                    </div>
+                    <label
+                      className="centered"
+                      htmlFor="module_type_id"
+                    >
+                      Module Type ID
+                    </label>
+                    <div>
+                      <Field
+                        id="module_type_id"
+                        name="module_type_id"
+                        required={true}
+                        type="module_type_id"
+                      >
+                        <input
+                          id="module_type_id"
+                          name="module_type_id"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          required={true}
+                          type="module_type_id"
+                          value=""
+                        />
+                      </Field>
+                      <FormikConnect(ErrorMessageImpl)
+                        className="error"
+                        component="div"
+                        name="module_type_id"
+                      >
+                        <ErrorMessageImpl
+                          className="error"
+                          component="div"
+                          formik={
+                            Object {
+                              "dirty": false,
+                              "errors": Object {},
+                              "getFieldHelpers": [Function],
+                              "getFieldMeta": [Function],
+                              "getFieldProps": [Function],
+                              "handleBlur": [Function],
+                              "handleChange": [Function],
+                              "handleReset": [Function],
+                              "handleSubmit": [Function],
+                              "initialErrors": Object {},
+                              "initialStatus": undefined,
+                              "initialTouched": Object {},
+                              "initialValues": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "module_type_id": "",
+                                "password": "",
+                              },
+                              "isSubmitting": false,
+                              "isValid": true,
+                              "isValidating": false,
+                              "registerField": [Function],
+                              "resetForm": [Function],
+                              "setErrors": [Function],
+                              "setFieldError": [Function],
+                              "setFieldTouched": [Function],
+                              "setFieldValue": [Function],
+                              "setFormikState": [Function],
+                              "setStatus": [Function],
+                              "setSubmitting": [Function],
+                              "setTouched": [Function],
+                              "setValues": [Function],
+                              "status": undefined,
+                              "submitCount": 0,
+                              "submitForm": [Function],
+                              "touched": Object {},
+                              "unregisterField": [Function],
+                              "validateField": [Function],
+                              "validateForm": [Function],
+                              "validateOnBlur": true,
+                              "validateOnChange": true,
+                              "validateOnMount": false,
+                              "values": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "module_type_id": "",
+                                "password": "",
+                              },
+                            }
+                          }
+                          name="module_type_id"
+                        />
+                      </FormikConnect(ErrorMessageImpl)>
+                    </div>
+                    <label
+                      className="centered"
+                      htmlFor="iroh_service_url"
+                    >
+                      Region
+                    </label>
+                    <div>
+                      <Field
+                        as="select"
+                        name="iroh_service_url"
+                        required={true}
+                      >
+                        <select
+                          name="iroh_service_url"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          required={true}
+                          value=""
+                        >
+                          <option
+                            disabled={true}
+                            hidden={true}
+                            value=""
+                          >
+                            Select your option
+                          </option>
+                          <option
+                            value="https://visibility.eu.amp.cisco.com"
+                          >
+                            Europe
+                          </option>
+                          <option
+                            value="https://visibility.amp.cisco.com"
+                          >
+                            North America
+                          </option>
+                          <option
+                            value="https://visibility.apjc.amp.cisco.com"
+                          >
+                            Asia
+                          </option>
+                        </select>
+                      </Field>
+                      <FormikConnect(ErrorMessageImpl)
+                        className="error"
+                        component="div"
+                        name="iroh_service_url"
+                      >
+                        <ErrorMessageImpl
+                          className="error"
+                          component="div"
+                          formik={
+                            Object {
+                              "dirty": false,
+                              "errors": Object {},
+                              "getFieldHelpers": [Function],
+                              "getFieldMeta": [Function],
+                              "getFieldProps": [Function],
+                              "handleBlur": [Function],
+                              "handleChange": [Function],
+                              "handleReset": [Function],
+                              "handleSubmit": [Function],
+                              "initialErrors": Object {},
+                              "initialStatus": undefined,
+                              "initialTouched": Object {},
+                              "initialValues": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "module_type_id": "",
+                                "password": "",
+                              },
+                              "isSubmitting": false,
+                              "isValid": true,
+                              "isValidating": false,
+                              "registerField": [Function],
+                              "resetForm": [Function],
+                              "setErrors": [Function],
+                              "setFieldError": [Function],
+                              "setFieldTouched": [Function],
+                              "setFieldValue": [Function],
+                              "setFormikState": [Function],
+                              "setStatus": [Function],
+                              "setSubmitting": [Function],
+                              "setTouched": [Function],
+                              "setValues": [Function],
+                              "status": undefined,
+                              "submitCount": 0,
+                              "submitForm": [Function],
+                              "touched": Object {},
+                              "unregisterField": [Function],
+                              "validateField": [Function],
+                              "validateForm": [Function],
+                              "validateOnBlur": true,
+                              "validateOnChange": true,
+                              "validateOnMount": false,
+                              "values": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "module_type_id": "",
+                                "password": "",
+                              },
+                            }
+                          }
+                          name="iroh_service_url"
+                        />
+                      </FormikConnect(ErrorMessageImpl)>
+                    </div>
+                    <div
+                      className="controls"
+                    >
+                      <button
+                        className="cancel"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="submit"
+                        disabled={false}
+                        type="submit"
+                      >
+                        Pull
+                      </button>
+                    </div>
+                  </form>
+                </Form>
+              </Formik>
+            </div>
+          </ModalForPull>
+        </Connect(ModalForPull)>
+      </div>
+    </Sidebar>
+  </Connect(Sidebar)>
+</Provider>
+`;
+
+exports[`Sidebar should render Sidebar with modalForPush 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Sidebar)>
+    <Sidebar
+      customAlert={null}
+      hideAlert={[Function]}
+      hideModalForPull={[Function]}
+      hideModalForPush={[Function]}
+      modalForPull={false}
+      modalForPush={true}
+      readStateFromBackend={[Function]}
+      showAlert={[Function]}
+      showModalForPull={[Function]}
+      showModalForPush={[Function]}
+      syncJSON={
+        Object {
+          "capabilities": undefined,
+          "configuration_spec": Array [],
+          "external_references": Array [],
+          "properties": undefined,
+        }
+      }
+    >
+      <div
+        className="Sidebar"
+      >
+        <p>
+          Settings
+        </p>
+        <ul>
+          <input
+            accept="application/JSON"
+            type="file"
+          />
+          <li
+            onClick={[Function]}
+          >
+            Open JSON from File
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Open JSON from TR API
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Save JSON
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Push JSON to TR
+          </li>
+        </ul>
+        <Connect(ModalForPush)
+          json={
+            Object {
+              "configuration_spec": Array [],
+              "external_references": Array [],
+            }
+          }
+        >
+          <ModalForPush
+            hideModalForPush={[Function]}
+            json={
+              Object {
+                "configuration_spec": Array [],
+                "external_references": Array [],
+              }
+            }
+            loader={false}
+            pushModuleTypeRequest={[Function]}
+            showAlert={[Function]}
+          >
+            <div
+              className="modal"
+              id="modal"
+            >
+              <Formik
+                initialValues={
+                  Object {
+                    "client_id": "",
+                    "iroh_service_url": "",
+                    "password": "",
+                  }
+                }
+                onSubmit={[Function]}
+                validate={[Function]}
+              >
+                <Form
+                  className="modal-content"
+                >
+                  <form
+                    action="#"
+                    className="modal-content"
+                    onReset={[Function]}
+                    onSubmit={[Function]}
+                  >
+                    <svg
+                      className="closeIcon"
+                      onClick={[Function]}
+                    >
+                      <use
+                        xlinkHref="sprite.svg#icon-small-x-close"
+                      />
+                    </svg>
+                    <p
+                      className="push-modal-text"
+                    >
+                      Create a new module type in your Threat Response organization
+                    </p>
+                    <label
+                      className="centered"
+                      htmlFor="client_id"
+                    >
+                      Client ID
+                    </label>
+                    <div>
+                      <Field
+                        id="client_id"
+                        name="client_id"
+                        required={true}
+                        type="text"
+                      >
+                        <input
+                          id="client_id"
+                          name="client_id"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          required={true}
+                          type="text"
+                          value=""
+                        />
+                      </Field>
+                      <FormikConnect(ErrorMessageImpl)
+                        className="error"
+                        component="div"
+                        name="client_id"
+                      >
+                        <ErrorMessageImpl
+                          className="error"
+                          component="div"
+                          formik={
+                            Object {
+                              "dirty": false,
+                              "errors": Object {},
+                              "getFieldHelpers": [Function],
+                              "getFieldMeta": [Function],
+                              "getFieldProps": [Function],
+                              "handleBlur": [Function],
+                              "handleChange": [Function],
+                              "handleReset": [Function],
+                              "handleSubmit": [Function],
+                              "initialErrors": Object {},
+                              "initialStatus": undefined,
+                              "initialTouched": Object {},
+                              "initialValues": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "password": "",
+                              },
+                              "isSubmitting": false,
+                              "isValid": true,
+                              "isValidating": false,
+                              "registerField": [Function],
+                              "resetForm": [Function],
+                              "setErrors": [Function],
+                              "setFieldError": [Function],
+                              "setFieldTouched": [Function],
+                              "setFieldValue": [Function],
+                              "setFormikState": [Function],
+                              "setStatus": [Function],
+                              "setSubmitting": [Function],
+                              "setTouched": [Function],
+                              "setValues": [Function],
+                              "status": undefined,
+                              "submitCount": 0,
+                              "submitForm": [Function],
+                              "touched": Object {},
+                              "unregisterField": [Function],
+                              "validateField": [Function],
+                              "validateForm": [Function],
+                              "validateOnBlur": true,
+                              "validateOnChange": true,
+                              "validateOnMount": false,
+                              "values": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "password": "",
+                              },
+                            }
+                          }
+                          name="client_id"
+                        />
+                      </FormikConnect(ErrorMessageImpl)>
+                    </div>
+                    <label
+                      className="centered"
+                      htmlFor="password"
+                    >
+                      Client Password
+                    </label>
+                    <div>
+                      <Field
+                        id="password"
+                        name="password"
+                        required={true}
+                        type="password"
+                      >
+                        <input
+                          id="password"
+                          name="password"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          required={true}
+                          type="password"
+                          value=""
+                        />
+                      </Field>
+                      <FormikConnect(ErrorMessageImpl)
+                        className="error"
+                        component="div"
+                        name="password"
+                      >
+                        <ErrorMessageImpl
+                          className="error"
+                          component="div"
+                          formik={
+                            Object {
+                              "dirty": false,
+                              "errors": Object {},
+                              "getFieldHelpers": [Function],
+                              "getFieldMeta": [Function],
+                              "getFieldProps": [Function],
+                              "handleBlur": [Function],
+                              "handleChange": [Function],
+                              "handleReset": [Function],
+                              "handleSubmit": [Function],
+                              "initialErrors": Object {},
+                              "initialStatus": undefined,
+                              "initialTouched": Object {},
+                              "initialValues": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "password": "",
+                              },
+                              "isSubmitting": false,
+                              "isValid": true,
+                              "isValidating": false,
+                              "registerField": [Function],
+                              "resetForm": [Function],
+                              "setErrors": [Function],
+                              "setFieldError": [Function],
+                              "setFieldTouched": [Function],
+                              "setFieldValue": [Function],
+                              "setFormikState": [Function],
+                              "setStatus": [Function],
+                              "setSubmitting": [Function],
+                              "setTouched": [Function],
+                              "setValues": [Function],
+                              "status": undefined,
+                              "submitCount": 0,
+                              "submitForm": [Function],
+                              "touched": Object {},
+                              "unregisterField": [Function],
+                              "validateField": [Function],
+                              "validateForm": [Function],
+                              "validateOnBlur": true,
+                              "validateOnChange": true,
+                              "validateOnMount": false,
+                              "values": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "password": "",
+                              },
+                            }
+                          }
+                          name="password"
+                        />
+                      </FormikConnect(ErrorMessageImpl)>
+                    </div>
+                    <label
+                      className="centered"
+                      htmlFor="iroh_service_url"
+                    >
+                      Region
+                    </label>
+                    <div>
+                      <Field
+                        as="select"
+                        name="iroh_service_url"
+                        required={true}
+                      >
+                        <select
+                          name="iroh_service_url"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          required={true}
+                          value=""
+                        >
+                          <option
+                            disabled={true}
+                            hidden={true}
+                            value=""
+                          >
+                            Select your option
+                          </option>
+                          <option
+                            value="https://visibility.eu.amp.cisco.com"
+                          >
+                            Europe
+                          </option>
+                          <option
+                            value="https://visibility.amp.cisco.com"
+                          >
+                            North America
+                          </option>
+                          <option
+                            value="https://visibility.apjc.amp.cisco.com"
+                          >
+                            Asia
+                          </option>
+                        </select>
+                      </Field>
+                      <FormikConnect(ErrorMessageImpl)
+                        className="error"
+                        component="div"
+                        name="iroh_service_url"
+                      >
+                        <ErrorMessageImpl
+                          className="error"
+                          component="div"
+                          formik={
+                            Object {
+                              "dirty": false,
+                              "errors": Object {},
+                              "getFieldHelpers": [Function],
+                              "getFieldMeta": [Function],
+                              "getFieldProps": [Function],
+                              "handleBlur": [Function],
+                              "handleChange": [Function],
+                              "handleReset": [Function],
+                              "handleSubmit": [Function],
+                              "initialErrors": Object {},
+                              "initialStatus": undefined,
+                              "initialTouched": Object {},
+                              "initialValues": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "password": "",
+                              },
+                              "isSubmitting": false,
+                              "isValid": true,
+                              "isValidating": false,
+                              "registerField": [Function],
+                              "resetForm": [Function],
+                              "setErrors": [Function],
+                              "setFieldError": [Function],
+                              "setFieldTouched": [Function],
+                              "setFieldValue": [Function],
+                              "setFormikState": [Function],
+                              "setStatus": [Function],
+                              "setSubmitting": [Function],
+                              "setTouched": [Function],
+                              "setValues": [Function],
+                              "status": undefined,
+                              "submitCount": 0,
+                              "submitForm": [Function],
+                              "touched": Object {},
+                              "unregisterField": [Function],
+                              "validateField": [Function],
+                              "validateForm": [Function],
+                              "validateOnBlur": true,
+                              "validateOnChange": true,
+                              "validateOnMount": false,
+                              "values": Object {
+                                "client_id": "",
+                                "iroh_service_url": "",
+                                "password": "",
+                              },
+                            }
+                          }
+                          name="iroh_service_url"
+                        />
+                      </FormikConnect(ErrorMessageImpl)>
+                    </div>
+                    <div
+                      className="controls"
+                    >
+                      <button
+                        className="cancel"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="submit"
+                        disabled={false}
+                        type="submit"
+                      >
+                        Push
+                      </button>
+                    </div>
+                  </form>
+                </Form>
+              </Formik>
+            </div>
+          </ModalForPush>
+        </Connect(ModalForPush)>
+      </div>
+    </Sidebar>
+  </Connect(Sidebar)>
+</Provider>
+`;
+
+exports[`Sidebar should render Sidebar without modals, custom alert, loader 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Sidebar)>
+    <Sidebar
+      customAlert={null}
+      hideAlert={[Function]}
+      hideModalForPull={[Function]}
+      hideModalForPush={[Function]}
+      modalForPull={false}
+      modalForPush={false}
+      readStateFromBackend={[Function]}
+      showAlert={[Function]}
+      showModalForPull={[Function]}
+      showModalForPush={[Function]}
+      syncJSON={
+        Object {
+          "capabilities": undefined,
+          "configuration_spec": undefined,
+          "external_references": undefined,
+          "properties": undefined,
+        }
+      }
+    >
+      <div
+        className="Sidebar"
+      >
+        <p>
+          Settings
+        </p>
+        <ul>
+          <input
+            accept="application/JSON"
+            type="file"
+          />
+          <li
+            onClick={[Function]}
+          >
+            Open JSON from File
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Open JSON from TR API
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Save JSON
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Push JSON to TR
+          </li>
+        </ul>
+      </div>
+    </Sidebar>
+  </Connect(Sidebar)>
+</Provider>
+`;

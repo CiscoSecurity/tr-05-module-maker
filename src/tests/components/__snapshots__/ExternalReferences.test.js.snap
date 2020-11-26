@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExternalReferences should render ExternalReferences with several CustomInputs 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(ExternalReferences)>
+    <ExternalReferences
+      addExternalReference={[Function]}
+      syncExternalReferences={
+        Array [
+          Object {
+            "id": "00000000-0000-0000-0000-000000000003",
+            "label": "Sign Up",
+            "link": "https://haveibeenpwned.com/API/Key",
+          },
+          Object {
+            "id": "00000000-0000-0000-0000-000000000004",
+            "label": "FAQs",
+            "link": "https://haveibeenpwned.com/FAQs",
+          },
+        ]
+      }
+    >
+      <div
+        className="reference-section"
+      >
+        <div>
+          <label
+            className="input-label"
+          >
+             
+            External References
+            <button
+              onClick={[Function]}
+              type="button"
+            >
+              + Add
+            </button>
+          </label>
+        </div>
+        <Connect(CustomInput)
+          key="00000000-0000-0000-0000-000000000003"
+          reference={
+            Object {
+              "id": "00000000-0000-0000-0000-000000000003",
+              "label": "Sign Up",
+              "link": "https://haveibeenpwned.com/API/Key",
+            }
+          }
+        >
+          <CustomInput
+            deleteExternalReference={[Function]}
+            reference={
+              Object {
+                "id": "00000000-0000-0000-0000-000000000003",
+                "label": "Sign Up",
+                "link": "https://haveibeenpwned.com/API/Key",
+              }
+            }
+            updateExternalReference={[Function]}
+          >
+            <div
+              className="reference_wrapper"
+            >
+              <input
+                autoComplete="off"
+                className="custom_input"
+                list="ext-ref"
+                name="label"
+                onChange={[Function]}
+                placeholder="Enter label"
+                required={true}
+                type="text"
+                value="Sign Up"
+              />
+              <input
+                autoComplete="off"
+                className="custom_input"
+                name="link"
+                onChange={[Function]}
+                placeholder="Enter link"
+                required={true}
+                type="text"
+                value="https://haveibeenpwned.com/API/Key"
+              />
+              <datalist
+                id="ext-ref"
+              >
+                <option
+                  key="Sign Up 00000000-0000-0000-0000-000000000003"
+                >
+                  Sign Up
+                </option>
+                <option
+                  key="Free Trial 00000000-0000-0000-0000-000000000003"
+                >
+                  Free Trial
+                </option>
+                <option
+                  key="Contact Us 00000000-0000-0000-0000-000000000003"
+                >
+                  Contact Us
+                </option>
+              </datalist>
+              <svg
+                className="closeIcon"
+                onClick={[Function]}
+              >
+                <use
+                  xlinkHref="sprite.svg#icon-small-x-close"
+                />
+              </svg>
+            </div>
+          </CustomInput>
+        </Connect(CustomInput)>
+        <Connect(CustomInput)
+          key="00000000-0000-0000-0000-000000000004"
+          reference={
+            Object {
+              "id": "00000000-0000-0000-0000-000000000004",
+              "label": "FAQs",
+              "link": "https://haveibeenpwned.com/FAQs",
+            }
+          }
+        >
+          <CustomInput
+            deleteExternalReference={[Function]}
+            reference={
+              Object {
+                "id": "00000000-0000-0000-0000-000000000004",
+                "label": "FAQs",
+                "link": "https://haveibeenpwned.com/FAQs",
+              }
+            }
+            updateExternalReference={[Function]}
+          >
+            <div
+              className="reference_wrapper"
+            >
+              <input
+                autoComplete="off"
+                className="custom_input"
+                list="ext-ref"
+                name="label"
+                onChange={[Function]}
+                placeholder="Enter label"
+                required={true}
+                type="text"
+                value="FAQs"
+              />
+              <input
+                autoComplete="off"
+                className="custom_input"
+                name="link"
+                onChange={[Function]}
+                placeholder="Enter link"
+                required={true}
+                type="text"
+                value="https://haveibeenpwned.com/FAQs"
+              />
+              <datalist
+                id="ext-ref"
+              >
+                <option
+                  key="Sign Up 00000000-0000-0000-0000-000000000004"
+                >
+                  Sign Up
+                </option>
+                <option
+                  key="Free Trial 00000000-0000-0000-0000-000000000004"
+                >
+                  Free Trial
+                </option>
+                <option
+                  key="Contact Us 00000000-0000-0000-0000-000000000004"
+                >
+                  Contact Us
+                </option>
+              </datalist>
+              <svg
+                className="closeIcon"
+                onClick={[Function]}
+              >
+                <use
+                  xlinkHref="sprite.svg#icon-small-x-close"
+                />
+              </svg>
+            </div>
+          </CustomInput>
+        </Connect(CustomInput)>
+      </div>
+    </ExternalReferences>
+  </Connect(ExternalReferences)>
+</Provider>
+`;
+
+exports[`ExternalReferences should render ExternalReferences without CustomInputs 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(ExternalReferences)>
+    <ExternalReferences
+      addExternalReference={[Function]}
+      syncExternalReferences={Array []}
+    >
+      <div
+        className="reference-section"
+      >
+        <div>
+          <label
+            className="input-label"
+          >
+             
+            External References
+            <button
+              onClick={[Function]}
+              type="button"
+            >
+              + Add
+            </button>
+          </label>
+        </div>
+      </div>
+    </ExternalReferences>
+  </Connect(ExternalReferences)>
+</Provider>
+`;
