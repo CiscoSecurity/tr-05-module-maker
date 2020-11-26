@@ -1,0 +1,768 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigurationSpec should render ConfigurationSpec with several ConfigurationSpecItems 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(ConfigurationSpec)>
+    <ConfigurationSpec
+      addConfSpec={[Function]}
+      syncConfSpec={
+        Array [
+          Object {
+            "group": "",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "key": "",
+            "label": "",
+            "options": Array [],
+            "required": false,
+            "subtype": "",
+            "tooltip": "",
+            "type": "",
+          },
+          Object {
+            "id": "00000000-0000-0000-0000-000000000002",
+            "key": "url",
+            "label": "URL",
+            "options": Array [
+              Object {
+                "id": "00000000-0000-0000-0000-000000000001",
+                "label": "https://example.com/",
+                "value": "https://example.com/",
+              },
+            ],
+            "required": true,
+            "tooltip": "The base URL of the Serverless Relay",
+            "type": "string",
+          },
+        ]
+      }
+    >
+      <div>
+        <div
+          className="confSpecRow"
+        >
+          <div>
+            Configuration Spec
+            <button
+              onClick={[Function]}
+              type="button"
+            >
+              + Add
+            </button>
+          </div>
+        </div>
+        <Connect(ConfigurationSpecItem)
+          key="00000000-0000-0000-0000-000000000000"
+          role="00000000-0000-0000-0000-000000000000"
+          syncConfSpecItem={
+            Object {
+              "group": "",
+              "id": "00000000-0000-0000-0000-000000000000",
+              "key": "",
+              "label": "",
+              "options": Array [],
+              "required": false,
+              "subtype": "",
+              "tooltip": "",
+              "type": "",
+            }
+          }
+        >
+          <ConfigurationSpecItem
+            addOptions={[Function]}
+            deleteAllOptions={[Function]}
+            deleteConfSpec={[Function]}
+            role="00000000-0000-0000-0000-000000000000"
+            syncConfSpec={
+              Array [
+                Object {
+                  "group": "",
+                  "id": "00000000-0000-0000-0000-000000000000",
+                  "key": "",
+                  "label": "",
+                  "options": Array [],
+                  "required": false,
+                  "subtype": "",
+                  "tooltip": "",
+                  "type": "",
+                },
+                Object {
+                  "id": "00000000-0000-0000-0000-000000000002",
+                  "key": "url",
+                  "label": "URL",
+                  "options": Array [
+                    Object {
+                      "id": "00000000-0000-0000-0000-000000000001",
+                      "label": "https://example.com/",
+                      "value": "https://example.com/",
+                    },
+                  ],
+                  "required": true,
+                  "tooltip": "The base URL of the Serverless Relay",
+                  "type": "string",
+                },
+              ]
+            }
+            syncConfSpecItem={
+              Object {
+                "group": "",
+                "id": "00000000-0000-0000-0000-000000000000",
+                "key": "",
+                "label": "",
+                "options": Array [],
+                "required": false,
+                "subtype": "",
+                "tooltip": "",
+                "type": "",
+              }
+            }
+            updateConfSpec={[Function]}
+          >
+            <div
+              className="confSpecWrapper"
+            >
+              <div
+                className="column"
+              >
+                <div
+                  className="inputDiv"
+                >
+                  key
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                  <input
+                    className="customInput"
+                    list="key-input-list"
+                    name="key"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <datalist
+                  id="key-input-list"
+                >
+                  <option
+                    key="basic-auth-password 00000000-0000-0000-0000-000000000000"
+                  >
+                    basic-auth-password
+                  </option>
+                  <option
+                    key="basic-auth-user 00000000-0000-0000-0000-000000000000"
+                  >
+                    basic-auth-user
+                  </option>
+                  <option
+                    key="token 00000000-0000-0000-0000-000000000000"
+                  >
+                    token
+                  </option>
+                  <option
+                    key="url 00000000-0000-0000-0000-000000000000"
+                  >
+                    url
+                  </option>
+                  <option
+                    key="user 00000000-0000-0000-0000-000000000000"
+                  >
+                    user
+                  </option>
+                </datalist>
+                <div
+                  className="inputDiv"
+                >
+                  type
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                  <select
+                    className="customInput"
+                    name="type"
+                    onChange={[Function]}
+                    required={true}
+                    value=""
+                  >
+                    <option
+                      disabled={true}
+                      hidden={true}
+                      value=""
+                    >
+                      Select your option
+                    </option>
+                    <option
+                      key="api_key"
+                    >
+                      api_key
+                    </option>
+                    <option
+                      key="boolean"
+                    >
+                      boolean
+                    </option>
+                    <option
+                      key="device"
+                    >
+                      device
+                    </option>
+                    <option
+                      key="integer"
+                    >
+                      integer
+                    </option>
+                    <option
+                      key="options"
+                    >
+                      options
+                    </option>
+                    <option
+                      key="password"
+                    >
+                      password
+                    </option>
+                    <option
+                      key="string"
+                    >
+                      string
+                    </option>
+                  </select>
+                </div>
+                <div
+                  className="inputDiv"
+                >
+                  label
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                  <input
+                    className="customInput"
+                    name="label"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="inputDiv"
+                >
+                  tooltip
+                  <input
+                    className="customInput"
+                    name="tooltip"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="inputDiv"
+                >
+                  subtype
+                  <input
+                    className="customInput"
+                    name="subtype"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="inputDiv"
+                >
+                  group
+                  <input
+                    className="customInput"
+                    name="group"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="checkboxDiv"
+                >
+                  required
+                  <input
+                    checked={false}
+                    name="required"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                </div>
+              </div>
+              <div>
+                <svg
+                  className="closeIcon"
+                  onClick={[Function]}
+                >
+                  <use
+                    xlinkHref="sprite.svg#icon-small-x-close"
+                  />
+                </svg>
+              </div>
+            </div>
+          </ConfigurationSpecItem>
+        </Connect(ConfigurationSpecItem)>
+        <Connect(ConfigurationSpecItem)
+          key="00000000-0000-0000-0000-000000000002"
+          role="00000000-0000-0000-0000-000000000002"
+          syncConfSpecItem={
+            Object {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "key": "url",
+              "label": "URL",
+              "options": Array [
+                Object {
+                  "id": "00000000-0000-0000-0000-000000000001",
+                  "label": "https://example.com/",
+                  "value": "https://example.com/",
+                },
+              ],
+              "required": true,
+              "tooltip": "The base URL of the Serverless Relay",
+              "type": "string",
+            }
+          }
+        >
+          <ConfigurationSpecItem
+            addOptions={[Function]}
+            deleteAllOptions={[Function]}
+            deleteConfSpec={[Function]}
+            role="00000000-0000-0000-0000-000000000002"
+            syncConfSpec={
+              Array [
+                Object {
+                  "group": "",
+                  "id": "00000000-0000-0000-0000-000000000000",
+                  "key": "",
+                  "label": "",
+                  "options": Array [],
+                  "required": false,
+                  "subtype": "",
+                  "tooltip": "",
+                  "type": "",
+                },
+                Object {
+                  "id": "00000000-0000-0000-0000-000000000002",
+                  "key": "url",
+                  "label": "URL",
+                  "options": Array [
+                    Object {
+                      "id": "00000000-0000-0000-0000-000000000001",
+                      "label": "https://example.com/",
+                      "value": "https://example.com/",
+                    },
+                  ],
+                  "required": true,
+                  "tooltip": "The base URL of the Serverless Relay",
+                  "type": "string",
+                },
+              ]
+            }
+            syncConfSpecItem={
+              Object {
+                "id": "00000000-0000-0000-0000-000000000002",
+                "key": "url",
+                "label": "URL",
+                "options": Array [
+                  Object {
+                    "id": "00000000-0000-0000-0000-000000000001",
+                    "label": "https://example.com/",
+                    "value": "https://example.com/",
+                  },
+                ],
+                "required": true,
+                "tooltip": "The base URL of the Serverless Relay",
+                "type": "string",
+              }
+            }
+            updateConfSpec={[Function]}
+          >
+            <div
+              className="confSpecWrapper"
+            >
+              <div
+                className="column"
+              >
+                <div
+                  className="inputDiv"
+                >
+                  key
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                  <input
+                    className="customInput"
+                    list="key-input-list"
+                    name="key"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={true}
+                    type="text"
+                    value="url"
+                  />
+                </div>
+                <datalist
+                  id="key-input-list"
+                >
+                  <option
+                    key="basic-auth-password 00000000-0000-0000-0000-000000000002"
+                  >
+                    basic-auth-password
+                  </option>
+                  <option
+                    key="basic-auth-user 00000000-0000-0000-0000-000000000002"
+                  >
+                    basic-auth-user
+                  </option>
+                  <option
+                    key="token 00000000-0000-0000-0000-000000000002"
+                  >
+                    token
+                  </option>
+                  <option
+                    key="url 00000000-0000-0000-0000-000000000002"
+                  >
+                    url
+                  </option>
+                  <option
+                    key="user 00000000-0000-0000-0000-000000000002"
+                  >
+                    user
+                  </option>
+                </datalist>
+                <div
+                  className="inputDiv"
+                >
+                  type
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                  <select
+                    className="customInput"
+                    name="type"
+                    onChange={[Function]}
+                    required={true}
+                    value="string"
+                  >
+                    <option
+                      disabled={true}
+                      hidden={true}
+                      value=""
+                    >
+                      Select your option
+                    </option>
+                    <option
+                      key="api_key"
+                    >
+                      api_key
+                    </option>
+                    <option
+                      key="boolean"
+                    >
+                      boolean
+                    </option>
+                    <option
+                      key="device"
+                    >
+                      device
+                    </option>
+                    <option
+                      key="integer"
+                    >
+                      integer
+                    </option>
+                    <option
+                      key="options"
+                    >
+                      options
+                    </option>
+                    <option
+                      key="password"
+                    >
+                      password
+                    </option>
+                    <option
+                      key="string"
+                    >
+                      string
+                    </option>
+                  </select>
+                </div>
+                <Connect(Options)
+                  conf_spec_id="00000000-0000-0000-0000-000000000002"
+                  options={
+                    Array [
+                      Object {
+                        "id": "00000000-0000-0000-0000-000000000001",
+                        "label": "https://example.com/",
+                        "value": "https://example.com/",
+                      },
+                    ]
+                  }
+                >
+                  <Options
+                    addOptions={[Function]}
+                    conf_spec_id="00000000-0000-0000-0000-000000000002"
+                    options={
+                      Array [
+                        Object {
+                          "id": "00000000-0000-0000-0000-000000000001",
+                          "label": "https://example.com/",
+                          "value": "https://example.com/",
+                        },
+                      ]
+                    }
+                  >
+                    <div>
+                      <div
+                        className="confSpecRow"
+                      >
+                        <div
+                          className="options-title"
+                        >
+                          Options
+                          <button
+                            className="addNewButton"
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            + Add
+                          </button>
+                        </div>
+                      </div>
+                      <Connect(OptionsItem)
+                        conf_spec_id="00000000-0000-0000-0000-000000000002"
+                        key="00000000-0000-0000-0000-000000000001"
+                        option={
+                          Object {
+                            "id": "00000000-0000-0000-0000-000000000001",
+                            "label": "https://example.com/",
+                            "value": "https://example.com/",
+                          }
+                        }
+                      >
+                        <OptionsItem
+                          conf_spec_id="00000000-0000-0000-0000-000000000002"
+                          deleteOption={[Function]}
+                          option={
+                            Object {
+                              "id": "00000000-0000-0000-0000-000000000001",
+                              "label": "https://example.com/",
+                              "value": "https://example.com/",
+                            }
+                          }
+                          updateOption={[Function]}
+                        >
+                          <div
+                            className="optionsWrapper"
+                          >
+                            <div
+                              className="column"
+                            >
+                              <div
+                                className="inputDiv"
+                              >
+                                value
+                                <span
+                                  className="required-field"
+                                >
+                                  *
+                                </span>
+                                <input
+                                  className="customInput"
+                                  name="value"
+                                  onChange={[Function]}
+                                  required={true}
+                                  type="text"
+                                  value="https://example.com/"
+                                />
+                              </div>
+                              <div
+                                className="inputDiv"
+                              >
+                                label
+                                <span
+                                  className="required-field"
+                                >
+                                  *
+                                </span>
+                                <input
+                                  className="customInput"
+                                  name="label"
+                                  onChange={[Function]}
+                                  required={true}
+                                  type="text"
+                                  value="https://example.com/"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className="optionsIconWrapper"
+                            >
+                              <svg
+                                className="closeIcon"
+                                onClick={[Function]}
+                              >
+                                <use
+                                  xlinkHref="sprite.svg#icon-small-x-close"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </OptionsItem>
+                      </Connect(OptionsItem)>
+                    </div>
+                  </Options>
+                </Connect(Options)>
+                <div
+                  className="inputDiv"
+                >
+                  label
+                  <span
+                    className="required-field"
+                  >
+                    *
+                  </span>
+                  <input
+                    className="customInput"
+                    name="label"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={true}
+                    type="text"
+                    value="URL"
+                  />
+                </div>
+                <div
+                  className="inputDiv"
+                >
+                  tooltip
+                  <input
+                    className="customInput"
+                    name="tooltip"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value="The base URL of the Serverless Relay"
+                  />
+                </div>
+                <div
+                  className="inputDiv"
+                >
+                  subtype
+                  <input
+                    className="customInput"
+                    name="subtype"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="inputDiv"
+                >
+                  group
+                  <input
+                    className="customInput"
+                    name="group"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="checkboxDiv"
+                >
+                  required
+                  <input
+                    checked={true}
+                    name="required"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                </div>
+              </div>
+              <div>
+                <svg
+                  className="closeIcon"
+                  onClick={[Function]}
+                >
+                  <use
+                    xlinkHref="sprite.svg#icon-small-x-close"
+                  />
+                </svg>
+              </div>
+            </div>
+          </ConfigurationSpecItem>
+        </Connect(ConfigurationSpecItem)>
+      </div>
+    </ConfigurationSpec>
+  </Connect(ConfigurationSpec)>
+</Provider>
+`;
+
+exports[`ConfigurationSpec should render ConfigurationSpec without ConfigurationSpecItems 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(ConfigurationSpec)>
+    <ConfigurationSpec
+      addConfSpec={[Function]}
+      syncConfSpec={Array []}
+    >
+      <div>
+        <div
+          className="confSpecRow"
+        >
+          <div>
+            Configuration Spec
+            <button
+              onClick={[Function]}
+              type="button"
+            >
+              + Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </ConfigurationSpec>
+  </Connect(ConfigurationSpec)>
+</Provider>
+`;

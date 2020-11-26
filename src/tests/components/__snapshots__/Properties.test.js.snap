@@ -1,0 +1,816 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Properties should render Properties with disabled AuthType select 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Properties>
+    <div>
+      <p>
+        Properties
+      </p>
+      <fieldset>
+        <p>
+          Supported APIs
+        </p>
+        <fieldset>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "health",
+                "title": "health",
+              }
+            }
+            key="health"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "health",
+                  "title": "health",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                health
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "deliberate",
+                "title": "deliberate/observables",
+              }
+            }
+            key="deliberate/observables"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "deliberate",
+                  "title": "deliberate/observables",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                deliberate/observables
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "refer",
+                "title": "refer/observables",
+              }
+            }
+            key="refer/observables"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "refer",
+                  "title": "refer/observables",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                refer/observables
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "observe",
+                "title": "observe/observables",
+              }
+            }
+            key="observe/observables"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "observe",
+                  "title": "observe/observables",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                observe/observables
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "respond",
+                "title": "respond/observables",
+              }
+            }
+            key="respond/observables"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "respond",
+                  "title": "respond/observables",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                respond/observables
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "respond",
+                "title": "respond/trigger",
+              }
+            }
+            key="respond/trigger"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "respond",
+                  "title": "respond/trigger",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                respond/trigger
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "tiles",
+                "title": "tiles",
+              }
+            }
+            key="tiles"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "tiles",
+                  "title": "tiles",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                tiles
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "tiles",
+                "title": "tiles/tile",
+              }
+            }
+            key="tiles/tile"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "tiles",
+                  "title": "tiles/tile",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                tiles/tile
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "tiles",
+                "title": "tiles/tile-data",
+              }
+            }
+            key="tiles/tile-data"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "tiles",
+                  "title": "tiles/tile-data",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                tiles/tile-data
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+        </fieldset>
+        <p>
+          Auth-type
+        </p>
+        <fieldset>
+          <Connect(AuthType)>
+            <AuthType
+              syncProperties={
+                Object {
+                  "supported-apis": Array [],
+                }
+              }
+              toggleAuthType={[Function]}
+              updateAuthType={[Function]}
+            >
+              <div
+                className="divAuth"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <label>
+                   
+                  authorization
+                   
+                </label>
+                <select
+                  className="selectAuth"
+                  disabled={true}
+                  onChange={[Function]}
+                  required={false}
+                  value=""
+                >
+                  <option
+                    disabled={true}
+                    hidden={true}
+                    value=""
+                  >
+                    Select your option
+                  </option>
+                  <option
+                    key="authorization-header"
+                    value="authorization-header"
+                  >
+                    authorization-header
+                  </option>
+                  <option
+                    key="basic"
+                    value="basic"
+                  >
+                    basic
+                  </option>
+                  <option
+                    key="bearer"
+                    value="bearer"
+                  >
+                    bearer
+                  </option>
+                  <option
+                    key="configuration-token"
+                    value="configuration-token"
+                  >
+                    configuration-token
+                  </option>
+                </select>
+              </div>
+            </AuthType>
+          </Connect(AuthType)>
+        </fieldset>
+      </fieldset>
+    </div>
+  </Properties>
+</Provider>
+`;
+
+exports[`Properties should render Properties with enabled AuthType select 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Properties>
+    <div>
+      <p>
+        Properties
+      </p>
+      <fieldset>
+        <p>
+          Supported APIs
+        </p>
+        <fieldset>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "health",
+                "title": "health",
+              }
+            }
+            key="health"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "health",
+                  "title": "health",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                health
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "deliberate",
+                "title": "deliberate/observables",
+              }
+            }
+            key="deliberate/observables"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "deliberate",
+                  "title": "deliberate/observables",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                deliberate/observables
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "refer",
+                "title": "refer/observables",
+              }
+            }
+            key="refer/observables"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "refer",
+                  "title": "refer/observables",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                refer/observables
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "observe",
+                "title": "observe/observables",
+              }
+            }
+            key="observe/observables"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "observe",
+                  "title": "observe/observables",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                observe/observables
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "respond",
+                "title": "respond/observables",
+              }
+            }
+            key="respond/observables"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "respond",
+                  "title": "respond/observables",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                respond/observables
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "respond",
+                "title": "respond/trigger",
+              }
+            }
+            key="respond/trigger"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "respond",
+                  "title": "respond/trigger",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                respond/trigger
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "tiles",
+                "title": "tiles",
+              }
+            }
+            key="tiles"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "tiles",
+                  "title": "tiles",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                tiles
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "tiles",
+                "title": "tiles/tile",
+              }
+            }
+            key="tiles/tile"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "tiles",
+                  "title": "tiles/tile",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                tiles/tile
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+          <Connect(SupportedAPI)
+            api={
+              Object {
+                "class": "tiles",
+                "title": "tiles/tile-data",
+              }
+            }
+            key="tiles/tile-data"
+          >
+            <SupportedAPI
+              addCapability={[Function]}
+              api={
+                Object {
+                  "class": "tiles",
+                  "title": "tiles/tile-data",
+                }
+              }
+              deleteCapability={[Function]}
+              syncSupportedAPIs={Array []}
+              updateSupportedAPI={[Function]}
+            >
+              <div
+                className="supportedAPI"
+              >
+                <input
+                  autoComplete="off"
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                tiles/tile-data
+              </div>
+            </SupportedAPI>
+          </Connect(SupportedAPI)>
+        </fieldset>
+        <p>
+          Auth-type
+        </p>
+        <fieldset>
+          <Connect(AuthType)>
+            <AuthType
+              syncProperties={
+                Object {
+                  "auth-type": "",
+                  "supported-apis": Array [],
+                }
+              }
+              toggleAuthType={[Function]}
+              updateAuthType={[Function]}
+            >
+              <div
+                className="divAuth"
+              >
+                <input
+                  autoComplete="off"
+                  checked={true}
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                <label>
+                   
+                  authorization
+                   
+                </label>
+                <select
+                  className="selectAuth"
+                  disabled={false}
+                  onChange={[Function]}
+                  required="required"
+                  value=""
+                >
+                  <option
+                    disabled={true}
+                    hidden={true}
+                    value=""
+                  >
+                    Select your option
+                  </option>
+                  <option
+                    key="authorization-header"
+                    value="authorization-header"
+                  >
+                    authorization-header
+                  </option>
+                  <option
+                    key="basic"
+                    value="basic"
+                  >
+                    basic
+                  </option>
+                  <option
+                    key="bearer"
+                    value="bearer"
+                  >
+                    bearer
+                  </option>
+                  <option
+                    key="configuration-token"
+                    value="configuration-token"
+                  >
+                    configuration-token
+                  </option>
+                </select>
+              </div>
+            </AuthType>
+          </Connect(AuthType)>
+        </fieldset>
+      </fieldset>
+    </div>
+  </Properties>
+</Provider>
+`;
