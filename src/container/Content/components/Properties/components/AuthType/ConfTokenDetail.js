@@ -14,13 +14,15 @@ class ConfTokenDetail extends React.Component {
 
     render() {
         if (this.props.alg === 'RS256') {
-            return (<div className='conf-token-input'>
-                <label>{Constants.CUSTOM_JWKS_HOST}</label>
-                <input value={this.props.syncProperties['custom_jwks_host'] || ""}
-                       name='custom_jwks_host'
-                       onChange={this.changeInputHandler}
-                />
-            </div>)
+            return (
+                <div className='conf-token-input'>
+                    <label>{Constants.CUSTOM_JWKS_HOST}</label>
+                    <input value={this.props.syncProperties['custom_jwks_host'] || ""}
+                           name='custom_jwks_host'
+                           onChange={this.changeInputHandler}
+                    />
+                </div>
+            )
         } else {
             return (
                 <div className='conf-token-input'>
