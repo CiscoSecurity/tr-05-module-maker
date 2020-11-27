@@ -18,7 +18,7 @@ class AuthType extends React.Component {
 
 render() {
     return (
-        <div>
+      <div>
         <div className="divAuth">
 
             <input type="checkbox"
@@ -51,7 +51,7 @@ render() {
                 ? <ConfToken/>
                 : ""
             }
-        </div>
+      </div>
     )
 }
 }
