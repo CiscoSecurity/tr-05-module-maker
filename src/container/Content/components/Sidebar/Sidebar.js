@@ -30,7 +30,7 @@ class Sidebar extends React.Component {
             }
             delete elem["id"]
             Object.keys(elem).forEach(
-                (key) => (elem[key].length === 0) && delete elem[key]
+                key => (elem[key].length === 0) && delete elem[key]
             );
         }
         data.external_references.map(
