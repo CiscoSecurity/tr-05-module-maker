@@ -627,94 +627,118 @@ exports[`Content should render Content 1`] = `
                 >
                   <ReactMde
                     commands={
-                      Object {
-                        "bold": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add bold text",
-                          },
-                          "execute": [Function],
-                          "handleKeyCommand": [Function],
+                      Array [
+                        Object {
+                          "commands": Array [
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add header",
+                              },
+                              "children": Array [
+                                Object {
+                                  "execute": [Function],
+                                  "icon": [Function],
+                                  "name": "header-1",
+                                },
+                                Object {
+                                  "execute": [Function],
+                                  "icon": [Function],
+                                  "name": "header-2",
+                                },
+                                Object {
+                                  "execute": [Function],
+                                  "icon": [Function],
+                                  "name": "header-3",
+                                },
+                                Object {
+                                  "execute": [Function],
+                                  "icon": [Function],
+                                  "name": "header-4",
+                                },
+                              ],
+                              "name": "header",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add bold text",
+                              },
+                              "execute": [Function],
+                              "handleKeyCommand": [Function],
+                              "name": "bold",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add italic text",
+                              },
+                              "execute": [Function],
+                              "handleKeyCommand": [Function],
+                              "name": "italic",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add strikethrough text",
+                              },
+                              "execute": [Function],
+                              "name": "strikethrough",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add a link",
+                              },
+                              "execute": [Function],
+                              "handleKeyCommand": [Function],
+                              "name": "link",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Insert a quote",
+                              },
+                              "execute": [Function],
+                              "name": "quote",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Insert code",
+                              },
+                              "execute": [Function],
+                              "name": "code",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add ordered list",
+                              },
+                              "execute": [Function],
+                              "name": "ordered-list",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add unordered list",
+                              },
+                              "execute": [Function],
+                              "name": "unordered-list",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add checked list",
+                              },
+                              "execute": [Function],
+                              "name": "checked-list",
+                            },
+                          ],
                         },
-                        "checked-list": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add checked list",
-                          },
-                          "execute": [Function],
-                        },
-                        "code": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Insert code",
-                          },
-                          "execute": [Function],
-                        },
-                        "header": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add header",
-                          },
-                          "execute": [Function],
-                        },
-                        "image": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add image",
-                          },
-                          "execute": [Function],
-                        },
-                        "italic": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add italic text",
-                          },
-                          "execute": [Function],
-                          "handleKeyCommand": [Function],
-                        },
-                        "link": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add a link",
-                          },
-                          "execute": [Function],
-                          "handleKeyCommand": [Function],
-                        },
-                        "ordered-list": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add ordered list",
-                          },
-                          "execute": [Function],
-                        },
-                        "quote": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Insert a quote",
-                          },
-                          "execute": [Function],
-                        },
-                        "save-image": Object {
-                          "execute": [Function],
-                        },
-                        "strikethrough": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add strikethrough text",
-                          },
-                          "execute": [Function],
-                        },
-                        "unordered-list": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add unordered list",
-                          },
-                          "execute": [Function],
-                        },
-                      }
+                      ]
                     }
                     disablePreview={false}
                     generateMarkdownPreview={[Function]}
                     getIcon={[Function]}
                     l18n={
                       Object {
-                        "pasteDropSelect": "Attach files by dragging & dropping, selecting or pasting them.",
                         "preview": "Preview",
-                        "uploadingImage": "Uploading image...",
                         "write": "Write",
                       }
                     }
-                    maxEditorHeight={500}
-                    minEditorHeight={333}
+                    maxEditorHeight={646}
+                    minEditorHeight={323}
                     minPreviewHeight={323}
                     onChange={[Function]}
                     onTabChange={[Function]}
@@ -725,175 +749,118 @@ exports[`Content should render Content 1`] = `
                         "@",
                       ]
                     }
-                    toolbarCommands={
-                      Array [
-                        Array [
-                          "header",
-                        ],
-                        Array [
-                          "bold",
-                        ],
-                        Array [
-                          "italic",
-                        ],
-                        Array [
-                          "strikethrough",
-                        ],
-                        Array [
-                          "link",
-                        ],
-                        Array [
-                          "quote",
-                        ],
-                        Array [
-                          "code",
-                        ],
-                        Array [
-                          "ordered-list",
-                        ],
-                        Array [
-                          "unordered-list",
-                        ],
-                        Array [
-                          "checked-list",
-                        ],
-                      ]
-                    }
                   >
                     <div
                       className="react-mde react-mde-tabbed-layout"
                     >
                       <Toolbar
-                        buttons={
+                        commands={
                           Array [
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="header"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add header",
+                            Object {
+                              "commands": Array [
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add header",
+                                  },
+                                  "children": Array [
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-1",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-2",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-3",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-4",
+                                    },
+                                  ],
+                                  "name": "header",
                                 },
-                                "commandName": "header",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="bold"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add bold text",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add bold text",
+                                  },
+                                  "execute": [Function],
+                                  "handleKeyCommand": [Function],
+                                  "name": "bold",
                                 },
-                                "commandName": "bold",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="italic"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add italic text",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add italic text",
+                                  },
+                                  "execute": [Function],
+                                  "handleKeyCommand": [Function],
+                                  "name": "italic",
                                 },
-                                "commandName": "italic",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="strikethrough"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add strikethrough text",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add strikethrough text",
+                                  },
+                                  "execute": [Function],
+                                  "name": "strikethrough",
                                 },
-                                "commandName": "strikethrough",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="link"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add a link",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add a link",
+                                  },
+                                  "execute": [Function],
+                                  "handleKeyCommand": [Function],
+                                  "name": "link",
                                 },
-                                "commandName": "link",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="quote"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Insert a quote",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Insert a quote",
+                                  },
+                                  "execute": [Function],
+                                  "name": "quote",
                                 },
-                                "commandName": "quote",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="code"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Insert code",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Insert code",
+                                  },
+                                  "execute": [Function],
+                                  "name": "code",
                                 },
-                                "commandName": "code",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="ordered-list"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add ordered list",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add ordered list",
+                                  },
+                                  "execute": [Function],
+                                  "name": "ordered-list",
                                 },
-                                "commandName": "ordered-list",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="unordered-list"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add unordered list",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add unordered list",
+                                  },
+                                  "execute": [Function],
+                                  "name": "unordered-list",
                                 },
-                                "commandName": "unordered-list",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="checked-list"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add checked list",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add checked list",
+                                  },
+                                  "execute": [Function],
+                                  "name": "checked-list",
                                 },
-                                "commandName": "checked-list",
-                              },
-                            ],
+                              ],
+                            },
                           ]
                         }
                         disablePreview={false}
+                        getIcon={[Function]}
                         l18n={
                           Object {
-                            "pasteDropSelect": "Attach files by dragging & dropping, selecting or pasting them.",
                             "preview": "Preview",
-                            "uploadingImage": "Uploading image...",
                             "write": "Write",
                           }
                         }
@@ -930,7 +897,7 @@ exports[`Content should render Content 1`] = `
                             <ul
                               className="mde-header-group"
                             >
-                              <Component
+                              <ToolbarDropdown
                                 buttonContent={
                                   <Unknown
                                     icon="header"
@@ -941,9 +908,33 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add header",
                                   }
                                 }
+                                commands={
+                                  Array [
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-1",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-2",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-3",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-4",
+                                    },
+                                  ]
+                                }
+                                getIcon={[Function]}
                                 key="0"
-                                name="header"
-                                onClick={[Function]}
+                                onCommand={[Function]}
                                 readOnly={false}
                               >
                                 <li
@@ -951,7 +942,6 @@ exports[`Content should render Content 1`] = `
                                 >
                                   <button
                                     aria-label="Add header"
-                                    data-name="header"
                                     disabled={false}
                                     onClick={[Function]}
                                     tabIndex={-1}
@@ -978,16 +968,7 @@ exports[`Content should render Content 1`] = `
                                     </Component>
                                   </button>
                                 </li>
-                              </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="1"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
+                              </ToolbarDropdown>
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -999,7 +980,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add bold text",
                                   }
                                 }
-                                key="0"
+                                key="1"
                                 name="bold"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1037,15 +1018,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="2"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1057,7 +1029,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add italic text",
                                   }
                                 }
-                                key="0"
+                                key="2"
                                 name="italic"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1095,15 +1067,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="3"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1115,7 +1078,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add strikethrough text",
                                   }
                                 }
-                                key="0"
+                                key="3"
                                 name="strikethrough"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1153,15 +1116,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="4"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1173,7 +1127,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add a link",
                                   }
                                 }
-                                key="0"
+                                key="4"
                                 name="link"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1211,15 +1165,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="5"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1231,7 +1176,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Insert a quote",
                                   }
                                 }
-                                key="0"
+                                key="5"
                                 name="quote"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1269,15 +1214,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="6"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1289,7 +1225,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Insert code",
                                   }
                                 }
-                                key="0"
+                                key="6"
                                 name="code"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1327,15 +1263,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="7"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1347,7 +1274,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add ordered list",
                                   }
                                 }
-                                key="0"
+                                key="7"
                                 name="ordered-list"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1385,15 +1312,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="8"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1405,7 +1323,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add unordered list",
                                   }
                                 }
-                                key="0"
+                                key="8"
                                 name="unordered-list"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1443,15 +1361,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="9"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1463,7 +1372,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add checked list",
                                   }
                                 }
-                                key="0"
+                                key="9"
                                 name="checked-list"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1509,10 +1418,8 @@ exports[`Content should render Content 1`] = `
                         className=""
                       >
                         <TextArea
-                          height={333}
+                          height={323}
                           onChange={[Function]}
-                          onDrop={[Function]}
-                          onPaste={[Function]}
                           onPossibleKeyCommand={[Function]}
                           readOnly={false}
                           refObject={
@@ -1520,7 +1427,7 @@ exports[`Content should render Content 1`] = `
                               "current": <textarea
                                 class="mde-text"
                                 data-testid="text-area"
-                                style="height: 333px;"
+                                style="height: 323px;"
                               />,
                             }
                           }
@@ -1536,23 +1443,37 @@ exports[`Content should render Content 1`] = `
                             <textarea
                               className="mde-text"
                               data-testid="text-area"
-                              onBlur={[Function]}
                               onChange={[Function]}
-                              onDragOver={[Function]}
-                              onDrop={[Function]}
                               onKeyDown={[Function]}
-                              onKeyPress={[Function]}
-                              onKeyUp={[Function]}
-                              onPaste={[Function]}
                               readOnly={false}
                               style={
                                 Object {
-                                  "height": 333,
+                                  "height": 323,
                                 }
                               }
                             />
                           </div>
                         </TextArea>
+                        <div
+                          className="grip"
+                          onMouseDown={[Function]}
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="icon"
+                            data-icon="ellipsis-h"
+                            data-prefix="far"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              className=""
+                              d="M304 256c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm120-48c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm-336 0c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </ReactMde>
@@ -1573,94 +1494,118 @@ exports[`Content should render Content 1`] = `
                 >
                   <ReactMde
                     commands={
-                      Object {
-                        "bold": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add bold text",
-                          },
-                          "execute": [Function],
-                          "handleKeyCommand": [Function],
+                      Array [
+                        Object {
+                          "commands": Array [
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add header",
+                              },
+                              "children": Array [
+                                Object {
+                                  "execute": [Function],
+                                  "icon": [Function],
+                                  "name": "header-1",
+                                },
+                                Object {
+                                  "execute": [Function],
+                                  "icon": [Function],
+                                  "name": "header-2",
+                                },
+                                Object {
+                                  "execute": [Function],
+                                  "icon": [Function],
+                                  "name": "header-3",
+                                },
+                                Object {
+                                  "execute": [Function],
+                                  "icon": [Function],
+                                  "name": "header-4",
+                                },
+                              ],
+                              "name": "header",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add bold text",
+                              },
+                              "execute": [Function],
+                              "handleKeyCommand": [Function],
+                              "name": "bold",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add italic text",
+                              },
+                              "execute": [Function],
+                              "handleKeyCommand": [Function],
+                              "name": "italic",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add strikethrough text",
+                              },
+                              "execute": [Function],
+                              "name": "strikethrough",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add a link",
+                              },
+                              "execute": [Function],
+                              "handleKeyCommand": [Function],
+                              "name": "link",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Insert a quote",
+                              },
+                              "execute": [Function],
+                              "name": "quote",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Insert code",
+                              },
+                              "execute": [Function],
+                              "name": "code",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add ordered list",
+                              },
+                              "execute": [Function],
+                              "name": "ordered-list",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add unordered list",
+                              },
+                              "execute": [Function],
+                              "name": "unordered-list",
+                            },
+                            Object {
+                              "buttonProps": Object {
+                                "aria-label": "Add checked list",
+                              },
+                              "execute": [Function],
+                              "name": "checked-list",
+                            },
+                          ],
                         },
-                        "checked-list": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add checked list",
-                          },
-                          "execute": [Function],
-                        },
-                        "code": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Insert code",
-                          },
-                          "execute": [Function],
-                        },
-                        "header": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add header",
-                          },
-                          "execute": [Function],
-                        },
-                        "image": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add image",
-                          },
-                          "execute": [Function],
-                        },
-                        "italic": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add italic text",
-                          },
-                          "execute": [Function],
-                          "handleKeyCommand": [Function],
-                        },
-                        "link": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add a link",
-                          },
-                          "execute": [Function],
-                          "handleKeyCommand": [Function],
-                        },
-                        "ordered-list": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add ordered list",
-                          },
-                          "execute": [Function],
-                        },
-                        "quote": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Insert a quote",
-                          },
-                          "execute": [Function],
-                        },
-                        "save-image": Object {
-                          "execute": [Function],
-                        },
-                        "strikethrough": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add strikethrough text",
-                          },
-                          "execute": [Function],
-                        },
-                        "unordered-list": Object {
-                          "buttonProps": Object {
-                            "aria-label": "Add unordered list",
-                          },
-                          "execute": [Function],
-                        },
-                      }
+                      ]
                     }
                     disablePreview={false}
                     generateMarkdownPreview={[Function]}
                     getIcon={[Function]}
                     l18n={
                       Object {
-                        "pasteDropSelect": "Attach files by dragging & dropping, selecting or pasting them.",
                         "preview": "Preview",
-                        "uploadingImage": "Uploading image...",
                         "write": "Write",
                       }
                     }
-                    maxEditorHeight={500}
-                    minEditorHeight={333}
+                    maxEditorHeight={646}
+                    minEditorHeight={323}
                     minPreviewHeight={323}
                     onChange={[Function]}
                     onTabChange={[Function]}
@@ -1671,175 +1616,118 @@ exports[`Content should render Content 1`] = `
                         "@",
                       ]
                     }
-                    toolbarCommands={
-                      Array [
-                        Array [
-                          "header",
-                        ],
-                        Array [
-                          "bold",
-                        ],
-                        Array [
-                          "italic",
-                        ],
-                        Array [
-                          "strikethrough",
-                        ],
-                        Array [
-                          "link",
-                        ],
-                        Array [
-                          "quote",
-                        ],
-                        Array [
-                          "code",
-                        ],
-                        Array [
-                          "ordered-list",
-                        ],
-                        Array [
-                          "unordered-list",
-                        ],
-                        Array [
-                          "checked-list",
-                        ],
-                      ]
-                    }
                   >
                     <div
                       className="react-mde react-mde-tabbed-layout"
                     >
                       <Toolbar
-                        buttons={
+                        commands={
                           Array [
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="header"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add header",
+                            Object {
+                              "commands": Array [
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add header",
+                                  },
+                                  "children": Array [
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-1",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-2",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-3",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-4",
+                                    },
+                                  ],
+                                  "name": "header",
                                 },
-                                "commandName": "header",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="bold"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add bold text",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add bold text",
+                                  },
+                                  "execute": [Function],
+                                  "handleKeyCommand": [Function],
+                                  "name": "bold",
                                 },
-                                "commandName": "bold",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="italic"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add italic text",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add italic text",
+                                  },
+                                  "execute": [Function],
+                                  "handleKeyCommand": [Function],
+                                  "name": "italic",
                                 },
-                                "commandName": "italic",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="strikethrough"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add strikethrough text",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add strikethrough text",
+                                  },
+                                  "execute": [Function],
+                                  "name": "strikethrough",
                                 },
-                                "commandName": "strikethrough",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="link"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add a link",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add a link",
+                                  },
+                                  "execute": [Function],
+                                  "handleKeyCommand": [Function],
+                                  "name": "link",
                                 },
-                                "commandName": "link",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="quote"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Insert a quote",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Insert a quote",
+                                  },
+                                  "execute": [Function],
+                                  "name": "quote",
                                 },
-                                "commandName": "quote",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="code"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Insert code",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Insert code",
+                                  },
+                                  "execute": [Function],
+                                  "name": "code",
                                 },
-                                "commandName": "code",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="ordered-list"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add ordered list",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add ordered list",
+                                  },
+                                  "execute": [Function],
+                                  "name": "ordered-list",
                                 },
-                                "commandName": "ordered-list",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="unordered-list"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add unordered list",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add unordered list",
+                                  },
+                                  "execute": [Function],
+                                  "name": "unordered-list",
                                 },
-                                "commandName": "unordered-list",
-                              },
-                            ],
-                            Array [
-                              Object {
-                                "buttonComponentClass": undefined,
-                                "buttonContent": <Unknown
-                                  icon="checked-list"
-                                />,
-                                "buttonProps": Object {
-                                  "aria-label": "Add checked list",
+                                Object {
+                                  "buttonProps": Object {
+                                    "aria-label": "Add checked list",
+                                  },
+                                  "execute": [Function],
+                                  "name": "checked-list",
                                 },
-                                "commandName": "checked-list",
-                              },
-                            ],
+                              ],
+                            },
                           ]
                         }
                         disablePreview={false}
+                        getIcon={[Function]}
                         l18n={
                           Object {
-                            "pasteDropSelect": "Attach files by dragging & dropping, selecting or pasting them.",
                             "preview": "Preview",
-                            "uploadingImage": "Uploading image...",
                             "write": "Write",
                           }
                         }
@@ -1876,7 +1764,7 @@ exports[`Content should render Content 1`] = `
                             <ul
                               className="mde-header-group"
                             >
-                              <Component
+                              <ToolbarDropdown
                                 buttonContent={
                                   <Unknown
                                     icon="header"
@@ -1887,9 +1775,33 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add header",
                                   }
                                 }
+                                commands={
+                                  Array [
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-1",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-2",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-3",
+                                    },
+                                    Object {
+                                      "execute": [Function],
+                                      "icon": [Function],
+                                      "name": "header-4",
+                                    },
+                                  ]
+                                }
+                                getIcon={[Function]}
                                 key="0"
-                                name="header"
-                                onClick={[Function]}
+                                onCommand={[Function]}
                                 readOnly={false}
                               >
                                 <li
@@ -1897,7 +1809,6 @@ exports[`Content should render Content 1`] = `
                                 >
                                   <button
                                     aria-label="Add header"
-                                    data-name="header"
                                     disabled={false}
                                     onClick={[Function]}
                                     tabIndex={-1}
@@ -1924,16 +1835,7 @@ exports[`Content should render Content 1`] = `
                                     </Component>
                                   </button>
                                 </li>
-                              </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="1"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
+                              </ToolbarDropdown>
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -1945,7 +1847,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add bold text",
                                   }
                                 }
-                                key="0"
+                                key="1"
                                 name="bold"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -1983,15 +1885,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="2"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -2003,7 +1896,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add italic text",
                                   }
                                 }
-                                key="0"
+                                key="2"
                                 name="italic"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -2041,15 +1934,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="3"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -2061,7 +1945,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add strikethrough text",
                                   }
                                 }
-                                key="0"
+                                key="3"
                                 name="strikethrough"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -2099,15 +1983,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="4"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -2119,7 +1994,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add a link",
                                   }
                                 }
-                                key="0"
+                                key="4"
                                 name="link"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -2157,15 +2032,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="5"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -2177,7 +2043,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Insert a quote",
                                   }
                                 }
-                                key="0"
+                                key="5"
                                 name="quote"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -2215,15 +2081,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="6"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -2235,7 +2092,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Insert code",
                                   }
                                 }
-                                key="0"
+                                key="6"
                                 name="code"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -2273,15 +2130,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="7"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -2293,7 +2141,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add ordered list",
                                   }
                                 }
-                                key="0"
+                                key="7"
                                 name="ordered-list"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -2331,15 +2179,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="8"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -2351,7 +2190,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add unordered list",
                                   }
                                 }
-                                key="0"
+                                key="8"
                                 name="unordered-list"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -2389,15 +2228,6 @@ exports[`Content should render Content 1`] = `
                                   </button>
                                 </li>
                               </Component>
-                            </ul>
-                          </Component>
-                          <Component
-                            hidden={false}
-                            key="9"
-                          >
-                            <ul
-                              className="mde-header-group"
-                            >
                               <Component
                                 buttonContent={
                                   <Unknown
@@ -2409,7 +2239,7 @@ exports[`Content should render Content 1`] = `
                                     "aria-label": "Add checked list",
                                   }
                                 }
-                                key="0"
+                                key="9"
                                 name="checked-list"
                                 onClick={[Function]}
                                 readOnly={false}
@@ -2455,10 +2285,8 @@ exports[`Content should render Content 1`] = `
                         className=""
                       >
                         <TextArea
-                          height={333}
+                          height={323}
                           onChange={[Function]}
-                          onDrop={[Function]}
-                          onPaste={[Function]}
                           onPossibleKeyCommand={[Function]}
                           readOnly={false}
                           refObject={
@@ -2466,7 +2294,7 @@ exports[`Content should render Content 1`] = `
                               "current": <textarea
                                 class="mde-text"
                                 data-testid="text-area"
-                                style="height: 333px;"
+                                style="height: 323px;"
                               />,
                             }
                           }
@@ -2482,23 +2310,37 @@ exports[`Content should render Content 1`] = `
                             <textarea
                               className="mde-text"
                               data-testid="text-area"
-                              onBlur={[Function]}
                               onChange={[Function]}
-                              onDragOver={[Function]}
-                              onDrop={[Function]}
                               onKeyDown={[Function]}
-                              onKeyPress={[Function]}
-                              onKeyUp={[Function]}
-                              onPaste={[Function]}
                               readOnly={false}
                               style={
                                 Object {
-                                  "height": 333,
+                                  "height": 323,
                                 }
                               }
                             />
                           </div>
                         </TextArea>
+                        <div
+                          className="grip"
+                          onMouseDown={[Function]}
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="icon"
+                            data-icon="ellipsis-h"
+                            data-prefix="far"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              className=""
+                              d="M304 256c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm120-48c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm-336 0c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </ReactMde>

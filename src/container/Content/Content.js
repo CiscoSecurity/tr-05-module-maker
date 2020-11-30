@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./Content.scss";
-import MarkdownEditor from "./components/MarkdownEditor";
+import MarkdownEditor from "./components/MarkdownEditor/MarkdownEditor";
 import ExternalReferences from "./components/ExternalReferences/ExternalReferences";
 import Properties from "./components/Properties/Properties";
 import ConfigurationSpec from "./components/ConfigurationSpec/ConfigurationSpec";
