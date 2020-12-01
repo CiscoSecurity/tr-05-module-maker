@@ -193,7 +193,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            health
+                            <label>
+                              health
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>
@@ -227,7 +229,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            deliberate/observables
+                            <label>
+                              deliberate/observables
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>
@@ -261,7 +265,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            refer/observables
+                            <label>
+                              refer/observables
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>
@@ -295,7 +301,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            observe/observables
+                            <label>
+                              observe/observables
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>
@@ -329,7 +337,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            respond/observables
+                            <label>
+                              respond/observables
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>
@@ -363,7 +373,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            respond/trigger
+                            <label>
+                              respond/trigger
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>
@@ -397,7 +409,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            tiles
+                            <label>
+                              tiles
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>
@@ -431,7 +445,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            tiles/tile
+                            <label>
+                              tiles/tile
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>
@@ -465,7 +481,9 @@ exports[`Content should render Content 1`] = `
                               onChange={[Function]}
                               type="checkbox"
                             />
-                            tiles/tile-data
+                            <label>
+                              tiles/tile-data
+                            </label>
                           </div>
                         </SupportedAPI>
                       </Connect(SupportedAPI)>

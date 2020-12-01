@@ -137,7 +137,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  key
+                  <label>
+                    key
+                  </label>
                   <span
                     className="required-field"
                   >
@@ -186,7 +188,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  type
+                  <label>
+                    type
+                  </label>
                   <span
                     className="required-field"
                   >
@@ -246,7 +250,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  label
+                  <label>
+                    label
+                  </label>
                   <span
                     className="required-field"
                   >
@@ -265,7 +271,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  tooltip
+                  <label>
+                    tooltip
+                  </label>
                   <input
                     className="customInput"
                     name="tooltip"
@@ -278,7 +286,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  subtype
+                  <label>
+                    subtype
+                  </label>
                   <input
                     className="customInput"
                     name="subtype"
@@ -291,7 +301,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  group
+                  <label>
+                    group
+                  </label>
                   <input
                     className="customInput"
                     name="group"
@@ -304,7 +316,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="checkboxDiv"
                 >
-                  required
+                  <label>
+                    required
+                  </label>
                   <input
                     checked={false}
                     name="required"
@@ -410,7 +424,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  key
+                  <label>
+                    key
+                  </label>
                   <span
                     className="required-field"
                   >
@@ -459,7 +475,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  type
+                  <label>
+                    type
+                  </label>
                   <span
                     className="required-field"
                   >
@@ -645,7 +663,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  label
+                  <label>
+                    label
+                  </label>
                   <span
                     className="required-field"
                   >
@@ -664,7 +684,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  tooltip
+                  <label>
+                    tooltip
+                  </label>
                   <input
                     className="customInput"
                     name="tooltip"
@@ -677,7 +699,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  subtype
+                  <label>
+                    subtype
+                  </label>
                   <input
                     className="customInput"
                     name="subtype"
@@ -689,7 +713,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="inputDiv"
                 >
-                  group
+                  <label>
+                    group
+                  </label>
                   <input
                     className="customInput"
                     name="group"
@@ -701,7 +727,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
                 <div
                   className="checkboxDiv"
                 >
-                  required
+                  <label>
+                    required
+                  </label>
                   <input
                     checked={true}
                     name="required"
