@@ -23,6 +23,10 @@
     outline: none;
     margin: 4px;
     cursor: pointer;
+
+    p {
+      cursor: pointer;
+    }
   }
 
   .dropzone-active {
