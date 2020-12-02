@@ -593,13 +593,13 @@ exports[`Content should render Content 1`] = `
                       >
                          
                         External References
-                        <button
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          + Add
-                        </button>
                       </label>
+                      <button
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        + Add
+                      </button>
                     </div>
                   </div>
                 </ExternalReferences>
@@ -614,7 +614,9 @@ exports[`Content should render Content 1`] = `
                       className="confSpecRow"
                     >
                       <div>
-                        Configuration Spec
+                        <label>
+                          Configuration Spec
+                        </label>
                         <button
                           onClick={[Function]}
                           type="button"
