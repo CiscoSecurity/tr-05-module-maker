@@ -23,6 +23,13 @@ object-assign
    Copied from https://github.com/grassator/insert-text-at-cursor
  */
 
+/*!
+ * repeat-string <https://github.com/jonschlinkert/repeat-string>
+ *
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 
 /** @license React v0.19.1
