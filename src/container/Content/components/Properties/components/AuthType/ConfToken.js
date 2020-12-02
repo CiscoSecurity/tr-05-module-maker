@@ -24,8 +24,8 @@ class ConfToken extends React.Component {
             <div>
                 <div className='conf-token-input'>
                     <label>{Constants.CONFIGURATION_TOKEN_ALG}</label>
-                    <select value={this.props.syncProperties['configuration-token-alg'] || ""}
-                            name='configuration-token-alg'
+                    <select value={this.props.syncProperties[Constants.CONFIGURATION_TOKEN_ALG] || ""}
+                            name={Constants.CONFIGURATION_TOKEN_ALG}
                             onChange={this.onSelectUpdate}
                     >
                         <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
@@ -39,14 +39,14 @@ class ConfToken extends React.Component {
                     </select>
                 </div>
                 {
-                    this.props.syncProperties['configuration-token-alg']
-                        ? <ConfTokenDetail  alg={this.props.syncProperties['configuration-token-alg']}/>
+                    this.props.syncProperties[Constants.CONFIGURATION_TOKEN_ALG]
+                        ? <ConfTokenDetail  alg={this.props.syncProperties[Constants.CONFIGURATION_TOKEN_ALG]}/>
                         : ''
                 }
                 <div className='conf-token-input'>
                     <label>{Constants.CONFIGURATION_TOKEN_AUDIENCE}</label>
-                    <input value={this.props.syncProperties['configuration-token-audience'] || ""}
-                           name='configuration-token-audience'
+                    <input value={this.props.syncProperties[Constants.CONFIGURATION_TOKEN_AUDIENCE] || ""}
+                           name={Constants.CONFIGURATION_TOKEN_AUDIENCE}
                            onChange={this.changeInputHandler}
                     />
                 </div>

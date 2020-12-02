@@ -3,6 +3,7 @@ import {
     UPDATE_SUPPORTED_API
 } from "globals/constants/types"
 import { TOGGLE_ALGORITHM } from "globals/constants/types";
+import * as Constants from "globals/constants/constants";
 
 const initialState = {
  "supported-apis": []
@@ -52,14 +53,14 @@ export const propertiesReducer = (state = initialState, action) => {
             if (action.payload === 'RS256'){
                 return Object.fromEntries(
                     Object.entries(state).filter(
-                        ([key, val]) => key !== 'configuration-token-key'
+                        ([key, val]) => key !== Constants.CONFIGURATION_TOKEN_KEY
                     )
                 )
             }
             else {
                 return Object.fromEntries(
                     Object.entries(state).filter(
-                        ([key, val]) => key !== 'custom_jwks_host'
+                        ([key, val]) => key !== Constants.CUSTOM_JWKS_HOST
                     )
                 )
             }

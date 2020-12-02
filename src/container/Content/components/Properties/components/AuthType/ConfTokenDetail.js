@@ -17,7 +17,7 @@ class ConfTokenDetail extends React.Component {
             return (
                 <div className='conf-token-input'>
                     <label>{Constants.CUSTOM_JWKS_HOST}</label>
-                    <input value={this.props.syncProperties['custom_jwks_host'] || ""}
+                    <input value={this.props.syncProperties[Constants.CUSTOM_JWKS_HOST] || ""}
                            name='custom_jwks_host'
                            onChange={this.changeInputHandler}
                     />
@@ -27,7 +27,7 @@ class ConfTokenDetail extends React.Component {
             return (
                 <div className='conf-token-input'>
                     <label>{Constants.CONFIGURATION_TOKEN_KEY}</label>
-                    <input value={this.props.syncProperties['configuration-token-key'] || ""}
+                    <input value={this.props.syncProperties[Constants.CONFIGURATION_TOKEN_KEY] || ""}
                            name='configuration-token-key'
                            onChange={this.changeInputHandler}
                     />

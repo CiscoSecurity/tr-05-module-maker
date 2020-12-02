@@ -91,6 +91,7 @@ export const AUTH_TYPE_OPTIONS = ["authorization-header", "basic", "bearer", "co
 
 // ConfToken.js
 export const CONF_TOKEN_OPTIONS = ["RS256", "HS256"];
+export const CONFIGURATION_TOKEN = "configuration-token";
 export const CONFIGURATION_TOKEN_ALG = "configuration-token-alg";
 export const CONFIGURATION_TOKEN_AUDIENCE = "configuration-token-audience";
 
