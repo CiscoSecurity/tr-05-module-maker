@@ -47,7 +47,7 @@ class Sidebar extends React.Component {
     onSaveButtonClick = () => {
         if (this.isValidForm()) {
             const formattedData = this.constructValidJSON();
-            const fileData = JSON.stringify(formattedData, null, 2);
+            const fileData = JSON.stringify(formattedData, null, 4);
             const blob = new Blob([fileData], {type: "text/plain"});
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
