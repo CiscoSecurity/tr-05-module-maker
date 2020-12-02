@@ -1,5 +1,6 @@
 export const SELECT_PLACEHOLDER = "Select your option";
 export const LOGO = "logo";
+export const SUPPORTED_APIS = "supported-apis";
 export const IROH_SERVICES_URLS = {
     "Europe": "https://visibility.eu.amp.cisco.com",
     "North America": "https://visibility.amp.cisco.com",

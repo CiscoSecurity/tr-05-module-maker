@@ -29,7 +29,7 @@ export const propertiesReducer = (state = initialState, action) => {
             if (Object.keys(state).includes("auth-type")) {
                 return Object.fromEntries(
                         Object.entries(state).filter(
-                            ([key, val]) => key === "supported-apis"
+                            ([key, val]) => key === Constants.SUPPORTED_APIS
                         )
                 )
             } else {
