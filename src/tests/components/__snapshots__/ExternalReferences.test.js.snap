@@ -40,13 +40,13 @@ exports[`ExternalReferences should render ExternalReferences with several Custom
           >
              
             External References
-            <button
-              onClick={[Function]}
-              type="button"
-            >
-              + Add
-            </button>
           </label>
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            + Add
+          </button>
         </div>
         <Connect(CustomInput)
           key="00000000-0000-0000-0000-000000000003"
@@ -235,13 +235,13 @@ exports[`ExternalReferences should render ExternalReferences without CustomInput
           >
              
             External References
-            <button
-              onClick={[Function]}
-              type="button"
-            >
-              + Add
-            </button>
           </label>
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            + Add
+          </button>
         </div>
       </div>
     </ExternalReferences>

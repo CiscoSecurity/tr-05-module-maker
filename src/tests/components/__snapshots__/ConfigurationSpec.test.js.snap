@@ -52,7 +52,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec with several Configur
           className="confSpecRow"
         >
           <div>
-            Configuration Spec
+            <label>
+              Configuration Spec
+            </label>
             <button
               onClick={[Function]}
               type="button"
@@ -780,7 +782,9 @@ exports[`ConfigurationSpec should render ConfigurationSpec without Configuration
           className="confSpecRow"
         >
           <div>
-            Configuration Spec
+            <label>
+              Configuration Spec
+            </label>
             <button
               onClick={[Function]}
               type="button"
