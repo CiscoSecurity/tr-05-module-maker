@@ -53,7 +53,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                health
+                <label>
+                  health
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -87,7 +89,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                deliberate/observables
+                <label>
+                  deliberate/observables
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -121,7 +125,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                refer/observables
+                <label>
+                  refer/observables
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -155,7 +161,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                observe/observables
+                <label>
+                  observe/observables
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -189,7 +197,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                respond/observables
+                <label>
+                  respond/observables
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -223,7 +233,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                respond/trigger
+                <label>
+                  respond/trigger
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -257,7 +269,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                tiles
+                <label>
+                  tiles
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -291,7 +305,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                tiles/tile
+                <label>
+                  tiles/tile
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -325,7 +341,9 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   onChange={[Function]}
                   type="checkbox"
                 />
-                tiles/tile-data
+                <label>
+                  tiles/tile-data
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -344,59 +362,61 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
               toggleAuthType={[Function]}
               updateAuthType={[Function]}
             >
-              <div
-                className="divAuth"
-              >
-                <input
-                  autoComplete="off"
-                  checked={false}
-                  onChange={[Function]}
-                  type="checkbox"
-                />
-                <label>
-                   
-                  authorization
-                   
-                </label>
-                <select
-                  className="selectAuth"
-                  disabled={true}
-                  onChange={[Function]}
-                  required={false}
-                  value=""
+              <div>
+                <div
+                  className="divAuth"
                 >
-                  <option
+                  <input
+                    autoComplete="off"
+                    checked={false}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <label>
+                     
+                    authorization
+                     
+                  </label>
+                  <select
+                    className="selectAuth"
                     disabled={true}
-                    hidden={true}
+                    onChange={[Function]}
+                    required={false}
                     value=""
                   >
-                    Select your option
-                  </option>
-                  <option
-                    key="authorization-header"
-                    value="authorization-header"
-                  >
-                    authorization-header
-                  </option>
-                  <option
-                    key="basic"
-                    value="basic"
-                  >
-                    basic
-                  </option>
-                  <option
-                    key="bearer"
-                    value="bearer"
-                  >
-                    bearer
-                  </option>
-                  <option
-                    key="configuration-token"
-                    value="configuration-token"
-                  >
-                    configuration-token
-                  </option>
-                </select>
+                    <option
+                      disabled={true}
+                      hidden={true}
+                      value=""
+                    >
+                      Select your option
+                    </option>
+                    <option
+                      key="authorization-header"
+                      value="authorization-header"
+                    >
+                      authorization-header
+                    </option>
+                    <option
+                      key="basic"
+                      value="basic"
+                    >
+                      basic
+                    </option>
+                    <option
+                      key="bearer"
+                      value="bearer"
+                    >
+                      bearer
+                    </option>
+                    <option
+                      key="configuration-token"
+                      value="configuration-token"
+                    >
+                      configuration-token
+                    </option>
+                  </select>
+                </div>
               </div>
             </AuthType>
           </Connect(AuthType)>
@@ -460,7 +480,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                health
+                <label>
+                  health
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -494,7 +516,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                deliberate/observables
+                <label>
+                  deliberate/observables
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -528,7 +552,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                refer/observables
+                <label>
+                  refer/observables
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -562,7 +588,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                observe/observables
+                <label>
+                  observe/observables
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -596,7 +624,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                respond/observables
+                <label>
+                  respond/observables
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -630,7 +660,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                respond/trigger
+                <label>
+                  respond/trigger
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -664,7 +696,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                tiles
+                <label>
+                  tiles
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -698,7 +732,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                tiles/tile
+                <label>
+                  tiles/tile
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -732,7 +768,9 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
                   onChange={[Function]}
                   type="checkbox"
                 />
-                tiles/tile-data
+                <label>
+                  tiles/tile-data
+                </label>
               </div>
             </SupportedAPI>
           </Connect(SupportedAPI)>
@@ -752,59 +790,61 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
               toggleAuthType={[Function]}
               updateAuthType={[Function]}
             >
-              <div
-                className="divAuth"
-              >
-                <input
-                  autoComplete="off"
-                  checked={true}
-                  onChange={[Function]}
-                  type="checkbox"
-                />
-                <label>
-                   
-                  authorization
-                   
-                </label>
-                <select
-                  className="selectAuth"
-                  disabled={false}
-                  onChange={[Function]}
-                  required="required"
-                  value=""
+              <div>
+                <div
+                  className="divAuth"
                 >
-                  <option
-                    disabled={true}
-                    hidden={true}
+                  <input
+                    autoComplete="off"
+                    checked={true}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <label>
+                     
+                    authorization
+                     
+                  </label>
+                  <select
+                    className="selectAuth"
+                    disabled={false}
+                    onChange={[Function]}
+                    required="required"
                     value=""
                   >
-                    Select your option
-                  </option>
-                  <option
-                    key="authorization-header"
-                    value="authorization-header"
-                  >
-                    authorization-header
-                  </option>
-                  <option
-                    key="basic"
-                    value="basic"
-                  >
-                    basic
-                  </option>
-                  <option
-                    key="bearer"
-                    value="bearer"
-                  >
-                    bearer
-                  </option>
-                  <option
-                    key="configuration-token"
-                    value="configuration-token"
-                  >
-                    configuration-token
-                  </option>
-                </select>
+                    <option
+                      disabled={true}
+                      hidden={true}
+                      value=""
+                    >
+                      Select your option
+                    </option>
+                    <option
+                      key="authorization-header"
+                      value="authorization-header"
+                    >
+                      authorization-header
+                    </option>
+                    <option
+                      key="basic"
+                      value="basic"
+                    >
+                      basic
+                    </option>
+                    <option
+                      key="bearer"
+                      value="bearer"
+                    >
+                      bearer
+                    </option>
+                    <option
+                      key="configuration-token"
+                      value="configuration-token"
+                    >
+                      configuration-token
+                    </option>
+                  </select>
+                </div>
               </div>
             </AuthType>
           </Connect(AuthType)>

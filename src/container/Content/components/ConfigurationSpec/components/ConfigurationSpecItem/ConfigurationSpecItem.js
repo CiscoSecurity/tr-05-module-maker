@@ -62,7 +62,7 @@ class ConfigurationSpecItem extends React.Component {
             <div className="confSpecWrapper">
                 <div className='column'>
                         <div className="inputDiv">
-                            {Constants.KEY_LABEL}
+                            <label>{Constants.KEY_LABEL}</label>
                             <span className="required-field">*</span>
                             <input
                                 type="text"
@@ -85,7 +85,7 @@ class ConfigurationSpecItem extends React.Component {
                             }
                         </datalist>
                         <div className="inputDiv">
-                            {Constants.TYPE_LABEL}
+                            <label>{Constants.TYPE_LABEL}</label>
                             <span className="required-field">*</span>
                             <select name="type"
                                     className="customInput"
@@ -111,7 +111,7 @@ class ConfigurationSpecItem extends React.Component {
                         : null
                     }
                         <div className="inputDiv">
-                            {Constants.LABEL}
+                            <label>{Constants.LABEL}</label>
                             <span className="required-field">*</span>
                             <input type="text"
                                    name="label"
@@ -123,7 +123,7 @@ class ConfigurationSpecItem extends React.Component {
                             />
                         </div>
                         <div className="inputDiv">
-                            {Constants.TOOLTIP_LABEL}
+                            <label>{Constants.TOOLTIP_LABEL}</label>
                             <input type="text"
                                    name="tooltip"
                                    className="customInput"
@@ -133,7 +133,7 @@ class ConfigurationSpecItem extends React.Component {
                             />
                         </div>
                         <div className="inputDiv">
-                            {Constants.SUBTYPE_LABEL}
+                            <label>{Constants.SUBTYPE_LABEL}</label>
                             <input type="text"
                                    name="subtype"
                                    className="customInput"
@@ -143,7 +143,7 @@ class ConfigurationSpecItem extends React.Component {
                             />
                         </div>
                         <div className="inputDiv">
-                            {Constants.GROUP_LABEL}
+                            <label>{Constants.GROUP_LABEL}</label>
                             <input type="text"
                                    name="group"
                                    className="customInput"
@@ -153,7 +153,7 @@ class ConfigurationSpecItem extends React.Component {
                             />
                         </div>
                         <div className="checkboxDiv">
-                            {Constants.REQUIRED_LABEL}
+                            <label>{Constants.REQUIRED_LABEL}</label>
                             <input type="checkbox" name="required"
                                    checked={this.props.syncConfSpecItem.required} onChange={this.onInputChange}/>
                         </div>

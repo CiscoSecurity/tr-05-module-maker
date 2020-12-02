@@ -36,7 +36,7 @@ class SupportedAPI extends React.Component {
                        onChange={this.onCheckboxToggle}
                        checked={this.props.syncSupportedAPIs.includes(this.state.title)}
                 />
-                {this.state.title}
+                <label>{this.state.title}</label>
             </div>
         )
     }

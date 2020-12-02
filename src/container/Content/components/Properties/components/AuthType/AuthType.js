@@ -3,6 +3,7 @@ import "./AuthType.scss";
 import * as Constants from "globals/constants/constants";
 import { toggleAuthType, updateAuthType } from "../../propertiesActions";
 import { connect } from "react-redux";
+import ConfToken from "./ConfToken";
 
 
 class AuthType extends React.Component {
@@ -17,6 +18,7 @@ class AuthType extends React.Component {
 
 render() {
     return (
+      <div>
         <div className="divAuth">
 
             <input type="checkbox"
@@ -43,6 +45,13 @@ render() {
                 }
             </select>
         </div>
+            {
+                Object.keys(this.props.syncProperties).includes("auth-type")
+                && this.props.syncProperties["auth-type"] === Constants.CONFIGURATION_TOKEN
+                    ? <ConfToken/>
+                    : ""
+            }
+      </div>
     )
 }
 }

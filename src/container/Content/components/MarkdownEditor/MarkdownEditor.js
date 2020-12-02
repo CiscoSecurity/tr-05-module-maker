@@ -1,7 +1,7 @@
 import React from "react";
-import ReactMde from "react-mde";
+import ReactMde, { commands } from "react-mde";
 import ReactMarkdown from "react-markdown";
-import "react-mde/lib/styles/css/react-mde-all.css";
+import "./MarkdownEditor.scss";
 import { updateSingleInput } from "container/Content/additionalInputsActions";
 import { connect } from "react-redux";
 
@@ -24,15 +24,25 @@ class MarkdownEditor extends React.Component {
 
     render() {
         return  <ReactMde
-            minEditorHeight={333}
+            minEditorHeight={323}
             minPreviewHeight={323}
-            toolbarCommands={
-                [
-                    ["header"],["bold"], ["italic"], ["strikethrough"],
-                    ["link"], ["quote"], ["code"], ["ordered-list"],
-                    ["unordered-list"], ["checked-list"]
-                ]
-            }
+            maxEditorHeight={646}
+            commands={[
+                {
+                    commands: [
+                        commands.headerCommand,
+                        commands.boldCommand,
+                        commands.italicCommand,
+                        commands.strikeThroughCommand,
+                        commands.linkCommand,
+                        commands.quoteCommand,
+                        commands.codeCommand,
+                        commands.orderedListCommand,
+                        commands.unorderedListCommand,
+                        commands.checkedListCommand
+                    ]
+                }
+            ]}
             onChange={this.handleValueChange}
             onTabChange={this.handleTabChange}
             value={this.props.syncContent[`${this.props.name}`]}

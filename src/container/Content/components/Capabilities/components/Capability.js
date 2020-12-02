@@ -5,10 +5,16 @@ import { connect } from "react-redux";
 
 
 class Capability extends React.Component {
+    trimInputValue = event => {
+        this.props.updateCapabilityDescription({
+            id: this.props.api.id, description: event.target.value.trim()
+        })
+    }
+
     onDescriptionChange = event => {
         event.persist()
         this.props.updateCapabilityDescription({
-            id: this.props.api.id, description: event.target.value.trim()
+            id: this.props.api.id, description: event.target.value
         }
         )
     }
@@ -21,11 +27,12 @@ class Capability extends React.Component {
                 </p>
                 <input
                     type="text"
-                    value={this.props.api.description}
+                    value={this.props.api.description || ""}
                     name={this.props.api.id}
                     placeholder="Enter description"
                     autoComplete="off"
                     onChange={this.onDescriptionChange}
+                    onBlur={this.trimInputValue}
                     required
                 />
             </div>

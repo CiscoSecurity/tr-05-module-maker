@@ -8,13 +8,22 @@ from "container/Content/components/ExternalReferences/externalReferencesActions"
 
 
 class CustomInput extends React.Component {
+    trimInputValue = event => {
+        this.props.updateExternalReference(
+            this.props.reference.id,
+            {
+                name: event.target.name,
+                value: event.target.value.trim()
+            })
+    }
+
     changeInputHandler = event => {
         event.persist()
         this.props.updateExternalReference(
             this.props.reference.id,
             {
             name: event.target.name,
-            value: event.target.value.trim()
+            value: event.target.value
             }
             )
     }
@@ -34,6 +43,7 @@ class CustomInput extends React.Component {
                        list="ext-ref"
                        value={this.props.reference.label}
                        onChange={this.changeInputHandler}
+                       onBlur={this.trimInputValue}
                        required
                 />
                 <input type="text"
@@ -43,6 +53,7 @@ class CustomInput extends React.Component {
                        autoComplete="off"
                        value={this.props.reference.link}
                        onChange={this.changeInputHandler}
+                       onBlur={this.trimInputValue}
                        required
                 />
                 <datalist id="ext-ref">

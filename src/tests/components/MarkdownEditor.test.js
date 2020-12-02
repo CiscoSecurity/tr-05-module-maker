@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import MarkdownEditor from "../../container/Content/components/MarkdownEditor";
+import MarkdownEditor from "../../container/Content/components/MarkdownEditor/MarkdownEditor";
 import React from "react";
 import configureStore from 'redux-mock-store';
 import { mount } from "enzyme";
