@@ -76,10 +76,18 @@ const ModalForPatch = (props) => (
                         </label>
                         <div>
                             <Field as="select" name="iroh_service_url" required>
-                                <option value="" disabled hidden>{Constants.SELECT_PLACEHOLDER}</option>
-                                <option value={ Constants.IROH_SERVICES_URLS.Europe }>{ Constants.EUROPE }</option>
-                                <option value={ Constants.IROH_SERVICES_URLS["North America"] }>{ Constants.NORTH_AMERICA }</option>
-                                <option value={ Constants.IROH_SERVICES_URLS.Asia }>{ Constants.ASIA }</option>
+                                <option value="" disabled hidden>
+                                    { Constants.SELECT_PLACEHOLDER }
+                                </option>
+                                <option value={ Constants.IROH_SERVICES_URLS.Europe }>
+                                    { Constants.EUROPE }
+                                </option>
+                                <option value={ Constants.IROH_SERVICES_URLS["North America"] }>
+                                    { Constants.NORTH_AMERICA }
+                                </option>
+                                <option value={ Constants.IROH_SERVICES_URLS.Asia }>
+                                    { Constants.ASIA }
+                                </option>
                             </Field>
                             <ErrorMessage name="iroh_service_url" component="div" className='error'/>
                         </div>
