@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1b6b7e3c47815211499362cbfcadfe3e",
+    "revision": "0ff6c7fedff15bc828cc62dc743cfd81",
     "url": "/tr-05-module-maker/index.html"
   },
   {
-    "revision": "6ef62b8df7031761b14d",
+    "revision": "8488fd7a8d3e570b81fa",
     "url": "/tr-05-module-maker/static/css/2.75fab9a8.chunk.css"
   },
   {
-    "revision": "cdbcecc702fe1038dde1",
-    "url": "/tr-05-module-maker/static/css/main.2c615e8a.chunk.css"
+    "revision": "ee1f520fb71235aa8cf4",
+    "url": "/tr-05-module-maker/static/css/main.d17b925f.chunk.css"
   },
   {
-    "revision": "6ef62b8df7031761b14d",
-    "url": "/tr-05-module-maker/static/js/2.a35ff818.chunk.js"
+    "revision": "8488fd7a8d3e570b81fa",
+    "url": "/tr-05-module-maker/static/js/2.4b3bc948.chunk.js"
   },
   {
-    "revision": "69cef365f5ec9b8c96a38b32e0b8fefd",
-    "url": "/tr-05-module-maker/static/js/2.a35ff818.chunk.js.LICENSE.txt"
+    "revision": "e2362a145aef03806660cee0737d0142",
+    "url": "/tr-05-module-maker/static/js/2.4b3bc948.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cdbcecc702fe1038dde1",
-    "url": "/tr-05-module-maker/static/js/main.81cfc9a7.chunk.js"
+    "revision": "ee1f520fb71235aa8cf4",
+    "url": "/tr-05-module-maker/static/js/main.ce47a92d.chunk.js"
   },
   {
     "revision": "a78000d55bd8e89dd3c7",
