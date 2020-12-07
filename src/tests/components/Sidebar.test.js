@@ -27,6 +27,8 @@ describe('Sidebar', () => {
         expect(wrapper.find('CustomAlert')).toHaveLength(0);
         expect(wrapper.find('ModalForPull')).toHaveLength(0);
         expect(wrapper.find('ModalForPush')).toHaveLength(0);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
 
@@ -50,6 +52,8 @@ describe('Sidebar', () => {
         expect(wrapper.find('ModalForPush')).toHaveLength(1);
         expect(wrapper.find('ModalForPull')).toHaveLength(0);
         expect(wrapper.find('CustomAlert')).toHaveLength(0);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
 
@@ -72,6 +76,8 @@ describe('Sidebar', () => {
 
         expect(wrapper.find('ModalForPush')).toHaveLength(0);
         expect(wrapper.find('ModalForPull')).toHaveLength(1);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(wrapper.find('CustomAlert')).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
@@ -93,6 +99,8 @@ describe('Sidebar', () => {
 
         expect(wrapper.find('ModalForPush')).toHaveLength(0);
         expect(wrapper.find('ModalForPull')).toHaveLength(0);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(wrapper.find('CustomAlert')).toHaveLength(1);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
