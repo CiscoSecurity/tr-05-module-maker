@@ -4,7 +4,7 @@ import Icons from "globals/icons/sprite.svg";
 import *  as Constants from "globals/constants/constants"
 import Loader from "react-loader";
 import { patchModuleTypeRequest } from "rootActions";
-import {hideModalForPatch, showAlert} from "../visibilityActions";
+import { hideModalForPatch, showAlert } from "../visibilityActions";
 import { connect } from "react-redux";
 
 

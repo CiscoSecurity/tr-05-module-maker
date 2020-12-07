@@ -116,6 +116,38 @@ describe('visibility reducer', () => {
         ).toEqual(initialState)
     })
 
+    it('should handle SHOW_MODAL_FOR_PATCH', () => {
+        expect(
+            visibilityReducer(initialState, {
+                type: types.SHOW_MODAL_FOR_PATCH,
+            })
+        ).toEqual({
+            confirmBox: null,
+            isPatchActive: false,
+            modalForPatch: true,
+            modalForPush: false,
+            modalForPull: false,
+            loader: false,
+            customAlert: null
+        })
+    })
+
+    it('should handle HIDE_MODAL_FOR_PATCH', () => {
+        expect(
+            visibilityReducer({
+                confirmBox: null,
+                isPatchActive: false,
+                modalForPatch: true,
+                modalForPush: false,
+                modalForPull: false,
+                loader: false,
+                customAlert: null
+            }, {
+                type: types.HIDE_MODAL_FOR_PATCH,
+            })
+        ).toEqual(initialState)
+    })
+
     it('should handle SHOW_ALERT', () => {
         expect(
             visibilityReducer(initialState, {
