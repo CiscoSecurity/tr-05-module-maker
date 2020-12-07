@@ -12,9 +12,9 @@ import {
     showAlert, showModalForPush, showModalForPull,
     showModalForPatch, showConfirmBox, hideConfirmBox, deactivatePatch
 } from "../visibilityActions";
-import { savePatch, formatState } from "utils/saveUtils"
+import { formatState } from "utils/formattingUtils"
 import ModalForPatch from "../ModalForPatch/ModalForPatch";
-import { constructValidJSON } from "utils/saveUtils";
+import { constructValidJSON, savePatch } from "utils/saveUtils";
 import { ConfirmBox } from "../ConfirmBox/ConfirmBox";
 
 

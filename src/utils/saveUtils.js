@@ -1,23 +1,7 @@
 import { isEqual, transform, isEmpty } from 'lodash';
-import { arrangeJSON } from "./formattingUtils";
+import { arrangeJSON, formatState } from "./formattingUtils";
 import * as Constants from "globals/constants/constants"
 
-export const formatState = (state) => {
-    const {
-        external_references,
-        configuration_spec,
-        properties,
-        capabilities,
-        other_inputs
-    } = state;
-    return {
-        external_references,
-        configuration_spec,
-        properties,
-        capabilities,
-        ...other_inputs
-    }
-};
 
 export function constructValidJSON(json) {
     const data = JSON.parse(JSON.stringify(json));
@@ -38,19 +22,23 @@ export function constructValidJSON(json) {
     return arrangeJSON(data)
 }
 
+function difference(object, base) {
+    return  transform(object, (result, value, key) => {
+        if (!isEqual(value, base[key])) {
+            result[key] = value;
+        }
+    })
+}
+
 export function savePatch(patch_base, current_state, deactivatePatch, showAlert){
     const base = formatState(patch_base['json']);
     const id = patch_base.id;
 
-    function difference(object, base) {
-        return  transform(object, (result, value, key) => {
-            if (!isEqual(value, base[key])) {
-                result[key] = value;
-            }
-        })
-    }
+    const patch = difference(
+        constructValidJSON(current_state),
+        constructValidJSON(base)
+    );
 
-    const patch = difference(current_state, base);
     if (!isEmpty(patch)){
         const formattedData = Constants.PATCH_SKELETON
         Object.values(formattedData).forEach(value => {
