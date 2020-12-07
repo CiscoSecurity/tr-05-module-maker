@@ -6,6 +6,11 @@ export const IROH_SERVICES_URLS = {
     "North America": "https://visibility.amp.cisco.com",
     "Asia": "https://visibility.apjc.amp.cisco.com"
 }
+export const URL_TO_REGION_MAPPING = {
+    "https://visibility.eu.amp.cisco.com": "eu",
+    "https://visibility.amp.cisco.com": "nam",
+    "https://visibility.apjc.amp.cisco.com": "apjc"
+}
 
 // Content.js
 export const MAIN_TITLE = "Module";
@@ -27,7 +32,9 @@ export const SIDEBAR_TITLE = "Settings";
 export const OPEN_FROM_FILE = "Open JSON from File";
 export const OPEN_FROM_API = "Open JSON from TR API";
 export const SAVE_JSON = "Save JSON";
+export const SAVE_PATCH_JSON = "Save Patch JSON";
 export const PUSH_JSON = "Push JSON to TR";
+export const CREATE_PATCH = "Create Patch";
 export const VALIDATION_ERROR_MESSAGE = "Wrong JSON structure: ";
 export const FILE_LOADING_FAILURE = "Error occurred reading file: ";
 export const JSON_ELEMENTS_ORDER = [
@@ -104,3 +111,36 @@ export const CONFIGURATION_TOKEN_KEY = "configuration-token-key";
 export const CLOSE_BTN_LABEL = "Close";
 export const ALERT_TITLE_FAILURE = "Failure: an error occurred";
 export const ALERT_TITLE_SUCCESS = "Success";
+export const ALERT_FOR_EMPTY_PATCH = "Please, make your changes to save a patch json!";
+export const ALERT_TITLE_FOR_EMPTY_PATCH = "Please, make your changes";
+
+// ConfirmBox.js
+export const OK_BTN_LABEL = "Discard patch";
+export const CONFIRM_BOX_PATCH_TEXT = "If you discard this patch you will have " +
+    "to start a new Create patch flow. Are you sure you want to discard this patch?";
+export const CONFIRM_BOX_PATCH_TITLE = "Discard patch";
+
+// SaveUtils.js
+export const PATCH_SKELETON = {
+    nam: [
+        {
+            id: "",
+            name: "",
+            patch: ""
+        }
+    ],
+    eu: [
+        {
+            id: "",
+            name: "",
+            patch: ""
+        }
+    ],
+    apjc: [
+        {
+            id: "",
+            name: "",
+            patch: ""
+        }
+    ]
+};

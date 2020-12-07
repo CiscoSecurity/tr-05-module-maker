@@ -1,0 +1,42 @@
+@import "src/globals/constants/colors";
+
+.alertFooter {
+  button {
+    max-height: 28px;
+    min-width: 75px;
+    border-radius: 3px;
+    box-shadow: none;
+    font-weight: 400;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-top: 20px;
+    border-width: thin;
+    border-style: solid;
+
+    &.cancelButton {
+      border: 1px solid $blue-background;
+      margin-right: 5px;
+      color: $blue-background;
+      background-color: $white-color;
+
+      &:hover {
+        background: $hover-color-light;
+      }
+    }
+
+    &.okButton {
+      margin-left: 5px;
+      color: $white-color;
+      background-color: $blue-background;
+      border-color: $blue-background;
+
+      &:hover {
+        background: $hover-color-dark;
+      }
+    }
+  }
+}

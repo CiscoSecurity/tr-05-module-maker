@@ -5,6 +5,9 @@ import * as types from "../globals/constants/types"
 
 describe('visibility reducer', () => {
     const initialState = {
+        confirmBox: null,
+        isPatchActive: false,
+        modalForPatch: false,
         modalForPush: false,
         modalForPull: false,
         loader: false,
@@ -23,6 +26,9 @@ describe('visibility reducer', () => {
                 type: types.SHOW_MODAL_FOR_PUSH,
             })
         ).toEqual({
+            confirmBox: null,
+            isPatchActive: false,
+            modalForPatch: false,
             modalForPush: true,
             modalForPull: false,
             loader: false,
@@ -33,6 +39,9 @@ describe('visibility reducer', () => {
     it('should handle HIDE_MODAL_FOR_PUSH', () => {
         expect(
             visibilityReducer({
+                confirmBox: null,
+                isPatchActive: false,
+                modalForPatch: false,
                 modalForPush: true,
                 modalForPull: false,
                 loader: false,
@@ -49,6 +58,9 @@ describe('visibility reducer', () => {
                 type: types.SHOW_LOADER,
             })
         ).toEqual({
+            confirmBox: null,
+            isPatchActive: false,
+            modalForPatch: false,
             modalForPush: false,
             modalForPull: false,
             loader: true,
@@ -59,6 +71,9 @@ describe('visibility reducer', () => {
     it('should handle HIDE_LOADER', () => {
         expect(
             visibilityReducer({
+                confirmBox: null,
+                isPatchActive: false,
+                modalForPatch: false,
                 modalForPush: false,
                 modalForPull: false,
                 loader: true,
@@ -75,6 +90,9 @@ describe('visibility reducer', () => {
                 type: types.SHOW_MODAL_FOR_PULL,
             })
         ).toEqual({
+            confirmBox: null,
+            isPatchActive: false,
+            modalForPatch: false,
             modalForPush: false,
             modalForPull: true,
             loader: false,
@@ -85,6 +103,9 @@ describe('visibility reducer', () => {
     it('should handle HIDE_MODAL_FOR_PULL', () => {
         expect(
             visibilityReducer({
+                confirmBox: null,
+                isPatchActive: false,
+                modalForPatch: false,
                 modalForPush: false,
                 modalForPull: false,
                 loader: false,
@@ -102,6 +123,9 @@ describe('visibility reducer', () => {
                 payload: {title: 'Test title', message: 'Test message'}
             })
         ).toEqual({
+            confirmBox: null,
+            isPatchActive: false,
+            modalForPatch: false,
             modalForPush: false,
             modalForPull: false,
             loader: false,
@@ -112,6 +136,9 @@ describe('visibility reducer', () => {
     it('should handle HIDE_ALERT', () => {
         expect(
             visibilityReducer({
+                confirmBox: null,
+                isPatchActive: false,
+                modalForPatch: false,
                 modalForPush: false,
                 modalForPull: false,
                 loader: false,

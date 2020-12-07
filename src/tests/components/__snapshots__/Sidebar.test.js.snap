@@ -21,13 +21,17 @@ exports[`Sidebar should render Sidebar with CustomAlert 1`] = `
           "title": "Test title",
         }
       }
+      deactivatePatch={[Function]}
       hideAlert={[Function]}
+      hideConfirmBox={[Function]}
       hideModalForPull={[Function]}
       hideModalForPush={[Function]}
       modalForPull={false}
       modalForPush={false}
       readStateFromBackend={[Function]}
       showAlert={[Function]}
+      showConfirmBox={[Function]}
+      showModalForPatch={[Function]}
       showModalForPull={[Function]}
       showModalForPush={[Function]}
       syncJSON={
@@ -69,6 +73,11 @@ exports[`Sidebar should render Sidebar with CustomAlert 1`] = `
             onClick={[Function]}
           >
             Push JSON to TR
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Create Patch
           </li>
         </ul>
         <CustomAlert
@@ -136,13 +145,17 @@ exports[`Sidebar should render Sidebar with modalForPull 1`] = `
   <Connect(Sidebar)>
     <Sidebar
       customAlert={null}
+      deactivatePatch={[Function]}
       hideAlert={[Function]}
+      hideConfirmBox={[Function]}
       hideModalForPull={[Function]}
       hideModalForPush={[Function]}
       modalForPull={true}
       modalForPush={false}
       readStateFromBackend={[Function]}
       showAlert={[Function]}
+      showConfirmBox={[Function]}
+      showModalForPatch={[Function]}
       showModalForPull={[Function]}
       showModalForPush={[Function]}
       syncJSON={
@@ -184,6 +197,11 @@ exports[`Sidebar should render Sidebar with modalForPull 1`] = `
             onClick={[Function]}
           >
             Push JSON to TR
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Create Patch
           </li>
         </ul>
         <Connect(ModalForPull)>
@@ -644,13 +662,17 @@ exports[`Sidebar should render Sidebar with modalForPush 1`] = `
   <Connect(Sidebar)>
     <Sidebar
       customAlert={null}
+      deactivatePatch={[Function]}
       hideAlert={[Function]}
+      hideConfirmBox={[Function]}
       hideModalForPull={[Function]}
       hideModalForPush={[Function]}
       modalForPull={false}
       modalForPush={true}
       readStateFromBackend={[Function]}
       showAlert={[Function]}
+      showConfirmBox={[Function]}
+      showModalForPatch={[Function]}
       showModalForPull={[Function]}
       showModalForPush={[Function]}
       syncJSON={
@@ -692,6 +714,11 @@ exports[`Sidebar should render Sidebar with modalForPush 1`] = `
             onClick={[Function]}
           >
             Push JSON to TR
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Create Patch
           </li>
         </ul>
         <Connect(ModalForPush)
@@ -1072,13 +1099,17 @@ exports[`Sidebar should render Sidebar without modals, custom alert, loader 1`] 
   <Connect(Sidebar)>
     <Sidebar
       customAlert={null}
+      deactivatePatch={[Function]}
       hideAlert={[Function]}
+      hideConfirmBox={[Function]}
       hideModalForPull={[Function]}
       hideModalForPush={[Function]}
       modalForPull={false}
       modalForPush={false}
       readStateFromBackend={[Function]}
       showAlert={[Function]}
+      showConfirmBox={[Function]}
+      showModalForPatch={[Function]}
       showModalForPull={[Function]}
       showModalForPush={[Function]}
       syncJSON={
@@ -1120,6 +1151,11 @@ exports[`Sidebar should render Sidebar without modals, custom alert, loader 1`] 
             onClick={[Function]}
           >
             Push JSON to TR
+          </li>
+          <li
+            onClick={[Function]}
+          >
+            Create Patch
           </li>
         </ul>
       </div>
