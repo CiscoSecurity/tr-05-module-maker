@@ -14,8 +14,8 @@ import {
 } from "../visibilityActions";
 import { savePatch, formatState } from "utils/saveUtils"
 import ModalForPatch from "../ModalForPatch/ModalForPatch";
-import { ConfirmBox } from "../ConfirmBox/ConfirmBox";
 import { constructValidJSON } from "utils/saveUtils";
+import { ConfirmBox } from "../ConfirmBox/ConfirmBox";
 
 
 class Sidebar extends React.Component {

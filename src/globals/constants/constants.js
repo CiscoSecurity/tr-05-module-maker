@@ -93,6 +93,9 @@ export const PULL_MODAL_TEXT = "Pull module type from your Threat Response organ
 export const MODULE_TYPE_ID = "Module Type ID";
 export const REGION_LABEL = "Region";
 
+// ModalForPatch.js
+export const PATCH_MODAL_TEXT = "Pull module type JSON to create Patch file";
+
 // AuthType.js
 export const AUTH_LABEL = "authorization";
 export const AUTH_TYPE_OPTIONS = ["authorization-header", "basic", "bearer", "configuration-token"];

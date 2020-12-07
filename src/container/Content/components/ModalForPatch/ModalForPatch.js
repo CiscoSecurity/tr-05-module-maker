@@ -48,7 +48,7 @@ const ModalForPatch = (props) => (
                         </svg>
 
                         <p className="push-modal-text">
-                            { Constants.PULL_MODAL_TEXT }
+                            { Constants.PATCH_MODAL_TEXT }
                         </p>
                         <label htmlFor="client_id" className="centered">
                             { Constants.CLIENT_ID_LABEL }
