@@ -54,7 +54,7 @@ export function savePatch(patch_base, current_state, deactivatePatch, showAlert)
     if (!isEmpty(patch)){
         const formattedData = Constants.PATCH_SKELETON
         Object.values(formattedData).forEach(value => {
-            value[0].name=base.title
+            value[0].name=current_state.title
             value[0].patch=patch
         })
         const region = Constants.URL_TO_REGION_MAPPING[patch_base.url]

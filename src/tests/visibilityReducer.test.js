@@ -180,4 +180,37 @@ describe('visibility reducer', () => {
             })
         ).toEqual(initialState)
     })
+
+    it('should handle SHOW_CONFIRM_BOX', () => {
+        expect(
+            visibilityReducer(initialState, {
+                type: types.SHOW_CONFIRM_BOX,
+                payload: {title: 'Test title', message: 'Test message'}
+            })
+        ).toEqual({
+            customAlert: null,
+            isPatchActive: false,
+            modalForPatch: false,
+            modalForPush: false,
+            modalForPull: false,
+            loader: false,
+            confirmBox: {title: 'Test title', message: 'Test message'}
+        })
+    })
+
+    it('should handle HIDE_CONFIRM_BOX', () => {
+        expect(
+            visibilityReducer({
+                customAlert: null,
+                isPatchActive: false,
+                modalForPatch: false,
+                modalForPush: false,
+                modalForPull: false,
+                loader: false,
+                confirmBox: {title: 'Test title', message: 'Test message'}
+            }, {
+                type: types.HIDE_CONFIRM_BOX,
+            })
+        ).toEqual(initialState)
+    })
 })
