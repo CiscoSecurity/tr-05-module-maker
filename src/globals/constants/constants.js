@@ -1,3 +1,5 @@
+import React from "react";
+
 export const SELECT_PLACEHOLDER = "Select your option";
 export const LOGO = "logo";
 export const SUPPORTED_APIS = "supported-apis";
@@ -95,6 +97,9 @@ export const REGION_LABEL = "Region";
 
 // ModalForPatch.js
 export const PATCH_MODAL_TEXT = "Pull module type JSON to create Patch file";
+export const EUROPE = "Europe";
+export const NORTH_AMERICA = "North America";
+export const ASIA = "Asia";
 
 // AuthType.js
 export const AUTH_LABEL = "authorization";
