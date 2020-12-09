@@ -52,6 +52,6 @@ describe('additional inputs reducer', () => {
             additionalInputsReducer({logo: mocks.LOAD_FILE_MOCK}, {
                 type: types.DELETE_LOGO
             })
-        ).toEqual({})
+        ).toEqual({logo: ''})
     })
 })

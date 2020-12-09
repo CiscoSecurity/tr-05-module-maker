@@ -27,6 +27,8 @@ describe('Sidebar', () => {
         expect(wrapper.find('CustomAlert')).toHaveLength(0);
         expect(wrapper.find('ModalForPull')).toHaveLength(0);
         expect(wrapper.find('ModalForPush')).toHaveLength(0);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
 
@@ -50,6 +52,8 @@ describe('Sidebar', () => {
         expect(wrapper.find('ModalForPush')).toHaveLength(1);
         expect(wrapper.find('ModalForPull')).toHaveLength(0);
         expect(wrapper.find('CustomAlert')).toHaveLength(0);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
 
@@ -72,6 +76,8 @@ describe('Sidebar', () => {
 
         expect(wrapper.find('ModalForPush')).toHaveLength(0);
         expect(wrapper.find('ModalForPull')).toHaveLength(1);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(wrapper.find('CustomAlert')).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
@@ -93,7 +99,59 @@ describe('Sidebar', () => {
 
         expect(wrapper.find('ModalForPush')).toHaveLength(0);
         expect(wrapper.find('ModalForPull')).toHaveLength(0);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(wrapper.find('CustomAlert')).toHaveLength(1);
+        expect(toJson(wrapper)).toMatchSnapshot();
+    })
+
+    it('should render Sidebar with ConfirmBox', () => {
+        const store = mockStore({
+            elements_visibility: {
+                ConfirmBox: {title: 'Test title', message: 'Test message'},
+                modalForPush: false,
+                ModalForPatch: false,
+                modalForPull: false,
+                loader: false,
+                customAlert: null
+            }
+        });
+
+        const wrapper = mount(
+            <Provider store={store}>
+                <Sidebar/>
+            </Provider>);
+
+        expect(wrapper.find('ModalForPush')).toHaveLength(0);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(0);
+        expect(wrapper.find('ModalForPull')).toHaveLength(0);
+        expect(wrapper.find('CustomAlert')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
+        expect(toJson(wrapper)).toMatchSnapshot();
+    })
+
+    it('should render Sidebar with ModalForPatch', () => {
+        const store = mockStore({
+            elements_visibility: {
+                ConfirmBox: null,
+                modalForPush: false,
+                modalForPatch: true,
+                modalForPull: false,
+                loader: false,
+                customAlert: null
+            }
+        });
+
+        const wrapper = mount(
+            <Provider store={store}>
+                <Sidebar/>
+            </Provider>);
+
+        expect(wrapper.find('ModalForPush')).toHaveLength(0);
+        expect(wrapper.find('ModalForPatch')).toHaveLength(1);
+        expect(wrapper.find('ModalForPull')).toHaveLength(0);
+        expect(wrapper.find('CustomAlert')).toHaveLength(0);
+        expect(wrapper.find('ConfirmBox')).toHaveLength(0);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
 });

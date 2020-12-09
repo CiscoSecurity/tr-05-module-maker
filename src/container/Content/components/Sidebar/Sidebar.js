@@ -9,34 +9,18 @@ import { readStateFromBackend } from "rootActions";
 import ModalForPull from "../ModalForPull/ModalForPull";
 import {
     hideAlert, hideModalForPush, hideModalForPull,
-    showAlert, showModalForPush, showModalForPull
+    showAlert, showModalForPush, showModalForPull,
+    showModalForPatch, showConfirmBox, hideConfirmBox, deactivatePatch
 } from "../visibilityActions";
-import { arrangeJSON } from "utils/formattingUtils";
+import { formatState } from "utils/formattingUtils"
+import ModalForPatch from "../ModalForPatch/ModalForPatch";
+import { constructValidJSON, savePatch } from "utils/saveUtils";
+import { ConfirmBox } from "../ConfirmBox/ConfirmBox";
 
 
 class Sidebar extends React.Component {
     state = {
         inputEl: createRef()
-    }
-
-
-    constructValidJSON() {
-        const data = JSON.parse(JSON.stringify(this.props.syncJSON));
-        for (const elem of data.configuration_spec) {
-            if (elem.options) {
-                elem.options.map(
-                    option => delete option["id"]
-                )
-            }
-            delete elem["id"]
-            Object.keys(elem).forEach(
-                key => (elem[key].length === 0) && delete elem[key]
-            );
-        }
-        data.external_references.map(
-            element => delete element["id"]
-        )
-        return arrangeJSON(data)
     }
 
     isValidForm() {
@@ -46,7 +30,7 @@ class Sidebar extends React.Component {
 
     onSaveButtonClick = () => {
         if (this.isValidForm()) {
-            const formattedData = this.constructValidJSON();
+            const formattedData = constructValidJSON(this.props.syncJSON);
             const fileData = JSON.stringify(formattedData, null, 4);
             const blob = new Blob([fileData], {type: "text/plain"});
             const url = URL.createObjectURL(blob);
@@ -61,6 +45,22 @@ class Sidebar extends React.Component {
     onPushButtonClick = () => {
         if (this.isValidForm()) {
             this.props.showModalForPush();
+        }
+    }
+
+    onCreatePatchClick = () => {
+        if (this.props.isPatchActive){
+            if (this.isValidForm()) {
+                savePatch(
+                    this.props.patchBase,
+                    this.props.syncJSON,
+                    this.props.deactivatePatch,
+                    this.props.showAlert
+                );
+            }
+        }
+        else {
+            this.props.showModalForPatch();
         }
     }
 
@@ -114,24 +114,50 @@ class Sidebar extends React.Component {
                 <p>{ Constants.SIDEBAR_TITLE }</p>
                 <ul>
                     <input type="file" ref={this.state.inputEl} accept="application/JSON"/>
-                    <li onClick={this.onOpenButtonClick}>
+                    <li onClick={
+                        this.props.isPatchActive
+                            ?this.props.showConfirmBox
+                            :this.onOpenButtonClick
+                    }>
                         { Constants.OPEN_FROM_FILE }
                     </li>
-                    <li onClick={this.props.showModalForPull}>
+                    <li onClick={
+                        this.props.isPatchActive
+                            ?this.props.showConfirmBox
+                            :this.props.showModalForPull
+                    }>
                         { Constants.OPEN_FROM_API }
                     </li>
-                    <li onClick={this.onSaveButtonClick}>
+                    <li onClick={
+                        this.props.isPatchActive
+                            ?this.props.showConfirmBox
+                            :this.onSaveButtonClick
+                    }>
                         { Constants.SAVE_JSON }
                     </li>
-                    <li onClick={this.onPushButtonClick}>
+                    <li onClick={
+                        this.props.isPatchActive
+                            ?this.props.showConfirmBox
+                            :this.onPushButtonClick
+                    }>
                         { Constants.PUSH_JSON }
+                    </li>
+                    <li onClick={this.onCreatePatchClick}>
+                        { this.props.isPatchActive
+                            ?Constants.SAVE_PATCH_JSON
+                            :Constants.CREATE_PATCH
+                        }
                     </li>
                 </ul>
                 {
                    this.props.modalForPush &&
                    <ModalForPush
-                       json={this.constructValidJSON()}
+                       json={constructValidJSON(this.props.syncJSON)}
                    />
+                }
+                {
+                    this.props.modalForPatch &&
+                    <ModalForPatch/>
                 }
                 {
                     this.props.customAlert &&
@@ -145,42 +171,41 @@ class Sidebar extends React.Component {
                     this.props.modalForPull &&
                     <ModalForPull/>
                 }
+                {
+                    this.props.confirmBox &&
+                    <ConfirmBox message={Constants.CONFIRM_BOX_PATCH_TEXT}
+                                title={Constants.CONFIRM_BOX_PATCH_TITLE}
+                                closeClickHandler={this.props.hideConfirmBox}
+                                okClickHandler={this.props.deactivatePatch}
+                    />
+                }
             </div>
         )
     }
 }
 
-const formatState = (state) => {
-    const {
-        external_references,
-        configuration_spec,
-        properties,
-        capabilities,
-        other_inputs
-    } = state;
-    return {
-        external_references,
-        configuration_spec,
-        properties,
-        capabilities,
-        ...other_inputs
-    }
-};
-
 
 const mapStateToProps = (state) => ({
     syncJSON: formatState(state),
+    patchBase: state.patch_base,
     modalForPush: state.elements_visibility.modalForPush,
+    modalForPatch: state.elements_visibility.modalForPatch,
     modalForPull: state.elements_visibility.modalForPull,
-    customAlert: state.elements_visibility.customAlert
+    customAlert: state.elements_visibility.customAlert,
+    confirmBox: state.elements_visibility.confirmBox,
+    isPatchActive: state.elements_visibility.isPatchActive,
 })
 
 const mapDispatchToProps = {
     readStateFromBackend,
     showModalForPush,
+    showModalForPatch,
     hideModalForPush,
     showModalForPull,
     hideModalForPull,
+    showConfirmBox,
+    hideConfirmBox,
+    deactivatePatch,
     showAlert,
     hideAlert
 }

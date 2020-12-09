@@ -7,6 +7,7 @@ import { combineReducers } from "redux";
 import { READ_STATE_FROM_BACKEND } from "./globals/constants/types";
 import { v4 as uuidv4 } from 'uuid';
 import { visibilityReducer } from "./container/Content/components/visibilityReducer";
+import { patchReducer } from "./container/Content/components/patchReducer";
 
 
 const appReducer = combineReducers({
@@ -15,7 +16,8 @@ const appReducer = combineReducers({
             capabilities: capabilitiesReducer,
             external_references: externalReferencesReducer,
             configuration_spec: configurationSpecReducer,
-            elements_visibility: visibilityReducer
+            elements_visibility: visibilityReducer,
+            patch_base: patchReducer
     }
 )
 
@@ -42,7 +44,7 @@ export const rootReducer = (state, action) => {
             ...state,
             external_references: addIDs(action.payload.external_references),
             configuration_spec: reformatConfSpec(action.payload.configuration_spec),
-            properties: action.payload.properties || [],
+            properties: action.payload.properties || {"supported-apis": []},
             capabilities: action.payload.capabilities || [],
             other_inputs: {
                 // The API response contains additional fields that need to be excluded

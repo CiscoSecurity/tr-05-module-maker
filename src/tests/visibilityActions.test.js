@@ -61,4 +61,36 @@ describe('visibility actions', () => {
         }
         expect(actions.hideLoader()).toEqual(expectedAction)
     })
+
+    it('should create an action to show confirm box', () => {
+        const expectedAction = {
+            type: types.SHOW_CONFIRM_BOX,
+            payload: {title: 'Test title', message: 'Test message'}
+        }
+        expect(actions.showConfirmBox(
+            'Test title', 'Test message'
+        )).toEqual(expectedAction)
+    })
+
+    it('should create an action to hide confirm box', () => {
+        const expectedAction = {
+            type: types.HIDE_CONFIRM_BOX
+        }
+        expect(actions.hideConfirmBox()).toEqual(expectedAction)
+    })
+
+    it('should create an action to show ModalForPatch', () => {
+        const expectedAction = {
+            type: types.SHOW_MODAL_FOR_PATCH
+        }
+        expect(actions.showModalForPatch()).toEqual(expectedAction)
+    })
+
+    it('should create an action to hide ModalForPatch', () => {
+        const expectedAction = {
+            type: types.HIDE_MODAL_FOR_PATCH
+        }
+        expect(actions.hideModalForPatch()).toEqual(expectedAction)
+    })
+
 })
