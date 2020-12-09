@@ -24,6 +24,7 @@ import {
     readStateFromBackend
 } from "./rootActions"
 import { savePatchBase } from "./container/Content/components/patchActions";
+import { extractErrorMessage } from "./utils/formattingUtils";
 
 
 export function* sagaWatcher()  {
@@ -56,7 +57,7 @@ function* pullSagaWorker(action) {
         yield put(onPullModuleTypeSuccess(payload))
     }
     catch (e){
-        yield put(onPullModuleTypeError(String(e).replace(/^\w/, c => c.toUpperCase())))
+        yield put(onPullModuleTypeError(extractErrorMessage(e)))
     }
 }
 
@@ -79,20 +80,19 @@ function* pushSagaWorker(action) {
         yield put(onPushModuleTypeSuccess(id))
     }
     catch (e){
-        yield put(onPushModuleTypeError(String(e).replace(/^\w/, c => c.toUpperCase())))
+        yield put(onPushModuleTypeError(extractErrorMessage(e)))
     }
 }
 
 function* patchSagaWorker (action) {
     try {
         yield put(showLoader())
-        const token = yield call(authorize, action.payload)
-        const url = action.payload.iroh_service_url
-        const json = yield call(pullModuleType, action.payload, token)
+        const token = yield call(authorize, action.payload);
+        const url = action.payload.iroh_service_url;
+        const json = yield call(pullModuleType, action.payload, token);
         yield put(onPatchModuleTypeSuccess(json, url))
-    }
-    catch (e){
-        yield put(onPullModuleTypeError(String(e).replace(/^\w/, c => c.toUpperCase())))
+    } catch(e){
+        yield put(onPullModuleTypeError(extractErrorMessage(e)))
     }
 }
 

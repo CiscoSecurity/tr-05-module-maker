@@ -12,22 +12,13 @@ const ModalForPatch = (props) => (
     <div className='modal' id='modal'>
         <Formik
             initialValues={{ client_id: '', password: '', module_type_id: '', iroh_service_url: '' }}
-            validate={values => {
-                const errors = {};
-                if (!values.client_id) {
-                    errors.client_id = 'is required';
-                }
-                if (!values.password) {
-                    errors.password = 'is required';
-                }
-                if (!values.module_type_id) {
-                    errors.module_type_id = 'is required';
-                }
-                if (!values.iroh_service_url) {
-                    errors.iroh_service_url = 'is required';
-                }
-                return errors;
-            }}
+            validate={ values =>
+                Object.fromEntries(
+                    Object.entries(values)
+                        .filter(([ key, val ]) => !val)
+                        .map(([ key, val ]) => [key, 'is required'])
+                )
+            }
             onSubmit={ async (values, { setSubmitting }) => {
                 props.patchModuleTypeRequest(
                     values.module_type_id,

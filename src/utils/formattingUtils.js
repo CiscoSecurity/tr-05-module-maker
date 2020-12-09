@@ -26,3 +26,12 @@ export const formatState = (state) => {
         ...other_inputs
     }
 };
+
+export const extractErrorMessage = (error) => {
+    if (error.response) {
+        return error.response.data.error_description || error.response.message
+    }
+    else {
+        return error.message
+    }
+}
