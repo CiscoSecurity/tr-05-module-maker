@@ -103,7 +103,7 @@ Next, clicking on **Add New Module** button takes you to Add New Integration Mod
 ## Module Instance Properties
 
 In order to specify which endpoints of your relay SecureX Threat Response should send requests to,
-please, specify a list of Supported APIs and fill in description
+please, tick the checkboxes of corresponding Supported APIs and fill in description
 of each endpoint in Capabilities section. 
 
 If your integration requires authorization,
