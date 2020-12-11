@@ -4,18 +4,18 @@
 # SecureX Threat Response Module Maker
 
 [Module Maker](https://ciscosecurity.github.io/tr-05-module-maker/) is a React.js app deployed on GitHub 
-Pages that allows a user to manage SecureX Threat Response module type jsons.
+Pages that allows a user to manage SecureX Threat Response module type JSONs.
 
 ## Rationale
 
 SecureX Threat Response is a module-based product. Each module type represents an integration of SecureX Threat Response with a 3-rd party product.
 Modules types are represented by Module Tiles in the SecureX Threat Response UI. Module Tiles look like cards and contain
 a description of a module type and help create an instance of a specific module type.
-In order to create a module tile a user has to create its json and populate it with
+In order to create a module tile a user has to create its JSON and populate it with
 the required information for the module type to be created and visible in the SecureX Threat Response UI.  
 Module Maker facilitates and accelerates the process of managing (creating, editing, saving and uploading)
-SecureX Threat Response module type jsons. Users will not have to manage module type jsons manually.
-Users will not have to manage module type jsons manually and will be able to edit markdown in a convenient editor.
+SecureX Threat Response module type JSONs. Users will not have to manage module type JSONs manually.
+Users will not have to manage module type JSONs manually and will be able to edit markdown in a convenient editor.
 Conversion of the logo to the base64 format is no longer required when using the Module Maker.
 
 
@@ -33,14 +33,17 @@ Once you have generated credentials, you can start working on your module type. 
 
 ## Open JSON from File
 
-Use the **Open JSON from File** feature to upload the json into Module Maker
+Use the **Open JSON from File** feature to upload the JSON into Module Maker
 from the local file and have the corresponding fields pre-populated.  
-Supported file format for opening is `*.json`.
+Supported file format for opening is `*.JSON`. 
+The file will not be opened if it does not contain a valid Module Type JSON.
+If you want to know what a valid one should look like, you can look at the example
+value in [SecureX Threat Response API](https://visibility.amp.cisco.com/iroh/iroh-int/index.html#/ModuleType/post_iroh_iroh_int_module_type).
 
 ## Open JSON from TR API
 
 Another  possibility to obtain module type fields pre-populated in Module Maker is to pull
-the json from the SecureX Threat Response API. To do this, click **Open JSON from TR API**. 
+the JSON from the SecureX Threat Response API. To do this, click **Open JSON from TR API**. 
 You will be prompted to enter your `Client ID` and `Client Password`,
 as mentioned earlier and `Module Type ID` you want to pull.
 Also, don't forget to select the region where your organization was created.
@@ -48,11 +51,11 @@ Also, don't forget to select the region where your organization was created.
 ## Save JSON
 
 If you have already filled in the desired fields of your module type, you can use **Save JSON** feature.
-Then the module type you created will be saved with the name `<Title>_module_type.json`.
-Please note that if the required fields are not filled in, such a json is considered invalid and will not be saved.
+Then the module type you created will be saved with the name `<Title>_module_type.JSON`.
+Please note that if the required fields are not filled in, such a JSON is considered invalid and will not be saved.
 
 ## Push JSON to TR
-Besides saving the module type json locally, you can also push it to SecureX Threat Response.
+Besides saving the module type JSON locally, you can also push it to SecureX Threat Response
 to be created and visible in the SecureX Threat Response UI.
 Fill in the required fields, click on **Push JSON to TR**, enter your credentials and choose the region.
 Upon successful creation, you will receive a confirmation with module type ID you created,
@@ -64,7 +67,7 @@ are displayed on the SecureX Threat Response UI and which are important for the 
 
 To start patch creation flow you can click on **Create Patch** to pull the module type from corresponding region
 by ID and make desired changes. After that, click **Save Patch** on Sidebar
-to save these changes as a patch JSON file with the name `<Title>_module_type_patch.json`.
+to save these changes as a patch JSON file with the name `<Title>_module_type_patch.JSON`.
 
 ## Module Type UI Rendering
 
