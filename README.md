@@ -1,19 +1,23 @@
 [![Gitter Chat](https://img.shields.io/badge/gitter-join%20chat-brightgreen.svg)](https://gitter.im/CiscoSecurity/Threat-Response "Gitter Chat")
 [![Travis CI Build Status](https://travis-ci.com/CiscoSecurity/tr-05-module-maker.svg?branch=develop)](https://travis-ci.com/CiscoSecurity/tr-05-module-maker)
 
-# Threat Response Module Maker
+# SecureX Threat Response Module Maker
 
-## Context
+[Module Maker](https://ciscosecurity.github.io/tr-05-module-maker/) is a React.js app deployed on GitHub 
+Pages that allows a user to manage SecureX Threat Response module type jsons.
 
-Threat Response is a module-based product. Each module type represents an integration of Threat Response with a 3-rd party product. Modules types are represented by module tiles in the Threat Response UI. Module tiles look like cards and contain a description of a module type and help create an instance of a specific module type. In order to create a module tile a user has to create its json and populate it with the required information for the module type to be created and visible in the Threat Response UI.  
+## Rationale
 
-## Value
+SecureX Threat Response is a module-based product. Each module type represents an integration of SecureX Threat Response with a 3-rd party product.
+Modules types are represented by Module Tiles in the SecureX Threat Response UI. Module Tiles look like cards and contain
+a description of a module type and help create an instance of a specific module type.
+In order to create a module tile a user has to create its json and populate it with
+the required information for the module type to be created and visible in the SecureX Threat Response UI.  
+Module Maker facilitates and accelerates the process of managing (creating, editing, saving and uploading)
+SecureX Threat Response module type jsons. Users will not have to manage module type jsons manually.
+Users will not have to manage module type jsons manually and will be able to edit markdown in a convenient editor.
+Conversion of the logo to the base64 format is no longer required when using the Module Maker.
 
-Module Maker facilitates and accelerates the process of managing (creating, editing, saving and uploading) Threat Response module type jsons. Users will not have to manage module type jsons manually. 
-
-## Description
-
-Module Maker, a GitHub pages app, written in react.js that allows a user to manage Threat Response module type jsons.
 
 ## Usage
 
@@ -36,7 +40,7 @@ Supported file format for opening is `*.json`.
 ## Open JSON from TR API
 
 Another  possibility to obtain module type fields pre-populated in Module Maker is to pull
-the json from the Threat Response API. To do this, click **Open JSON from TR API**. 
+the json from the SecureX Threat Response API. To do this, click **Open JSON from TR API**. 
 You will be prompted to enter your `Client ID` and `Client Password`,
 as mentioned earlier and `Module Type ID` you want to pull.
 Also, don't forget to select the region where your organization was created.
@@ -48,17 +52,18 @@ Then the module type you created will be saved with the name `<Title>_module_typ
 Please note that if the required fields are not filled in, such a json is considered invalid and will not be saved.
 
 ## Push JSON to TR
-Besides saving the module type json locally, you can also push it to Threat Response.
-to be created and visible in the Threat Response UI.
+Besides saving the module type json locally, you can also push it to SecureX Threat Response.
+to be created and visible in the SecureX Threat Response UI.
 Fill in the required fields, click on **Push JSON to TR**, enter your credentials and choose the region.
-Upon successful creation, you will receive a confirmation with module type ID you created, and it will be visible in the Threat Response UI.
-Next, we will consider in more detail which fields of the module type
-are displayed on the Threat Response UI and which are important for the functioning of the module instance.
+Upon successful creation, you will receive a confirmation with module type ID you created,
+and it will be visible in the SecureX Threat Response UI.
+Further, we will consider in more detail which fields of the module type
+are displayed on the SecureX Threat Response UI and which are important for the functioning of the module instance.
 
 ## Create Patch
 
-To start patch creation flow you can click **Create Patch** to pull the module type from corresponding region
-by ID and make desired changes. After that, click **Create Patch** on Sidebar
+To start patch creation flow you can click on **Create Patch** to pull the module type from corresponding region
+by ID and make desired changes. After that, click **Save Patch** on Sidebar
 to save these changes as a patch JSON file with the name `<Title>_module_type_patch.json`.
 
 ## Module Type UI Rendering
@@ -70,19 +75,20 @@ Take a look at one such Module Tile at the picture below.
 ![Screenshot 2020-12-10 at 17 06 54](https://user-images.githubusercontent.com/75419441/101790214-e2759300-3b0a-11eb-8415-973ff504ffad.png)
 
 The table below demonstrates which fields from module type will be rendered in Module Tile.
+
 | Number on the picture | Corresponding module type field|
 | :-------------: |:----------------------|
 | 1 | Logo | 
 | 2 | Title | 
 | 3 | Short Description | 
-| 4, 5 | External References |
+| 4 | External References |
 
-Clicking on Learn More on a Module Tile or Module Tile itself takes you to a Description view that you can see below.
- Note that the section marked in red on picture below corresponds to the Description field in the module type.
+Clicking on **Learn More** on a Module Tile or Module Tile itself takes you to a Description view that you can see below.
+Note that the section marked in red on picture below corresponds to the Description field in the module type.
 
 ![Screenshot 2020-12-10 at 16 48 27](https://user-images.githubusercontent.com/75419441/101787615-f2d83e80-3b07-11eb-95d6-8b1364674c7d.png)
 
-Next, clicking on Add New Module button takes you to Add New Integration Module view. 
+Next, clicking on **Add New Module** button takes you to Add New Integration Module view. 
 
 ![Screenshot 2020-12-10 at 16 58 35](https://user-images.githubusercontent.com/75419441/101789043-78a8b980-3b09-11eb-8323-33ed0505f77e.png)
 
@@ -90,3 +96,17 @@ Next, clicking on Add New Module button takes you to Add New Integration Module 
 | :-------------: |:----------------------|
 | 1,2 | Configuration Spec| 
 | 3 | Tips | 
+
+## Module Instance Properties
+
+In order to specify which endpoints of your relay SecureX Threat Response should send requests to,
+please, specify a list of Supported APIs and fill in description
+of each endpoint in Capabilities section. 
+
+If your integration requires authorization,
+you can select one of the authorization types in the Properties section.
+
+
+
+
+
