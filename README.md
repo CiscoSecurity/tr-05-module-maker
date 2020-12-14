@@ -4,17 +4,17 @@
 # SecureX Threat Response Module Maker
 
 [Module Maker](https://ciscosecurity.github.io/tr-05-module-maker/) is a React.js app deployed on GitHub 
-Pages that allows a user to manage SecureX Threat Response module type JSONs.
+Pages that allows a user to manage SecureX Threat Response Module Type JSONs.
 
 ## Rationale
 
-SecureX Threat Response is a module-based product. Each module type represents an integration of SecureX Threat Response with a 3-rd party product.
-Modules types are represented by Module Tiles in the SecureX Threat Response UI. Module Tiles look like cards and contain
-a description of a module type and help create an instance of a specific module type.
-In order to create a module type a user has to create its JSON and populate it with
-the required information for the module type to be created and visible in the SecureX Threat Response UI.  
+SecureX Threat Response is a module-based product. Each Module Type represents an integration of SecureX Threat Response with a 3-rd party product.
+Modules Types are represented by Module Tiles in the SecureX Threat Response UI. Module Tiles look like cards and contain
+a description of a Module Type and help create an instance of a specific Module Type.
+In order to create a Module Type a user has to create its JSON and populate it with
+the required information for the Module Type to be created and visible in the SecureX Threat Response UI.  
 Module Maker facilitates and accelerates the process of managing (creating, editing, saving and uploading)
-SecureX Threat Response module type JSONs. Users do not have to manage module type JSONs manually and are able to edit markdown conveniently.
+SecureX Threat Response Module Type JSONs. Users do not have to manage Module Type JSONs manually and are able to edit markdown conveniently.
 Users do not have to convert the logo to the base64 format as Module Maker does it for them.
 
 
@@ -57,7 +57,7 @@ Please note that if the required fields are not filled in, such a JSON is consid
 Besides saving the Module Type JSON locally, you can also push it to SecureX Threat Response
 to be created and visible in the SecureX Threat Response UI.
 Fill in the required fields, click on **Push JSON to TR**, enter your credentials and choose the region.
-Upon successful creation, you will receive a confirmation with the Module Type ID you created,
+Upon successful creation, you will receive a confirmation with the `Module Type ID` you created,
 and it will be visible in the SecureX Threat Response UI.
 Further, we will consider in more detail which fields of the Module Type
 are displayed on the SecureX Threat Response UI and which are important for functioning of a module instance.
