@@ -29,7 +29,6 @@ client_password="[password copied from Add New Client form]"
 ```
 Please, follow this [instruction](https://securex.us.security.cisco.com/help/integration#api-clients) to create them.
 Once you have generated credentials, you can start working on your module type.
-Once you have generated credentials, you can start working on your module type.
 
 ## Open JSON from File
 
