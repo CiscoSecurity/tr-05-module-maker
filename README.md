@@ -11,7 +11,7 @@ Pages that allows a user to manage SecureX Threat Response module type JSONs.
 SecureX Threat Response is a module-based product. Each module type represents an integration of SecureX Threat Response with a 3-rd party product.
 Modules types are represented by Module Tiles in the SecureX Threat Response UI. Module Tiles look like cards and contain
 a description of a module type and help create an instance of a specific module type.
-In order to create a module tile a user has to create its JSON and populate it with
+In order to create a module type a user has to create its JSON and populate it with
 the required information for the module type to be created and visible in the SecureX Threat Response UI.  
 Module Maker facilitates and accelerates the process of managing (creating, editing, saving and uploading)
 SecureX Threat Response module type JSONs. Users do not have to manage module type JSONs manually and are able to edit markdown conveniently.
@@ -35,7 +35,7 @@ Once you have generated credentials, you can start working on your module type.
 
 Use the **Open JSON from File** feature to upload the JSON into Module Maker
 from the local file and have the corresponding fields pre-populated.  
-Supported file format for opening is `*.JSON`. 
+Supported file format for opening is `*.json`. 
 The file will not be opened if it does not contain a valid Module Type JSON.
 If you want to know what a valid one should look like, you can look at the example
 value in [SecureX Threat Response API](https://visibility.amp.cisco.com/iroh/iroh-int/index.html#/ModuleType/post_iroh_iroh_int_module_type).
@@ -51,7 +51,7 @@ Also, don't forget to select the region where your organization was created.
 ## Save JSON
 
 If you have already filled in the desired fields of your module type, you can use the **Save JSON** feature.
-Then the module type you created will be saved with the name `<Title>_module_type.JSON`.
+Then the module type you created will be saved with the name `<Title>_module_type.json` locally.
 Please note that if the required fields are not filled in, such a JSON is considered invalid and will not be saved.
 
 ## Push JSON to TR
@@ -67,8 +67,8 @@ are displayed on the SecureX Threat Response UI and which are important for func
 
 To start a patch creation flow you can click on the **Create Patch** to pull the module type
 from the corresponding region by ID and make the desired changes.
-After that, click **Save Patch** on the Sidebar
-to save these changes as a patch JSON file with the name `<Title>_module_type_patch.JSON`.
+After that, click **Save Patch** on the Sidebar to save these changes
+locally as a patch JSON file with the name `<Title>_module_type_patch.json`.
 
 ## Module Type UI Rendering
 
