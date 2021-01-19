@@ -2,7 +2,9 @@ import { TOGGLE_AUTH_TYPE,
         UPDATE_AUTH_TYPE,
         UPDATE_SUPPORTED_API,
         UPDATE_CONF_TOKEN,
-        TOGGLE_ALGORITHM
+        TOGGLE_ALGORITHM,
+        TOGGLE_URL,
+        UPDATE_URL
 }
 from "globals/constants/types";
 
@@ -18,6 +20,15 @@ export const toggleAuthType = () => ({
 export const updateAuthType = (type) => ({
         type: UPDATE_AUTH_TYPE,
         payload: type
+})
+
+export const toggleUrl = () => ({
+        type: TOGGLE_URL
+})
+
+export const updateUrl = (url) => ({
+        type: UPDATE_URL,
+        payload: url
 })
 
 export const updateConfToken = (pair) => ({

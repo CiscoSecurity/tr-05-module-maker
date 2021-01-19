@@ -102,6 +102,10 @@ export const ASIA = "Asia";
 export const AUTH_LABEL = "authorization";
 export const AUTH_TYPE_OPTIONS = ["authorization-header", "basic", "bearer", "configuration-token"];
 
+// Url.js
+export const URL_LABEL = "URL";
+export const URL = "url";
+
 // ConfToken.js
 export const CONF_TOKEN_OPTIONS = ["RS256", "HS256"];
 export const CONFIGURATION_TOKEN = "configuration-token";

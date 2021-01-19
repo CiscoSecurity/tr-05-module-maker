@@ -9,6 +9,8 @@ export const TOGGLE_AUTH_TYPE = 'TOGGLE_AUTH_TYPE';
 export const UPDATE_AUTH_TYPE = 'UPDATE_AUTH_TYPE';
 export const UPDATE_CONF_TOKEN = 'UPDATE_CONF_TOKEN';
 export const TOGGLE_ALGORITHM = 'TOGGLE_ALGORITHM';
+export const TOGGLE_URL = 'TOGGLE_URL';
+export const UPDATE_URL = 'UPDATE_URL';
 
 // Content
 export const UPDATE_SINGLE_INPUT = 'UPDATE_SINGLE_INPUT';

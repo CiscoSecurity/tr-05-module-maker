@@ -2,6 +2,7 @@ import React from "react";
 import SupportedAPI from "./components/SupportedAPI/SupportedAPI";
 import AuthType from "./components/AuthType/AuthType";
 import "./Properties.scss"
+import Url from "./components/URL/Url";
 
 
 class Properties extends React.Component {
@@ -34,6 +35,7 @@ class Properties extends React.Component {
                             )
                         }
                     </fieldset>
+                    <Url/>
                     <p>Auth-type</p>
                     <fieldset>
                         <AuthType/>
