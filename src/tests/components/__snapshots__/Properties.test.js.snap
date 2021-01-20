@@ -815,42 +815,47 @@ exports[`Properties should render Properties with enabled AuthType select 1`] = 
             </SupportedAPI>
           </Connect(SupportedAPI)>
         </fieldset>
-        <Connect(Url)>
-          <Url
-            syncProperties={
-              Object {
-                "auth-type": "",
-                "supported-apis": Array [],
+        <p>
+          Remote Server URL
+        </p>
+        <fieldset>
+          <Connect(Url)>
+            <Url
+              syncProperties={
+                Object {
+                  "auth-type": "",
+                  "supported-apis": Array [],
+                }
               }
-            }
-            toggleUrl={[Function]}
-            updateUrl={[Function]}
-          >
-            <div>
-              <div
-                className="divUrl"
-              >
-                <input
-                  autoComplete="off"
-                  checked={false}
-                  onChange={[Function]}
-                  type="checkbox"
-                />
-                <label>
-                   
-                  URL
-                   
-                </label>
-                <input
-                  disabled={true}
-                  onChange={[Function]}
-                  type="text"
-                  value=""
-                />
+              toggleUrl={[Function]}
+              updateUrl={[Function]}
+            >
+              <div>
+                <div
+                  className="divUrl"
+                >
+                  <input
+                    autoComplete="off"
+                    checked={false}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <label>
+                     
+                    URL
+                     
+                  </label>
+                  <input
+                    disabled={true}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
               </div>
-            </div>
-          </Url>
-        </Connect(Url)>
+            </Url>
+          </Connect(Url)>
+        </fieldset>
         <p>
           Auth-type
         </p>
