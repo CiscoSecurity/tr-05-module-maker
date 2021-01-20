@@ -1,0 +1,20 @@
+@import "src/globals/constants/colors";
+
+.divUrl {
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
+
+  input[type="text"] {
+    flex: 1;
+    margin-left: 4px;
+
+    &:disabled {
+      background-color: $input-disabled-background;
+    }
+  }
+
+  label {
+    padding-top: 2px;
+  }
+}
