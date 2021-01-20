@@ -35,7 +35,10 @@ class Properties extends React.Component {
                             )
                         }
                     </fieldset>
-                    <Url/>
+                    <p>Remote Server URL</p>
+                    <fieldset>
+                        <Url/>
+                    </fieldset>
                     <p>Auth-type</p>
                     <fieldset>
                         <AuthType/>
