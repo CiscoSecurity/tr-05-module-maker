@@ -515,6 +515,7 @@ exports[`Content should render Content 1`] = `
                               </label>
                               <input
                                 disabled={true}
+                                onBlur={[Function]}
                                 onChange={[Function]}
                                 type="text"
                                 value=""
