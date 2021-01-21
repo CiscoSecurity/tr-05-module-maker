@@ -15,6 +15,10 @@ class Url extends React.Component {
         this.props.updateUrl(event.target.value)
     }
 
+    trimInputValue = event => {
+        this.props.updateUrl(event.target.value.trim())
+    }
+
     render() {
         return (
             <div>
@@ -32,6 +36,7 @@ class Url extends React.Component {
                             value={this.props.syncProperties["url"] || ""}
                             onChange={this.onUrlChange}
                             disabled={!Object.keys(this.props.syncProperties).includes("url")}
+                            onBlur={this.trimInputValue}
                     />
                 </div>
             </div>

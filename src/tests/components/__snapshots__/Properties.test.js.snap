@@ -379,6 +379,7 @@ exports[`Properties should render Properties with disabled AuthType select 1`] =
                   </label>
                   <input
                     disabled={true}
+                    onBlur={[Function]}
                     onChange={[Function]}
                     type="text"
                     value=""
